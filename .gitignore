@@ -1,0 +1,47 @@
+# iOS (Swift)
+# ----------------------
+
+# Xcode
+# User-specific
+*.xcuserdatad/
+*.xcscmblueprint
+*.xccheckout
+*.xcuserstate
+
+# Generated
+build/
+DerivedData/
+*.moved-aside
+*.xcworkspace
+
+# Dependencies
+Carthage/Build/
+Carthage/Checkouts/
+
+# Swift Package Manager
+Packages/
+.swiftpm/xcode/package.xcworkspace
+
+# CocoaPods
+Pods/
+*.lock
+
+# Xcode 8 and earlier
+*.xcuserdata
+
+# Application data
+*.app
+*.ipa
+
+# Android
+*.apk
+
+# Provisioning profiles
+*.mobileprovision
+
+# Symbolication
+*.dSYM.zip
+*.dSYM
+
+# App Icon
+Icon?

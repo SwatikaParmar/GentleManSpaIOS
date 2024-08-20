@@ -36,7 +36,7 @@ extension HomeUserViewController: UITableViewDataSource,UITableViewDelegate,Cate
         
         if indexPath.section == 0 {
             let cell = tableViewHome.dequeueReusableCell(withIdentifier: "CategoryHomeTvCell") as! CategoryHomeTvCell
-            cell.arrSortedCategory = self.arrSortedCategory ?? cell.arrSortedCategory
+            cell.arrSortedCategory = self.arrSortedCategory 
             cell.delegateCate = self
             cell.lastClass = self.parent ?? self
             cell.isHome =  true
@@ -62,7 +62,7 @@ extension HomeUserViewController: UITableViewDataSource,UITableViewDelegate,Cate
         if indexPath.section == 2 {
             
             let cell = tableViewHome.dequeueReusableCell(withIdentifier: "CategoryHomeTvCell") as! CategoryHomeTvCell
-            cell.arrSortedCategory = self.arrSortedCategory ?? cell.arrSortedCategory
+            cell.arrSortedCategory = self.arrSortedCategory 
             cell.delegateCate = self
             cell.lastClass = self.parent ?? self
             cell.isHome =  true
@@ -75,6 +75,20 @@ extension HomeUserViewController: UITableViewDataSource,UITableViewDelegate,Cate
         }
         
         if indexPath.section == 3 {
+            
+            let cell = tableViewHome.dequeueReusableCell(withIdentifier: "ProductCategoriesCell") as! ProductCategoriesCell
+            cell.arrSortedCategory = self.arrSortedProductCategories
+            cell.lastClass = self.parent ?? self
+            cell.isHome =  true
+            cell.collectionViewCate.delegate = cell
+            cell.collectionViewCate.dataSource = cell
+            DispatchQueue.main.async(execute: cell.collectionViewCate.reloadData)
+            
+            return cell
+
+        }
+        
+        if indexPath.section == 4 {
             
             let cell = tableViewHome.dequeueReusableCell(withIdentifier: "ProductCell") as! ProductCell
             cell.lastClass = self.parent ?? self
@@ -110,17 +124,17 @@ extension HomeUserViewController: UITableViewDataSource,UITableViewDelegate,Cate
         }
         if indexPath.section == 2 {
             var width = (UIScreen.main.bounds.size.width/3)
-            width = width + 29
+            width = 160
             if arrSortedCategory.count > 0 {
                 let result = Int(arrSortedCategory.count) % 3
                 if result == 0 {
                     let count = Int(arrSortedCategory.count) / 3
-                    return CGFloat(count * Int(width)) + 30
+                    return CGFloat(count * Int(width)) + 36
                 }
                 else{
                     var count = Int(arrSortedCategory.count) / 3
                     count = count + 1
-                    return CGFloat(count * Int(width)) + 30
+                    return CGFloat(count * Int(width)) + 36
                     
                 }
             }
@@ -128,6 +142,25 @@ extension HomeUserViewController: UITableViewDataSource,UITableViewDelegate,Cate
         }
         
         if indexPath.section == 3 {
+            var width = (UIScreen.main.bounds.size.width/3)
+            width = 160
+            if arrSortedProductCategories.count > 0 {
+                let result = Int(arrSortedProductCategories.count) % 3
+                if result == 0 {
+                    let count = Int(arrSortedProductCategories.count) / 3
+                    return CGFloat(count * Int(width)) + 36
+                }
+                else{
+                    var count = Int(arrSortedProductCategories.count) / 3
+                    count = count + 1
+                    return CGFloat(count * Int(width)) + 36
+                    
+                }
+            }
+            return  300
+        }
+        
+        if indexPath.section == 4 {
             var width = (UIScreen.main.bounds.size.width/2)
           
             return CGFloat(5 * Int(width)) + 225 + 88

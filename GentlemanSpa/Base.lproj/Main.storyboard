@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -516,7 +517,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nId-Ac-4aT" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
                                                 <rect key="frame" x="21" y="418.66666666666669" width="351" height="48"/>
                                                 <subviews>
-                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="suchit@gmail.com" translatesAutoresizingMaskIntoConstraints="NO" id="pE5-T8-52J" customClass="CocoaTextField" customModule="CocoaTextField">
+                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pE5-T8-52J" customClass="CocoaTextField" customModule="CocoaTextField">
                                                         <rect key="frame" x="2" y="2" width="347" height="44"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -801,6 +802,7 @@
                     </view>
                     <size key="freeformSize" width="393" height="852"/>
                     <connections>
+                        <outlet property="lbe_Title" destination="LVW-Wt-m8I" id="W8c-EM-5Z5"/>
                         <outlet property="txt_CPassword" destination="ESQ-Ql-grU" id="qTE-6w-cPj"/>
                         <outlet property="txt_Password" destination="4BV-Yv-34N" id="X03-kT-56R"/>
                         <outlet property="txt_Phone" destination="pE5-T8-52J" id="wQo-HC-UxJ"/>

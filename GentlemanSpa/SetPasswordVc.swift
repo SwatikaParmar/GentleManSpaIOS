@@ -12,7 +12,8 @@ class SetPasswordVc: UIViewController {
     @IBOutlet weak var txt_Phone : CocoaTextField!
     @IBOutlet weak var txt_Password : CocoaTextField!
     @IBOutlet weak var txt_CPassword : CocoaTextField!
-    
+    @IBOutlet weak var lbe_Title : UILabel!
+
     var code = ""
     var email = ""
     
@@ -35,6 +36,11 @@ class SetPasswordVc: UIViewController {
         txt_CPassword.placeholder = "Confirm Password"
         txt_CPassword.isSecureTextEntry = true
         addEye()
+        
+        if email == "" {
+            self.txt_Phone.isUserInteractionEnabled = true
+            lbe_Title.text = "Forgot Password"
+        }
     }
     
     
@@ -111,6 +117,9 @@ class SetPasswordVc: UIViewController {
             return
         }
         
+        if email == "" {
+            return
+        }
         
         
         var dataDict = Dictionary<String, Any>()

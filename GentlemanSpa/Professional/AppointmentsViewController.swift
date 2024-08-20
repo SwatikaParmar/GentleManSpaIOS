@@ -136,6 +136,14 @@ class AppointmentsViewController: UIViewController, UITableViewDataSource,UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: "SchedulesCell") as! SchedulesCell
         
         cell.lbeName.text = arrWeekdaysModel[indexPath.row].weekName
+        
+        cell.lbeBreakLine.isHidden = true
+        cell.lbeBreak.text = ""
+        cell.lbeBreakTitle.isHidden = true
+        cell.lbeWorkingTitle.isHidden = true
+        cell.lbeWorking.text = ""
+        cell.lbeBreakTitle.isHidden = true
+
         if arrSchedulesModel.count > indexPath.row {
             if arrSchedulesModel[indexPath.row].fromTime == "" {
                 cell.lbeWorkingTitle.isHidden = true

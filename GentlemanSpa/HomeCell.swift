@@ -1,19 +1,16 @@
 //
-//  CategoryHomeTvCell.swift
-//  SalonApp
+//  HomeCell.swift
+//  GentlemanSpa
 //
-//  Created by AbsolveTech on 09/01/24.
+//  Created by AbsolveTech on 12/08/24.
 //
 
 import UIKit
-protocol CategorySelectDelegate {
-    func cateSelect(_ id:Int, _ name:String)
-    
-}
-class CategoryHomeTvCell: UITableViewCell {
 
-    var arrSortedCategory = [dashboardCategoryObject]()
-    var delegateCate :CategorySelectDelegate!
+class ProductCategoriesCell: UITableViewCell {
+
+    
+    var arrSortedCategory = [ProductCategoriesObject]()
     var unitsIndex = 0
     var lastClass = UIViewController()
     var shopId = 0
@@ -21,25 +18,23 @@ class CategoryHomeTvCell: UITableViewCell {
     var categoryId = 0
     var genderStr = ""
     var isHome = false
-   
+    
     @IBOutlet weak var collectionViewCate: UICollectionView!
     @IBOutlet weak var lbeTop: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        collectionViewCate.delegate = self
-        collectionViewCate.dataSource = self
+        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        
+        // Configure the view for the selected state
     }
 
 }
-
-extension CategoryHomeTvCell:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+extension ProductCategoriesCell:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
 
         func numberOfSections(in collectionView: UICollectionView) -> Int {
             return 1
@@ -52,7 +47,7 @@ extension CategoryHomeTvCell:UICollectionViewDelegate,UICollectionViewDataSource
 
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-            let cell: DashCategoryHomeCollCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DashCategoryHomeCollCell", for: indexPath) as! DashCategoryHomeCollCell
+            let cell: ProductCateCall = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCateCall", for: indexPath) as! ProductCateCall
         
                 if let imgUrl = arrSortedCategory[indexPath.row].categoryImage,!imgUrl.isEmpty {
                     
@@ -125,7 +120,7 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
        }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controller:ServicesViewController =  UIStoryboard(storyboard: .User).initVC()
+        let controller:ProductListViewController =  UIStoryboard(storyboard: .User).initVC()
         controller.indexInt = indexPath.row
         self.lastClass.parent?.navigationController?.pushViewController(controller, animated: true)
     }
@@ -133,7 +128,7 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
 
 
 
-class DashCategoryHomeCollCell: UICollectionViewCell {
+class ProductCateCall: UICollectionViewCell {
     @IBOutlet weak var imageV: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var cellViewRound: UIView!

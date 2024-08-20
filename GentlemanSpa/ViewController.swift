@@ -63,7 +63,7 @@ class ViewController: UIViewController {
         //    self.navigationController?.pushViewController(controller, animated: true)
         
         let controller:SetPasswordVc =  UIStoryboard(storyboard: .main).initVC()
-            controller.email = "anil.ios@outlook.com"
+            controller.email = ""
         self.navigationController?.pushViewController(controller, animated: true)
     }
     

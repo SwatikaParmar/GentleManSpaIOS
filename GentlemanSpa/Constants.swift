@@ -177,8 +177,14 @@ extension String{
     var uploadProfilePic: String{
         return "Path".path + "Upload/UploadProfilePic"
     }
-    
    
+
+    var ProductCategories: String{
+        return "Path".path + "Product/ProductCategories"
+    }
     
+    var GetProductList: String{
+        return "Path".path + "Product/GetProductList"
+    }
     
 }

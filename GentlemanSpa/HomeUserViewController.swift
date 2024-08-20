@@ -11,6 +11,9 @@ class HomeUserViewController: UIViewController {
     @IBOutlet weak var tableViewHome : UITableView!
     var arrayHomeBannerModel = [HomeBannerModel]()
     var arrSortedCategory = [dashboardCategoryObject]()
+    var arrSortedProductCategories = [ProductCategoriesObject]()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,6 +27,7 @@ class HomeUserViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         BannerAPI()
         categoryAPI(true, true, 1)
+        ProductCategoriesAPI(true, true, 1)
     }
     
     
@@ -87,4 +91,37 @@ class HomeUserViewController: UIViewController {
             }
         }
     }
+    
+    
+    //MARK: - ProductCategories API
+    func ProductCategoriesAPI(_ isLoader:Bool, _ isAppend: Bool, _ type:Int){
+        
+        let params = [ "spaDetailId": 21,
+                       "categoryType": type,
+        ] as [String : Any]
+        
+        ProductCategoriesRequest.shared.ProductCategoriesRequestAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
+            if isStatus {
+                if arrayData != nil{
+                    self.arrSortedProductCategories = arrayData ?? self.arrSortedProductCategories
+                 
+                    
+                    if self.arrSortedProductCategories.count > 0 {
+                    
+                        self.tableViewHome.reloadData()
+                    }
+                }
+                else{
+                    self.arrSortedProductCategories.removeAll()
+                    self.tableViewHome.reloadData()
+                }
+            }
+            else{
+                self.arrSortedProductCategories.removeAll()
+                
+                self.tableViewHome.reloadData()
+            }
+        }
+    }
+    
 }

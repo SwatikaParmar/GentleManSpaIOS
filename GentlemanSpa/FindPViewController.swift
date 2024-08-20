@@ -40,7 +40,7 @@ extension FindPViewController: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
-        return 12
+        return 5
 
     }
    

@@ -15,6 +15,8 @@
 		3404F3142C3F936E00FF0F41 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3404F3132C3F936E00FF0F41 /* Base */; };
 		3408D4992C5FD6060072C4E4 /* UpdateProfileProViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3408D4982C5FD6060072C4E4 /* UpdateProfileProViewController.swift */; };
 		341748302C58F9610015AF5E /* SpaLocationVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3417482F2C58F9610015AF5E /* SpaLocationVc.swift */; };
+		343813C02C69D928003B4B30 /* ProductCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343813BF2C69D928003B4B30 /* ProductCategories.swift */; };
+		343813C22C69E420003B4B30 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343813C12C69E420003B4B30 /* HomeCell.swift */; };
 		3438E90B2C609DE4005BFC03 /* CreateSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438E90A2C609DE4005BFC03 /* CreateSchedule.swift */; };
 		3438E90D2C60A5C4005BFC03 /* UpdateProfessionalProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438E90C2C60A5C4005BFC03 /* UpdateProfessionalProfile.swift */; };
 		34498CF12C463DB900F541DB /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34498CF02C463DB900F541DB /* CreateAccountController.swift */; };
@@ -37,6 +39,7 @@
 		34C5E2EF2C5B7AFF00F97C0C /* MoreCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C5E2EE2C5B7AFF00F97C0C /* MoreCollection.swift */; };
 		34C5E2F12C5B97F700F97C0C /* GetServiceListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C5E2F02C5B97F700F97C0C /* GetServiceListRequest.swift */; };
 		34C5E2F32C5BA9A200F97C0C /* ServiceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C5E2F22C5BA9A200F97C0C /* ServiceDetailViewController.swift */; };
+		34C5E7802C6A32D900C5BE0A /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C5E77F2C6A32D900C5BE0A /* ProductListViewController.swift */; };
 		34CE92522C40E8E40007E086 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34CE924E2C40E8E40007E086 /* Poppins-Medium.ttf */; };
 		34CE92532C40E8E40007E086 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34CE924F2C40E8E40007E086 /* Poppins-Regular.ttf */; };
 		34CE92542C40E8E40007E086 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34CE92502C40E8E40007E086 /* Poppins-SemiBold.ttf */; };
@@ -96,6 +99,8 @@
 		3404F3152C3F936E00FF0F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3408D4982C5FD6060072C4E4 /* UpdateProfileProViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileProViewController.swift; sourceTree = "<group>"; };
 		3417482F2C58F9610015AF5E /* SpaLocationVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaLocationVc.swift; sourceTree = "<group>"; };
+		343813BF2C69D928003B4B30 /* ProductCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategories.swift; sourceTree = "<group>"; };
+		343813C12C69E420003B4B30 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		3438E90A2C609DE4005BFC03 /* CreateSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSchedule.swift; sourceTree = "<group>"; };
 		3438E90C2C60A5C4005BFC03 /* UpdateProfessionalProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfessionalProfile.swift; sourceTree = "<group>"; };
 		34498CF02C463DB900F541DB /* CreateAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
@@ -118,6 +123,7 @@
 		34C5E2EE2C5B7AFF00F97C0C /* MoreCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreCollection.swift; sourceTree = "<group>"; };
 		34C5E2F02C5B97F700F97C0C /* GetServiceListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetServiceListRequest.swift; sourceTree = "<group>"; };
 		34C5E2F22C5BA9A200F97C0C /* ServiceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailViewController.swift; sourceTree = "<group>"; };
+		34C5E77F2C6A32D900C5BE0A /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		34CE924E2C40E8E40007E086 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		34CE924F2C40E8E40007E086 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		34CE92502C40E8E40007E086 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -213,9 +219,10 @@
 				34B4CD8D2C48D4C8006B9F1F /* TabBarUserVc.swift */,
 				34B4CD992C48D855006B9F1F /* MenuUserController.swift */,
 				34B4CD8F2C48D512006B9F1F /* HomeUserViewController.swift */,
+				34D404442C4F66550063AEF7 /* HomeUTableView.swift */,
+				343813C12C69E420003B4B30 /* HomeCell.swift */,
 				34F559BA2C5A569B0017F732 /* CategoryHomeTvCell.swift */,
 				34D3382B2C5A9C85003C6B13 /* ProductCell.swift */,
-				34D404442C4F66550063AEF7 /* HomeUTableView.swift */,
 				34D404462C4F67200063AEF7 /* HomeBannerTvCell.swift */,
 				34D404482C4F6C2D0063AEF7 /* HomeBannerModel.swift */,
 				34B4CD912C48D571006B9F1F /* CartUserViewController.swift */,
@@ -232,6 +239,8 @@
 				34C5E2F02C5B97F700F97C0C /* GetServiceListRequest.swift */,
 				34D338272C5A7AE1003C6B13 /* BookingDoctorViewController.swift */,
 				34D338122C5A718D003C6B13 /* FindPViewController.swift */,
+				343813BF2C69D928003B4B30 /* ProductCategories.swift */,
+				34C5E77F2C6A32D900C5BE0A /* ProductListViewController.swift */,
 				34DEF4832C5DFF8100F395A8 /* Professional */,
 				3404F30D2C3F936D00FF0F41 /* Main.storyboard */,
 				34B4CD972C48D5D1006B9F1F /* User.storyboard */,
@@ -453,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34CE92652C40EAE60007E086 /* UITextFieldX.swift in Sources */,
+				34C5E7802C6A32D900C5BE0A /* ProductListViewController.swift in Sources */,
 				34CE92722C410BBD0007E086 /* Constants.swift in Sources */,
 				34C5E2EF2C5B7AFF00F97C0C /* MoreCollection.swift in Sources */,
 				34CE92642C40EAE60007E086 /* BaseViewController.swift in Sources */,
@@ -482,6 +492,7 @@
 				34C5E2F12C5B97F700F97C0C /* GetServiceListRequest.swift in Sources */,
 				3438E90D2C60A5C4005BFC03 /* UpdateProfessionalProfile.swift in Sources */,
 				34BE6DC12C622365000C4283 /* MenuProController.swift in Sources */,
+				343813C22C69E420003B4B30 /* HomeCell.swift in Sources */,
 				34498CF12C463DB900F541DB /* CreateAccountController.swift in Sources */,
 				34CE926B2C40EAE60007E086 /* UIViewX.swift in Sources */,
 				341748302C58F9610015AF5E /* SpaLocationVc.swift in Sources */,
@@ -490,6 +501,7 @@
 				34B6D7AD2C44E7080008FC81 /* LoginRequest.swift in Sources */,
 				34B4CD902C48D512006B9F1F /* HomeUserViewController.swift in Sources */,
 				34D372462C4E3E1C000DC680 /* SpecialitiesViewController.swift in Sources */,
+				343813C02C69D928003B4B30 /* ProductCategories.swift in Sources */,
 				34D404492C4F6C2D0063AEF7 /* HomeBannerModel.swift in Sources */,
 				34D338232C5A7A8E003C6B13 /* CalendarView+Delegate.swift in Sources */,
 				34D338252C5A7A8E003C6B13 /* CalendarView+DataSource.swift in Sources */,
@@ -678,6 +690,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -707,6 +720,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

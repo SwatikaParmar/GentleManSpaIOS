@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,10 +32,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJf-Tw-Ola">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="796.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="793.66666666666663"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Back !" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkk-km-GfN" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="85.333333333333329" y="307.66666666666669" width="222.66666666666669" height="38.333333333333314"/>
+                                                <rect key="frame" x="90.333333333333329" y="307.66666666666669" width="212.33333333333337" height="36.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="26"/>
                                                 <color key="textColor" red="0.71764705882352942" green="0.53725490196078429" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -46,7 +46,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please sign in to continue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhY-gH-0xC" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="109" y="346" width="175" height="19.333333333333314"/>
+                                                <rect key="frame" x="113" y="344.33333333333331" width="167" height="18.333333333333314"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1GK-y8-l7e" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="387.33333333333331" width="351" height="48"/>
+                                                <rect key="frame" x="21" y="384.66666666666669" width="351" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BHQ-dg-lcw" customClass="CocoaTextField" customModule="CocoaTextField">
                                                         <rect key="frame" x="2" y="2" width="347" height="44"/>
@@ -118,7 +118,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5bE-fS-fYA" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="452.33333333333331" width="351" height="48"/>
+                                                <rect key="frame" x="21" y="449.66666666666669" width="351" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="I4p-sY-lks" customClass="CocoaTextField" customModule="CocoaTextField">
                                                         <rect key="frame" x="2" y="2" width="347" height="44"/>
@@ -179,7 +179,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgW-Nk-xU4" customClass="UIButtonX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="238" y="503.33333333333326" width="134" height="33"/>
+                                                <rect key="frame" x="238" y="500.66666666666674" width="134" height="33"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
                                                 <state key="normal" title="Forgot Password?">
                                                     <color key="titleColor" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -194,7 +194,7 @@
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxp-Cp-TdC" customClass="UIButtonX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="536.33333333333337" width="351" height="0.0"/>
+                                                <rect key="frame" x="21" y="533.66666666666663" width="351" height="0.0"/>
                                                 <color key="backgroundColor" red="0.0" green="0.65098039220000004" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="vtS-8E-UHH"/>
@@ -231,7 +231,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJE-oZ-JTm">
-                                                <rect key="frame" x="195.66666666666666" y="576.33333333333337" width="2" height="0.0"/>
+                                                <rect key="frame" x="195.66666666666666" y="573.66666666666663" width="2" height="0.0"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="2" id="OPs-y7-j7H"/>
                                                 </constraints>
@@ -240,7 +240,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UIL-zl-0gs">
-                                                <rect key="frame" x="65" y="736.33333333333337" width="263.33333333333331" height="60"/>
+                                                <rect key="frame" x="65" y="733.66666666666663" width="263.33333333333331" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up as professional" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3L-rd-6Kc" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="0.0" width="162.33333333333334" height="60"/>
@@ -249,7 +249,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSx-kV-8oP" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                        <rect key="frame" x="178.33333333333334" y="15.666666666666629" width="75" height="29"/>
+                                                        <rect key="frame" x="178.33333333333334" y="15.666666666666742" width="75" height="29"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="29" id="MW1-lW-mSQ"/>
                                                             <constraint firstAttribute="width" constant="75" id="UbI-l4-Esu"/>
@@ -294,7 +294,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Nk-f0-FTv" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="604.33333333333337" width="351" height="48"/>
+                                                <rect key="frame" x="21" y="601.66666666666663" width="351" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aP3-aX-XLS" customClass="CocoaTextField" customModule="CocoaTextField">
                                                         <rect key="frame" x="2" y="2" width="347" height="44"/>
@@ -355,7 +355,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzQ-sT-avf" customClass="UIButtonX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="675.33333333333337" width="351" height="40"/>
+                                                <rect key="frame" x="21" y="672.66666666666663" width="351" height="40"/>
                                                 <color key="backgroundColor" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="hC9-xn-sMW"/>
@@ -389,7 +389,7 @@
                                                 <rect key="frame" x="30" y="60" width="333" height="207"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AkH-xe-fQ6">
-                                                <rect key="frame" x="20" y="564.33333333333337" width="156.66666666666666" height="1"/>
+                                                <rect key="frame" x="20" y="561.66666666666663" width="156.66666666666666" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="6M4-X4-EdK"/>
@@ -399,7 +399,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHB-hr-eHj">
-                                                <rect key="frame" x="176.66666666666666" y="554.33333333333337" width="40" height="21"/>
+                                                <rect key="frame" x="176.66666666666666" y="551.66666666666663" width="40" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="hwU-D0-liR"/>
                                                 </constraints>
@@ -408,7 +408,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZj-0m-9GG">
-                                                <rect key="frame" x="216.66666666666663" y="564.33333333333337" width="156.33333333333337" height="1"/>
+                                                <rect key="frame" x="216.66666666666663" y="561.66666666666663" width="156.33333333333337" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="hpr-dl-q6Z"/>
@@ -501,10 +501,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLX-PK-NqT">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="746.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="743.33333333333337"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Your Password" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVW-Wt-m8I" customClass="UILabelX" customModule="GentlemanSpa">
-                                                <rect key="frame" x="94.666666666666686" y="362.66666666666669" width="204" height="31"/>
+                                                <rect key="frame" x="104.00000000000001" y="362.66666666666669" width="185.33333333333337" height="28"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="20"/>
                                                 <color key="textColor" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -515,7 +515,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nId-Ac-4aT" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="418.66666666666669" width="351" height="48"/>
+                                                <rect key="frame" x="21" y="415.66666666666669" width="351" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pE5-T8-52J" customClass="CocoaTextField" customModule="CocoaTextField">
                                                         <rect key="frame" x="2" y="2" width="347" height="44"/>
@@ -576,7 +576,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0QG-xa-1X4" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="483.66666666666669" width="351" height="48.000000000000057"/>
+                                                <rect key="frame" x="21" y="480.66666666666669" width="351" height="48.000000000000057"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4BV-Yv-34N" customClass="CocoaTextField" customModule="CocoaTextField">
                                                         <rect key="frame" x="2" y="2" width="347" height="44"/>
@@ -637,7 +637,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJU-kO-7Bl" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="548.66666666666663" width="351" height="48"/>
+                                                <rect key="frame" x="21" y="545.66666666666663" width="351" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ESQ-Ql-grU" customClass="CocoaTextField" customModule="CocoaTextField">
                                                         <rect key="frame" x="2" y="2" width="347" height="44"/>
@@ -698,7 +698,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENF-gB-ual" customClass="UIButtonX" customModule="GentlemanSpa">
-                                                <rect key="frame" x="21" y="619.66666666666663" width="351" height="40"/>
+                                                <rect key="frame" x="21" y="616.66666666666663" width="351" height="40"/>
                                                 <color key="backgroundColor" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="iaw-RW-qhx"/>
@@ -846,7 +846,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Your New Account!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQI-us-yc1" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="26.333333333333329" width="199" height="73.666666666666671"/>
+                                                <rect key="frame" x="20" y="26.666666666666671" width="199" height="73"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="26"/>
                                                 <color key="textColor" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -865,7 +865,7 @@
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done" smartQuotesType="no"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done" smartQuotesType="no"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                                 <real key="value" value="0.0"/>
@@ -926,7 +926,7 @@
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" red="0.51372549020000002" green="0.46274509800000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done" smartQuotesType="no"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done" smartQuotesType="no"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                                 <real key="value" value="0.0"/>
@@ -1640,7 +1640,7 @@
                                         <rect key="frame" x="30" y="0.0" width="333" height="207"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXi-4y-nMH" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                        <rect key="frame" x="22" y="287.33333333333331" width="349" height="47"/>
+                                        <rect key="frame" x="22" y="287.33333333333331" width="349" height="45"/>
                                         <string key="text">Please Enter 4 Digit Code Sent To
 youremail@gmail.com</string>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
@@ -1653,14 +1653,14 @@ youremail@gmail.com</string>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mtF-dT-PY9" customClass="SVPinView" customModule="SVPinView">
-                                        <rect key="frame" x="34" y="369.33333333333331" width="325" height="60"/>
+                                        <rect key="frame" x="34" y="367.33333333333331" width="325" height="60"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="dbq-7c-IBh"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F0m-zH-EBI">
-                                        <rect key="frame" x="74.666666666666671" y="524.33333333333337" width="243.66666666666663" height="33"/>
+                                        <rect key="frame" x="74.666666666666671" y="522.33333333333337" width="243.66666666666663" height="33"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don’t recieve code?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhh-XC-UI1">
                                                 <rect key="frame" x="0.0" y="0.0" width="137.66666666666666" height="33"/>
@@ -1690,7 +1690,7 @@ youremail@gmail.com</string>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8s-L4-1Mq" customClass="UIButtonX" customModule="GentlemanSpa" customModuleProvider="target">
-                                        <rect key="frame" x="21" y="464.33333333333337" width="351" height="40"/>
+                                        <rect key="frame" x="21" y="462.33333333333337" width="351" height="40"/>
                                         <color key="backgroundColor" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="iVu-VR-ZpW"/>
@@ -1778,37 +1778,37 @@ youremail@gmail.com</string>
     </scenes>
     <designables>
         <designable name="046-Bp-rjS">
-            <size key="intrinsicContentSize" width="347" height="64"/>
+            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
         </designable>
         <designable name="2kv-6j-sPK">
-            <size key="intrinsicContentSize" width="347" height="64"/>
+            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
         </designable>
         <designable name="4BV-Yv-34N">
-            <size key="intrinsicContentSize" width="347" height="64"/>
+            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
         </designable>
         <designable name="B3L-rd-6Kc">
             <size key="intrinsicContentSize" width="162.33333333333334" height="19.666666666666668"/>
         </designable>
         <designable name="BHQ-dg-lcw">
-            <size key="intrinsicContentSize" width="347" height="64"/>
+            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
         </designable>
         <designable name="ENF-gB-ual">
             <size key="intrinsicContentSize" width="79" height="36"/>
         </designable>
         <designable name="ESQ-Ql-grU">
-            <size key="intrinsicContentSize" width="347" height="64"/>
+            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
         </designable>
         <designable name="I4p-sY-lks">
-            <size key="intrinsicContentSize" width="347" height="64"/>
+            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
         </designable>
         <designable name="JXi-4y-nMH">
-            <size key="intrinsicContentSize" width="276.66666666666669" height="47"/>
+            <size key="intrinsicContentSize" width="264" height="45"/>
         </designable>
         <designable name="Js5-69-EGZ">
-            <size key="intrinsicContentSize" width="347" height="64"/>
+            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
         </designable>
         <designable name="LVW-Wt-m8I">
-            <size key="intrinsicContentSize" width="204" height="31"/>
+            <size key="intrinsicContentSize" width="185.33333333333334" height="28"/>
         </designable>
         <designable name="M8s-L4-1Mq">
             <size key="intrinsicContentSize" width="49" height="36"/>
@@ -1820,22 +1820,22 @@ youremail@gmail.com</string>
             <size key="intrinsicContentSize" width="134" height="33"/>
         </designable>
         <designable name="TAD-wO-HaW">
-            <size key="intrinsicContentSize" width="5" height="64"/>
+            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
         </designable>
         <designable name="W88-7h-gdo">
-            <size key="intrinsicContentSize" width="347" height="64"/>
+            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
         </designable>
         <designable name="WE8-tK-feQ">
             <size key="intrinsicContentSize" width="65" height="36"/>
         </designable>
         <designable name="aP3-aX-XLS">
-            <size key="intrinsicContentSize" width="347" height="64"/>
+            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
         </designable>
         <designable name="ag4-ac-a4w">
             <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="dhY-gH-0xC">
-            <size key="intrinsicContentSize" width="175" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="167" height="18.333333333333332"/>
         </designable>
         <designable name="dzQ-sT-avf">
             <size key="intrinsicContentSize" width="58" height="36"/>
@@ -1844,25 +1844,25 @@ youremail@gmail.com</string>
             <size key="intrinsicContentSize" width="53.666666666666664" height="19.666666666666668"/>
         </designable>
         <designable name="fkk-km-GfN">
-            <size key="intrinsicContentSize" width="222.66666666666666" height="38.333333333333336"/>
+            <size key="intrinsicContentSize" width="212.33333333333334" height="36.666666666666664"/>
         </designable>
         <designable name="hOg-IL-U1D">
             <size key="intrinsicContentSize" width="93" height="40"/>
         </designable>
         <designable name="laz-uw-pa8">
-            <size key="intrinsicContentSize" width="347" height="64"/>
+            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
         </designable>
         <designable name="mBH-9j-Jbl">
-            <size key="intrinsicContentSize" width="347" height="64"/>
+            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
         </designable>
         <designable name="mHG-rV-ZrC">
             <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="nQI-us-yc1">
-            <size key="intrinsicContentSize" width="349.66666666666669" height="37"/>
+            <size key="intrinsicContentSize" width="347" height="36.666666666666664"/>
         </designable>
         <designable name="pE5-T8-52J">
-            <size key="intrinsicContentSize" width="347" height="64"/>
+            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
         </designable>
         <designable name="pxp-Cp-TdC">
             <size key="intrinsicContentSize" width="58" height="36"/>

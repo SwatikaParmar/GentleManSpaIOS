@@ -427,6 +427,61 @@ class AlamofireRequest: NSObject {
             }
         }
     }
+    
+    
+    func uploadImageArray(urlString : String, pictures: [UIImage],name:String,userID:String, callback:@escaping (_ data: String?, _ error: NSError? ) -> Void){
+        
+        
+        let token = accessToken()
+        
+        let bearer : String = "Bearer \(token )"
+        
+        let parameters = ["ProductId": userID]
+        let headers: HTTPHeaders
+        headers = ["Content-type": "multipart/form-data",
+                   "Content-Disposition" : "form-data",
+                   "Authorization": bearer]
+        
+        AF.upload(multipartFormData: { (multipartFormData) in
+            
+            for (key, value) in parameters {
+                multipartFormData.append((value).data(using: String.Encoding.utf8)!, withName: key)
+            }
+            
+            for i in 0..<pictures.count {
+                if let imageData = pictures[i].jpegData(compressionQuality: 1) {
+                            multipartFormData.append(imageData, withName: "Images", fileName: name, mimeType: "image/jpeg")
+                        }
+                    }
+
+            
+        },to: URL.init(string: urlString)!, usingThreshold: UInt64.init(),
+                  method: .post,
+                  headers: headers).response{ response in
+            
+            if((response.error == nil)){
+                do{
+                    if let jsonData = response.data{
+                        let parsedData = try JSONSerialization.jsonObject(with: jsonData) as! Dictionary<String, AnyObject>
+                        print(parsedData)
+                        let dataImage = ""
+                        print(dataImage)
+                        callback(dataImage , nil )
+                        
+                    }
+                }catch{
+                    print("error message")
+                    callback("failure",nil)
+
+                }
+            }
+            else{
+                print(response.error)
+                callback("failure",nil)
+
+            }
+        }
+    }
     // MARK: - SessionEnd
 
     func SessionEnd(code:Int)

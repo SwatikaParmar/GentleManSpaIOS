@@ -187,4 +187,9 @@ extension String{
         return "Path".path + "Product/GetProductList"
     }
     
+    var UploadProductImage: String{
+        return "Path".path + "Upload/UploadProductImage"
+    }
+   
+    
 }

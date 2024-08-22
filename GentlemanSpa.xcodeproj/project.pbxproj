@@ -21,6 +21,7 @@
 		3438E90D2C60A5C4005BFC03 /* UpdateProfessionalProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438E90C2C60A5C4005BFC03 /* UpdateProfessionalProfile.swift */; };
 		34498CF12C463DB900F541DB /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34498CF02C463DB900F541DB /* CreateAccountController.swift */; };
 		34498CF32C463F1C00F541DB /* VerifiyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34498CF22C463F1C00F541DB /* VerifiyController.swift */; };
+		345001FB2C776DF2001A2A0D /* ProGetProductAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345001FA2C776DF2001A2A0D /* ProGetProductAPI.swift */; };
 		34B4CD8E2C48D4C8006B9F1F /* TabBarUserVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B4CD8D2C48D4C8006B9F1F /* TabBarUserVc.swift */; };
 		34B4CD902C48D512006B9F1F /* HomeUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B4CD8F2C48D512006B9F1F /* HomeUserViewController.swift */; };
 		34B4CD922C48D571006B9F1F /* CartUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B4CD912C48D571006B9F1F /* CartUserViewController.swift */; };
@@ -40,6 +41,8 @@
 		34C5E2F12C5B97F700F97C0C /* GetServiceListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C5E2F02C5B97F700F97C0C /* GetServiceListRequest.swift */; };
 		34C5E2F32C5BA9A200F97C0C /* ServiceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C5E2F22C5BA9A200F97C0C /* ServiceDetailViewController.swift */; };
 		34C5E7802C6A32D900C5BE0A /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C5E77F2C6A32D900C5BE0A /* ProductListViewController.swift */; };
+		34C80D742C75B0C200FE9E02 /* ProProductListVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C80D732C75B0C200FE9E02 /* ProProductListVc.swift */; };
+		34C80D762C75B0EC00FE9E02 /* ProAddProductVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C80D752C75B0EC00FE9E02 /* ProAddProductVc.swift */; };
 		34CE92522C40E8E40007E086 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34CE924E2C40E8E40007E086 /* Poppins-Medium.ttf */; };
 		34CE92532C40E8E40007E086 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34CE924F2C40E8E40007E086 /* Poppins-Regular.ttf */; };
 		34CE92542C40E8E40007E086 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34CE92502C40E8E40007E086 /* Poppins-SemiBold.ttf */; };
@@ -105,6 +108,7 @@
 		3438E90C2C60A5C4005BFC03 /* UpdateProfessionalProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfessionalProfile.swift; sourceTree = "<group>"; };
 		34498CF02C463DB900F541DB /* CreateAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
 		34498CF22C463F1C00F541DB /* VerifiyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiyController.swift; sourceTree = "<group>"; };
+		345001FA2C776DF2001A2A0D /* ProGetProductAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProGetProductAPI.swift; sourceTree = "<group>"; };
 		34B4CD8D2C48D4C8006B9F1F /* TabBarUserVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarUserVc.swift; sourceTree = "<group>"; };
 		34B4CD8F2C48D512006B9F1F /* HomeUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUserViewController.swift; sourceTree = "<group>"; };
 		34B4CD912C48D571006B9F1F /* CartUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartUserViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 		34C5E2F02C5B97F700F97C0C /* GetServiceListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetServiceListRequest.swift; sourceTree = "<group>"; };
 		34C5E2F22C5BA9A200F97C0C /* ServiceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailViewController.swift; sourceTree = "<group>"; };
 		34C5E77F2C6A32D900C5BE0A /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		34C80D732C75B0C200FE9E02 /* ProProductListVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProProductListVc.swift; sourceTree = "<group>"; };
+		34C80D752C75B0EC00FE9E02 /* ProAddProductVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProAddProductVc.swift; sourceTree = "<group>"; };
 		34CE924E2C40E8E40007E086 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		34CE924F2C40E8E40007E086 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		34CE92502C40E8E40007E086 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -319,6 +325,9 @@
 				34BAC59C2C60B4670033D970 /* CreateTimeSlotsController.swift */,
 				34BB81842C622D630090581C /* MyServiceViewController.swift */,
 				34BB81862C6230770090581C /* MyServiceAPI.swift */,
+				34C80D732C75B0C200FE9E02 /* ProProductListVc.swift */,
+				345001FA2C776DF2001A2A0D /* ProGetProductAPI.swift */,
+				34C80D752C75B0EC00FE9E02 /* ProAddProductVc.swift */,
 			);
 			path = Professional;
 			sourceTree = "<group>";
@@ -506,6 +515,7 @@
 				34D338232C5A7A8E003C6B13 /* CalendarView+Delegate.swift in Sources */,
 				34D338252C5A7A8E003C6B13 /* CalendarView+DataSource.swift in Sources */,
 				34D338282C5A7AE1003C6B13 /* BookingDoctorViewController.swift in Sources */,
+				345001FB2C776DF2001A2A0D /* ProGetProductAPI.swift in Sources */,
 				34D372442C4E1CE6000DC680 /* UpdateProfileUserViewController.swift in Sources */,
 				34F559B92C5A52250017F732 /* HomeList.swift in Sources */,
 				34D3381E2C5A7A8E003C6B13 /* CalendarFlowLayout.swift in Sources */,
@@ -523,7 +533,9 @@
 				34CE926D2C40EAE60007E086 /* ExtensionStoryboard.swift in Sources */,
 				34DEF4892C5E03E100F395A8 /* AppointmentsViewController.swift in Sources */,
 				34D3381F2C5A7A8E003C6B13 /* CalendarHeaderView.swift in Sources */,
+				34C80D742C75B0C200FE9E02 /* ProProductListVc.swift in Sources */,
 				34D404472C4F67200063AEF7 /* HomeBannerTvCell.swift in Sources */,
+				34C80D762C75B0EC00FE9E02 /* ProAddProductVc.swift in Sources */,
 				3404F3082C3F936D00FF0F41 /* AppDelegate.swift in Sources */,
 				34CE92632C40EAE60007E086 /* UIViewXRadialGradient.swift in Sources */,
 				3404F30A2C3F936D00FF0F41 /* SceneDelegate.swift in Sources */,

@@ -28,8 +28,8 @@ class MenuProController: UIViewController,UITableViewDelegate,UITableViewDataSou
         self.versionLbl.text = Utility.shared.appVersion() + "(\(Utility.shared.appBuildVersion()))"
        
         
-        titleArray = ["Home","My Service","Log Out"]
-        imagesArray = ["homeTab","myprofile","logoutic"]
+        titleArray = ["Home","My Service","Add Product","Log Out"]
+        imagesArray = ["homeTab","myprofile","myprofile","logoutic"]
         
         tableview.contentInsetAdjustmentBehavior = .never
         
@@ -146,7 +146,14 @@ class MenuProController: UIViewController,UITableViewDelegate,UITableViewDataSou
                      navigationController.isNavigationBarHidden = true
                      sideMenuController?.rootViewController = navigationController
          }
-                
+            else if indexPath.row == 2{
+                   
+                   let storyBoard = UIStoryboard.init(name: "Professional", bundle: nil)
+                   let controller = storyBoard.instantiateViewController(withIdentifier: "ProProductListVc")
+                   let navigationController = UINavigationController(rootViewController: controller)
+                       navigationController.isNavigationBarHidden = true
+                       sideMenuController?.rootViewController = navigationController
+           }
                 
             }
         }

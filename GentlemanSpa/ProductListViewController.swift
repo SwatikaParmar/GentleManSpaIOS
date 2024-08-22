@@ -161,12 +161,12 @@ extension ProductListViewController: UITableViewDataSource,UITableViewDelegate {
             let img  = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
             let urlString = img.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
             cell.imgService?.sd_setImage(with: URL.init(string:(urlString)),
-                                         placeholderImage: UIImage(named: "shopPlace"),
+                                         placeholderImage: UIImage(named: "productNo"),
                                          options: .refreshCached,
                                          completed: nil)
         }
         else{
-            cell.imgService?.image = UIImage(named: "shopPlace")
+            cell.imgService?.image = UIImage(named: "productNo")
         }
         cell.lbeName.text = arrSortedService[indexPath.row].serviceName
         

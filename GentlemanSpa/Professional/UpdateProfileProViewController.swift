@@ -413,7 +413,7 @@ class UpdateProfileProViewController: UIViewController {
         
         var fileName = ""
         fileName =  "iOS" + NSUUID().uuidString + ".jpeg"
-        var apiURL = String("\("Base".uploadProfilePic)")
+        let apiURL = String("\("Base".uploadProfilePic)")
 
 
         AlamofireRequest().uploadImageRemote(urlString: apiURL, image:  self.imgProfile ?? UIImage(), name: fileName , userID:  UserDefaults.standard.string(forKey: Constants.userId) ?? ""){ data, error -> Void in

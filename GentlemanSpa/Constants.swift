@@ -190,6 +190,15 @@ extension String{
     var UploadProductImage: String{
         return "Path".path + "Upload/UploadProductImage"
     }
-   
+    
+    var AddProduct: String{
+        return "Path".path + "Product/AddProduct"
+    }
+    var UpdateProduct: String{
+        return "Path".path + "Product/UpdateProduct"
+    }
+    var GetProductDetails: String{
+        return "Path".path + "Product/GetProductDetails"
+    }
     
 }

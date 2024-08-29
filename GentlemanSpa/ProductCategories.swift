@@ -88,7 +88,7 @@ class GetProductListRequest: NSObject {
     func productListAPI(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData: [ProductListModel]?,_ message : String?, _ isStatus : Bool) -> Void) {
 
         var apiURL = String("\("Base".GetProductList)")
-            apiURL = String(format:"%@?PageNumber=1&PageSize=1000", apiURL)
+        apiURL = String(format:"%@?PageNumber=1&PageSize=1000&MainCategoryId=%d", apiURL,requestParams["mainCategoryId"] as? Int ?? 0)
 
             print("URL---->> ",apiURL)
             print("Request---->> ",requestParams)
@@ -139,7 +139,7 @@ class GetProductListRequest: NSObject {
 
 class ProductListModel: NSObject {
     
-    var serviceId = 0
+    var productId = 0
     var salonId = 0
     var salonName = ""
     var mainCategoryId = 0
@@ -158,7 +158,7 @@ class ProductListModel: NSObject {
     var serviceType = ""
     
     init(fromDictionary dictionary: [String:Any]){
-        serviceId = dictionary["serviceId"] as? Int ?? 0
+        productId = dictionary["productId"] as? Int ?? 0
         salonName = dictionary["salonName"] as? String ?? ""
         salonId = dictionary["salonId"] as? Int ?? 0
         mainCategoryName = dictionary["mainCategoryName"] as? String ?? ""

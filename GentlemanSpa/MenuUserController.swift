@@ -45,7 +45,7 @@ class MenuUserController: UIViewController,UITableViewDelegate,UITableViewDataSo
         self.lbeName.text = uName
          
         let st : String = UserDefaults.standard.string(forKey: Constants.stateName) ?? "USA"
-        self.lbeSp.text = st
+        self.lbeSp.text = ""
         
         
         var stringURL = ""
@@ -76,7 +76,7 @@ class MenuUserController: UIViewController,UITableViewDelegate,UITableViewDataSo
        self.lbeName.text = uName
         
         let st : String = UserDefaults.standard.string(forKey: Constants.stateName) ?? "Bahrain"
-        self.lbeSp.text = st
+        self.lbeSp.text = ""
         
         
         var stringURL = ""

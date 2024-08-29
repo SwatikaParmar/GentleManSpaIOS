@@ -30,7 +30,7 @@ class ProProductListVc: UIViewController {
     
     @IBAction func add(_ sender: Any) {
         let controller:ProAddProductVc =  UIStoryboard(storyboard: .Professional).initVC()
-        
+        controller.productId = 0
         self.navigationController?.pushViewController(controller, animated: true)
         
     }
@@ -123,7 +123,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         basePrice = String(format: "%.2f", arrSortedService[indexPath.row].basePrice )
     }
     cell.lbeBasePrice.text = "$" + basePrice
-    cell.lbeTime.text = arrSortedService[indexPath.row].serviceDescription
+    cell.lbeTime.text = ""
     cell.lbeStock.text = String(format: "In Stock: %d", arrSortedService[indexPath.row].stock )
     
     
@@ -138,7 +138,9 @@ func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->
     
 }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let controller:ProAddProductVc =  UIStoryboard(storyboard: .Professional).initVC()
+        controller.productId = arrSortedService[indexPath.row].productId
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
 

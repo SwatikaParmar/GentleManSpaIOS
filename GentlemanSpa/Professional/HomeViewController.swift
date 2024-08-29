@@ -21,6 +21,10 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var lbeTitlePast: UILabel!
     @IBOutlet weak var lbeLinePast: UIView!
+    
+    @IBOutlet weak var imgProfile: UIImageView!
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +50,22 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
+        
+        var stringURL = ""
+        let urli : String = UserDefaults.standard.string(forKey: Constants.userImg) ?? ""
+
+        if urli.contains("http:") {
+            stringURL = urli
+        }
+        else{
+            stringURL =  GlobalConstants.BASE_IMAGE_URL + urli
+        }
+        
+        let urlString = stringURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+             imgProfile?.sd_setImage(with: URL.init(string:(urlString)),
+                               placeholderImage: UIImage(named: "placeholder_Male"),
+                               options: .refreshCached,
+                               completed: nil)
     }
     
     @objc func RefreshScreenUp() {

@@ -29,7 +29,7 @@ class MenuProController: UIViewController,UITableViewDelegate,UITableViewDataSou
        
         
         titleArray = ["Home","My Service","Add Product","Log Out"]
-        imagesArray = ["homeTab","myprofile","myprofile","logoutic"]
+        imagesArray = ["homeTab","myprofile","newProduct","logoutic"]
         
         tableview.contentInsetAdjustmentBehavior = .never
         
@@ -45,7 +45,7 @@ class MenuProController: UIViewController,UITableViewDelegate,UITableViewDataSou
         self.lbeName.text = uName
          
         let st : String = UserDefaults.standard.string(forKey: Constants.stateName) ?? "USA"
-        self.lbeSp.text = st
+        self.lbeSp.text = ""
         
         
         var stringURL = ""
@@ -76,7 +76,7 @@ class MenuProController: UIViewController,UITableViewDelegate,UITableViewDataSou
        self.lbeName.text = uName
         
         let st : String = UserDefaults.standard.string(forKey: Constants.stateName) ?? "Bahrain"
-        self.lbeSp.text = st
+        self.lbeSp.text = ""
         
         
         var stringURL = ""

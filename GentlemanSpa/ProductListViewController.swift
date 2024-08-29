@@ -87,7 +87,7 @@ class ProductListViewController:  UIViewController {
     func productAPI(_ isLoader:Bool, _ isAppend: Bool, _ type:String, _ categoryId:Int, _ genderPreferences: String, _ subCategoryId:Int){
         
         let params = [ "salonId": 0,
-                       "mainCategoryId": 0,
+                       "mainCategoryId": categoryId,
                        "subCategoryId": subCategoryId,
                        "genderPreferences": genderPreferences
         ] as [String : Any]
@@ -199,12 +199,16 @@ extension ProductListViewController: UITableViewDataSource,UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
+     
+        
         return 160
 
         
     }
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            
+            let controller:ProductDetailsViewController =  UIStoryboard(storyboard: .User).initVC()
+            controller.productId = self.arrSortedService[indexPath.row].productId
+            self.navigationController?.pushViewController(controller, animated: true)
         }
 }
     

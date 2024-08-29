@@ -464,7 +464,7 @@ class AlamofireRequest: NSObject {
                     if let jsonData = response.data{
                         let parsedData = try JSONSerialization.jsonObject(with: jsonData) as! Dictionary<String, AnyObject>
                         print(parsedData)
-                        let dataImage = ""
+                        let dataImage = "successfully"
                         print(dataImage)
                         callback(dataImage , nil )
                         

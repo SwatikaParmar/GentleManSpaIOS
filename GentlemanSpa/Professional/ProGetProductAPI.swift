@@ -101,3 +101,180 @@ class ProProductListModel: NSObject {
     }
 }
 
+class ProAddProductRequest: NSObject {
+    
+    static let shared = ProAddProductRequest()
+    func AddProductRequest(requestParams : [String:Any], completion: @escaping (_ productId: Int?,_ message : String?, _ status : Bool,_ accessToken:String) -> Void)
+    {
+        
+        print("URL---->> ","BaseURL".AddProduct)
+        print("Request---->> ",requestParams)
+        
+        AlamofireRequest.shared.PostBodyForRawData(urlString: "BaseURL".AddProduct, parameters: requestParams, authToken: accessToken(), isLoader: true, loaderMessage: "") { (data, error) in
+            if error == nil{
+                print("*************************************************")
+                print(data ?? "No data")
+                if let status = data?["isSuccess"] as? Bool
+                {
+                    
+                    var messageString : String = ""
+                    
+                    if let msg = data?["messages"] as? String{
+                        messageString = msg
+                    }
+                    
+                    if status == true
+                    {
+                            
+                        if let productId = data?["data"]?["productId"] as? Int
+                        {
+                            completion(productId, messageString, status, "")
+                        }
+                        
+                    }
+                    else
+                    {
+                        completion(nil, messageString, status,"")
+                    }
+                }
+                else
+                {
+                    completion(nil, "There was an error connecting to server.", false,"")
+                }
+            }
+            else{
+                completion(nil,"There was an error connecting to server.try again", false,"")
+            }
+        }
+    }
+}
+
+
+class ProductDetailRequest: NSObject {
+
+    static let shared = ProductDetailRequest()
+    
+    func ProductDetailRequestAPI(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData:ProductDetailModel?,_ message : String?, _ isStatus : Bool) -> Void) {
+
+        var apiURL = String("\("Base".GetProductDetails)")
+            apiURL = String(format:"%@?id=%d",apiURL,requestParams["id"] as? Int ?? 0)
+
+            print("URL---->> ",apiURL)
+            print("Request---->> ",requestParams)
+        
+        AlamofireRequest.shared.GetBodyFrom(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
+                
+                     print(data ?? "No data")
+                     if error == nil{
+                         var messageString : String = ""
+                         if let status = data?["isSuccess"] as? Bool{
+                             if let msg = data?["messages"] as? String{
+                                 messageString = msg
+                             }
+                             if status{
+                                 if let dataList = data?["data"] as? [String:Any]{
+                                      
+                                     let dict : ProductDetailModel = ProductDetailModel.init(fromDictionary: dataList )
+                                        completion(dict,messageString,true)
+                                 }
+                                 else{
+                                     completion(nil,messageString,true)
+                                 }
+                      
+                             }else{
+                                 NotificationAlert().NotificationAlert(titles: messageString)
+                             }
+                         }
+                         else
+                         {
+                         }
+                    }
+                    else
+                        {
+                            print(error ?? "No error")
+                            if !(error?.localizedDescription.contains(GlobalConstants.timedOutError) ?? true) {
+                                NotificationAlert().NotificationAlert(titles: GlobalConstants.serverError)
+                            }
+                    }
+                }
+            }
+        }
+
+class ProductDetailModel: NSObject {
+    
+    var stock = 0
+    var serviceName = ""
+    var serviceDescription = ""
+    var basePrice = 0.00
+    var listingPrice = 0.00
+    var serviceIconImage = ""
+    var mainCategoryId = 0
+    var subCategoryId = 0
+    var serviceImageArray = NSMutableArray()
+
+    init(fromDictionary dictionary: [String:Any]){
+        stock = dictionary["stock"] as? Int ?? 0
+        serviceName = dictionary["name"] as? String ?? ""
+        serviceDescription = dictionary["description"] as? String ?? ""
+        basePrice = dictionary["basePrice"] as? Double ?? 0.00
+        listingPrice = dictionary["listingPrice"] as? Double ?? 0.00
+        serviceIconImage = dictionary["serviceIconImage"] as? String ?? ""
+        mainCategoryId = dictionary["mainCategoryId"] as? Int ?? 0
+        subCategoryId = dictionary["subCategoryId"] as? Int ?? 0
+
+        if let dataList = dictionary["images"] as? NSArray{
+               for list in dataList{
+                   serviceImageArray.add(list)
+            }
+        }
+        
+    }
+}
+
+class ProUpdateProductRequest: NSObject {
+    
+    static let shared = ProUpdateProductRequest()
+    func ProUpdateProduct(requestParams : [String:Any], completion: @escaping (_ productId: Int?,_ message : String?, _ status : Bool,_ accessToken:String) -> Void)
+    {
+        
+        print("URL---->> ","BaseURL".UpdateProduct)
+        print("Request---->> ",requestParams)
+        
+        AlamofireRequest.shared.PostBodyForRawData(urlString: "BaseURL".AddProduct, parameters: requestParams, authToken: accessToken(), isLoader: true, loaderMessage: "") { (data, error) in
+            if error == nil{
+                print("*************************************************")
+                print(data ?? "No data")
+                if let status = data?["isSuccess"] as? Bool
+                {
+                    
+                    var messageString : String = ""
+                    
+                    if let msg = data?["messages"] as? String{
+                        messageString = msg
+                    }
+                    
+                    if status == true
+                    {
+                            
+                        if let productId = data?["data"]?["productId"] as? Int
+                        {
+                            completion(productId, messageString, status, "")
+                        }
+                        
+                    }
+                    else
+                    {
+                        completion(nil, messageString, status,"")
+                    }
+                }
+                else
+                {
+                    completion(nil, "There was an error connecting to server.", false,"")
+                }
+            }
+            else{
+                completion(nil,"There was an error connecting to server.try again", false,"")
+            }
+        }
+    }
+}

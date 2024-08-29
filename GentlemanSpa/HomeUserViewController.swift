@@ -38,10 +38,10 @@ class HomeUserViewController: UIViewController {
     
     
     @IBAction func notification(_ sender: Any) {
-        let storyBoard = UIStoryboard.init(name: "User", bundle: nil)
-        let controller = storyBoard.instantiateViewController(withIdentifier: "SpaLocationVc") as?  SpaLocationVc
-        controller!.modalPresentationStyle = .overFullScreen
-        self.present(controller!, animated: true, completion: nil)
+      //  let storyBoard = UIStoryboard.init(name: "User", bundle: nil)
+      //  let controller = storyBoard.instantiateViewController(withIdentifier: "SpaLocationVc") as?  SpaLocationVc
+      //  controller!.modalPresentationStyle = .overFullScreen
+      //  self.present(controller!, animated: true, completion: nil)
     }
     
     //MARK: - Category API

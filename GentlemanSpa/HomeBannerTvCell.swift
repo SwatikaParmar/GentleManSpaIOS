@@ -24,11 +24,15 @@ class HomeBannerTvCell: UITableViewCell {
         self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
 
     }
-
+    func stopTimer() {
+        guard timer != nil else { return }
+        timer.invalidate()
+        
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+       
     }
 
 }
@@ -49,7 +53,7 @@ extension HomeBannerTvCell:UICollectionViewDataSource,UICollectionViewDelegateFl
                  let index = IndexPath.init(item: counter, section: 0)
                  self.collectionVB.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
                  pageController.currentPage = counter
-                  counter = 1
+                 counter = 1
             }
         }
     }

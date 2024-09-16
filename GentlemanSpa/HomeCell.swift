@@ -63,7 +63,6 @@ extension ProductCategoriesCell:UICollectionViewDelegate,UICollectionViewDataSou
                     }
                     
                 } else {
-                   
                         cell.imageV.image = UIImage(named: "shopPlace")
                 }
             
@@ -134,8 +133,6 @@ class ProductCateCall: UICollectionViewCell {
     @IBOutlet weak var cellViewRound: UIView!
     @IBOutlet weak var cellViewRoundBG: UIView!
     @IBOutlet weak var cateView: UIViewX!
-    
     @IBOutlet weak var widthImage: NSLayoutConstraint!
     @IBOutlet weak var heightImage: NSLayoutConstraint!
-
 }

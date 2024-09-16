@@ -14,7 +14,7 @@ class MyServiceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,13 +38,7 @@ class MyServiceViewController: UIViewController {
             if isStatus {
                 if arrayData != nil{
                     self.arrSortedService.removeAll()
-                    
                     self.arrSortedService = arrayData ?? self.arrSortedService
-                    
-                    
-                    
-                    
-                    
                     DispatchQueue.main.async {
                         self.tableViewMale.reloadData()
                     }

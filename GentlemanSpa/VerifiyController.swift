@@ -75,7 +75,7 @@ class VerifiyController: UIViewController ,UITextFieldDelegate{
 
         self.pinViewPhone.font = UIFont.init(name: FontName.Inter.Medium, size: 24.0) ?? UIFont.systemFont(ofSize: 22)
         self.pinViewPhone.borderLineColor = UIColor.white
-        self.pinViewPhone.activeBorderLineColor = UIColor.white ?? UIColor.gray
+        self.pinViewPhone.activeBorderLineColor = UIColor.white
         self.pinViewPhone.borderLineThickness = 1.1
         self.pinViewPhone.activeBorderLineThickness = 1.9
         self.pinViewPhone.interSpace = 15
@@ -111,8 +111,6 @@ class VerifiyController: UIViewController ,UITextFieldDelegate{
             self.enterCodeStr = String(pin)
             self.callData()
         }
-        
-        
     }
     
     //MARK:-  Dismiss Keyboard Action
@@ -124,7 +122,6 @@ class VerifiyController: UIViewController ,UITextFieldDelegate{
     
        func SignUp_User(){
         
-        
                 let params = ["email": stringEmail,
                               "password": trimmedPassword,
                               "firstName":trimmedName ,
@@ -135,13 +132,10 @@ class VerifiyController: UIViewController ,UITextFieldDelegate{
                               "role": "Professional"
                 ] as [String : Any]
         
-    
            AccountAPIRequest.shared.RegisterUser(requestParams: params) { (obj, msg, success,Verification) in
         
                     if success == false {
-        
                         self.MessageAlert(title: "Alert", message: msg!)
-        
                     }
                     else
                     {
@@ -155,8 +149,8 @@ class VerifiyController: UIViewController ,UITextFieldDelegate{
                         controller.definesPresentationContext = true
                         controller.modalPresentationStyle=UIModalPresentationStyle.overCurrentContext
                         self.present(controller, animated: true, completion: nil)
-                    }
-                }
+            }
+        }
     }
 }
 

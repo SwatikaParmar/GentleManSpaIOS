@@ -23,28 +23,24 @@ class ProAddProductVc: UIViewController ,UITextFieldDelegate, UITextViewDelegate
 
     @IBOutlet weak var txt_View : IQTextView!
     @IBOutlet weak var collection_H_Const: NSLayoutConstraint!
-    var arrSortedProduct:ProductDetailModel?
     @IBOutlet weak var titleLbe : UILabel!
     @IBOutlet weak var btnAdd : UIButton!
 
     var productId = 0; 
     var productCategoryId = 0;
-
     var logoImages = [UIImage]()
     var isImageAdd = false
-    
     var trimmedName = ""
     var trimmedCate = ""
     var trimmedBase = ""
     var trimmedListing = ""
     var trimmedStock = ""
+    var arrSortedProduct:ProductDetailModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         txt_View.font = UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(14)) ?? UIFont.systemFont(ofSize: 15.0)
-
         applyStyle(to: txt_Name)
         txt_Name.placeholder = "Product Name"
         
@@ -64,13 +60,14 @@ class ProAddProductVc: UIViewController ,UITextFieldDelegate, UITextViewDelegate
         
         txt_View.delegate = self
 
-        
         applyStyle(to: txt_stock)
         txt_stock.placeholder = "In Stock"
         
         txt_stock.delegate = self
         txt_stock.keyboardType = .numberPad
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.Category_Push_Action(_:)), name: NSNotification.Name(rawValue: "ProductCategory_Push_Action"), object: nil)
+        
         if productId > 0 {
             pDetailAPI(true)
             titleLbe.text = "Update Product"
@@ -282,7 +279,7 @@ class ProAddProductVc: UIViewController ,UITextFieldDelegate, UITextViewDelegate
                     self.arrSortedProduct = arrayData
                     
                     for i in 0..<(self.arrSortedProduct?.serviceImageArray.count ?? 0) {
-                        var imgV = UIImageView()
+                        let imgV = UIImageView()
                         let img  = "\(GlobalConstants.BASE_IMAGE_URL)\(self.arrSortedProduct?.serviceImageArray[i] ?? "")"
                             let urlString = img.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
                         imgV.sd_setImage(with: URL.init(string:(urlString))) { (image, error, cache, urls) in
@@ -325,7 +322,7 @@ class ProAddProductVc: UIViewController ,UITextFieldDelegate, UITextViewDelegate
             let numberOfDots = newText.components(separatedBy: ".").count - 1
             
             let numberOfDecimalDigits: Int
-            if let dotIndex = newText.index(of: ".") {
+            if let dotIndex = newText.firstIndex(of: ".") {
                 numberOfDecimalDigits = newText.distance(from: dotIndex, to: newText.endIndex) - 1
             } else {
                 numberOfDecimalDigits = 0
@@ -425,9 +422,7 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
          }
          else{
              collection_H_Const.constant = 130
-
          }
-        
     }
   }
 

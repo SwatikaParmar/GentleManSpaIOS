@@ -31,7 +31,7 @@ open class CalendarHeaderView: UIView {
         let lbl = UILabel()
         lbl.textAlignment = NSTextAlignment.center
         lbl.font = UIFont(name: CalendarView.Style.headerFontName, size: CalendarView.Style.headerFontSize)
-        lbl.font = UIFont(name: "Poppins-Medium", size: 15.5)
+        
         lbl.textColor = UIColor.white
 
         self.addSubview(lbl)
@@ -73,7 +73,7 @@ open class CalendarHeaderView: UIView {
             
             let weekdayLabel = UILabel()
             
-            weekdayLabel.font = UIFont(name: "Poppins-Medium", size: 18)
+            weekdayLabel.font = UIFont(name: CalendarView.Style.headerFontName, size: 18)
             var str = formatter.shortWeekdaySymbols[(index % 7)].capitalized
             weekdayLabel.text = str.first?.description ?? ""
             weekdayLabel.textColor = UIColor.black

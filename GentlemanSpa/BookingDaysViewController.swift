@@ -10,9 +10,6 @@ import UIKit
 
 extension BookingDoctorViewController: UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
-    
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         if arrSortedTime.count == 0 {
         }else {

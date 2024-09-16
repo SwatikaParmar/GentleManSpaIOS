@@ -17,13 +17,10 @@ class ProductCategoryViewController: UIViewController, UITableViewDataSource,UIT
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         categoryAPI()
-
     }
     
     @IBAction func close(_ sender: Any) {
-        
         dismiss(animated: true)
     }
     
@@ -37,8 +34,6 @@ class ProductCategoryViewController: UIViewController, UITableViewDataSource,UIT
             MessageAlert(title:"Alert",message: "Please select Product Category")
             return
         }
-      
-
     }
     
     //MARK: - Category API
@@ -51,12 +46,8 @@ class ProductCategoryViewController: UIViewController, UITableViewDataSource,UIT
             if isStatus {
                 if arrayData != nil{
                     self.arrSortedCategoryMore = arrayData ?? self.arrSortedCategoryMore
-                 
-                    
                     if self.arrSortedCategoryMore.count > 0 {
                         self.tblCate.reloadData()
-
-                        
                     }
                 }
                 else{
@@ -66,7 +57,6 @@ class ProductCategoryViewController: UIViewController, UITableViewDataSource,UIT
             }
             else{
                 self.arrSortedCategoryMore.removeAll()
-                
                 self.tblCate.reloadData()
             }
         }
@@ -86,10 +76,7 @@ class ProductCategoryViewController: UIViewController, UITableViewDataSource,UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CountriesTableCell") as! CountriesTableCell
-        
         cell.lbeName.text = arrSortedCategoryMore[indexPath.row].categoryName
-        
-        
         return cell
     }
     
@@ -100,10 +87,7 @@ class ProductCategoryViewController: UIViewController, UITableViewDataSource,UIT
         var sizeFont = CGFloat()
            
         if arrSortedCategoryMore.count > indexPath.row {
-            
             sizeFont  = arrSortedCategoryMore[indexPath.row].categoryName?.lineCount(text: "", font: UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(15)) ?? UIFont.systemFont(ofSize: 15.0), width:tableView.frame.size.width - 30) ?? 10
-            
-            
         }
         return sizeFont * 20 + 40
            
@@ -113,8 +97,6 @@ class ProductCategoryViewController: UIViewController, UITableViewDataSource,UIT
         tableView.deselectRow(at: indexPath, animated: true)
         selectName = arrSortedCategoryMore[indexPath.row].categoryName ?? ""
         selectid = arrSortedCategoryMore[indexPath.row].mainCategoryId
-
-        
         NotificationCenter.default.post(name: Notification.Name("ProductCategory_Push_Action"), object: nil, userInfo: ["name":selectName,"selectid": selectid])
         dismiss(animated: true)
         }

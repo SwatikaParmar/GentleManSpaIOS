@@ -43,8 +43,6 @@ class AppointmentsViewController: UIViewController, UITableViewDataSource,UITabl
                  
                     
                     if self.arrWeekdaysModel.count > 0 {
-                      
-                                 
                         self.GetProfessionalSched()
                         self.tblCate.reloadData()
                     }

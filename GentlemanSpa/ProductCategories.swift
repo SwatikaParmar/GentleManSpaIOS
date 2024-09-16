@@ -152,10 +152,11 @@ class ProductListModel: NSObject {
     var basePrice = 0.00
     var serviceImage : String?
     var durationInMinutes = 0
-    var serviceCountInCart = 0
+    var inStock = 0
     var genderPreferences = ""
     var isSlotAvailable = 0
     var serviceType = ""
+    var productCountInCart = 0
     
     init(fromDictionary dictionary: [String:Any]){
         productId = dictionary["productId"] as? Int ?? 0
@@ -170,10 +171,12 @@ class ProductListModel: NSObject {
         basePrice = dictionary["basePrice"] as? Double ?? 0.00
         serviceImage = dictionary["image"] as? String ?? ""
         durationInMinutes = dictionary["durationInMinutes"] as? Int ?? 0
-        serviceCountInCart = dictionary["serviceCountInCart"] as? Int ?? 0
+        inStock = dictionary["stock"] as? Int ?? 0
         genderPreferences = dictionary["genderPreferences"] as? String ?? ""
         isSlotAvailable = dictionary["isSlotAvailable"] as? Int ?? 0
         serviceType = dictionary["serviceType"] as? String ?? ""
+        productCountInCart = dictionary["countInCart"] as? Int ?? 0
+
     }
 }
 

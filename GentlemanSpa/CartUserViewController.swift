@@ -13,7 +13,7 @@ class CartUserViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
 
-        // Do any additional setup after loading the view.
+       
     }
     
 

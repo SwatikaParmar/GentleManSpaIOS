@@ -33,6 +33,7 @@
 		34B6D7AD2C44E7080008FC81 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6D7AC2C44E7080008FC81 /* LoginRequest.swift */; };
 		34B6D7AF2C44E7680008FC81 /* AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6D7AE2C44E7680008FC81 /* AlamofireRequest.swift */; };
 		34B6D7B12C44FAD30008FC81 /* SetPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6D7B02C44FAD30008FC81 /* SetPasswordRequest.swift */; };
+		34B905612C984FC000E81DFC /* AddProductCartAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B905602C984FC000E81DFC /* AddProductCartAPI.swift */; };
 		34BAC59D2C60B4670033D970 /* CreateTimeSlotsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BAC59C2C60B4670033D970 /* CreateTimeSlotsController.swift */; };
 		34BB81852C622D630090581C /* MyServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BB81842C622D630090581C /* MyServiceViewController.swift */; };
 		34BB81872C6230770090581C /* MyServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BB81862C6230770090581C /* MyServiceAPI.swift */; };
@@ -122,6 +123,7 @@
 		34B6D7AC2C44E7080008FC81 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		34B6D7AE2C44E7680008FC81 /* AlamofireRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireRequest.swift; sourceTree = "<group>"; };
 		34B6D7B02C44FAD30008FC81 /* SetPasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordRequest.swift; sourceTree = "<group>"; };
+		34B905602C984FC000E81DFC /* AddProductCartAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductCartAPI.swift; sourceTree = "<group>"; };
 		34BAC59C2C60B4670033D970 /* CreateTimeSlotsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTimeSlotsController.swift; sourceTree = "<group>"; };
 		34BB81842C622D630090581C /* MyServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyServiceViewController.swift; sourceTree = "<group>"; };
 		34BB81862C6230770090581C /* MyServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyServiceAPI.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				34D338122C5A718D003C6B13 /* FindPViewController.swift */,
 				343813BF2C69D928003B4B30 /* ProductCategories.swift */,
 				34C5E77F2C6A32D900C5BE0A /* ProductListViewController.swift */,
+				34B905602C984FC000E81DFC /* AddProductCartAPI.swift */,
 				3498173E2C7C860100219379 /* ProductDetailsViewController.swift */,
 				34DEF4832C5DFF8100F395A8 /* Professional */,
 				3404F30D2C3F936D00FF0F41 /* Main.storyboard */,
@@ -480,6 +483,7 @@
 				34C5E7802C6A32D900C5BE0A /* ProductListViewController.swift in Sources */,
 				34CE92722C410BBD0007E086 /* Constants.swift in Sources */,
 				3498173F2C7C860100219379 /* ProductDetailsViewController.swift in Sources */,
+				34B905612C984FC000E81DFC /* AddProductCartAPI.swift in Sources */,
 				34C5E2EF2C5B7AFF00F97C0C /* MoreCollection.swift in Sources */,
 				34CE92642C40EAE60007E086 /* BaseViewController.swift in Sources */,
 				34D338242C5A7A8E003C6B13 /* EventsManager.swift in Sources */,

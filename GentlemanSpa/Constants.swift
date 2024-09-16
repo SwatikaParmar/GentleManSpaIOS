@@ -201,4 +201,9 @@ extension String{
         return "Path".path + "Product/GetProductDetails"
     }
     
+    var AddOrUpdateProductInCart: String{
+        return "Path".path + "Product/AddOrUpdateProductInCart"
+    }
+    
+    
 }

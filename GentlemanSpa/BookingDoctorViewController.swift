@@ -212,7 +212,7 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
         CalendarView.Style.cellBorderWidth          = 1
         CalendarView.Style.firstWeekday             = .sunday
         CalendarView.Style.locale                   = Locale(identifier: "en_US")
-        CalendarView.Style.timeZone = TimeZone.current
+        CalendarView.Style.timeZone                 = TimeZone.current
         calenderVw.direction                        = .horizontal
         calenderVw.dataSource                       = self
         calenderVw.delegate                         = self

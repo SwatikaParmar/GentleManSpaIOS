@@ -11,8 +11,6 @@ import UIKit
 
 extension ServicesViewController : UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    
-   
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return arrSortedCategory.count

@@ -14,6 +14,7 @@ class ProductListViewController:  UIViewController {
     var indexInt = 0
     var categoryId = 0
     var genderPreferences = "Male"
+    var itemCount:Int = 1
 
     
     var arrSortedService = [ProductListModel]()
@@ -126,36 +127,47 @@ extension ProductListViewController: UITableViewDataSource,UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
-
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
         return self.arrSortedService.count
-
+        
     }
-   
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-
+        
         let cell = tableViewProduct.dequeueReusableCell(withIdentifier: "ProductLstTvCell") as! ProductLstTvCell
         
-        if indexPath.row == 0 {
-            cell.addView.isHidden = false
+     
+        if arrSortedService[indexPath.row].productCountInCart > 0{
+            
             cell.addToCart.isHidden = true
-
-        }
-        else if indexPath.row == 2 {
             cell.addView.isHidden = false
-            cell.addToCart.isHidden = true
-
+            cell.lbeCount.isHidden = false
+            cell.lbeCount.text =   String(arrSortedService[indexPath.row].productCountInCart)
         }
         else{
             cell.addView.isHidden = true
             cell.addToCart.isHidden = false
+            cell.lbeCount.text =   String(arrSortedService[indexPath.row].productCountInCart)
+            cell.lbeCount.isHidden = false
 
         }
+        
+  
+        cell.addToCart.tag = indexPath.row
+        cell.addToCart.addTarget(self, action: #selector(btnAddTap(sender:)), for: .touchUpInside)
+        
+        cell.increaseButton.tag = indexPath.row
+        cell.increaseButton.addTarget(self, action: #selector(btnIncreaseButtonTap(sender:)), for: .touchUpInside)
+        
+        cell.decreaseButton.tag = indexPath.row
+        cell.decreaseButton.addTarget(self, action: #selector(btnDecreaseButtonTap(sender:)), for: .touchUpInside)
+        
         
         if let imgUrl = arrSortedService[indexPath.row].serviceImage,!imgUrl.isEmpty {
             let img  = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
@@ -189,7 +201,6 @@ extension ProductListViewController: UITableViewDataSource,UITableViewDelegate {
             basePrice = String(format: "%.2f", arrSortedService[indexPath.row].basePrice )
         }
         cell.lbeBasePrice.text = "$" + basePrice
-        cell.lbeTime.text = ""
         
         
         
@@ -199,22 +210,107 @@ extension ProductListViewController: UITableViewDataSource,UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-     
+        
         
         return 160
-
+        
         
     }
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let controller:ProductDetailsViewController =  UIStoryboard(storyboard: .User).initVC()
-            controller.productId = self.arrSortedService[indexPath.row].productId
-            self.navigationController?.pushViewController(controller, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let controller:ProductDetailsViewController =  UIStoryboard(storyboard: .User).initVC()
+        controller.productId = self.arrSortedService[indexPath.row].productId
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    
+    
+    //MARK:- Add Button Tap
+    @objc func btnAddTap(sender:UIButton){
+        
+        itemCount = arrSortedService[sender.tag].productCountInCart
+        
+        if self.arrSortedService[sender.tag].inStock == itemCount {
+            var stringCount = ""
+            stringCount = String(format:"Can't add more than %d items.", self.arrSortedService[sender.tag].inStock)
+            NotificationAlert().NotificationAlert(titles:stringCount)
+            return
         }
+        
+        arrSortedService[sender.tag].productCountInCart = 1
+        self.tableViewProduct.reloadData()
+        
+        itemCount = 1
+        var param = [String : AnyObject]()
+        param["productId"] = arrSortedService[sender.tag].productId as AnyObject
+        param["countInCart"] = Int(itemCount) as AnyObject
+        self.addNewProduct(Model: param, index:sender.tag)
+        
+    }
+    
+    //MARK:- Add Button Tap
+    @objc func btnIncreaseButtonTap(sender:UIButton){
+        
+        itemCount = arrSortedService[sender.tag].productCountInCart
+
+        
+        if self.arrSortedService[sender.tag].inStock == itemCount {
+            
+            var stringCount = ""
+            stringCount = String(format:"Can't add more than %d items.", self.arrSortedService[sender.tag].inStock)
+            NotificationAlert().NotificationAlert(titles:stringCount)
+            return
+        }
+        arrSortedService[sender.tag].productCountInCart = arrSortedService[sender.tag].productCountInCart + 1
+        
+        itemCount = arrSortedService[sender.tag].productCountInCart
+        
+        self.tableViewProduct.reloadData()
+        
+        var param = [String : AnyObject]()
+        param["productId"] = arrSortedService[sender.tag].productId as AnyObject
+        param["countInCart"] = Int(itemCount) as AnyObject
+        self.addNewProduct(Model: param, index:sender.tag)
+
+    }
+    
+    //MARK:- Add Button Tap
+    @objc func btnDecreaseButtonTap(sender:UIButton){
+        
+        arrSortedService[sender.tag].productCountInCart = arrSortedService[sender.tag].productCountInCart - 1
+        itemCount = arrSortedService[sender.tag].productCountInCart
+        self.tableViewProduct.reloadData()
+        var param = [String : AnyObject]()
+        param["productId"] = arrSortedService[sender.tag].productId as AnyObject
+
+        if  itemCount == 0 {
+            param["countInCart"] = Int(0) as AnyObject
+        }
+        else if itemCount < 0 {
+            param["countInCart"] = Int(0) as AnyObject
+        }
+        else{
+            param["countInCart"] = Int(itemCount) as AnyObject
+        }
+        self.addNewProduct(Model: param, index:sender.tag)
+
+    }
+
+    
+    func addNewProduct(Model: [String : AnyObject], index:Int){
+        AddOrUpdateProductInCartRequest.shared.addProductAPI(requestParams: Model) { (user,message,isStatus) in
+            if isStatus {
+                if isStatus {
+                    NotificationAlert().NotificationAlert(titles: message ?? GlobalConstants.successMessage)
+                }
+            }
+            else{
+                NotificationAlert().NotificationAlert(titles:message ?? GlobalConstants.serverError)
+            }
+        }
+        
+        
+    }
 }
-    
-    
-    
-    
 
 class ProductLstTvCell: UITableViewCell {
     
@@ -226,7 +322,11 @@ class ProductLstTvCell: UITableViewCell {
     @IBOutlet weak var lbeAmount: UILabel!
     
     @IBOutlet weak var lbeBasePrice: UILabel!
-    @IBOutlet weak var lbeTime: UILabel!
+    @IBOutlet weak var lbeCount: UILabel!
+    
+    @IBOutlet weak var increaseButton: UIButton!
+    @IBOutlet weak var decreaseButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

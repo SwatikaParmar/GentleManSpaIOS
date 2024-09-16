@@ -75,7 +75,7 @@ class MenuUserController: UIViewController,UITableViewDelegate,UITableViewDataSo
        let uName = UserDefaults.standard.string(forKey: Constants.firstName) ?? "Guest User"
        self.lbeName.text = uName
         
-        let st : String = UserDefaults.standard.string(forKey: Constants.stateName) ?? "Bahrain"
+        let st : String = UserDefaults.standard.string(forKey: Constants.stateName) ?? ""
         self.lbeSp.text = ""
         
         
@@ -100,8 +100,6 @@ class MenuUserController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     //MARK:-   TableView Function
-
-      
       func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
           
@@ -137,9 +135,6 @@ class MenuUserController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     NotificationCenter.default.post(name: Notification.Name("Menu_Push_Action"), object: nil, userInfo: ["count":String(indexPath.row)])
 
                 }
- 
-                
-                
             }
         }
     
@@ -174,7 +169,6 @@ class MenuUserController: UIViewController,UITableViewDelegate,UITableViewDataSo
         UserDefaults.standard.removeObject(forKey: Constants.phone)
         UserDefaults.standard.set(false, forKey: Constants.login)
         UserDefaults.standard.synchronize()
-        
         RootControllerManager().SetRootViewController()
 
     }
@@ -187,13 +181,13 @@ class SideMenuCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        
     }
 
 }

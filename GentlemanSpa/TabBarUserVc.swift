@@ -208,20 +208,15 @@ class TabBarUserVc: UIViewController {
             
         }
         
-        
         @objc func showHomeClass(_ notification: NSNotification) {
             
             
         }
         
-        
-        
         override func viewDidLayoutSubviews() {
             super.viewDidLayoutSubviews()
             homeClass?.view.frame = Contentview.bounds
         }
-        
-        
         
         @IBAction func HomeAction(_ sender: Any) {
             className = "Home"

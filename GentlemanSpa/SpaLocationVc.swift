@@ -114,7 +114,7 @@ class LocationTableCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        
     }
 
 }
@@ -125,8 +125,6 @@ class LocationListRequest: NSObject {
     func locationListAPI(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData: [LocationListingModel]?,_ message : String?, _ isStatus : Bool) -> Void) {
 
         let apiURL = "BaseURL".GetSpas
-        
-
             print("URL---->> ",apiURL)
             print("Request---->> ",requestParams)
         

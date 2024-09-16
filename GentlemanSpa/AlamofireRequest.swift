@@ -494,7 +494,6 @@ class AlamofireRequest: NSObject {
                     
                     let No = UIAlertAction(title: "OK", style: .default, handler: { action in
                        
-  
                         UserDefaults.standard.removeObject(forKey: Constants.accessToken)
                         UserDefaults.standard.removeObject(forKey: Constants.login)
                         UserDefaults.standard.removeObject(forKey: Constants.userImg)

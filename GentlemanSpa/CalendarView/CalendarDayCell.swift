@@ -94,7 +94,7 @@ open class CalendarDayCell: UICollectionViewCell {
         
         self.textLabel.textAlignment = NSTextAlignment.center
         
-        self.textLabel.font = UIFont(name: "Poppins-Medium", size: 12.5)
+        self.textLabel.font = UIFont(name: CalendarView.Style.headerFontName, size: 12)
 
         self.dotsView.backgroundColor = CalendarView.Style.cellEventColor
         

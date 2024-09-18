@@ -20,7 +20,7 @@ extension HomeUserViewController: UITableViewDataSource,UITableViewDelegate,Cate
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 4
+        return 5
         
     }
     
@@ -93,6 +93,7 @@ extension HomeUserViewController: UITableViewDataSource,UITableViewDelegate,Cate
             let cell = tableViewHome.dequeueReusableCell(withIdentifier: "ProductCell") as! ProductCell
             cell.lastClass = self.parent ?? self
             cell.isHome =  true
+            cell.arrGetProfessionalList = self.arrGetProfessionalList
             cell.collectionViewCate.delegate = cell
             cell.collectionViewCate.dataSource = cell
             DispatchQueue.main.async(execute: cell.collectionViewCate.reloadData)
@@ -152,12 +153,12 @@ extension HomeUserViewController: UITableViewDataSource,UITableViewDelegate,Cate
                 let result = Int(arrSortedProductCategories.count) % 3
                 if result == 0 {
                     let count = Int(arrSortedProductCategories.count) / 3
-                    return CGFloat(count * Int(width)) + 36
+                    return CGFloat(count * Int(width)) + 40
                 }
                 else{
                     var count = Int(arrSortedProductCategories.count) / 3
                     count = count + 1
-                    return CGFloat(count * Int(width)) + 36
+                    return CGFloat(count * Int(width)) + 40
                     
                 }
             }
@@ -165,11 +166,11 @@ extension HomeUserViewController: UITableViewDataSource,UITableViewDelegate,Cate
         }
         
         if indexPath.section == 4 {
-            var width = (UIScreen.main.bounds.size.width/2)
+            
           
-            return CGFloat(5 * Int(width)) + 225 + 88
+            return 225
 
-            return  300
+           
         }
         
         return 0

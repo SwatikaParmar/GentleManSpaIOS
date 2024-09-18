@@ -85,8 +85,12 @@ class ProfileUserViewController: UIViewController,UITableViewDelegate,UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableview.deselectRow(at: indexPath, animated: false)
-        let controller:UpdateProfileUserViewController =  UIStoryboard(storyboard: .User).initVC()
-        self.parent?.navigationController?.pushViewController(controller, animated: true)
+        
+        if indexPath.row == 0 {
+            let controller:UpdateProfileUserViewController =  UIStoryboard(storyboard: .User).initVC()
+            self.parent?.navigationController?.pushViewController(controller, animated: true)
+        }
+       
     }
 }
 class ProfileCell: UITableViewCell {

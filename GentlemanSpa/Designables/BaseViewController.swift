@@ -22,8 +22,8 @@ class NotificationAlert {
     func NotificationAlert(titles:String){
             
             let toastView = UILabel()
-        toastView.backgroundColor = UIColor.black
-            toastView.textColor = UIColor.white
+            toastView.backgroundColor = UIColor.white
+            toastView.textColor = UIColor.darkGray
             toastView.textAlignment = .center
             toastView.font = UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(14)) ?? UIFont.systemFont(ofSize: 15)
             toastView.layer.masksToBounds = true

@@ -22,7 +22,8 @@ class VerifiyController: UIViewController ,UITextFieldDelegate{
     var stringEmail = ""
     var stringGender = ""
     var phoneCode = ""
-    
+    var img = UIImage()
+    var imgIS = false
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -140,17 +141,70 @@ class VerifiyController: UIViewController ,UITextFieldDelegate{
                     else
                     {
                         self.save(object: obj!)
-                        UserDefaults.standard.set(true, forKey: Constants.login)
-                        UserDefaults.standard.synchronize()
-                        UserDefaults.standard.set("Professional", forKey: Constants.userType)
-                        UserDefaults.standard.synchronize()
-                        let controller:AlertViewController =  UIStoryboard(storyboard: .main).initVC()
-                        controller.providesPresentationContextTransitionStyle = true
-                        controller.definesPresentationContext = true
-                        controller.modalPresentationStyle=UIModalPresentationStyle.overCurrentContext
-                        self.present(controller, animated: true, completion: nil)
+                        if self.imgIS == true
+                        {
+                            self.uploadProfileImageApi()
+                        }
+                        else{
+                            UserDefaults.standard.set(true, forKey: Constants.login)
+                            UserDefaults.standard.synchronize()
+                            UserDefaults.standard.set("Professional", forKey: Constants.userType)
+                            UserDefaults.standard.synchronize()
+                            let controller:AlertViewController =  UIStoryboard(storyboard: .main).initVC()
+                            controller.providesPresentationContextTransitionStyle = true
+                            controller.definesPresentationContext = true
+                            controller.modalPresentationStyle=UIModalPresentationStyle.overCurrentContext
+                            self.present(controller, animated: true, completion: nil)
+                        }
+                       
             }
         }
+    }
+    
+    func uploadProfileImageApi(){
+        
+        self.view.endEditing(true)
+        
+        var fileName = ""
+        fileName =  "iOS" + NSUUID().uuidString + ".jpeg"
+        var apiURL = String("\("Base".uploadProfilePic)")
+
+
+        AlamofireRequest().uploadImageRemote(urlString: apiURL, image:  self.img ?? UIImage(), name: fileName , userID:  UserDefaults.standard.string(forKey: Constants.userId) ?? ""){ data, error -> Void in
+            
+            
+            if !data!.isEmpty{
+                if data == "failure"{
+                    UserDefaults.standard.set(true, forKey: Constants.login)
+                    UserDefaults.standard.synchronize()
+                    UserDefaults.standard.set("Professional", forKey: Constants.userType)
+                    UserDefaults.standard.synchronize()
+                    let controller:AlertViewController =  UIStoryboard(storyboard: .main).initVC()
+                    controller.providesPresentationContextTransitionStyle = true
+                    controller.definesPresentationContext = true
+                    controller.modalPresentationStyle=UIModalPresentationStyle.overCurrentContext
+                    self.present(controller, animated: true, completion: nil)
+
+                }
+                else{
+                    UserDefaults.standard.set(data ?? "iOS", forKey: Constants.userImg)
+                    UserDefaults.standard.synchronize()
+                    
+                    UserDefaults.standard.set(true, forKey: Constants.login)
+                    UserDefaults.standard.synchronize()
+                    UserDefaults.standard.set("Professional", forKey: Constants.userType)
+                    UserDefaults.standard.synchronize()
+                    let controller:AlertViewController =  UIStoryboard(storyboard: .main).initVC()
+                    controller.providesPresentationContextTransitionStyle = true
+                    controller.definesPresentationContext = true
+                    controller.modalPresentationStyle=UIModalPresentationStyle.overCurrentContext
+                    self.present(controller, animated: true, completion: nil)
+                }
+               
+            }
+            
+        }
+        
     }
 }
 

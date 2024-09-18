@@ -2027,7 +2027,7 @@
                                                     <action selector="UpdateProfilePressed:" destination="78k-zs-E6m" eventType="touchUpInside" id="htr-Op-3wB"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_Male" translatesAutoresizingMaskIntoConstraints="NO" id="BDc-ok-5I6" customClass="UIImageViewX" customModule="GentlemanSpa" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_Male" translatesAutoresizingMaskIntoConstraints="NO" id="BDc-ok-5I6" customClass="UIImageViewX" customModule="GentlemanSpa" customModuleProvider="target">
                                                 <rect key="frame" x="141.66666666666666" y="15" width="110" height="110"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="110" id="dv9-sE-Fub"/>

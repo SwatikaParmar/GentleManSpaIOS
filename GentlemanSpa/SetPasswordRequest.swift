@@ -44,6 +44,57 @@ class SetPasswordRequest: NSObject {
         }
     }
 }
+
+class IsPhoneUniqueAPIRequest: NSObject {
+    
+    static let shared = IsPhoneUniqueAPIRequest()
+    
+    func IsPhoneUniqueEmail(requestParams : [String:Any],accessToken:String, completion: @escaping (_ message : String?, _ status : Bool, _ otp:Int) -> Void) {
+        
+        AlamofireRequest.shared.PostBodyForRawData(urlString: "BaseURL".IsPhoneUnique, parameters: requestParams, authToken: "", isLoader: true, loaderMessage: "") { (data, error) in
+            
+            if error == nil{
+                print(data as Any)
+                
+                if let status = data?["isSuccess"] as? Bool{
+                    
+                    var messageString : String = ""
+                    var OTP = 0
+                    
+                    if let msg = data?["messages"] as? String{
+                        messageString = msg
+                    }
+                    
+                    if status == true
+                    {
+                        
+                        if let Result = data?["data"] as? [String : Any]{
+                            
+                            if let otpCodes = Result["otp"] as? Int{
+                                OTP = otpCodes
+                            }
+                        }
+                        
+                        completion(messageString, true,OTP)
+                    }
+                    else{
+                        
+                        completion(messageString, false,OTP)
+                    }
+                }
+                else
+                {
+                    completion( "There was an error connecting to server.", false,0)
+                }
+                
+            }else{
+                completion("There was an error connecting to server.try again", false,0)
+            }
+        }
+    }
+}
+
+
 class ResendEmailAPIRequest: NSObject {
     
     static let shared = ResendEmailAPIRequest()
@@ -60,7 +111,7 @@ class ResendEmailAPIRequest: NSObject {
                     var messageString : String = ""
                     var OTP = 0
                     
-                    if let msg = data?["message"] as? String{
+                    if let msg = data?["messages"] as? String{
                         messageString = msg
                     }
                     
@@ -111,7 +162,7 @@ class AccountAPIRequest: NSObject {
                     var messageString : String = ""
                     var accessToken : String = ""
                     
-                    if let msg = data?["message"] as? String{
+                    if let msg = data?["messages"] as? String{
                         messageString = msg
                     }
                     
@@ -122,6 +173,9 @@ class AccountAPIRequest: NSObject {
                             if let accessTokenS = Result["token"] as? String{
                                 accessToken = accessTokenS
                                 UserDefaults.standard.set(accessToken, forKey: Constants.accessToken)
+                                UserDefaults.standard.synchronize()
+                                
+                                UserDefaults.standard.set(Result["id"], forKey: Constants.userId)
                                 UserDefaults.standard.synchronize()
                             }
                             

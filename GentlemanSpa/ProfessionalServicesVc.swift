@@ -1,44 +1,62 @@
 //
-//  ServicesViewController.swift
+//  ProfessionalServicesVc.swift
 //  GentlemanSpa
 //
-//  Created by AbsolveTech on 31/07/24.
+//  Created by AbsolveTech on 18/09/24.
 //
 
 import UIKit
 
-class ServicesViewController: UIViewController {
+class ProfessionalServicesVc: UIViewController {
+
+    var arrSortedService = [ServiceListModel]()
+    var professionalDetailId = 0
+    var name = ""
+    var arrayData = NSArray()
+    var imgUser : String?
     @IBOutlet weak var tableViewMale: UITableView!
-    @IBOutlet var cvHeader: UICollectionView!
-    @IBOutlet weak var searchTxtField: UITextField!
+    
     @IBOutlet weak var totalView: UIView!
     @IBOutlet weak var view_H_Const: NSLayoutConstraint!
 
     @IBOutlet weak var amountLbe: UILabel!
     @IBOutlet weak var countLbe: UILabel!
-    
-    var arrSortedCategory = [dashboardCategoryObject]()
-    var indexInt = 0
-    var categoryId = 0
-    var genderPreferences = "Male"
-    var searchQuery = ""
-    var itemCount = 0
-    
-    var arrSortedService = [ServiceListModel]()
-    var arrSortedPackage = [ServiceListModel]()
-    var arrSortedTopService = [ServiceListModel]()
-    
+
+    @IBOutlet weak var lbeName: UILabel!
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var lbeSpe: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchTxtField.delegate = self
+        
+        lbeName.text = name
+        
+        for i in 0 ..< arrayData.count {
+            if i == 0 {
+                lbeSpe.text = String(format:"%@",arrayData[i] as! CVarArg)
+            }
+            else{
+                lbeSpe.text = String(format:"%@, %@", lbeSpe.text ?? "", arrayData[i] as! CVarArg)
+
+            }
+        }
+        
+        imgView?.sd_setImage(with: URL.init(string:(imgUser ?? ""))) { (image, error, cache, urls) in
+            if (error != nil) {
+                self.imgView.image = UIImage(named: "userProic")
+            } else {
+                self.imgView.image = image
+                
+            }
+        }
 
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
-        categoryAPI(true, true, 1)
-        myCartAPI(false)
+        serviceAPI(true)
+        self.myCartAPI(false)
+
     }
    
     @IBAction func btnBackPreessed(_ sender: Any){
@@ -47,59 +65,26 @@ class ServicesViewController: UIViewController {
     }
     @IBAction func btnPreessed(_ sender: Any){
         
-        let controller:FindPViewController =  UIStoryboard(storyboard: .User).initVC()
+        let controller:BookingDoctorViewController =  UIStoryboard(storyboard: .User).initVC()
+        
+        controller.name = self.name
+        
+            controller.imgUserStr = imgUser
+        
+        controller.arrayData  = arrayData
+        controller.professionalDetailId  = professionalDetailId
+        
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
-    //MARK: - Category API
-    func categoryAPI(_ isLoader:Bool, _ isAppend: Bool, _ type:Int){
-        
-        let params = [ "spaDetailId": 21,
-                       "categoryType": type,
-        ] as [String : Any]
-        
-        HomeListRequest.shared.homeListAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
-            if isStatus {
-                if arrayData != nil{
-                    self.arrSortedCategory = arrayData ?? self.arrSortedCategory
-                 
-                    
-                    if self.arrSortedCategory.count > self.indexInt {
-                        self.cvHeader.reloadData()
-                        
-                        self.serviceAPI(false, true, "",self.arrSortedCategory[self.indexInt].mainCategoryId,self.genderPreferences, 0)
-                        if self.arrSortedCategory.count > self.indexInt{
-                            self.cvHeader.scrollToItem(at: IndexPath(row: self.indexInt, section: 0), at: .centeredHorizontally, animated: true)
-                        }
-                        self.cvHeader.reloadData()
-                    }
-                }
-                else{
-                    self.arrSortedCategory.removeAll()
-                    self.cvHeader.reloadData()
-                }
-            }
-            else{
-                self.arrSortedCategory.removeAll()
-                
-                self.cvHeader.reloadData()
-            }
-        }
-    }
-    
-    
-    
+
     //MARK: - Service API
-    func serviceAPI(_ isLoader:Bool, _ isAppend: Bool, _ type:String, _ categoryId:Int, _ genderPreferences: String, _ subCategoryId:Int){
+    func serviceAPI(_ isLoader:Bool){
         
-        let params = [ "salonId": 21,
-                       "mainCategoryId": categoryId,
-                       "subCategoryId": subCategoryId,
-                       "genderPreferences": genderPreferences,
-                       "searchQuery" : searchQuery
+        let params = [ "professionalDetailId":  professionalDetailId
         ] as [String : Any]
         
-        GetServiceListRequest.shared.serviceListAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
+        GetProfessionalServicesRequest.shared.GetProfessionalServicesListAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
             if isStatus {
                 if arrayData != nil{
                     self.arrSortedService.removeAll()
@@ -110,18 +95,15 @@ class ServicesViewController: UIViewController {
                 }
                 else{
                     self.arrSortedService.removeAll()
-                    self.arrSortedPackage.removeAll()
                     self.tableViewMale.reloadData()
                 }
             }
             else{
                 self.arrSortedService.removeAll()
-                self.arrSortedPackage.removeAll()
                 self.tableViewMale.reloadData()
             }
         }
     }
-    
     //MARK:- Add Button Tap
     @objc func btnAddTap(sender:UIButton){
         
@@ -129,7 +111,7 @@ class ServicesViewController: UIViewController {
         arrSortedService[sender.tag].serviceCountInCart = 1
         self.tableViewMale.reloadData()
         
-        itemCount = 1
+       
         var param = [String : AnyObject]()
         param["spaServiceId"] = arrSortedService[sender.tag].spaServiceId as AnyObject
         param["spaDetailId"] = 21 as AnyObject
@@ -217,7 +199,7 @@ class ServicesViewController: UIViewController {
 
 
 
-extension ServicesViewController: UITableViewDataSource,UITableViewDelegate {
+extension ProfessionalServicesVc: UITableViewDataSource,UITableViewDelegate {
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -306,71 +288,9 @@ extension ServicesViewController: UITableViewDataSource,UITableViewDelegate {
         return 160
     }
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            self.view.endEditing(true)
             let controller:ServiceDetailViewController =  UIStoryboard(storyboard: .User).initVC()
             controller.serviceId = self.arrSortedService[indexPath.row].serviceId
             self.navigationController?.pushViewController(controller, animated: true)
         }
 }
     
-//MARK: TextField Delegate
-extension ServicesViewController : UITextFieldDelegate {
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchTxtField.resignFirstResponder()
-        return true
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
-    {
-        if textField.text == "" && string == " "{
-            return false
-        }
-        
-        if string != "\n" {
-            searchQuery = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-        }
-        
-        if !searchQuery.isEmpty
-        {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
-
-                self.serviceAPI(false, true, "",self.arrSortedCategory[self.indexInt].mainCategoryId,self.genderPreferences, 0)
-
-            }
-        }
-        else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
-                searchQuery = ""
-                self.serviceAPI(false, true, "",self.arrSortedCategory[self.indexInt].mainCategoryId,self.genderPreferences, 0)
-
-            }
-        }
-        return true
-    }
-}
-    
-    
-
-class ServicesTvCell: UITableViewCell {
-    
-    @IBOutlet weak var addView: UIView!
-    @IBOutlet weak var addToCart: UIButton!
-    @IBOutlet weak var removeCart: UIButton!
-
-    @IBOutlet weak var imgService: UIImageView!
-    @IBOutlet weak var lbeName: UILabel!
-    @IBOutlet weak var lbeAmount: UILabel!
-    
-    @IBOutlet weak var lbeBasePrice: UILabel!
-    @IBOutlet weak var lbeTime: UILabel!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-    }
-    
-}

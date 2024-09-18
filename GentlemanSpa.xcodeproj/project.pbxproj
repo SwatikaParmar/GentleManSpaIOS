@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,6 +38,8 @@
 		34BB81852C622D630090581C /* MyServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BB81842C622D630090581C /* MyServiceViewController.swift */; };
 		34BB81872C6230770090581C /* MyServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BB81862C6230770090581C /* MyServiceAPI.swift */; };
 		34BE6DC12C622365000C4283 /* MenuProController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE6DC02C622365000C4283 /* MenuProController.swift */; };
+		34C093EA2C9A9534001BBB40 /* GetProfessional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C093E92C9A9534001BBB40 /* GetProfessional.swift */; };
+		34C093EC2C9AA380001BBB40 /* ProfessionalServicesVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C093EB2C9AA37F001BBB40 /* ProfessionalServicesVc.swift */; };
 		34C5A6BF2C5CD153007A79FD /* ServiceDetailImageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C5A6BE2C5CD153007A79FD /* ServiceDetailImageCollection.swift */; };
 		34C5E2EF2C5B7AFF00F97C0C /* MoreCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C5E2EE2C5B7AFF00F97C0C /* MoreCollection.swift */; };
 		34C5E2F12C5B97F700F97C0C /* GetServiceListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C5E2F02C5B97F700F97C0C /* GetServiceListRequest.swift */; };
@@ -128,6 +130,8 @@
 		34BB81842C622D630090581C /* MyServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyServiceViewController.swift; sourceTree = "<group>"; };
 		34BB81862C6230770090581C /* MyServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyServiceAPI.swift; sourceTree = "<group>"; };
 		34BE6DC02C622365000C4283 /* MenuProController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuProController.swift; sourceTree = "<group>"; };
+		34C093E92C9A9534001BBB40 /* GetProfessional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfessional.swift; sourceTree = "<group>"; };
+		34C093EB2C9AA37F001BBB40 /* ProfessionalServicesVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalServicesVc.swift; sourceTree = "<group>"; };
 		34C5A6BE2C5CD153007A79FD /* ServiceDetailImageCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailImageCollection.swift; sourceTree = "<group>"; };
 		34C5E2EE2C5B7AFF00F97C0C /* MoreCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreCollection.swift; sourceTree = "<group>"; };
 		34C5E2F02C5B97F700F97C0C /* GetServiceListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetServiceListRequest.swift; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 				34B4CD8D2C48D4C8006B9F1F /* TabBarUserVc.swift */,
 				34B4CD992C48D855006B9F1F /* MenuUserController.swift */,
 				34B4CD8F2C48D512006B9F1F /* HomeUserViewController.swift */,
+				34C093E92C9A9534001BBB40 /* GetProfessional.swift */,
 				34D404442C4F66550063AEF7 /* HomeUTableView.swift */,
 				343813C12C69E420003B4B30 /* HomeCell.swift */,
 				34F559BA2C5A569B0017F732 /* CategoryHomeTvCell.swift */,
@@ -255,6 +260,7 @@
 				34C5E77F2C6A32D900C5BE0A /* ProductListViewController.swift */,
 				34B905602C984FC000E81DFC /* AddProductCartAPI.swift */,
 				3498173E2C7C860100219379 /* ProductDetailsViewController.swift */,
+				34C093EB2C9AA37F001BBB40 /* ProfessionalServicesVc.swift */,
 				34DEF4832C5DFF8100F395A8 /* Professional */,
 				3404F30D2C3F936D00FF0F41 /* Main.storyboard */,
 				34B4CD972C48D5D1006B9F1F /* User.storyboard */,
@@ -396,7 +402,7 @@
 				};
 			};
 			buildConfigurationList = 3404F2FF2C3F936D00FF0F41 /* Build configuration list for PBXProject "GentlemanSpa" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -489,6 +495,7 @@
 				34D338242C5A7A8E003C6B13 /* EventsManager.swift in Sources */,
 				34D338262C5A7A8E003C6B13 /* CalendarView.swift in Sources */,
 				34D338112C5A7142003C6B13 /* ServicesViewController.swift in Sources */,
+				34C093EC2C9AA380001BBB40 /* ProfessionalServicesVc.swift in Sources */,
 				34D338202C5A7A8E003C6B13 /* CalendarView+Extensions.swift in Sources */,
 				34CE926E2C40EAE60007E086 /* GradientView.swift in Sources */,
 				3438E90B2C609DE4005BFC03 /* CreateSchedule.swift in Sources */,
@@ -520,6 +527,7 @@
 				34B6D7AF2C44E7680008FC81 /* AlamofireRequest.swift in Sources */,
 				34B6D7AD2C44E7080008FC81 /* LoginRequest.swift in Sources */,
 				34B4CD902C48D512006B9F1F /* HomeUserViewController.swift in Sources */,
+				34C093EA2C9A9534001BBB40 /* GetProfessional.swift in Sources */,
 				34D372462C4E3E1C000DC680 /* SpecialitiesViewController.swift in Sources */,
 				343813C02C69D928003B4B30 /* ProductCategories.swift in Sources */,
 				34D404492C4F6C2D0063AEF7 /* HomeBannerModel.swift in Sources */,
@@ -704,27 +712,37 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F46H937NPR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = U4CMW5Y2G6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GentlemanSpa/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Gentleman Spa";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app use camera take your photo for profile image";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Privacy - Photo Library Additions Usage Description";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.software.demoone.GentlemanSpa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GentlemanSpa.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = TheGentlemen;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -734,27 +752,37 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F46H937NPR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = U4CMW5Y2G6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GentlemanSpa/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Gentleman Spa";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app use camera take your photo for profile image";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Privacy - Photo Library Additions Usage Description";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.software.demoone.GentlemanSpa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GentlemanSpa.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = TheGentlemen;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

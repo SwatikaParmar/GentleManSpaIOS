@@ -12,6 +12,7 @@ class HomeUserViewController: UIViewController {
     var arrayHomeBannerModel = [HomeBannerModel]()
     var arrSortedCategory = [dashboardCategoryObject]()
     var arrSortedProductCategories = [ProductCategoriesObject]()
+    var arrGetProfessionalList = [GetProfessionalObject]()
 
     
     override func viewDidLoad() {
@@ -28,6 +29,7 @@ class HomeUserViewController: UIViewController {
         BannerAPI()
         categoryAPI(true, true, 1)
         ProductCategoriesAPI(true, true, 1)
+        GetProfessionalListAPI(true, true, 1)
     }
     
     
@@ -111,6 +113,34 @@ class HomeUserViewController: UIViewController {
             }
             else{
                 self.arrSortedProductCategories.removeAll()
+                
+                self.tableViewHome.reloadData()
+            }
+        }
+    }
+    
+    
+    //MARK: - GetProfessionalList API
+    func GetProfessionalListAPI(_ isLoader:Bool, _ isAppend: Bool, _ type:Int){
+        
+        let params = [ "spaDetailId": 21,
+        ] as [String : Any]
+        
+        GetProfessionalListRequest.shared.GetProfessionalListAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
+            if isStatus {
+                if arrayData != nil{
+                    self.arrGetProfessionalList = arrayData ?? self.arrGetProfessionalList
+                    if self.arrGetProfessionalList.count > 0 {
+                        self.tableViewHome.reloadData()
+                    }
+                }
+                else{
+                    self.arrGetProfessionalList.removeAll()
+                    self.tableViewHome.reloadData()
+                }
+            }
+            else{
+                self.arrGetProfessionalList.removeAll()
                 
                 self.tableViewHome.reloadData()
             }

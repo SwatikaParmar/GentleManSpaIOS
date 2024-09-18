@@ -322,9 +322,9 @@ class UpdateProfileUserViewController: UIViewController {
 
         UpdateProfile.shared.Update(requestParams: params) { (obj, msg, success,Verification) in
             
-            if success == false {
+            if success == true {
                 
-                self.MessageAlert(title: "Alert", message: msg!)
+                self.popMessageAlert(title: "Alert", message: msg!)
                 
             }
             else
@@ -476,7 +476,7 @@ class UpdateProfile: NSObject {
         print("URL---->> ","BaseURL".UpdateProfile)
         print("Request---->> ",requestParams)
         
-        AlamofireRequest.shared.PostBodyForRawData(urlString: "BaseURL".UpdateProfessionalProfile, parameters: requestParams, authToken: accessToken(), isLoader: true, loaderMessage: "") { (data, error) in
+        AlamofireRequest.shared.PostBodyForRawData(urlString: "BaseURL".UpdateProfile, parameters: requestParams, authToken: accessToken(), isLoader: true, loaderMessage: "") { (data, error) in
             if error == nil{
                 print("*************************************************")
                 print(data ?? "No data")

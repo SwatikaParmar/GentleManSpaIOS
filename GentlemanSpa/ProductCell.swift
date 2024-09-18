@@ -18,7 +18,8 @@ class ProductCell: UITableViewCell {
     var categoryId = 0
     var genderStr = ""
     var isHome = false
-   
+    var arrGetProfessionalList = [GetProfessionalObject]()
+
     @IBOutlet weak var collectionViewCate: UICollectionView!
     @IBOutlet weak var lbeTop: UILabel!
     
@@ -44,7 +45,7 @@ extension ProductCell:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
     
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
   
-            return 10
+            return arrGetProfessionalList.count
         }
 
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -52,40 +53,51 @@ extension ProductCell:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
             let cell: ProductHomeCollCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductHomeCollCell", for: indexPath) as! ProductHomeCollCell
         
            
+         
             
-            if indexPath.row == unitsIndex {
-                
-                let actionTitleFont = UIFont(name: FontName.Inter.Medium, size: CGFloat("".dynamicFontSize(16))) ?? UIFont.systemFont(ofSize: CGFloat(16), weight: .medium)
-                cell.titleLabel.font = actionTitleFont
-                
-            }
-            else{
-                
-                let actionTitleFont = UIFont(name: FontName.Inter.Medium, size: CGFloat("".dynamicFontSize(16))) ?? UIFont.systemFont(ofSize: CGFloat(16), weight: .medium)
-                cell.titleLabel.font = actionTitleFont
-                
-            }
-            cell.titleLabel.text = "Product 1"
+            let actionTitleFont = UIFont(name: FontName.Inter.Medium, size: CGFloat("".dynamicFontSize(13.5))) ?? UIFont.systemFont(ofSize: CGFloat(16), weight: .medium)
+            cell.titleLabel.font = actionTitleFont
             
-            let width = (UIScreen.main.bounds.size.width/2)
+            cell.titleLabel.text = (arrGetProfessionalList[indexPath.row].firstName ?? "") + " " + (arrGetProfessionalList[indexPath.row].lastName ?? "")
+            
+            let width = (UIScreen.main.bounds.size.width/3)
             
             if Utility.shared.DivceTypeString() == "IPad" {
-                cell.widthImage.constant = width - 50
-                cell.heightImage.constant = width - 50
+                cell.widthImage.constant = 104
+                cell.heightImage.constant = 104
             }
             else{
-                cell.widthImage.constant = width - 45
-                cell.heightImage.constant = width - 45
+                cell.widthImage.constant = 104
+                cell.heightImage.constant = 104
             }
+          
+            
               
+            if let imgUrl = arrGetProfessionalList[indexPath.row].profilepic,!imgUrl.isEmpty {
+                
+                let imagePath = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
+                let urlString = imagePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                cell.imageV?.sd_setImage(with: URL.init(string:(urlString))) { (image, error, cache, urls) in
+                    if (error != nil) {
+                        cell.imageV.image = UIImage(named: "userProic")
+                    } else {
+                        cell.imageV.image = image
+                       
+                    }
+                }
+                
+            } else {
+                    cell.imageV.image = UIImage(named: "userProic")
+            }
+        
             
            return cell
 }
     
     
 func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
-    let width = (collectionView.size.width/2)
-    var size = CGSize(width: width - 10, height: width + 45)
+    let width = (collectionView.size.width/3)
+    var size = CGSize(width: 125, height: width + 45)
     if Utility.shared.DivceTypeString() == "IPad" {
          size = CGSize(width: width, height: 340)
     }
@@ -106,8 +118,18 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
        }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       // let controller:ServicesViewController =  UIStoryboard(storyboard: .User).initVC()
-      //  self.lastClass.parent?.navigationController?.pushViewController(controller, animated: true)
+        let controller:ProfessionalServicesVc =  UIStoryboard(storyboard: .User).initVC()
+        controller.name = (arrGetProfessionalList[indexPath.row].firstName ?? "") + " " + (arrGetProfessionalList[indexPath.row].lastName ?? "")
+        if let imgUrl = arrGetProfessionalList[indexPath.row].profilepic,!imgUrl.isEmpty {
+            
+            let imagePath = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
+            let urlString = imagePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            controller.imgUser = urlString
+        }
+        controller.arrayData  = arrGetProfessionalList[indexPath.row].object?.arrayData ?? NSArray()
+        controller.professionalDetailId  = arrGetProfessionalList[indexPath.row].object?.professionalDetailId ?? 0
+
+        self.lastClass.parent?.navigationController?.pushViewController(controller, animated: true)
     }
   }
 

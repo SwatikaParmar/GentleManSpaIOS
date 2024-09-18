@@ -41,6 +41,7 @@ class CreateAccountController: UIViewController {
     var stringEmail = ""
     let dropGender = DropDown()
     var genderStr = "Male"
+    var imgIS = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -236,11 +237,12 @@ class CreateAccountController: UIViewController {
         
         stringPhoneNo = trimmedPhone
         stringEmail = trimmedEmailName
-        let paramsEmail = ["email":trimmedEmailName
-                           , "isVerify": true] as [String : Any]
-        self.callResendEmailApi(param: paramsEmail)
+        let paramsEmail = ["phoneNumber":self.trimmedPhone
+                           , "dialCode": phoneCode] as [String : Any]
+        self.callResendPhoneApi(param: paramsEmail)
         
     }
+    
     //MARK:-  Resend OTP on Email
     func callResendEmailApi(param : [String : Any]){
         
@@ -257,7 +259,28 @@ class CreateAccountController: UIViewController {
                 controller.stringEmail = self.stringEmail
                 controller.phoneCode = self.phoneCode
                 controller.stringGender = self.genderStr
+                controller.img = self.imgProfile ?? UIImage()
+                controller.imgIS = self.imgIS
                 self.navigationController?.pushViewController(controller, animated: true)
+                
+            }
+            else
+            {
+                self.MessageAlert(title: "", message: message!)
+            }
+        }
+    }
+    
+    
+    //MARK:-  Resend OTP on Email
+    func callResendPhoneApi(param : [String : Any]){
+        
+        IsPhoneUniqueAPIRequest.shared.IsPhoneUniqueEmail(requestParams: param, accessToken:"") { (message, status,otp) in
+            
+            if status == true{
+                let paramsEmail = ["email":self.stringEmail
+                                   , "isVerify": true] as [String : Any]
+                self.callResendEmailApi(param: paramsEmail)
                 
             }
             else
@@ -370,7 +393,7 @@ extension CreateAccountController: UIImagePickerControllerDelegate,UINavigationC
         imgUserProfile.layer.borderColor = UIColor.white.withAlphaComponent(0.8).cgColor
         imgUserProfile.layer.cornerRadius = imgUserProfile.frame.size.width/2
         imgUserProfile.clipsToBounds = true
-        
+        imgIS = true
         
        // self.uploadProfileImageApi()
 

@@ -10,6 +10,14 @@ import UIKit
 class ProductListViewController:  UIViewController {
     @IBOutlet weak var tableViewProduct: UITableView!
     @IBOutlet var cvHeader: UICollectionView!
+    
+    @IBOutlet weak var totalView: UIView!
+    @IBOutlet weak var view_H_Const: NSLayoutConstraint!
+
+    @IBOutlet weak var amountLbe: UILabel!
+    @IBOutlet weak var countLbe: UILabel!
+
+    
     var arrSortedCategory = [ProductCategoriesObject]()
     var indexInt = 0
     var categoryId = 0
@@ -23,15 +31,54 @@ class ProductListViewController:  UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        totalView.isHidden = true
+        view_H_Const.constant = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
         categoryAPI(true, true, 1)
-
+        myCartAPI(false)
     }
+    
+    func myCartAPI(_ isLoader:Bool){
+        var params = [ "availableService": ""
+        ] as [String : Any]
+        
+        
+        GetProductCartRequest.shared.GetCartItemsAPI(requestParams:params, isLoader) { [self] (arrayData,arrayService,message,isStatus) in
+            if isStatus {
+                if arrayData != nil{
+                    
+                   
+                    if arrayData?.allCartServicesArray.count ?? 0 > 0 {
+                        totalView.isHidden = false
+                        view_H_Const.constant = 70
+                        amountLbe.text =  String(format: "$%.2f", arrayData?.totalSellingPrice ?? 0.00)
+                        countLbe.text = String(format: "%d products added", arrayData?.allCartServicesArray.count ?? 0)
+                        
+                        if arrayData?.allCartServicesArray.count == 1 {
+                            countLbe.text = String(format: "%d product added", arrayData?.allCartServicesArray.count ?? 0)
+
+                        }
+                    }
+                    else{
+                        totalView.isHidden = true
+                        view_H_Const.constant = 0
+                    }
+                }
+                    else{
+                        totalView.isHidden = true
+                        view_H_Const.constant = 0
+                    }
+                }
+                else{
+                    totalView.isHidden = true
+                    view_H_Const.constant = 0
+                }
+            }
+        }
    
     @IBAction func btnBackPreessed(_ sender: Any){
         self.view.endEditing(true)
@@ -306,9 +353,8 @@ extension ProductListViewController: UITableViewDataSource,UITableViewDelegate {
             else{
                 NotificationAlert().NotificationAlert(titles:message ?? GlobalConstants.serverError)
             }
+            self.myCartAPI(false)
         }
-        
-        
     }
 }
 

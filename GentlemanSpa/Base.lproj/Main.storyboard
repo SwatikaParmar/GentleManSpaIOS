@@ -1342,7 +1342,7 @@
                                                     <action selector="SignUp:" destination="uBi-n2-xXv" eventType="touchUpInside" id="xeM-8Y-GNK"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_Male" translatesAutoresizingMaskIntoConstraints="NO" id="tu5-Np-zJX" customClass="UIImageViewX" customModule="GentlemanSpa" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_Male" translatesAutoresizingMaskIntoConstraints="NO" id="tu5-Np-zJX" customClass="UIImageViewX" customModule="GentlemanSpa" customModuleProvider="target">
                                                 <rect key="frame" x="263" y="8" width="110" height="110"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="110" id="NGo-Nt-ZiW"/>
@@ -1641,7 +1641,7 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXi-4y-nMH" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                         <rect key="frame" x="22" y="287.33333333333331" width="349" height="45"/>
-                                        <string key="text">Please Enter 4 Digit Code Sent To
+                                        <string key="text">Please Enter 5 Digit Code Sent To
 youremail@gmail.com</string>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                         <color key="textColor" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>

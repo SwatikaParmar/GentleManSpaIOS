@@ -369,6 +369,13 @@ class UpdateProfileProViewController: UIViewController {
             return
         }
         
+        if specialityIds == "" {
+            MessageAlert(title:"Alert",message: "Please select speciality")
+            return
+        }
+        
+        
+        
         
         let paramsNew = ["specialityIds": String(specialityIds),
                          "professionalDetailId" :  professionalDetailId,
@@ -397,7 +404,7 @@ class UpdateProfileProViewController: UIViewController {
             }
             else
             {
-                self.MessageAlert(title: "Alert", message: msg!)
+                self.OnlyMessageAlert(title: "Alert", message: msg!)
 
             }
             

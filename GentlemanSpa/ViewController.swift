@@ -213,6 +213,18 @@ extension UIViewController {
         })
     }
     
+    func OnlyMessageAlert(title:String,message:String)
+    {
+        let alert = UIAlertController(title: title, message:  message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title:"OK" , style: .cancel, handler:{ (UIAlertAction)in
+            
+            
+        }))
+        self.present(alert, animated: true, completion: {
+            
+        })
+    }
+    
     func SessionMessageAlert(title:String,message:String)
     {
         let alert = UIAlertController(title: title, message:  message, preferredStyle: .alert)

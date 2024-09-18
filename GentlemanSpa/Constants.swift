@@ -115,6 +115,10 @@ extension String{
         return "Path".path + "Auth/EmailOTP"
     }
     
+    var IsPhoneUnique: String{
+        return "Path".path + "Auth/IsPhoneUnique"
+    }
+    
     var SignUpURL: String{
         return "Path".path + "Auth/Register"
     }
@@ -204,6 +208,15 @@ extension String{
     var AddOrUpdateProductInCart: String{
         return "Path".path + "Product/AddOrUpdateProductInCart"
     }
+    var GetCartItems: String{
+        return "Path".path + "Customer/GetCartItems"
+    }
     
+    var GetProfessionalList: String{
+        return "Path".path + "Professional/GetProfessionalList"
+    }
     
+    var AddUpdateCartService: String{
+        return "Path".path + "Customer/AddUpdateCartService"
+    }
 }

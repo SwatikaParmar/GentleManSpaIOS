@@ -10,7 +10,7 @@ import EventKit
 
 class BookingDoctorViewController: UIViewController,CalendarViewDataSource,CalendarViewDelegate {
     
-    @IBOutlet weak var lbeName : UILabel!
+   
     @IBOutlet weak var lbeD : UILabel!
     @IBOutlet weak var lbeSp : UILabel!
     @IBOutlet weak var imgUser : UIImageView!
@@ -37,22 +37,41 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
     
     @IBOutlet var lbeDate: UILabel!
 
+    var professionalDetailId = 0
+    var name = ""
+    var arrayData = NSArray()
+    var imgUserStr : String?
 
     var dateSelectArray  = [String] ()
     var selectIndex = Int()
     var isLoadDataOnBack = false
     var strMonth = String()
     var arrSortedTime  = [String]()
-
-
-    var doctorName = ""
-    var  doctorSpecialities = ""
-    var  doctorD = ""
-    var imageUrl = ""
     var timeIndex = -1
     var singleDays = true
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        lbeD.text = name
+        
+        for i in 0 ..< arrayData.count {
+            if i == 0 {
+                lbeSp.text = String(format:"%@",arrayData[i] as! CVarArg)
+            }
+            else{
+                lbeSp.text = String(format:"%@, %@", lbeSp.text ?? "", arrayData[i] as! CVarArg)
+
+            }
+        }
+        
+        imgUser?.sd_setImage(with: URL.init(string:(imgUserStr ?? ""))) { (image, error, cache, urls) in
+            if (error != nil) {
+                self.imgUser.image = UIImage(named: "userProic")
+            } else {
+                self.imgUser.image = image
+                
+            }
+        }
         
         arrSortedTime = ["10:00 AM","10:30 AM","11:00 AM","11:30 AM","12:00 PM"]
         
@@ -77,13 +96,8 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
         
         appendThreeMonthName()
         addCalender()
-        // Do any additional setup after loading the view.
         
-        let doctorImagePath = URL.init(string:imageUrl)
-     //   imgUser.sd_setImage(with: doctorImagePath , placeholderImage: UIImage(named: "userP"))
-        
-      //  lbeName.text = doctorName
-     //   lbeSp.text = doctorSpecialities
+ 
         
         
         if singleDays{

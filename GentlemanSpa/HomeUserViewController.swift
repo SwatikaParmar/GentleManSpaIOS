@@ -58,6 +58,7 @@ class HomeUserViewController: UIViewController {
                 if arrayData != nil{
                     self.arrSortedCategory = arrayData ?? self.arrSortedCategory
                  
+                  
                     if self.arrSortedCategory.count > 0 {
                         self.tableViewHome.reloadData()
                     }

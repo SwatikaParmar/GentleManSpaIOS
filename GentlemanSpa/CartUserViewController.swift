@@ -41,6 +41,13 @@ class CartUserViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         
     }
+    
+    @IBAction func Back(_ sender: Any) {
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
     func myCartAPI(_ isLoader:Bool){
         var params = [ "availableService": ""
         ] as [String : Any]

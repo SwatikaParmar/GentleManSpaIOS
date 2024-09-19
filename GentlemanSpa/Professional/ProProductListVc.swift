@@ -10,10 +10,15 @@ import UIKit
 class ProProductListVc: UIViewController {
     @IBOutlet weak var tableViewProduct: UITableView!
     var arrSortedService = [ProProductListModel]()
+    
+    @IBOutlet weak var searchTxtField: UITextField!
+    var searchQuery = ""
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        searchTxtField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +44,7 @@ class ProProductListVc: UIViewController {
 //MARK: - productAPI API
 func GetProductAPI(_ isLoader:Bool){
     
-    let params = [ "salonId": 0,
+    let params = [ "SearchQuery": searchQuery,
     ] as [String : Any]
     
     ProGetProductListRequest.shared.productListAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
@@ -63,7 +68,20 @@ func GetProductAPI(_ isLoader:Bool){
     }
 }
 
-
+    func DeleteProductAPI(_ id:Int){
+        ProDeleteProductRequest.shared.deleteProductRequest(requestParams: id) { (productId, msg, success,Verification) in
+            
+            if success == false {
+                
+                self.MessageAlert(title: "Alert", message: msg!)
+                
+            }
+            else
+            {
+                self.GetProductAPI(false)
+            }
+        }
+    }
 }
 
 
@@ -140,9 +158,78 @@ func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->
         controller.productId = arrSortedService[indexPath.row].productId
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+      if editingStyle == .delete {
+          ActionSheetDelete(id: arrSortedService[indexPath.row].productId , "")
+      }
+    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func ActionSheetDelete(id:Int, _ type:String)
+    {
+        var str = ""
+        str = String(format: "Are you sure you want to delete this product?", type)
+        let alert = UIAlertController(title: nil, message:str, preferredStyle: .alert)
+        
+        let No = UIAlertAction(title:"No", style: .default, handler: { action in
+        })
+            alert.addAction(No)
+        
+        let Yes = UIAlertAction(title:"Yes", style: UIAlertAction.Style.destructive, handler: { action in
+            self.DeleteProductAPI(id)
+         
+        })
+        alert.addAction(Yes)
+        DispatchQueue.main.async(execute: {
+            self.present(alert, animated: true)
+        })
+    }
 }
 
 
+//MARK: TextField Delegate
+extension ProProductListVc : UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTxtField.resignFirstResponder()
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    {
+        if textField.text == "" && string == " "{
+            return false
+        }
+        
+        if string != "\n" {
+            searchQuery = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        }
+        
+        if !searchQuery.isEmpty
+        {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
+
+                GetProductAPI(false)
+
+
+            }
+        }
+        else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
+                searchQuery = ""
+                GetProductAPI(false)
+
+
+            }
+        }
+        return true
+    }
+}
+    
+    
 
 
 

@@ -33,7 +33,7 @@ class CreateAccountController: UIViewController {
     var trimmedEmailName = ""
     var trimmedPassword = ""
     var trimmedPhone = ""
-    var eyeClick = true
+  
     var phoneCode = ""
     var imgProfile : UIImage?
 
@@ -42,14 +42,14 @@ class CreateAccountController: UIViewController {
     let dropGender = DropDown()
     var genderStr = "Male"
     var imgIS = false
+    var eyeClick = true
+    var eyeClickC = true
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-      //  let controller:VerifiyController =  UIStoryboard(storyboard: .main).initVC()
-     //   self.navigationController?.pushViewController(controller, animated: true)
-        
-        
+        addEye()
         setupDropDowns()
 
         self.countryPicker.font = UIFont(name: FontName.Inter.Regular, size: 14)!
@@ -144,6 +144,52 @@ class CreateAccountController: UIViewController {
             self!.txt_Gender.text = item
         }
     }
+    
+    
+    func addEye() {
+        txt_Password.isSecureTextEntry = true
+
+        let buttonNew = UIButton(type: .custom)
+        buttonNew.setImage(UIImage(named: "eyesHide_ic"), for: .normal)
+        buttonNew.imageEdgeInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
+        buttonNew.frame = CGRect(x: CGFloat(txt_Password.frame.size.width - 35), y: CGFloat(5), width: CGFloat(30), height: CGFloat(30))
+        buttonNew.addTarget(self, action: #selector(self.eyePassword), for: .touchUpInside)
+        txt_Password.rightView = buttonNew
+        txt_Password.rightViewMode = .always
+        
+        txt_ConfirmPass.isSecureTextEntry = true
+
+        let buttonNewC = UIButton(type: .custom)
+        buttonNewC.setImage(UIImage(named: "eyesHide_ic"), for: .normal)
+        buttonNewC.imageEdgeInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
+        buttonNewC.frame = CGRect(x: CGFloat(txt_ConfirmPass.frame.size.width - 35), y: CGFloat(5), width: CGFloat(30), height: CGFloat(30))
+        buttonNewC.addTarget(self, action: #selector(self.eyePassword1), for: .touchUpInside)
+        txt_ConfirmPass.rightView = buttonNewC
+        txt_ConfirmPass.rightViewMode = .always
+    }
+    
+    @IBAction func eyePassword(_ sender: UIButton) {
+        if(eyeClick == true) {
+            sender.setImage(UIImage(named: "eyes_ic"), for: .normal)
+            txt_Password.isSecureTextEntry = false
+        } else {
+            sender.setImage(UIImage(named: "eyesHide_ic"), for: .normal)
+            txt_Password.isSecureTextEntry = true
+        }
+        eyeClick = !eyeClick
+    }
+    
+    @IBAction func eyePassword1(_ sender: UIButton) {
+        if(eyeClickC == true) {
+            sender.setImage(UIImage(named: "eyes_ic"), for: .normal)
+            txt_ConfirmPass.isSecureTextEntry = false
+        } else {
+            sender.setImage(UIImage(named: "eyesHide_ic"), for: .normal)
+            txt_ConfirmPass.isSecureTextEntry = true
+        }
+        eyeClickC = !eyeClickC
+    }
+    
     
     @IBAction func btnUserProfilePressed(_ sender: Any){
         self.view.endEditing(true)
@@ -289,6 +335,8 @@ class CreateAccountController: UIViewController {
             }
         }
     }
+    
+    
 }
 extension CreateAccountController: CountryPickerViewDelegate {
     func countryPickerView(_ countryPickerView: CountryPickerView, didSelectCountry country: Country) {

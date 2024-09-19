@@ -13,7 +13,7 @@ class ProGetProductListRequest: NSObject {
     func productListAPI(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData: [ProProductListModel]?,_ message : String?, _ isStatus : Bool) -> Void) {
 
         var apiURL = String("\("Base".GetProductList)")
-            apiURL = String(format:"%@?PageNumber=1&PageSize=1000&ProfessionalDetailId=%d", apiURL,professionalDetailId())
+        apiURL = String(format:"%@?PageNumber=1&PageSize=1000&ProfessionalDetailId=%d&SearchQuery=%@&SpaDetailId=21", apiURL,professionalDetailId(), requestParams["SearchQuery"] as? String ?? "")
 
             print("URL---->> ",apiURL)
             print("Request---->> ",requestParams)
@@ -211,6 +211,7 @@ class ProductDetailModel: NSObject {
     var mainCategoryId = 0
     var subCategoryId = 0
     var serviceImageArray = NSMutableArray()
+    var mainCategoryName = ""
 
     init(fromDictionary dictionary: [String:Any]){
         stock = dictionary["stock"] as? Int ?? 0
@@ -221,6 +222,7 @@ class ProductDetailModel: NSObject {
         serviceIconImage = dictionary["serviceIconImage"] as? String ?? ""
         mainCategoryId = dictionary["mainCategoryId"] as? Int ?? 0
         subCategoryId = dictionary["subCategoryId"] as? Int ?? 0
+        mainCategoryName = dictionary["mainCategoryName"] as? String ?? ""
 
         if let dataList = dictionary["images"] as? NSArray{
                for list in dataList{
@@ -240,7 +242,7 @@ class ProUpdateProductRequest: NSObject {
         print("URL---->> ","BaseURL".UpdateProduct)
         print("Request---->> ",requestParams)
         
-        AlamofireRequest.shared.PostBodyForRawData(urlString: "BaseURL".AddProduct, parameters: requestParams, authToken: accessToken(), isLoader: true, loaderMessage: "") { (data, error) in
+        AlamofireRequest.shared.PostBodyForRawData(urlString: "BaseURL".UpdateProduct, parameters: requestParams, authToken: accessToken(), isLoader: true, loaderMessage: "") { (data, error) in
             if error == nil{
                 print("*************************************************")
                 print(data ?? "No data")
@@ -260,6 +262,56 @@ class ProUpdateProductRequest: NSObject {
                         {
                             completion(productId, messageString, status, "")
                         }
+                        
+                    }
+                    else
+                    {
+                        completion(nil, messageString, status,"")
+                    }
+                }
+                else
+                {
+                    completion(nil, "There was an error connecting to server.", false,"")
+                }
+            }
+            else{
+                completion(nil,"There was an error connecting to server.try again", false,"")
+            }
+        }
+    }
+}
+
+
+class ProDeleteProductRequest: NSObject {
+    
+    static let shared = ProDeleteProductRequest()
+    func deleteProductRequest(requestParams : Int, completion: @escaping (_ productId: Int?,_ message : String?, _ status : Bool,_ accessToken:String) -> Void)
+    {
+        
+        print("URL---->> ","BaseURL".DeleteProduct)
+        print("Request---->> ",requestParams)
+        
+        var str = String(format: "%@?id=%d", "BaseURL".DeleteProduct, requestParams)
+        
+        AlamofireRequest.shared.DeleteBodyFrom(urlString: str, parameters: [:], authToken: accessToken(), isLoader: true, loaderMessage: "") { (data, error) in
+            if error == nil{
+                print("*************************************************")
+                print(data ?? "No data")
+                if let status = data?["isSuccess"] as? Bool
+                {
+                    
+                    var messageString : String = ""
+                    
+                    if let msg = data?["messages"] as? String{
+                        messageString = msg
+                    }
+                    
+                    if status == true
+                    {
+                            
+                        
+                            completion(nil, messageString, status, "")
+                        
                         
                     }
                     else

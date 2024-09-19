@@ -24,7 +24,7 @@ class SetPasswordVc: UIViewController {
         super.viewDidLoad()
         txt_Phone.text = email
         applyStyle(to: txt_Phone)
-        txt_Phone.placeholder = "Email or Phone no"
+        txt_Phone.placeholder = "Email"
         txt_Phone.keyboardType = .emailAddress
         txt_Phone.autocapitalizationType = .none
         
@@ -96,8 +96,14 @@ class SetPasswordVc: UIViewController {
         
         let trimmedP = txt_Password.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedPassword = txt_CPassword.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        
+        let trimmedEmail = txt_Phone.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        if email == "" {
+            
+            if (trimmedEmail?.isEmpty)!{
+                MessageAlert(title:"",message: "Please enter email")
+                return
+            }
+        }
         if (trimmedP?.isEmpty)!{
             MessageAlert(title:"",message: "Please enter password")
             return
@@ -118,20 +124,44 @@ class SetPasswordVc: UIViewController {
         }
         
         if email == "" {
-            return
+            let paramsEmail = ["email":trimmedEmail as Any
+                               , "isVerify": false] as [String : Any]
+            self.callResendEmailApi(param: paramsEmail, trimmedP ?? "")
+        }
+        else
+        {
+            var dataDict = Dictionary<String, Any>()
+            dataDict = [  "email": email,
+                          "activationCode":  code,
+                          "currentPassword":trimmedP ?? "",
+                          "newPassword":  trimmedP ?? ""] as [String : Any]
+            
+            changePassword(Params: dataDict)
         }
         
         
-        var dataDict = Dictionary<String, Any>()
-        dataDict = [  "email": email,
-                      "activationCode":  code,
-                      "currentPassword":trimmedP ?? "",
-                      "newPassword":  trimmedP ?? ""] as [String : Any]
-        
-        changePassword(Params: dataDict)
 
     }
-    
+    //MARK:-  Resend OTP on Email
+    func callResendEmailApi(param : [String : Any], _ str: String){
+        
+        ResendEmailAPIRequest.shared.ResendEmail(requestParams: param, accessToken:"") { (message, status,otp) in
+            
+            if status == true{
+                let controller:VerifiyController =  UIStoryboard(storyboard: .main).initVC()
+                controller.codeStr = String(otp)
+                controller.isForgot = true
+                controller.stringEmail = param["email"] as? String ?? "email"
+                controller.stringPassword = str
+                self.navigationController?.pushViewController(controller, animated: true)
+                
+            }
+            else
+            {
+                self.MessageAlert(title: "", message: message!)
+            }
+        }
+    }
     
     //MARK: -  Login Data API Call --
     func changePassword(Params:[String: Any])

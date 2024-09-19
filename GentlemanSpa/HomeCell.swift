@@ -98,16 +98,21 @@ extension ProductCategoriesCell:UICollectionViewDelegate,UICollectionViewDataSou
     
 func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
     let width = (collectionView.size.width/3)
-    var size = CGSize(width: width, height: 160)
+    
+    var height = (UIScreen.main.bounds.size.width/3)
+    height = height - 35 + 45
+    
+    var size = CGSize(width: width, height: height )
+    
     if Utility.shared.DivceTypeString() == "IPad" {
-         size = CGSize(width: width, height: 340)
+         size = CGSize(width: width, height: height)
     }
 
     return size
 }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 
     }
     

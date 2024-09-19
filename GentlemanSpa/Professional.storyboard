@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -36,14 +36,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kYF-ci-y2W">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="95"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu" translatesAutoresizingMaskIntoConstraints="NO" id="KRy-Lh-i77">
-                                        <rect key="frame" x="18" y="66" width="20.333333333333329" height="20"/>
+                                        <rect key="frame" x="18" y="67" width="20.333333333333329" height="20"/>
                                         <color key="tintColor" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t52-14-xFh">
-                                        <rect key="frame" x="5" y="0.0" width="40" height="94"/>
+                                        <rect key="frame" x="5" y="0.0" width="40" height="95"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="nFm-FQ-IIQ"/>
@@ -53,7 +53,7 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 56 (2)" translatesAutoresizingMaskIntoConstraints="NO" id="LMm-aS-mjw" customClass="UIImageViewX" customModule="GentlemanSpa">
-                                        <rect key="frame" x="329" y="53" width="46" height="46"/>
+                                        <rect key="frame" x="329" y="54" width="46" height="46"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="46" id="2ln-cI-6Uw"/>
                                             <constraint firstAttribute="height" constant="46" id="pI4-6n-9Lu"/>
@@ -74,7 +74,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHq-bb-0KZ">
-                                        <rect key="frame" x="316" y="0.0" width="77" height="94"/>
+                                        <rect key="frame" x="316" y="0.0" width="77" height="95"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="77" id="5ja-Nf-nAY"/>
                                         </constraints>
@@ -87,7 +87,7 @@
                                     <constraint firstItem="t52-14-xFh" firstAttribute="leading" secondItem="kYF-ci-y2W" secondAttribute="leading" constant="5" id="23F-62-Zmv"/>
                                     <constraint firstItem="KRy-Lh-i77" firstAttribute="leading" secondItem="kYF-ci-y2W" secondAttribute="leading" constant="18" id="4OJ-K9-d4C"/>
                                     <constraint firstAttribute="bottom" secondItem="KRy-Lh-i77" secondAttribute="bottom" constant="8" id="4cy-fD-f1G"/>
-                                    <constraint firstAttribute="height" constant="94" id="8MS-Mf-fqX"/>
+                                    <constraint firstAttribute="height" constant="95" id="8MS-Mf-fqX"/>
                                     <constraint firstAttribute="bottom" secondItem="t52-14-xFh" secondAttribute="bottom" id="8WF-JE-H2K"/>
                                     <constraint firstAttribute="trailing" secondItem="LMm-aS-mjw" secondAttribute="trailing" constant="18" id="9wE-fU-s4v"/>
                                     <constraint firstAttribute="trailing" secondItem="LHq-bb-0KZ" secondAttribute="trailing" id="BS6-eK-jB1"/>
@@ -98,7 +98,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tbS-mY-nmv">
-                                <rect key="frame" x="0.0" y="94" width="393" height="33"/>
+                                <rect key="frame" x="0.0" y="95" width="393" height="33"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Appointments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhu-0a-hnn" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                         <rect key="frame" x="17" y="11.33333333333333" width="123" height="19.666666666666671"/>
@@ -120,7 +120,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjP-wK-5iS">
-                                <rect key="frame" x="0.0" y="127" width="393" height="50"/>
+                                <rect key="frame" x="0.0" y="128" width="393" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OrW-Pe-apf">
                                         <rect key="frame" x="0.0" y="0.0" width="131" height="50"/>
@@ -294,7 +294,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Wj4-ha-kgC">
-                                <rect key="frame" x="0.0" y="187" width="393" height="665"/>
+                                <rect key="frame" x="0.0" y="188" width="393" height="664"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ConfirmedTvCell" rowHeight="190" id="vax-jc-Pqm" customClass="ConfirmedTvCell" customModule="GentlemanSpa" customModuleProvider="target">
@@ -1289,10 +1289,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QxW-Zr-hlD">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="85"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="95"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3YG-7o-DHb" customClass="UILabelX" customModule="GentlemanSpa">
-                                        <rect key="frame" x="148.33333333333334" y="61.333333333333343" width="96.333333333333343" height="21"/>
+                                        <rect key="frame" x="148.33333333333334" y="71.333333333333329" width="96.333333333333343" height="21"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1306,12 +1306,12 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="3YG-7o-DHb" firstAttribute="centerX" secondItem="QxW-Zr-hlD" secondAttribute="centerX" id="GoK-vC-5rr"/>
-                                    <constraint firstAttribute="height" constant="85" id="gmY-3R-Epo"/>
+                                    <constraint firstAttribute="height" constant="95" id="gmY-3R-Epo"/>
                                     <constraint firstAttribute="bottom" secondItem="3YG-7o-DHb" secondAttribute="bottom" constant="2.6700000762939453" id="vJ4-pn-Jhb"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="byf-Dx-CIE">
-                                <rect key="frame" x="0.0" y="96" width="393" height="756"/>
+                                <rect key="frame" x="0.0" y="106" width="393" height="746"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SchedulesCell" rowHeight="83" id="QXq-HR-V3v" customClass="SchedulesCell" customModule="GentlemanSpa" customModuleProvider="target">
@@ -1532,7 +1532,7 @@
                                 <rect key="frame" x="0.0" y="81" width="393" height="771"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hXU-ph-U6y">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="786"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="738"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4dB-wY-e2k" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
                                                 <rect key="frame" x="21" y="159" width="351" height="48"/>
@@ -1938,11 +1938,11 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agY-Y3-Aco" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="585" width="351" height="48"/>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agY-Y3-Aco" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
+                                                <rect key="frame" x="21" y="585" width="351" height="0.0"/>
                                                 <subviews>
                                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6Iv-fp-ta1" customClass="CocoaTextField" customModule="CocoaTextField">
-                                                        <rect key="frame" x="2" y="2" width="347" height="44"/>
+                                                        <rect key="frame" x="2" y="2" width="347" height="24.333333333333332"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" red="0.51372549020000002" green="0.46274509800000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -1968,7 +1968,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="6Iv-fp-ta1" secondAttribute="bottom" constant="2" id="177-BI-1Oi"/>
                                                     <constraint firstItem="6Iv-fp-ta1" firstAttribute="leading" secondItem="agY-Y3-Aco" secondAttribute="leading" constant="2" id="TLT-xV-fN2"/>
-                                                    <constraint firstAttribute="height" constant="48" id="nOs-Ko-DW4"/>
+                                                    <constraint firstAttribute="height" id="nOs-Ko-DW4"/>
                                                     <constraint firstAttribute="trailing" secondItem="6Iv-fp-ta1" secondAttribute="trailing" constant="2" id="sUg-Ry-FiT"/>
                                                     <constraint firstItem="6Iv-fp-ta1" firstAttribute="top" secondItem="agY-Y3-Aco" secondAttribute="top" constant="2" id="xsc-0w-YUy"/>
                                                 </constraints>
@@ -2003,7 +2003,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7J-Tq-S5d" customClass="UIButtonX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="656" width="351" height="40"/>
+                                                <rect key="frame" x="21" y="608" width="351" height="40"/>
                                                 <color key="backgroundColor" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Py2-5S-vAI"/>
@@ -2139,7 +2139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YM2-5Q-Dey" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1497" y="445"/>
+            <point key="canvasLocation" x="1496.9465648854962" y="444.36619718309862"/>
         </scene>
         <!--Specialities View Controller-->
         <scene sceneID="wih-SF-aFv">
@@ -2365,10 +2365,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vIz-cC-AOB">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="85"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="95"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hU-IF-YEv" customClass="UILabelX" customModule="GentlemanSpa">
-                                        <rect key="frame" x="133.66666666666666" y="57.333333333333343" width="125.99999999999997" height="21"/>
+                                        <rect key="frame" x="133.66666666666666" y="67.333333333333329" width="125.99999999999997" height="21"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -2379,7 +2379,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8L3-tc-YAf">
-                                        <rect key="frame" x="11.999999999999998" y="52.666666666666664" width="30.333333333333329" height="30.333333333333336"/>
+                                        <rect key="frame" x="11.999999999999998" y="62.666666666666664" width="30.333333333333329" height="30.333333333333336"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="backimg"/>
                                         <connections>
@@ -2390,14 +2390,14 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="8L3-tc-YAf" firstAttribute="leading" secondItem="vIz-cC-AOB" secondAttribute="leading" constant="12" id="5oF-65-q8o"/>
-                                    <constraint firstAttribute="height" constant="85" id="Ifk-TB-gxz"/>
+                                    <constraint firstAttribute="height" constant="95" id="Ifk-TB-gxz"/>
                                     <constraint firstItem="1hU-IF-YEv" firstAttribute="centerY" secondItem="8L3-tc-YAf" secondAttribute="centerY" id="PAm-An-gan"/>
                                     <constraint firstAttribute="bottom" secondItem="8L3-tc-YAf" secondAttribute="bottom" constant="2" id="Q0i-V1-w2h"/>
                                     <constraint firstItem="1hU-IF-YEv" firstAttribute="centerX" secondItem="vIz-cC-AOB" secondAttribute="centerX" id="WUV-nu-94c"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XIr-uq-WD7" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                <rect key="frame" x="-10" y="106" width="92.666666666666671" height="33"/>
+                                <rect key="frame" x="-10" y="116" width="92.666666666666671" height="33"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Aug" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tO-fO-Tzl">
                                         <rect key="frame" x="29.999999999999996" y="0.0" width="52.666666666666657" height="33"/>
@@ -2427,7 +2427,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ns0-9e-Bhz" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                <rect key="frame" x="21" y="353" width="351" height="71.333333333333314"/>
+                                <rect key="frame" x="21" y="363" width="351" height="71.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Na-mT-qxG" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                         <rect key="frame" x="9" y="9.9999999999999982" width="340" height="18.333333333333329"/>
@@ -2484,7 +2484,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HhJ-XY-xtC" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                <rect key="frame" x="21" y="183" width="351" height="140"/>
+                                <rect key="frame" x="21" y="193" width="351" height="140"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="die-GK-qoC">
                                         <rect key="frame" x="0.0" y="0.0" width="175.66666666666666" height="140"/>
@@ -2563,7 +2563,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zf5-Eb-7dy" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="60.666666666666671" y="72.666666666666657" width="6" height="22.666666666666671"/>
+                                                <rect key="frame" x="60.666666666666671" y="72.666666666666686" width="6" height="22.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="16"/>
                                                 <color key="textColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -2739,7 +2739,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHk-y6-pbS" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="60.666666666666657" y="72.666666666666657" width="6" height="22.666666666666671"/>
+                                                <rect key="frame" x="60.666666666666657" y="72.666666666666686" width="6" height="22.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="16"/>
                                                 <color key="textColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -3488,10 +3488,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgE-DW-EIn">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="85"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="95"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Product" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="als-LJ-hct" customClass="UILabelX" customModule="GentlemanSpa">
-                                        <rect key="frame" x="149.66666666666666" y="57.333333333333343" width="93.666666666666657" height="21"/>
+                                        <rect key="frame" x="149.66666666666666" y="67.333333333333329" width="93.666666666666657" height="21"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -3502,7 +3502,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fip-L6-JQf">
-                                        <rect key="frame" x="11.999999999999998" y="52.666666666666664" width="30.333333333333329" height="30.333333333333336"/>
+                                        <rect key="frame" x="11.999999999999998" y="62.666666666666664" width="30.333333333333329" height="30.333333333333336"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="backimg"/>
                                         <connections>
@@ -3513,14 +3513,14 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="als-LJ-hct" firstAttribute="centerX" secondItem="xgE-DW-EIn" secondAttribute="centerX" id="8ob-EZ-TnZ"/>
-                                    <constraint firstAttribute="height" constant="85" id="NDt-Tr-bVs"/>
+                                    <constraint firstAttribute="height" constant="95" id="NDt-Tr-bVs"/>
                                     <constraint firstItem="fip-L6-JQf" firstAttribute="leading" secondItem="xgE-DW-EIn" secondAttribute="leading" constant="12" id="gNM-Bl-AaP"/>
                                     <constraint firstItem="als-LJ-hct" firstAttribute="centerY" secondItem="fip-L6-JQf" secondAttribute="centerY" id="r2o-Gq-qi1"/>
                                     <constraint firstAttribute="bottom" secondItem="fip-L6-JQf" secondAttribute="bottom" constant="2" id="sFu-Lp-Wve"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5it-TN-n8m">
-                                <rect key="frame" x="0.0" y="85" width="393" height="767"/>
+                                <rect key="frame" x="0.0" y="95" width="393" height="757"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r7o-LU-iMf">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="826.66666666666663"/>
@@ -4201,7 +4201,7 @@
                                         <rect key="frame" x="37" y="2" width="279" height="34"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                 <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4213,6 +4213,9 @@
                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="PGI-qN-adJ" id="61p-Kz-jVA"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4630,6 +4633,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="searchTxtField" destination="XT5-0s-vRC" id="hQl-fb-TGC"/>
                         <outlet property="tableViewProduct" destination="b9O-nQ-O31" id="hmU-0m-8jY"/>
                     </connections>
                 </viewController>
@@ -4853,260 +4857,6 @@
             <point key="canvasLocation" x="1523" y="1785"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="0En-q4-sZw">
-            <size key="intrinsicContentSize" width="53.666666666666664" height="21"/>
-        </designable>
-        <designable name="0NZ-fC-zeg">
-            <size key="intrinsicContentSize" width="68" height="17"/>
-        </designable>
-        <designable name="0zb-Uv-abp">
-            <size key="intrinsicContentSize" width="217" height="19.666666666666668"/>
-        </designable>
-        <designable name="1ds-iD-tNW">
-            <size key="intrinsicContentSize" width="37.666666666666664" height="21"/>
-        </designable>
-        <designable name="1hU-IF-YEv">
-            <size key="intrinsicContentSize" width="126" height="21"/>
-        </designable>
-        <designable name="1w6-LW-l4u">
-            <size key="intrinsicContentSize" width="89" height="21"/>
-        </designable>
-        <designable name="3P5-aV-mW0">
-            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
-        </designable>
-        <designable name="3YG-7o-DHb">
-            <size key="intrinsicContentSize" width="96.333333333333329" height="21"/>
-        </designable>
-        <designable name="4uy-tk-mf1">
-            <size key="intrinsicContentSize" width="151" height="17"/>
-        </designable>
-        <designable name="5v9-Cu-Cdg">
-            <size key="intrinsicContentSize" width="98.666666666666671" height="17"/>
-        </designable>
-        <designable name="6Iv-fp-ta1">
-            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
-        </designable>
-        <designable name="6Rh-xH-EsN">
-            <size key="intrinsicContentSize" width="83.333333333333329" height="21"/>
-        </designable>
-        <designable name="7n8-L0-8fi">
-            <size key="intrinsicContentSize" width="67" height="21"/>
-        </designable>
-        <designable name="9Na-mT-qxG">
-            <size key="intrinsicContentSize" width="34" height="18.333333333333332"/>
-        </designable>
-        <designable name="A54-vz-pct">
-            <size key="intrinsicContentSize" width="267.33333333333331" height="24"/>
-        </designable>
-        <designable name="Acu-GM-ZBW">
-            <size key="intrinsicContentSize" width="94.333333333333329" height="19.666666666666668"/>
-        </designable>
-        <designable name="BDc-ok-5I6">
-            <size key="intrinsicContentSize" width="200" height="200"/>
-        </designable>
-        <designable name="BuN-8u-2WQ">
-            <size key="intrinsicContentSize" width="25.333333333333332" height="22.666666666666668"/>
-        </designable>
-        <designable name="C4T-dh-yLe">
-            <size key="intrinsicContentSize" width="151" height="17"/>
-        </designable>
-        <designable name="C7J-Tq-S5d">
-            <size key="intrinsicContentSize" width="64" height="36"/>
-        </designable>
-        <designable name="ChG-g9-cRP">
-            <size key="intrinsicContentSize" width="98.666666666666671" height="17"/>
-        </designable>
-        <designable name="D78-am-cxz">
-            <size key="intrinsicContentSize" width="84" height="32"/>
-        </designable>
-        <designable name="DRJ-Gt-qr0">
-            <size key="intrinsicContentSize" width="208.66666666666666" height="162.33333333333334"/>
-        </designable>
-        <designable name="Dy6-1z-K6F">
-            <size key="intrinsicContentSize" width="96" height="18.333333333333332"/>
-        </designable>
-        <designable name="E5w-5S-eB6">
-            <size key="intrinsicContentSize" width="354.66666666666669" height="15.666666666666666"/>
-        </designable>
-        <designable name="Ewb-Fg-9wJ">
-            <size key="intrinsicContentSize" width="208.66666666666666" height="162.33333333333334"/>
-        </designable>
-        <designable name="Fdr-yg-doo">
-            <size key="intrinsicContentSize" width="54" height="21"/>
-        </designable>
-        <designable name="Fo8-rc-ZJk">
-            <size key="intrinsicContentSize" width="98.666666666666671" height="17"/>
-        </designable>
-        <designable name="G79-4X-Rhl">
-            <size key="intrinsicContentSize" width="102.33333333333333" height="19.666666666666668"/>
-        </designable>
-        <designable name="GFh-6c-0MH">
-            <size key="intrinsicContentSize" width="556.66666666666663" height="17"/>
-        </designable>
-        <designable name="GTJ-Zi-b9p">
-            <size key="intrinsicContentSize" width="16" height="22.666666666666668"/>
-        </designable>
-        <designable name="GTe-UX-eNE">
-            <size key="intrinsicContentSize" width="62" height="38"/>
-        </designable>
-        <designable name="GdZ-tZ-GOA">
-            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
-        </designable>
-        <designable name="HGk-Fg-QgA">
-            <size key="intrinsicContentSize" width="52" height="18.333333333333332"/>
-        </designable>
-        <designable name="JlK-WI-ZLe">
-            <size key="intrinsicContentSize" width="148" height="22.666666666666668"/>
-        </designable>
-        <designable name="Jzn-r8-8tV">
-            <size key="intrinsicContentSize" width="217" height="19.666666666666668"/>
-        </designable>
-        <designable name="KHk-y6-pbS">
-            <size key="intrinsicContentSize" width="4.333333333333333" height="22.666666666666668"/>
-        </designable>
-        <designable name="LMm-aS-mjw">
-            <size key="intrinsicContentSize" width="291" height="246"/>
-        </designable>
-        <designable name="LW1-SE-hkp">
-            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
-        </designable>
-        <designable name="Mhu-0a-hnn">
-            <size key="intrinsicContentSize" width="123" height="19.666666666666668"/>
-        </designable>
-        <designable name="Nec-LJ-blX">
-            <size key="intrinsicContentSize" width="62" height="36"/>
-        </designable>
-        <designable name="Nhr-OV-ROu">
-            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
-        </designable>
-        <designable name="PFL-Jk-Xpo">
-            <size key="intrinsicContentSize" width="84.666666666666671" height="17"/>
-        </designable>
-        <designable name="PVF-fJ-mJu">
-            <size key="intrinsicContentSize" width="200" height="200"/>
-        </designable>
-        <designable name="QGw-LE-BYg">
-            <size key="intrinsicContentSize" width="63.333333333333336" height="25.333333333333332"/>
-        </designable>
-        <designable name="QPh-8p-3lY">
-            <size key="intrinsicContentSize" width="88.333333333333329" height="21"/>
-        </designable>
-        <designable name="QdV-7G-Ncl">
-            <size key="intrinsicContentSize" width="42.666666666666664" height="42.666666666666664"/>
-        </designable>
-        <designable name="Rte-a5-UI1">
-            <size key="intrinsicContentSize" width="151" height="17"/>
-        </designable>
-        <designable name="URd-dP-wd5">
-            <size key="intrinsicContentSize" width="25.333333333333332" height="22.666666666666668"/>
-        </designable>
-        <designable name="VEW-lm-v6U">
-            <size key="intrinsicContentSize" width="217" height="19.666666666666668"/>
-        </designable>
-        <designable name="Wm5-QF-C6V">
-            <size key="intrinsicContentSize" width="75.666666666666671" height="24"/>
-        </designable>
-        <designable name="X0B-kW-qe6">
-            <size key="intrinsicContentSize" width="16" height="22.666666666666668"/>
-        </designable>
-        <designable name="XT5-0s-vRC">
-            <size key="intrinsicContentSize" width="84.333333333333329" height="21.333333333333332"/>
-        </designable>
-        <designable name="ZAo-I3-hu2">
-            <size key="intrinsicContentSize" width="16" height="22.666666666666668"/>
-        </designable>
-        <designable name="ZPb-xC-usY">
-            <size key="intrinsicContentSize" width="62.666666666666664" height="21"/>
-        </designable>
-        <designable name="ZaX-jy-JW8">
-            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
-        </designable>
-        <designable name="ZpT-KK-aik">
-            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
-        </designable>
-        <designable name="ZuY-Gm-m8Y">
-            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
-        </designable>
-        <designable name="a9J-3d-dN6">
-            <size key="intrinsicContentSize" width="94.333333333333329" height="19.666666666666668"/>
-        </designable>
-        <designable name="als-LJ-hct">
-            <size key="intrinsicContentSize" width="93.666666666666671" height="21"/>
-        </designable>
-        <designable name="bos-Cz-YMO">
-            <size key="intrinsicContentSize" width="64" height="17"/>
-        </designable>
-        <designable name="cNr-yq-NUo">
-            <size key="intrinsicContentSize" width="58" height="24"/>
-        </designable>
-        <designable name="crd-Da-cf2">
-            <size key="intrinsicContentSize" width="196" height="22.666666666666668"/>
-        </designable>
-        <designable name="cyS-AN-6Oa">
-            <size key="intrinsicContentSize" width="16" height="22.666666666666668"/>
-        </designable>
-        <designable name="eyC-U4-BiV">
-            <size key="intrinsicContentSize" width="267.33333333333331" height="24"/>
-        </designable>
-        <designable name="fRr-VY-RsE">
-            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
-        </designable>
-        <designable name="gCm-zd-FAS">
-            <size key="intrinsicContentSize" width="94.666666666666671" height="24"/>
-        </designable>
-        <designable name="gN4-vp-EWv">
-            <size key="intrinsicContentSize" width="208.66666666666666" height="162.33333333333334"/>
-        </designable>
-        <designable name="gtv-kp-Op0">
-            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
-        </designable>
-        <designable name="i1Y-GJ-yBK">
-            <size key="intrinsicContentSize" width="62" height="36"/>
-        </designable>
-        <designable name="iZT-pc-wHx">
-            <size key="intrinsicContentSize" width="8.3333333333333339" height="15.666666666666666"/>
-        </designable>
-        <designable name="j0o-Ds-Ojr">
-            <size key="intrinsicContentSize" width="106" height="36"/>
-        </designable>
-        <designable name="kT1-LY-gEH">
-            <size key="intrinsicContentSize" width="96" height="18.333333333333332"/>
-        </designable>
-        <designable name="pcA-NU-CpS">
-            <size key="intrinsicContentSize" width="145.66666666666666" height="22.666666666666668"/>
-        </designable>
-        <designable name="qVE-YQ-3fi">
-            <size key="intrinsicContentSize" width="5" height="24.333333333333332"/>
-        </designable>
-        <designable name="qmp-Sd-TKp">
-            <size key="intrinsicContentSize" width="612" height="408"/>
-        </designable>
-        <designable name="ttD-mU-arA">
-            <size key="intrinsicContentSize" width="66.333333333333329" height="17"/>
-        </designable>
-        <designable name="tvP-Yg-RK5">
-            <size key="intrinsicContentSize" width="52" height="18.333333333333332"/>
-        </designable>
-        <designable name="tvy-ov-vEP">
-            <size key="intrinsicContentSize" width="52" height="18.333333333333332"/>
-        </designable>
-        <designable name="u87-YT-s6Z">
-            <size key="intrinsicContentSize" width="49" height="21"/>
-        </designable>
-        <designable name="v4z-ZR-o8d">
-            <size key="intrinsicContentSize" width="612" height="408"/>
-        </designable>
-        <designable name="wFl-Ih-6aE">
-            <size key="intrinsicContentSize" width="102.33333333333333" height="19.666666666666668"/>
-        </designable>
-        <designable name="xB5-HD-Ecd">
-            <size key="intrinsicContentSize" width="96" height="18.333333333333332"/>
-        </designable>
-        <designable name="zf5-Eb-7dy">
-            <size key="intrinsicContentSize" width="4.333333333333333" height="22.666666666666668"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Rectangle 56 (2)" width="291" height="246"/>
         <image name="add+" width="42.666667938232422" height="42.666667938232422"/>

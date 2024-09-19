@@ -104,15 +104,14 @@ extension CategoryHomeTvCell:UICollectionViewDelegate,UICollectionViewDataSource
     
 func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
     let width = (collectionView.size.width/3)
-    var size = CGSize(width: width, height: 165)
     
-    if Utility.ScreenSize.SCREEN_HEIGHT > 931 {
-        var size = CGSize(width: width, height: 170)
-
-    }
+    var height = (UIScreen.main.bounds.size.width/3)
+    height = height - 35 + 62
+    
+    var size = CGSize(width: width, height: height )
     
     if Utility.shared.DivceTypeString() == "IPad" {
-         size = CGSize(width: width, height: 340)
+         size = CGSize(width: width, height: height)
     }
 
     return size

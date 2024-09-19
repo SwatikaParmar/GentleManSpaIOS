@@ -88,7 +88,7 @@ class GetProductListRequest: NSObject {
     func productListAPI(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData: [ProductListModel]?,_ message : String?, _ isStatus : Bool) -> Void) {
 
         var apiURL = String("\("Base".GetProductList)")
-        apiURL = String(format:"%@?PageNumber=1&PageSize=1000&MainCategoryId=%d", apiURL,requestParams["mainCategoryId"] as? Int ?? 0)
+        apiURL = String(format:"%@?PageNumber=1&PageSize=1000&MainCategoryId=%d&SearchQuery=%@&SpaDetailId=21", apiURL,requestParams["mainCategoryId"] as? Int ?? 0,requestParams["searchQuery"] as? String ?? "")
 
             print("URL---->> ",apiURL)
             print("Request---->> ",requestParams)

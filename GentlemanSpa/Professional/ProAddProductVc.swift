@@ -295,7 +295,12 @@ class ProAddProductVc: UIViewController ,UITextFieldDelegate, UITextViewDelegate
                     
                     
                     self.txt_Name.text = self.arrSortedProduct?.serviceName.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-                 //   self.trimmedCate = txt_CategoryName.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+                    self.trimmedCate = self.arrSortedProduct?.mainCategoryName.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+                    self.txt_CategoryName.text = self.trimmedCate
+                    
+                    self.productCategoryId = self.arrSortedProduct?.mainCategoryId ?? 0
+                    
+                    
                     self.txt_basePrice.text = String(self.arrSortedProduct?.basePrice ?? 0).trimmingCharacters(in: .whitespacesAndNewlines)
                     self.txt_listingPrice.text = String(self.arrSortedProduct?.listingPrice ?? 0).trimmingCharacters(in: .whitespacesAndNewlines)
                     self.txt_stock.text = String(self.arrSortedProduct?.stock ?? 0).trimmingCharacters(in: .whitespacesAndNewlines)

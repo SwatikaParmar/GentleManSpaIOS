@@ -115,6 +115,12 @@ extension String{
         return "Path".path + "Auth/EmailOTP"
     }
     
+    var ResetPassword: String{
+        return "Path".path + "Auth/ResetPassword"
+    }
+    
+    
+    
     var IsPhoneUnique: String{
         return "Path".path + "Auth/IsPhoneUnique"
     }
@@ -198,6 +204,11 @@ extension String{
     var AddProduct: String{
         return "Path".path + "Product/AddProduct"
     }
+    
+    var DeleteProduct: String{
+        return "Path".path + "Product/DeleteProduct"
+    }
+    
     var UpdateProduct: String{
         return "Path".path + "Product/UpdateProduct"
     }

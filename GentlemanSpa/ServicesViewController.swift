@@ -13,6 +13,7 @@ class ServicesViewController: UIViewController {
     @IBOutlet weak var searchTxtField: UITextField!
     @IBOutlet weak var totalView: UIView!
     @IBOutlet weak var view_H_Const: NSLayoutConstraint!
+    @IBOutlet weak var viewNoData: UIView!
 
     @IBOutlet weak var amountLbe: UILabel!
     @IBOutlet weak var countLbe: UILabel!
@@ -31,7 +32,7 @@ class ServicesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchTxtField.delegate = self
-
+        viewNoData.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,6 +106,12 @@ class ServicesViewController: UIViewController {
                     self.arrSortedService.removeAll()
                     self.arrSortedService = arrayData ?? self.arrSortedService
                     DispatchQueue.main.async {
+                        if self.arrSortedService.count > 0 {
+                            self.viewNoData.isHidden = true
+                        }
+                        else{
+                            self.viewNoData.isHidden = false
+                        }
                         self.tableViewMale.reloadData()
                     }
                 }
@@ -112,12 +119,14 @@ class ServicesViewController: UIViewController {
                     self.arrSortedService.removeAll()
                     self.arrSortedPackage.removeAll()
                     self.tableViewMale.reloadData()
+                    self.viewNoData.isHidden = false
                 }
             }
             else{
                 self.arrSortedService.removeAll()
                 self.arrSortedPackage.removeAll()
                 self.tableViewMale.reloadData()
+                self.viewNoData.isHidden = false
             }
         }
     }

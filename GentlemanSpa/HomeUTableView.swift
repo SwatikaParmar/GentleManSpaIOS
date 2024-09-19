@@ -125,11 +125,8 @@ extension HomeUserViewController: UITableViewDataSource,UITableViewDelegate,Cate
         }
         if indexPath.section == 2 {
             var width = (UIScreen.main.bounds.size.width/3)
-            width = 165
-            if Utility.ScreenSize.SCREEN_HEIGHT > 931 {
-                width = 170
-
-            }
+            width = width - 35 + 62
+            
             if arrSortedCategory.count > 0 {
                 let result = Int(arrSortedCategory.count) % 3
                 if result == 0 {
@@ -148,17 +145,17 @@ extension HomeUserViewController: UITableViewDataSource,UITableViewDelegate,Cate
         
         if indexPath.section == 3 {
             var width = (UIScreen.main.bounds.size.width/3)
-            width = 160
+            width = width - 35 + 45
             if arrSortedProductCategories.count > 0 {
                 let result = Int(arrSortedProductCategories.count) % 3
                 if result == 0 {
                     let count = Int(arrSortedProductCategories.count) / 3
-                    return CGFloat(count * Int(width)) + 40
+                    return CGFloat(count * Int(width)) + 45
                 }
                 else{
                     var count = Int(arrSortedProductCategories.count) / 3
                     count = count + 1
-                    return CGFloat(count * Int(width)) + 40
+                    return CGFloat(count * Int(width)) + 45
                     
                 }
             }

@@ -11,6 +11,9 @@ import SVPinView
 class VerifiyController: UIViewController ,UITextFieldDelegate{
     @IBOutlet weak var pinViewPhone: SVPinView!
     @IBOutlet weak var btnV: UIButton!
+    @IBOutlet weak var lbeTextTop: UILabel!
+
+    
     var email = ""
     var codeStr = ""
     var accessToken = ""
@@ -20,20 +23,23 @@ class VerifiyController: UIViewController ,UITextFieldDelegate{
     var trimmedPassword = ""
     var stringPhoneNo = ""
     var stringEmail = ""
+    var stringPassword = ""
+
     var stringGender = ""
     var phoneCode = ""
     var img = UIImage()
     var imgIS = false
+    var isForgot = false
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+     
+        
+        lbeTextTop.text = String(format: "Please Enter 5 Digit Code Sent To %@", stringEmail)
         configurePhonePinView()
-//        let controller:AlertViewController =  UIStoryboard(storyboard: .main).initVC()
-//        controller.providesPresentationContextTransitionStyle = true
-//        controller.definesPresentationContext = true
-//        controller.modalPresentationStyle=UIModalPresentationStyle.overCurrentContext
-//        self.present(controller, animated: true, completion: nil)
-      
+
       
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -66,7 +72,41 @@ class VerifiyController: UIViewController ,UITextFieldDelegate{
             return
         }
         else{
-            SignUp_User()
+            if isForgot {
+                
+                    
+                var param = [String : AnyObject]()
+                param["email"] = stringEmail as AnyObject
+                param["newPassword"] = stringPassword as AnyObject
+
+                    
+                    UserResetPasswordRequest.shared.ResetPasswordData(requestParams:param, true) { (message,isStatus) in
+                        if isStatus {
+                            LoginMessageAlert(title: "Congratulation!", message: message ?? "Successfully")
+                            }
+                        else{
+                                NotificationAlert().NotificationAlert(titles: message ?? GlobalConstants.serverError)
+
+                            }
+                        }
+                    }
+            
+            else{
+                SignUp_User()
+            }
+        }
+        
+        func LoginMessageAlert(title:String,message:String)
+        {
+            let alert = UIAlertController(title: title, message:  message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title:"OK" , style: .cancel, handler:{ (UIAlertAction)in
+                
+                RootControllerManager().SetRootViewController()
+
+            }))
+            self.present(alert, animated: true, completion: {
+                
+            })
         }
     }
     
@@ -221,4 +261,46 @@ class AlertViewController: UIViewController {
         
         RootControllerManager().SetRootViewController()
     }
+}
+class UserResetPasswordRequest: NSObject {
+
+    static let shared = UserResetPasswordRequest()
+    func ResetPasswordData(requestParams : [String:Any], _ isLoader : Bool, completion: @escaping (_ message : String?, _ isStatus : Bool) -> Void) {
+
+        var apiURL = String("BaseURL".ResetPassword)
+        
+    
+        AlamofireRequest.shared.PostBodyForRawData(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
+                
+                     print(data ?? "No data")
+                     if error == nil{
+                         var messageString : String = ""
+                         if let status = data?["isSuccess"] as? Bool{
+                             if let msg = data?["messages"] as? String{
+                                 messageString = msg
+                             }
+                             if status {
+                                    if let dataList = data?["data"] as? NSArray{
+                                       
+                                        completion(messageString,true)
+                                 }
+                                 else{
+                                     completion(messageString,true)
+                                 }
+                      
+                             }else{
+                                 completion(messageString,false)
+                             }
+                         }
+                         else
+                         {
+                             completion(GlobalConstants.serverError,false)
+                         }
+                        }
+                        else
+                        {
+                            completion(GlobalConstants.serverError,false)
+                }
+            }
+        }
 }

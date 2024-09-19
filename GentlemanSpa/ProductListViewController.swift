@@ -16,6 +16,8 @@ class ProductListViewController:  UIViewController {
 
     @IBOutlet weak var amountLbe: UILabel!
     @IBOutlet weak var countLbe: UILabel!
+    @IBOutlet weak var searchTxtField: UITextField!
+    @IBOutlet weak var viewNoData: UIView!
 
     
     var arrSortedCategory = [ProductCategoriesObject]()
@@ -23,6 +25,7 @@ class ProductListViewController:  UIViewController {
     var categoryId = 0
     var genderPreferences = "Male"
     var itemCount:Int = 1
+    var searchQuery = ""
 
     
     var arrSortedService = [ProductListModel]()
@@ -33,6 +36,8 @@ class ProductListViewController:  UIViewController {
         super.viewDidLoad()
         totalView.isHidden = true
         view_H_Const.constant = 0
+        searchTxtField.delegate = self
+        viewNoData.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,7 +90,8 @@ class ProductListViewController:  UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func btnPreessed(_ sender: Any){
-        
+        guard let controller = self.storyboard?.instantiateViewController(identifier: "CartUserViewController") as? CartUserViewController else { return}
+        self.navigationController?.pushViewController(controller, animated: true)
        
     }
     
@@ -137,7 +143,8 @@ class ProductListViewController:  UIViewController {
         let params = [ "salonId": 0,
                        "mainCategoryId": categoryId,
                        "subCategoryId": subCategoryId,
-                       "genderPreferences": genderPreferences
+                       "genderPreferences": genderPreferences,
+                       "searchQuery" : searchQuery,
         ] as [String : Any]
         
         GetProductListRequest.shared.productListAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
@@ -146,16 +153,25 @@ class ProductListViewController:  UIViewController {
                     self.arrSortedService.removeAll()
                     self.arrSortedService = arrayData ?? self.arrSortedService
                     DispatchQueue.main.async {
+                        if self.arrSortedService.count > 0 {
+                            self.viewNoData.isHidden = true
+                        }
+                        else{
+                            self.viewNoData.isHidden = false
+                        }
                         self.tableViewProduct.reloadData()
                     }
                 }
                 else{
+                    self.viewNoData.isHidden = false
                     self.arrSortedService.removeAll()
                     self.arrSortedPackage.removeAll()
                     self.tableViewProduct.reloadData()
                 }
             }
             else{
+                self.viewNoData.isHidden = false
+
                 self.arrSortedService.removeAll()
                 self.arrSortedPackage.removeAll()
                 self.tableViewProduct.reloadData()
@@ -381,5 +397,46 @@ class ProductLstTvCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
     }
-    
 }
+
+
+//MARK: TextField Delegate
+extension ProductListViewController : UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTxtField.resignFirstResponder()
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    {
+        if textField.text == "" && string == " "{
+            return false
+        }
+        
+        if string != "\n" {
+            searchQuery = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        }
+        
+        if !searchQuery.isEmpty
+        {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
+
+                self.productAPI(false, true, "",self.arrSortedCategory[self.indexInt].mainCategoryId,self.genderPreferences, 0)
+
+
+            }
+        }
+        else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
+                searchQuery = ""
+                self.productAPI(false, true, "",self.arrSortedCategory[self.indexInt].mainCategoryId,self.genderPreferences, 0)
+
+
+            }
+        }
+        return true
+    }
+}
+    
+    

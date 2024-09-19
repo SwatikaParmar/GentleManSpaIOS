@@ -82,6 +82,23 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func sideMenu(_ sender: Any) {
+        
+        var stringURL = ""
+        let urli : String = UserDefaults.standard.string(forKey: Constants.userImg) ?? ""
+
+        if urli.contains("http:") {
+            stringURL = urli
+        }
+        else{
+            stringURL =  GlobalConstants.BASE_IMAGE_URL + urli
+        }
+        
+        let urlString = stringURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+             imgProfile?.sd_setImage(with: URL.init(string:(urlString)),
+                               placeholderImage: UIImage(named: "placeholder_Male"),
+                               options: .refreshCached,
+                               completed: nil)
+        
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SideMenuUpdate"), object: nil)
         sideMenuController?.showLeftView(animated: true)
     }
@@ -104,6 +121,22 @@ class HomeViewController: UIViewController {
     }
  
     @IBAction func ConfirmedAction(_ sender: Any) {
+        
+        var stringURL = ""
+        let urli : String = UserDefaults.standard.string(forKey: Constants.userImg) ?? ""
+
+        if urli.contains("http:") {
+            stringURL = urli
+        }
+        else{
+            stringURL =  GlobalConstants.BASE_IMAGE_URL + urli
+        }
+        
+        let urlString = stringURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+             imgProfile?.sd_setImage(with: URL.init(string:(urlString)),
+                               placeholderImage: UIImage(named: "placeholder_Male"),
+                               options: .refreshCached,
+                               completed: nil)
         
         lbeTitleConfirmed.textColor = UIColor.white
         lbeLineConfirmed.backgroundColor = UIColor.white

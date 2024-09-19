@@ -105,19 +105,22 @@ class TabBarUserVc: UIViewController {
             
             else if className == "ProductVc"{
                
-                lbePro.font = UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(12)) ?? UIFont.systemFont(ofSize: 15)
+               // lbePro.font = UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(12)) ?? UIFont.systemFont(ofSize: 15)
                 
-                if Contentview.contains(searchNav?.view ?? UIView()){
-                    searchNav?.view.removeFromSuperview()
-                }
+//                if Contentview.contains(searchNav?.view ?? UIView()){
+//                    searchNav?.view.removeFromSuperview()
+//                }
+//                
+//                guard let home = self.storyboard?.instantiateViewController(identifier: "CartUserViewController") as? CartUserViewController else { return}
+//                home.view.frame = Contentview.bounds
+//                searchNav = UINavigationController(rootViewController: home)
+//                searchNav?.view.frame = Contentview.bounds
+//                addChild(searchNav!)
+//                Contentview.addSubview((searchNav?.view)!)
+//                searchNav!.didMove(toParent: self)
                 
-                guard let home = self.storyboard?.instantiateViewController(identifier: "CartUserViewController") as? CartUserViewController else { return}
-                home.view.frame = Contentview.bounds
-                searchNav = UINavigationController(rootViewController: home)
-                searchNav?.view.frame = Contentview.bounds
-                addChild(searchNav!)
-                Contentview.addSubview((searchNav?.view)!)
-                searchNav!.didMove(toParent: self)
+                guard let controller = self.storyboard?.instantiateViewController(identifier: "CartUserViewController") as? CartUserViewController else { return}
+                self.navigationController?.pushViewController(controller, animated: true)
                 
                 lastOpenClass = "Favourites"
                 

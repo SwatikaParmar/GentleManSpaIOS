@@ -28,7 +28,8 @@ class ProfessionalServicesVc: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        totalView.isHidden = true
+        view_H_Const.constant = 0
         lbeName.text = name
         
         for i in 0 ..< arrayData.count {

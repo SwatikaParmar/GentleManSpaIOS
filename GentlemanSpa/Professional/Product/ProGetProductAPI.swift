@@ -212,7 +212,9 @@ class ProductDetailModel: NSObject {
     var subCategoryId = 0
     var serviceImageArray = NSMutableArray()
     var mainCategoryName = ""
-
+    var countInCart = 0
+    var inStock = 0
+    var productId = 0
     init(fromDictionary dictionary: [String:Any]){
         stock = dictionary["stock"] as? Int ?? 0
         serviceName = dictionary["name"] as? String ?? ""
@@ -223,6 +225,9 @@ class ProductDetailModel: NSObject {
         mainCategoryId = dictionary["mainCategoryId"] as? Int ?? 0
         subCategoryId = dictionary["subCategoryId"] as? Int ?? 0
         mainCategoryName = dictionary["mainCategoryName"] as? String ?? ""
+        countInCart = dictionary["countInCart"] as? Int ?? 0
+        inStock = dictionary["stock"] as? Int ?? 0
+        productId = dictionary["productId"] as? Int ?? 0
 
         if let dataList = dictionary["images"] as? NSArray{
                for list in dataList{

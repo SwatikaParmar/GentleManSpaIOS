@@ -50,7 +50,7 @@ class GetProductCartRequest: NSObject {
 
     static let shared = GetProductCartRequest()
     
-    func GetCartItemsAPI(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData: CartDataModel?, _ objectSer: cartServicesDataModel?, _ message : String?, _ isStatus : Bool) -> Void) {
+    func GetCartItemsAPI(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData: CartDataModel?, _ objectSer: cartServicesDataModel?, _ message : String?, _ isStatus : Bool, _ totalAmount: Double) -> Void) {
 
         let apiURL = String("Base".GetCartItems)
         
@@ -67,18 +67,21 @@ class GetProductCartRequest: NSObject {
                                  messageString = msg
                              }
                              if status{
-
+                                 
+                                 var totalAmount = 0.00
+                                 totalAmount = data?["data"]?["spaTotalSellingPrice"] as? Double ?? 0.00
+                                 
                                  if let result = data?["data"]?["cartProducts"] as? [String : Any]{
                                     let dict : CartDataModel = CartDataModel.init(fromDictionary: result as! [String : Any])
                                         
                                          
                                      if let result = data?["data"]?["cartServices"] as? [String : Any]{
                                          let dictNew : cartServicesDataModel = cartServicesDataModel.init(fromDictionary: result as! [String : Any])
-                                         completion(dict,dictNew,messageString,true)
+                                         completion(dict,dictNew,messageString,true, totalAmount)
 
                                      }
                                      else{
-                                         completion(dict,nil,messageString,true)
+                                         completion(dict,nil,messageString,true,totalAmount)
 
                                      }
 
@@ -86,29 +89,29 @@ class GetProductCartRequest: NSObject {
                                  else{
                                      if let result = data?["data"]?["cartServices"] as? [String : Any]{
                                          let dictNew : cartServicesDataModel = cartServicesDataModel.init(fromDictionary: result as! [String : Any])
-                                         completion(nil,dictNew,messageString,true)
+                                         completion(nil,dictNew,messageString,true,totalAmount)
 
                                      }
                                      else{
-                                         completion(nil,nil,messageString,true)
+                                         completion(nil,nil,messageString,true,totalAmount)
                                      }
                                  }
                                 
                       
                              }else{
                                  NotificationAlert().NotificationAlert(titles: messageString)
-                                 completion(nil,nil,messageString,false)
+                                 completion(nil,nil,messageString,false,0.00)
                              }
                          }
                          else
                          {
-                             completion(nil,nil,"",false)
+                             completion(nil,nil,"",false,0.00)
                          }
                     }
                     else
                         {
-                            print(error ?? "No error")
-                            completion(nil,nil,"",false)
+                            
+                        completion(nil,nil,"",false,0.00)
                     }
                 }
             }
@@ -245,8 +248,9 @@ class AllCartServices: NSObject {
     var genderPreferences = ""
     var isSlotAvailable = 0
     var serviceType = ""
-    var productCountInCart = 0
-    
+    var serviceCountInCart = 0
+    var spaServiceId = 0
+
     init(fromDictionary dictionary: [String:Any]){
         productId = dictionary["productId"] as? Int ?? 0
         salonName = dictionary["salonName"] as? String ?? ""
@@ -258,13 +262,14 @@ class AllCartServices: NSObject {
         serviceDescription = dictionary["description"] as? String ?? ""
         listingPrice = dictionary["listingPrice"] as? Double ?? 0.00
         basePrice = dictionary["basePrice"] as? Double ?? 0.00
-        serviceImage = dictionary["productImage"] as? String ?? ""
+        serviceImage = dictionary["serviceIconImage"] as? String ?? ""
         durationInMinutes = dictionary["durationInMinutes"] as? Int ?? 0
         inStock = dictionary["stock"] as? Int ?? 0
         genderPreferences = dictionary["genderPreferences"] as? String ?? ""
         isSlotAvailable = dictionary["isSlotAvailable"] as? Int ?? 0
         serviceType = dictionary["serviceType"] as? String ?? ""
-        productCountInCart = dictionary["countInCart"] as? Int ?? 0
+        serviceCountInCart = dictionary["serviceCountInCart"] as? Int ?? 0
+        spaServiceId = dictionary["spaServiceId"] as? Int ?? 0
 
     }
     

@@ -42,8 +42,9 @@ extension ServicesViewController : UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         
         indexInt = indexPath.row
-        self.cvHeader.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         self.cvHeader.reloadData()
+        self.cvHeader.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+      
         
         self.serviceAPI(false, true, "",arrSortedCategory[indexPath.row].mainCategoryId,self.genderPreferences, 0)
 
@@ -95,8 +96,9 @@ extension ProductListViewController : UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         
         indexInt = indexPath.row
-        self.cvHeader.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         self.cvHeader.reloadData()
+
+        self.cvHeader.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         
         self.productAPI(false, true, "",arrSortedCategory[indexPath.row].mainCategoryId,self.genderPreferences, 0)
 

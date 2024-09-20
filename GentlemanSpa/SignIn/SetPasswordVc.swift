@@ -192,3 +192,11 @@ class SetPasswordVc: UIViewController {
     }
 
 }
+extension SetPasswordVc : UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+}

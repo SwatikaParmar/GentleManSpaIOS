@@ -33,6 +33,7 @@ class HomeUserViewController: UIViewController {
     }
     
     
+    
     @IBAction func sideMenu(_ sender: Any) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SideMenuUpdate"), object: nil)
         sideMenuController?.showLeftView(animated: true)
@@ -40,10 +41,10 @@ class HomeUserViewController: UIViewController {
     
     
     @IBAction func notification(_ sender: Any) {
-      //  let storyBoard = UIStoryboard.init(name: "User", bundle: nil)
-      //  let controller = storyBoard.instantiateViewController(withIdentifier: "SpaLocationVc") as?  SpaLocationVc
-      //  controller!.modalPresentationStyle = .overFullScreen
-      //  self.present(controller!, animated: true, completion: nil)
+        let storyBoard = UIStoryboard.init(name: "User", bundle: nil)
+        let controller = (storyBoard.instantiateViewController(withIdentifier: "UserNotificationViewController") as?  UserNotificationViewController)!
+        self.parent?.navigationController?.pushViewController(controller, animated: true)
+
     }
     
     //MARK: - Category API

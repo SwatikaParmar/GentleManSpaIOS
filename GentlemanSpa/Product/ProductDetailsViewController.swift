@@ -16,6 +16,7 @@ class ProductDetailsViewController: UIViewController {
     
     var arrSortedService:ProductDetailModel?
     var productId = 0
+    var itemCount = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,7 +31,7 @@ class ProductDetailsViewController: UIViewController {
     @IBAction func btnBackPreessed(_ sender: Any){
         self.navigationController?.popViewController(animated: true)
     }
-    
+  
     func ServiceDetailAPI(_ isLoader:Bool){
         let params = [ "id": productId] as [String : Any]
         ProductDetailRequest.shared.ProductDetailRequestAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
@@ -52,6 +53,8 @@ class ProductDetailsViewController: UIViewController {
                     
                     self.cvHeader.reloadData()
                     self.tableViewDetail.reloadData()
+                    
+                
 
                 }
             }
@@ -83,15 +86,23 @@ extension ProductDetailsViewController: UITableViewDataSource,UITableViewDelegat
             let cell = tableViewDetail.dequeueReusableCell(withIdentifier: "ServicesDetailTvCell") as! ServicesDetailTvCell
             
             cell.lbeName.text = arrSortedService?.serviceName
-            
-       
+            cell.lbeTime.text = ""
+
+    
+            if arrSortedService?.countInCart ?? 0 > 0{
                 
-                cell.lbeTime.text = ""
+                cell.addToCart.isHidden = true
+                cell.addView.isHidden = false
+                cell.lbeCount.isHidden = false
+                cell.lbeCount.text =   String(arrSortedService?.countInCart ?? 0)
+            }
+            else{
+                cell.addView.isHidden = true
+                cell.addToCart.isHidden = false
+                cell.lbeCount.text =   String(arrSortedService?.countInCart ?? 0)
+                cell.lbeCount.isHidden = false
 
-          
-                cell.lbeTime.text = ""
-
-            
+            }
             
             var listingPrice = ""
             if arrSortedService?.listingPrice.truncatingRemainder(dividingBy: 1) == 0 {
@@ -110,6 +121,15 @@ extension ProductDetailsViewController: UITableViewDataSource,UITableViewDelegat
                 basePrice = String(format: "%.2f", arrSortedService?.basePrice ?? 0.00 )
             }
             cell.lbeBasePrice.text = "$" + basePrice
+            
+            cell.addToCart.tag = indexPath.row
+            cell.addToCart.addTarget(self, action: #selector(btnAddTap(sender:)), for: .touchUpInside)
+            
+            cell.increaseButton.tag = indexPath.row
+            cell.increaseButton.addTarget(self, action: #selector(btnIncreaseButtonTap(sender:)), for: .touchUpInside)
+            
+            cell.decreaseButton.tag = indexPath.row
+            cell.decreaseButton.addTarget(self, action: #selector(btnDecreaseButtonTap(sender:)), for: .touchUpInside)
             
             return cell
         }
@@ -138,4 +158,91 @@ extension ProductDetailsViewController: UITableViewDataSource,UITableViewDelegat
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             
         }
+    
+    
+    @objc func btnAddTap(sender:UIButton){
+        
+        itemCount = arrSortedService?.countInCart ?? 0
+        
+        if arrSortedService?.inStock == itemCount {
+            var stringCount = ""
+            stringCount = String(format:"Can't add more than %d items.", arrSortedService?.inStock ?? 10)
+            NotificationAlert().NotificationAlert(titles:stringCount)
+            return
+        }
+        
+        arrSortedService?.countInCart = 1
+        self.tableViewDetail.reloadData()
+        
+        itemCount = 1
+        var param = [String : AnyObject]()
+        param["productId"] = arrSortedService?.productId as AnyObject
+        param["countInCart"] = Int(itemCount) as AnyObject
+        self.addNewProduct(Model: param, index:sender.tag)
+        
+    }
+    
+    //MARK:- Add Button Tap
+    @objc func btnIncreaseButtonTap(sender:UIButton){
+        
+        itemCount = arrSortedService?.countInCart ?? 0
+        if arrSortedService?.inStock == itemCount {
+            var stringCount = ""
+            stringCount = String(format:"Can't add more than %d items.", arrSortedService?.inStock ?? 10)
+            NotificationAlert().NotificationAlert(titles:stringCount)
+            return
+        }
+        
+      
+        arrSortedService?.countInCart  =  (arrSortedService?.countInCart ?? 0)  + 1
+        
+        itemCount = arrSortedService?.countInCart ?? 0
+        
+        self.tableViewDetail.reloadData()
+        
+        var param = [String : AnyObject]()
+        param["productId"] = arrSortedService?.productId as AnyObject
+        param["countInCart"] = Int(itemCount) as AnyObject
+        self.addNewProduct(Model: param, index:sender.tag)
+
+    }
+    
+    //MARK:- Add Button Tap
+    @objc func btnDecreaseButtonTap(sender:UIButton){
+        
+        arrSortedService?.countInCart  =  (arrSortedService?.countInCart ?? 0)  - 1
+        itemCount = arrSortedService?.countInCart ?? 0
+        self.tableViewDetail.reloadData()
+        var param = [String : AnyObject]()
+        param["productId"] = arrSortedService?.productId as AnyObject
+
+        if  itemCount == 0 {
+            param["countInCart"] = Int(0) as AnyObject
+        }
+        else if itemCount < 0 {
+            param["countInCart"] = Int(0) as AnyObject
+        }
+        else{
+            param["countInCart"] = Int(itemCount) as AnyObject
+        }
+        self.addNewProduct(Model: param, index:sender.tag)
+
+    }
+
+    
+    func addNewProduct(Model: [String : AnyObject], index:Int){
+        AddOrUpdateProductInCartRequest.shared.addProductAPI(requestParams: Model) { (user,message,isStatus) in
+            if isStatus {
+                if isStatus {
+                    NotificationAlert().NotificationAlert(titles: message ?? GlobalConstants.successMessage)
+                }
+            }
+            else{
+                NotificationAlert().NotificationAlert(titles:message ?? GlobalConstants.serverError)
+            }
+          
+        }
+    }
 }
+
+

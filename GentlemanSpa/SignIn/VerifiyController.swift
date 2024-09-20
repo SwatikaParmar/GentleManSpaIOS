@@ -39,6 +39,14 @@ class VerifiyController: UIViewController ,UITextFieldDelegate{
         
         lbeTextTop.text = String(format: "Please Enter 5 Digit Code Sent To %@", stringEmail)
         configurePhonePinView()
+        
+        let alert = UIAlertController(title:codeStr, message:  "Testing OTP", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title:"OK" , style: .cancel, handler:{ (UIAlertAction)in
+            
+        }))
+        self.present(alert, animated: true, completion: {
+            
+        })
 
       
     }
@@ -240,11 +248,37 @@ class VerifiyController: UIViewController ,UITextFieldDelegate{
                     controller.modalPresentationStyle=UIModalPresentationStyle.overCurrentContext
                     self.present(controller, animated: true, completion: nil)
                 }
-               
             }
-            
         }
+    }
+    
+    @IBAction func resendAc(_ sender: Any) {
         
+        var paramsEmail = ["email":self.stringEmail
+                           , "isVerify": true] as [String : Any]
+        
+        if isForgot {
+             paramsEmail = ["email":self.stringEmail
+                               , "isVerify": false] as [String : Any]
+        }
+        self.pinViewPhone.clearPin()
+        
+        
+        ResendEmailAPIRequest.shared.ResendEmail(requestParams: paramsEmail, accessToken:"") { (message, status,otp) in
+            
+            if status == true{
+                self.codeStr = String(otp)
+                NotificationAlert().NotificationAlert(titles: message ?? "")
+
+                let alert = UIAlertController(title:self.codeStr, message:  "Testing OTP", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title:"OK" , style: .cancel, handler:{ (UIAlertAction)in
+                    
+                }))
+                self.present(alert, animated: true, completion: {
+                    
+                })
+            }
+        }
     }
 }
 

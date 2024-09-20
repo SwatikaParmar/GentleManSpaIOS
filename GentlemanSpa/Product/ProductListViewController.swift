@@ -52,7 +52,7 @@ class ProductListViewController:  UIViewController {
         ] as [String : Any]
         
         
-        GetProductCartRequest.shared.GetCartItemsAPI(requestParams:params, isLoader) { [self] (arrayData,arrayService,message,isStatus) in
+        GetProductCartRequest.shared.GetCartItemsAPI(requestParams:params, isLoader) { [self] (arrayData,arrayService,message,isStatus,totalAmount) in
             if isStatus {
                 if arrayData != nil{
                     

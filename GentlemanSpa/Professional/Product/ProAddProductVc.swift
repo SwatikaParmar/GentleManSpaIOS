@@ -75,6 +75,8 @@ class ProAddProductVc: UIViewController ,UITextFieldDelegate, UITextViewDelegate
 
         }
 
+        NotificationCenter.default.addObserver(self, selector: #selector(self.GoToLast), name: NSNotification.Name(rawValue: "GoToLast"), object: nil)
+
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -106,8 +108,17 @@ class ProAddProductVc: UIViewController ,UITextFieldDelegate, UITextViewDelegate
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
+        
+       
     }
     
+    
+    
+    @objc func GoToLast(_ notification: NSNotification) {
+        self.navigationController?.popViewController(animated: true)
+
+        
+    }
     @IBAction func Close(_ sender: Any) {
          self.navigationController?.popViewController(animated: true)
      }
@@ -200,7 +211,7 @@ class ProAddProductVc: UIViewController ,UITextFieldDelegate, UITextViewDelegate
                 else
                 {
                     self.productId = productId ?? 0
-                    self.uploadProfileImageApi()
+                    self.uploadProfileImageApi(false)
                     
                 }
             }
@@ -230,10 +241,16 @@ class ProAddProductVc: UIViewController ,UITextFieldDelegate, UITextViewDelegate
                 else
                 {
                     if self.isImageAdd {
-                        self.uploadProfileImageApi()
+                        self.uploadProfileImageApi(true)
                     }
                     else{
-                        NotificationAlert().NotificationAlert(titles: "Product Updated successfully.")
+                        
+                        let controller:AddAlertController =  UIStoryboard(storyboard: .Professional).initVC()
+                        controller.providesPresentationContextTransitionStyle = true
+                        controller.definesPresentationContext = true
+                        controller.modalPresentationStyle=UIModalPresentationStyle.overCurrentContext
+                        controller.addtextString = "Product Updated successfully."
+                        self.present(controller, animated: true, completion: nil)
                     }
                     
                 }
@@ -241,7 +258,7 @@ class ProAddProductVc: UIViewController ,UITextFieldDelegate, UITextViewDelegate
         }
     }
 
-    func uploadProfileImageApi(){
+    func uploadProfileImageApi(_ Update: Bool){
         
         self.view.endEditing(true)
         
@@ -255,12 +272,38 @@ class ProAddProductVc: UIViewController ,UITextFieldDelegate, UITextViewDelegate
             
             if !data!.isEmpty{
                 if data == "failure"{
-                    
-                    NotificationAlert().NotificationAlert(titles: "Product added successfully.")
+                    let controller:AddAlertController =  UIStoryboard(storyboard: .Professional).initVC()
+                    controller.providesPresentationContextTransitionStyle = true
+                    controller.definesPresentationContext = true
+                    controller.modalPresentationStyle=UIModalPresentationStyle.overCurrentContext
+                    if Update {
+                     
+                        controller.addtextString = "Product Updated successfully."
+                       
+                    }
+                    else{
+                        controller.addtextString = "Product added successfully."
+
+                    }
+                    self.present(controller, animated: true, completion: nil)
 
                 }
                 else{
-                    NotificationAlert().NotificationAlert(titles: "Product added successfully.")
+                    
+                    let controller:AddAlertController =  UIStoryboard(storyboard: .Professional).initVC()
+                    controller.providesPresentationContextTransitionStyle = true
+                    controller.definesPresentationContext = true
+                    controller.modalPresentationStyle=UIModalPresentationStyle.overCurrentContext
+                    if Update {
+                     
+                        controller.addtextString = "Product Updated successfully."
+                       
+                    }
+                    else{
+                        controller.addtextString = "Product added successfully."
+
+                    }
+                    self.present(controller, animated: true, completion: nil)
                 }
                
             }
@@ -546,5 +589,27 @@ extension ProAddProductVc: UIImagePickerControllerDelegate,UINavigationControlle
 
         self.dismiss(animated: false, completion: { [weak self] in
         })
+    }
+}
+
+
+class AddAlertController: UIViewController {
+
+    @IBOutlet weak var addTextLbe : UILabel!
+
+    var addtextString = ""
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
+        addTextLbe .text = addtextString
+    }
+    
+    @IBAction func goPreessed(_ sender: Any){
+        
+        dismiss(animated: false)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "GoToLast"), object: nil)
+
+       
+
     }
 }

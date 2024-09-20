@@ -154,7 +154,9 @@ class ServicesDetailTvCell: UITableViewCell {
     @IBOutlet weak var lbeAmount: UILabel!
     @IBOutlet weak var lbeTime: UILabel!
     @IBOutlet weak var lbeBasePrice: UILabel!
-
+    @IBOutlet weak var lbeCount: UILabel!
+    @IBOutlet weak var increaseButton: UIButton!
+    @IBOutlet weak var decreaseButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

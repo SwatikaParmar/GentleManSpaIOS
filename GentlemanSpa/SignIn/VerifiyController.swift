@@ -35,7 +35,7 @@ class VerifiyController: UIViewController ,UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
 
-     
+       
         
         lbeTextTop.text = String(format: "Please Enter 5 Digit Code Sent To %@", stringEmail)
         configurePhonePinView()
@@ -70,6 +70,9 @@ class VerifiyController: UIViewController ,UITextFieldDelegate{
     
     
     func callData(){
+        
+       
+        
         self.view.endEditing(true)
         if enterCodeStr.trimmingCharacters(in: .whitespaces).count == 0 {
             NotificationAlert().NotificationAlert(titles: "Please enter verification code.")

@@ -88,7 +88,7 @@ class GetProfessionalSchedulesRequest: NSObject {
                                  }
                       
                              }else{
-                                 NotificationAlert().NotificationAlert(titles: messageString)
+                                // NotificationAlert().NotificationAlert(titles: messageString)
                                  completion(nil,messageString,false)
                              }
                          }
@@ -146,7 +146,7 @@ class GetWeekdaysRequest: NSObject {
                                  }
                       
                              }else{
-                                 NotificationAlert().NotificationAlert(titles: messageString)
+                                // NotificationAlert().NotificationAlert(titles: messageString)
                                  completion(nil,messageString,false)
                              }
                          }

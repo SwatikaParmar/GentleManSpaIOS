@@ -230,4 +230,13 @@ extension String{
     var AddUpdateCartService: String{
         return "Path".path + "Customer/AddUpdateCartService"
     }
+    
+    var getAvailableDates: String{
+        return "Path".path + "Service/GetAvailableDates"
+    }
+    
+    var GetAvailableTimeSlots: String{
+        return "Path".path + "Service/GetAvailableTimeSlots"
+    }
+    
 }

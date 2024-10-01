@@ -28,8 +28,8 @@ class MenuUserController: UIViewController,UITableViewDelegate,UITableViewDataSo
         self.versionLbl.text = Utility.shared.appVersion() + "(\(Utility.shared.appBuildVersion()))"
        
         
-        titleArray = ["Home","My Profile","My Booking","Address Book","Privacy Policy","About Us","Log Out"]
-        imagesArray = ["homeTab","myprofile","BookingTab","Blogs","aboutUsic","privacyic","logoutic"]
+        titleArray = ["Home","My Orders","Privacy Policy","About Us","Log Out"]
+        imagesArray = ["homeTab","Blogs","aboutUsic","privacyic","logoutic"]
         
         tableview.contentInsetAdjustmentBehavior = .never
         
@@ -105,7 +105,7 @@ class MenuUserController: UIViewController,UITableViewDelegate,UITableViewDataSo
           
           return titleArray.count
     }
-      
+    
       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
           let cell = tableView.dequeueReusableCell(withIdentifier: "SideMenuCell") as! SideMenuCell
           
@@ -128,8 +128,21 @@ class MenuUserController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         else{
             if indexPath.row == 0 {
+                let storyBoard = UIStoryboard.init(name: "User", bundle: nil)
+                let controller = storyBoard.instantiateViewController(withIdentifier: "TabBarUserVc")
+                let navigationController = UINavigationController(rootViewController: controller)
+                    navigationController.isNavigationBarHidden = true
+                    sideMenuController?.rootViewController = navigationController
+            }
+            else if indexPath.row == 1{
+                let storyBoard = UIStoryboard.init(name: "UserProduct", bundle: nil)
+                let controller = storyBoard.instantiateViewController(withIdentifier: "MyOrderVc")
+                let navigationController = UINavigationController(rootViewController: controller)
+                    navigationController.isNavigationBarHidden = true
+                    sideMenuController?.rootViewController = navigationController
             }
             else{
+                
                 
              
                     NotificationCenter.default.post(name: Notification.Name("Menu_Push_Action"), object: nil, userInfo: ["count":String(indexPath.row)])

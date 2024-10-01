@@ -20,8 +20,9 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
     @IBOutlet weak var btnLast_M: UIButton!
     @IBOutlet weak var imgLeftArr: UIImageView!
     @IBOutlet weak var imgRightArr: UIImageView!
-    @IBOutlet var scrool: UIScrollView!
     @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    @IBOutlet weak var timeViewH: NSLayoutConstraint!
+
     
     @IBOutlet weak var collectionTime: UICollectionView!
     
@@ -46,9 +47,18 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
     var selectIndex = Int()
     var isLoadDataOnBack = false
     var strMonth = String()
-    var arrSortedTime  = [String]()
     var timeIndex = -1
     var singleDays = true
+    var serviceId = 0
+    var slotId = 0
+    var selectDate = ""
+    var selectTime = ""
+    var typePackage = ""
+
+    var arrSortedTime = [TimeListModel]()
+    var objectSDetail:ServiceDetailModel?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,23 +83,8 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
             }
         }
         
-        arrSortedTime = ["10:00 AM","10:30 AM","11:00 AM","11:30 AM","12:00 PM"]
         
-        let formatter        = DateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy"
-        let dateStr          = formatter.string(from:Date())
-        let calendar = Calendar(identifier: .gregorian)
-        if let currDate = formatter.date(from: dateStr) {
-            for i in 0...10 {
-                let newDate = calendar.date(byAdding: .day, value: i, to: currDate)
-                if i % 2 == 0 {
-                    self.dateSelectArray.append(formatter.string(from: newDate!))
-                    lbeDate.text =  self.dateSelectArray[0].convertMMDD(date: self.dateSelectArray[0])
-
-                }
-            }
-        }
-        
+       
                 
         
         
@@ -250,7 +245,7 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
         
         if InterNetConnection()
         {
-
+            dateGetAPI(true)
         }
         else{
             InternetAlert()
@@ -454,7 +449,53 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
     
     
     
+    //MARK: - date API
+    func dateGetAPI(_ isLoader:Bool){
+        let params = [ "SpaServiceIds": serviceId] as [String : Any]
+        AvailableDatesRequest.shared.dateListAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
+            if isStatus {
+                if arrayData.count > 0{
+                    self.dateSelectArray = arrayData
+                    self.lbeDate.text =  self.dateSelectArray[0].convertMMDD(date: self.dateSelectArray[0])
+                    self.calenderVw.bookedSlotDate = self.dateSelectArray
+                    
+                    DispatchQueue.main.async {
+                        self.calenderVw.collectionView.reloadData()
+                    }
+                    if self.selectDate == "" {
+                        
+                        let formatter = DateFormatter()
+                        let CurrentDate = self.dateSelectArray[0]
+                        formatter.timeZone = TimeZone.current
+                        formatter.dateFormat = "dd-MM-yyyy"
+                        let currentDateTime = formatter.date(from: CurrentDate)
+                        formatter.dateFormat = "yyyy-MM-dd"
+                        self.selectDate  = formatter.string(from: currentDateTime ?? Date())
+                        self.timeGetAPI(false, self.selectDate)
+                    }
+                    else{
+                        self.timeGetAPI(false,self.selectDate)
+                    }
+                   
+                }
+            }
+        }
+    }
     
+    
+    //MARK: - Time API
+    func timeGetAPI(_ isLoader:Bool, _ dateStr:String){
+        let params = [ "SpaServiceIds": serviceId,
+                       "queryDate":dateStr] as [String : Any]
+        AvailableTimeRequest.shared.timeListAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
+            if isStatus {
+                if arrayData?.count ?? 0 > 0{
+                    self.arrSortedTime = arrayData ?? self.arrSortedTime
+                    self.collectionTime.reloadData()
+                }
+            }
+        }
+    }
     
 }
 

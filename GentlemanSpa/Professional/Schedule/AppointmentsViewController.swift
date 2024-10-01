@@ -183,8 +183,13 @@ class AppointmentsViewController: UIViewController, UITableViewDataSource,UITabl
             
             let controller:CreateTimeSlotsController =  UIStoryboard(storyboard: .Professional).initVC()
             controller.selectDate_Title = self.arrWeekdaysModel[indexPath.row].weekName ?? ""
-            controller.id = self.arrWeekdaysModel[indexPath.row].weekdaysId 
-            controller.idUpdate = arrSchedulesModel[indexPath.row].professionalScheduleId
+            controller.id = self.arrWeekdaysModel[indexPath.row].weekdaysId
+            
+            if arrSchedulesModel.count > indexPath.row {
+                controller.idUpdate = arrSchedulesModel[indexPath.row].professionalScheduleId
+
+            }
+            
             self.parent?.navigationController?.pushViewController(controller, animated: true)
             
             

@@ -77,7 +77,6 @@ class HomeUserViewController: UIViewController {
         }
     }
     
-    
     //MARK: - Banner
     func BannerAPI(){
         BannerRequest.shared.getBannerListAPI(requestParams:[:], true) { (arrayData,message,isStatus) in
@@ -128,7 +127,7 @@ class HomeUserViewController: UIViewController {
         let params = [ "spaDetailId": 21,
         ] as [String : Any]
         
-        GetProfessionalListRequest.shared.GetProfessionalListAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
+        TeamsProfessionalListRequest.shared.TeamsProfessionalListAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
             if isStatus {
                 if arrayData != nil{
                     self.arrGetProfessionalList = arrayData ?? self.arrGetProfessionalList

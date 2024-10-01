@@ -33,7 +33,7 @@ extension HomeUserViewController: UITableViewDataSource,UITableViewDelegate,Cate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
+            
         if indexPath.section == 0 {
             let cell = tableViewHome.dequeueReusableCell(withIdentifier: "CategoryHomeTvCell") as! CategoryHomeTvCell
             cell.arrSortedCategory = self.arrSortedCategory 
@@ -73,7 +73,7 @@ extension HomeUserViewController: UITableViewDataSource,UITableViewDelegate,Cate
             return cell
 
         }
-        
+    
         if indexPath.section == 3 {
             
             let cell = tableViewHome.dequeueReusableCell(withIdentifier: "ProductCategoriesCell") as! ProductCategoriesCell

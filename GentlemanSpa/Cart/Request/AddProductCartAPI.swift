@@ -250,6 +250,7 @@ class AllCartServices: NSObject {
     var serviceType = ""
     var serviceCountInCart = 0
     var spaServiceId = 0
+    var serviceId = 0
 
     init(fromDictionary dictionary: [String:Any]){
         productId = dictionary["productId"] as? Int ?? 0
@@ -270,6 +271,7 @@ class AllCartServices: NSObject {
         serviceType = dictionary["serviceType"] as? String ?? ""
         serviceCountInCart = dictionary["serviceCountInCart"] as? Int ?? 0
         spaServiceId = dictionary["spaServiceId"] as? Int ?? 0
+        serviceId = dictionary["serviceId"] as? Int ?? 0
 
     }
     

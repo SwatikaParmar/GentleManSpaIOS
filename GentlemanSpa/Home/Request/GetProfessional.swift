@@ -13,6 +13,9 @@ class GetProfessionalListRequest: NSObject {
     func GetProfessionalListAPI(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData: [GetProfessionalObject]?,_ message : String?, _ isStatus : Bool) -> Void) {
 
         var apiURL = "BaseURL".GetProfessionalList
+        
+        apiURL = String(format:"%@?spaDetailId=%d&spaServiceId=%d",apiURL,requestParams["spaDetailId"] as? Int ?? 0,requestParams["spaServiceId"] as? Int ?? 0)
+
 
             print("URL---->> ",apiURL)
             print("Request---->> ",requestParams)
@@ -88,7 +91,7 @@ class GetProfessionalObject: NSObject {
         
     }
 }
-
+            
 class professionalDetail: NSObject {
     var arrayData = NSArray()
     var professionalDetailId = 0
@@ -97,3 +100,57 @@ class professionalDetail: NSObject {
         arrayData = dictionary["speciality"] as? NSArray ?? NSArray()
     }
 }
+class TeamsProfessionalListRequest: NSObject {
+
+    static let shared = TeamsProfessionalListRequest()
+    
+    func TeamsProfessionalListAPI(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData: [GetProfessionalObject]?,_ message : String?, _ isStatus : Bool) -> Void) {
+
+        var apiURL = "BaseURL".GetProfessionalList
+
+            print("URL---->> ",apiURL)
+            print("Request---->> ",requestParams)
+        
+        AlamofireRequest.shared.GetBodyFrom(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
+                
+                     print(data ?? "No data")
+                     if error == nil{
+                         var messageString : String = ""
+                         if let status = data?["isSuccess"] as? Bool{
+                             if let msg = data?["messages"] as? String{
+                                 messageString = msg
+                             }
+                             if status{
+                                 var homeListObject : [GetProfessionalObject] = []
+                                    if let dataList = data?["data"] as? NSArray{
+                                        for list in dataList{
+                                            let dict : GetProfessionalObject = GetProfessionalObject.init(fromDictionary: list as! [String : Any])
+                                            homeListObject.append(dict)
+                                        }
+                                        completion(homeListObject,messageString,true)
+                                 }
+                                 else{
+                                     completion(nil,messageString,true)
+                                 }
+                      
+                             }else{
+                                 NotificationAlert().NotificationAlert(titles: messageString)
+                                 completion(nil,messageString,false)
+                             }
+                         }
+                         else
+                         {
+                             completion(nil,"",false)
+                         }
+                    }
+                    else
+                        {
+                            print(error ?? "No error")
+                            if !(error?.localizedDescription.contains(GlobalConstants.timedOutError) ?? true) {
+                                NotificationAlert().NotificationAlert(titles: GlobalConstants.serverError)
+                            }
+                            completion(nil,"",false)
+                    }
+                }
+            }
+        }

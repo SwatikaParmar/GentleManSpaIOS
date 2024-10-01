@@ -214,7 +214,6 @@ class CreateAccountController: UIViewController {
     @IBAction func SignUp(_ sender: Any) {
         
         self.view.endEditing(true)
-        
         trimmedName = txt_First.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         
         trimmedlast = txt_Last.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""

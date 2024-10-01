@@ -18,10 +18,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var lbeTitleConfirmed: UILabel!
     @IBOutlet weak var lbeLineConfirmed: UIView!
-
     @IBOutlet weak var lbeTitlePast: UILabel!
     @IBOutlet weak var lbeLinePast: UIView!
-    
     @IBOutlet weak var imgProfile: UIImageView!
 
     

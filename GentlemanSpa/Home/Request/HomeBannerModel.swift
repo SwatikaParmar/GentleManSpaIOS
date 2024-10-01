@@ -49,6 +49,7 @@ class BannerRequest: NSObject {
                          }
                          else
                          {
+                             
                              completion(nil,"",false)
                          }
                     }

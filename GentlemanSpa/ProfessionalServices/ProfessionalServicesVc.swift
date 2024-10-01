@@ -69,9 +69,7 @@ class ProfessionalServicesVc: UIViewController {
         let controller:BookingDoctorViewController =  UIStoryboard(storyboard: .User).initVC()
         
         controller.name = self.name
-        
-            controller.imgUserStr = imgUser
-        
+        controller.imgUserStr = imgUser
         controller.arrayData  = arrayData
         controller.professionalDetailId  = professionalDetailId
         

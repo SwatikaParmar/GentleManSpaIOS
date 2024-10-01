@@ -11,9 +11,7 @@ import UIKit
 extension BookingDoctorViewController: UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        if arrSortedTime.count == 0 {
-        }else {
-        }
+        
         
         return arrSortedTime.count
     }
@@ -52,7 +50,7 @@ extension BookingDoctorViewController: UICollectionViewDataSource,UICollectionVi
             
         }
         
-        cell.lbeTime.text = arrSortedTime[indexPath.row]
+        cell.lbeTime.text = arrSortedTime[indexPath.row].fromTime
         
         
         return cell

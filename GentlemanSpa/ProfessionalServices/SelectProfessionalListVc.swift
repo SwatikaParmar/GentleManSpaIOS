@@ -1,19 +1,23 @@
 //
-//  FindPViewController.swift
+//  SelectProfessionalListVc.swift
 //  GentlemanSpa
 //
-//  Created by AbsolveTech on 31/07/24.
+//  Created by AbsolveTech on 01/10/24.
 //
 
 import UIKit
 
-class FindPViewController: UIViewController {
-    @IBOutlet weak var tableViewDoctor: UITableView!
+class SelectProfessionalListVc: UIViewController {
+    @IBOutlet weak var tableViewPro: UITableView!
+    @IBOutlet weak var lbeServiceName: UILabel!
+
     var arrGetProfessionalList = [GetProfessionalObject]()
     var serviceId = 0
+    var serviceName = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        lbeServiceName.text = serviceName
         GetProfessionalListAPI(true, true, 1)
 
     }
@@ -29,10 +33,7 @@ class FindPViewController: UIViewController {
     }
     
     @IBAction func SelectProPreessed(_ sender: Any){
-        let controller:SelectProfessionalVc =  UIStoryboard(storyboard: .Services).initVC()
-    
-        
-        self.navigationController?.pushViewController(controller, animated: true)
+       
         
     }
     
@@ -40,7 +41,7 @@ class FindPViewController: UIViewController {
     func GetProfessionalListAPI(_ isLoader:Bool, _ isAppend: Bool, _ type:Int){
         
         let params = [ "spaDetailId": 21,
-                       "serviceId":serviceId
+                       "spaServiceId":serviceId
         ] as [String : Any]
         
         GetProfessionalListRequest.shared.GetProfessionalListAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
@@ -48,18 +49,18 @@ class FindPViewController: UIViewController {
                 if arrayData != nil{
                     self.arrGetProfessionalList = arrayData ?? self.arrGetProfessionalList
                     if self.arrGetProfessionalList.count > 0 {
-                        self.tableViewDoctor.reloadData()
+                        self.tableViewPro.reloadData()
                     }
                 }
                 else{
                     self.arrGetProfessionalList.removeAll()
-                    self.tableViewDoctor.reloadData()
+                    self.tableViewPro.reloadData()
                 }
             }
             else{
                 self.arrGetProfessionalList.removeAll()
                 
-                self.tableViewDoctor.reloadData()
+                self.tableViewPro.reloadData()
             }
         }
     }
@@ -67,7 +68,7 @@ class FindPViewController: UIViewController {
 
 
 
-extension FindPViewController: UITableViewDataSource,UITableViewDelegate {
+extension SelectProfessionalListVc: UITableViewDataSource,UITableViewDelegate {
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -86,7 +87,7 @@ extension FindPViewController: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
 
-        let cell = tableViewDoctor.dequeueReusableCell(withIdentifier: "DoctorTvCell") as! DoctorTvCell
+        let cell = tableViewPro.dequeueReusableCell(withIdentifier: "ProfessionalTvCell") as! ProfessionalTvCell
         
            
            let actionTitleFont = UIFont(name: FontName.Inter.SemiBold, size: CGFloat("".dynamicFontSize(16))) ?? UIFont.systemFont(ofSize: CGFloat(16), weight: .medium)
@@ -142,7 +143,7 @@ extension FindPViewController: UITableViewDataSource,UITableViewDelegate {
             }
             controller.arrayData  = arrGetProfessionalList[indexPath.row].object?.arrayData ?? NSArray()
             controller.professionalDetailId  = arrGetProfessionalList[indexPath.row].object?.professionalDetailId ?? 0
-            
+            controller.serviceId = serviceId
             self.navigationController?.pushViewController(controller, animated: true)
 
         }
@@ -152,7 +153,7 @@ extension FindPViewController: UITableViewDataSource,UITableViewDelegate {
     
     
 
-class DoctorTvCell: UITableViewCell {
+class ProfessionalTvCell: UITableViewCell {
     
     @IBOutlet weak var imageV: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!

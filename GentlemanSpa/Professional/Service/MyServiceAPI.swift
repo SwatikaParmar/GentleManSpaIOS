@@ -7,7 +7,10 @@
 
 import Foundation
 class MyServiceListRequest: NSObject {
-
+    
+   
+    
+    
     static let shared = MyServiceListRequest()
     
     func MyServiceAPI(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData: [ServiceListModel]?,_ message : String?, _ isStatus : Bool) -> Void) {

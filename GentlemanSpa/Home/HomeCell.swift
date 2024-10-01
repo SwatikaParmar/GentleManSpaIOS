@@ -107,7 +107,6 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
     if Utility.shared.DivceTypeString() == "IPad" {
          size = CGSize(width: width, height: height)
     }
-
     return size
 }
     

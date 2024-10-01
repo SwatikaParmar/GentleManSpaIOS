@@ -2098,7 +2098,7 @@
                                                     <outlet property="viewCancelAmount" destination="VOt-1M-0x0" id="jsq-jz-vEq"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DashSectionTableViewCell" id="wvH-kn-TKd" customClass="DashSectionTableViewCell" customModule="AnfasUser" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DashSectionTableViewCell" id="wvH-kn-TKd" customClass="DashSectionTableViewCell" customModule="GentlemanSpa" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="669.33333206176758" width="386" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wvH-kn-TKd" id="4ah-Ta-ICP">
@@ -5925,15 +5925,27 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pro_two" translatesAutoresizingMaskIntoConstraints="NO" id="SVa-tu-xw9">
                                                     <rect key="frame" x="60.333333333333343" y="10.999999999999996" width="42.666666666666657" height="42.666666666666657"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sK8-l6-tM2">
+                                                    <rect key="frame" x="0.0" y="0.0" width="163.33333333333334" height="110"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title=" "/>
+                                                    <connections>
+                                                        <action selector="SelectProPreessed:" destination="qYi-KF-lYZ" eventType="touchUpInside" id="2yA-Ar-qNr"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemGray6Color"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="110" id="Azz-qM-TMi"/>
                                                 <constraint firstAttribute="trailing" secondItem="Sah-Ds-GZP" secondAttribute="trailing" id="MJK-Nz-UDM"/>
+                                                <constraint firstAttribute="trailing" secondItem="sK8-l6-tM2" secondAttribute="trailing" id="NWI-Ia-xCU"/>
                                                 <constraint firstItem="SVa-tu-xw9" firstAttribute="centerX" secondItem="9dH-yH-ta2" secondAttribute="centerX" id="RPX-QP-wo9"/>
                                                 <constraint firstItem="Sah-Ds-GZP" firstAttribute="leading" secondItem="9dH-yH-ta2" secondAttribute="leading" id="XXw-tQ-Sf4"/>
                                                 <constraint firstItem="Sah-Ds-GZP" firstAttribute="top" secondItem="9dH-yH-ta2" secondAttribute="top" constant="60" id="XgH-cx-BbU"/>
+                                                <constraint firstItem="sK8-l6-tM2" firstAttribute="leading" secondItem="9dH-yH-ta2" secondAttribute="leading" id="Xnh-lr-nt8"/>
                                                 <constraint firstItem="SVa-tu-xw9" firstAttribute="top" secondItem="9dH-yH-ta2" secondAttribute="top" constant="11" id="ctd-E4-lGc"/>
+                                                <constraint firstItem="sK8-l6-tM2" firstAttribute="top" secondItem="9dH-yH-ta2" secondAttribute="top" id="izs-Zi-bx5"/>
+                                                <constraint firstAttribute="bottom" secondItem="sK8-l6-tM2" secondAttribute="bottom" id="xKT-0i-t1s"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -7687,7 +7699,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZ1-Bz-dXG" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                    <rect key="frame" x="268.33333333333331" y="51.666666666666657" width="97.333333333333314" height="32"/>
+                                                    <rect key="frame" x="268" y="51.666666666666657" width="97.666666666666686" height="32"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pmj-KI-qu4">
                                                             <rect key="frame" x="0.0" y="0.0" width="33" height="32"/>
@@ -7718,13 +7730,13 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGB-VI-eFZ">
-                                                            <rect key="frame" x="46" y="0.0" width="5.3333333333333357" height="32"/>
+                                                            <rect key="frame" x="46" y="0.0" width="5.6666666666666643" height="32"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1b-k9-TAX">
-                                                            <rect key="frame" x="64.333333333333371" y="0.0" width="33" height="32"/>
+                                                            <rect key="frame" x="64.666666666666686" y="0.0" width="33" height="32"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add+" translatesAutoresizingMaskIntoConstraints="NO" id="5uQ-Q8-g7e">
                                                                     <rect key="frame" x="5.6666666666666288" y="0.0" width="22" height="32"/>
@@ -8460,7 +8472,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNu-X5-Ajs">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="92"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgO-AW-yov" customClass="UILabelX" customModule="AnfasUser" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgO-AW-yov" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                         <rect key="frame" x="149" y="62" width="95" height="21"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -8503,20 +8515,20 @@
                                 <rect key="frame" x="0.0" y="92" width="393" height="760"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="NotificationCell" rowHeight="162" id="ze3-74-OTe" customClass="NotificationCell" customModule="AnfasUser" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="NotificationCell" rowHeight="162" id="ze3-74-OTe" customClass="NotificationCell" customModule="GentlemanSpa" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="162"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ze3-74-OTe" id="cVU-vm-gLM">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="162"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eaa-rN-XGW" customClass="UIViewX" customModule="AnfasUser" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eaa-rN-XGW" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
                                                     <rect key="frame" x="14" y="10" width="365" height="140"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dza-1H-VlT" customClass="UIViewX" customModule="AnfasUser" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dza-1H-VlT" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
                                                             <rect key="frame" x="12" y="13" width="50" height="50"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noti_list_ic" translatesAutoresizingMaskIntoConstraints="NO" id="m8x-xp-V0M" customClass="UIImageViewX" customModule="AnfasUser" customModuleProvider="target">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noti_list_ic" translatesAutoresizingMaskIntoConstraints="NO" id="m8x-xp-V0M" customClass="UIImageViewX" customModule="GentlemanSpa" customModuleProvider="target">
                                                                     <rect key="frame" x="8.6666666666666643" y="8.6666666666666679" width="33" height="33"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="33" id="Muh-yY-ckD"/>

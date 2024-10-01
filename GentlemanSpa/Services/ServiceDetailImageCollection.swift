@@ -12,7 +12,7 @@ extension ServiceDetailViewController : UICollectionViewDelegate,UICollectionVie
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         for cell in cvHeader.visibleCells {
             self.myPageCntrl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
-        }
+        }       
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

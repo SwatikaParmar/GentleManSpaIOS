@@ -10,7 +10,6 @@ import EventKit
 
 class BookingDoctorViewController: UIViewController,CalendarViewDataSource,CalendarViewDelegate {
     
-   
     @IBOutlet weak var lbeD : UILabel!
     @IBOutlet weak var lbeSp : UILabel!
     @IBOutlet weak var imgUser : UIImageView!
@@ -23,26 +22,21 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
     @IBOutlet weak var view_NavConst: NSLayoutConstraint!
     @IBOutlet weak var timeViewH: NSLayoutConstraint!
 
-    
     @IBOutlet weak var collectionTime: UICollectionView!
-    
     @IBOutlet weak var lbeSingleDay: UILabel!
     @IBOutlet weak var lbeMultiDays: UILabel!
-    
     @IBOutlet weak var btnSingleDay: UIButton!
     @IBOutlet weak var btnMultiDays: UIButton!
-    
     @IBOutlet weak var lbeSlots: UILabel!
+    @IBOutlet var lbeDate: UILabel!
+    @IBOutlet var viewNoData: UIView!
+    @IBOutlet var viewScroll: UIScrollView!
+
+    @IBOutlet weak var lbeNoSlot: UILabel!
     
     var nameMonthArray  = [String] ()
-    
-    @IBOutlet var lbeDate: UILabel!
-
-    var professionalDetailId = 0
-    var name = ""
     var arrayData = NSArray()
     var imgUserStr : String?
-
     var dateSelectArray  = [String] ()
     var selectIndex = Int()
     var isLoadDataOnBack = false
@@ -50,11 +44,13 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
     var timeIndex = -1
     var singleDays = true
     var serviceId = 0
+    var spaServiceId = 0
+    var professionalId = 0
     var slotId = 0
     var selectDate = ""
     var selectTime = ""
     var typePackage = ""
-
+    var name = ""
     var arrSortedTime = [TimeListModel]()
     var objectSDetail:ServiceDetailModel?
     
@@ -82,18 +78,9 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
                 
             }
         }
-        
-        
-       
-                
-        
-        
-        
+    
         appendThreeMonthName()
         addCalender()
-        
- 
-        
         
         if singleDays{
             lbeSingleDay.backgroundColor = AppColor.YellowColor
@@ -118,6 +105,28 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
         btnSingleDay.addTarget(self, action: #selector(connected_SingleDay(sender:)), for: .touchUpInside)
 
     }
+    override func viewWillAppear(_ animated: Bool) {
+        UserDefaults.standard.set(false, forKey: "Deleted")
+        
+        
+        if !InterNetConnection()
+        {
+            InternetAlert()
+            return
+        }
+    
+        if isLoadDataOnBack{
+                isLoadDataOnBack = false
+                self.selectIndex = 0
+                let today = Date()
+                self.calenderVw.selectDate(today)
+                self.calenderVw.setDisplayDate(today)
+            }
+        
+        self.calenderVw.bookedSlotDate =  self.dateSelectArray
+        self.calenderVw.collectionView.reloadData()
+        
+        }
     
     func changedata(){
         if singleDays{
@@ -144,15 +153,16 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
     
     
     @objc func connected_MultiDays(sender: UIButton){
-        let buttonTag = sender.tag
         singleDays = false
         changedata()
+        self.timeGetAPI(false, self.selectDate)
     }
     
     @objc func connected_SingleDay(sender: UIButton){
-        let buttonTag = sender.tag
+ 
         singleDays = true
         changedata()
+        self.timeGetAPI(false, self.selectDate)
     }
     
     @IBAction func Back(_ sender: Any)
@@ -160,32 +170,25 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
         self.navigationController?.popViewController(animated: true)
         
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        UserDefaults.standard.set(false, forKey: "Deleted")
-        
-        
-        if !InterNetConnection()
-        {
-            InternetAlert()
-            return
-        }
     
-        if isLoadDataOnBack{
-            isLoadDataOnBack = false
-         
-             
-              //  self.dateSelectArray.removeAll()
-                self.selectIndex = 0
-                let today = Date()
-                self.calenderVw.selectDate(today)
-                self.calenderVw.setDisplayDate(today)
-            }
+    @IBAction func BookingNow(_ sender: Any)
+    {
         
-        self.calenderVw.bookedSlotDate =  self.dateSelectArray
-        self.calenderVw.collectionView.reloadData()
-        
+        if slotId > 0 {
+            var param = [String : AnyObject]()
+            param["spaServiceId"] = spaServiceId as AnyObject
+            param["spaDetailId"] = 21 as AnyObject
+            param["serviceCountInCart"] = 1 as AnyObject
+            param["slotId"] = slotId as AnyObject
+            
+            self.add_Slot(Model: param, index:0)
         }
+        else{
+            self.MessageAlert(title: "Oops!", message:"Please select time")
+        }
+    }
+
+    
     
     
     func appendThreeMonthName()
@@ -222,13 +225,17 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
         CalendarView.Style.firstWeekday             = .sunday
         CalendarView.Style.locale                   = Locale(identifier: "en_US")
         CalendarView.Style.timeZone                 = TimeZone.current
-        calenderVw.direction                        = .horizontal
+        CalendarView.Style.headerFontName           = FontName.Inter.Regular
+        CalendarView.Style.cellEventColor           = UIColor.white
+        CalendarView.Style.headerHeight             = 100
+
         calenderVw.dataSource                       = self
         calenderVw.delegate                         = self
         calenderVw.multipleSelectionEnable          = false
         calenderVw.marksWeekends                    = false
         calenderVw.enableDeslection                 = false
-        
+        calenderVw.direction                        = .horizontal
+
         calenderVw.setDisplayDate(Date())
 
         btnNext_M.addTarget(self, action: #selector(BookingDoctorViewController.nextMonth), for: .touchUpInside)
@@ -241,7 +248,7 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
         DispatchQueue.main.async {
             self.calenderVw.collectionView.reloadData()
         }
-        
+        viewScroll.isHidden = true
         
         if InterNetConnection()
         {
@@ -344,7 +351,6 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
                     dateFormatter.timeZone = TimeZone.current
                     dateFormatter.dateFormat = "yyyy-MM-dd"
                     let monthString = dateFormatter.string(from: nextMonth ?? Date())
-                    // getData(dateFormatter.date(from:monthString) ?? Date(),true)
                     
                 }
             }
@@ -367,7 +373,7 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
                     dateFormatter.timeZone = TimeZone.current
                     dateFormatter.dateFormat = "yyyy-MM-dd"
                     let monthString = dateFormatter.string(from: nextMonth ?? Date())
-                    //  getData(dateFormatter.date(from:monthString) ?? Date(),true)
+                    
                 }
             }
         }
@@ -387,36 +393,26 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
         if dateSelectArray.contains(dateStr){
             lbeDate.text = dateStr.convertMMDD(date: dateStr)
             if dateStr == todayStr {
-                
-                let date = Date()
-                let calendar = Calendar.current
-                let hour = calendar.component(.hour, from: date)
-                
-                if hour > 16 {
-                    return false
+                calenderVw.selectDate = dateStr
+                DispatchQueue.main.async {
+                    self.calenderVw.collectionView.reloadData()
                 }
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "LLLL"
-                dateFormatter.timeZone = TimeZone.current
-                let nameOfMonth = dateFormatter.string(from: date)
                 
-                dateFormatter.dateFormat = "dd"
-                let days = dateFormatter.string(from: date)
-                isLoadDataOnBack = true
-         
+                formatter.dateFormat = "yyyy-MM-dd"
+                self.selectDate = formatter.string(from: date)
+                self.timeGetAPI(false, self.selectDate)
+
                 return true
                 
             }
             else if CurrentDate < date {
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "LLLL"
-                dateFormatter.timeZone = TimeZone.current
-
-                let nameOfMonth = dateFormatter.string(from: date)
-                dateFormatter.dateFormat = "dd"
-                let days = dateFormatter.string(from: date)
-                isLoadDataOnBack = true
-              
+                calenderVw.selectDate = dateStr
+                DispatchQueue.main.async {
+                    self.calenderVw.collectionView.reloadData()
+                }
+                formatter.dateFormat = "yyyy-MM-dd"
+                self.selectDate = formatter.string(from: date)
+                self.timeGetAPI(false, self.selectDate)
                 return true
             }
             
@@ -424,34 +420,39 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
            
         }
         else{
-            
-            if dateStr == todayStr {
-                
-                let date = Date()
-                let calendar = Calendar.current
-                let hour = calendar.component(.hour, from: date)
-                if hour < 16 {
-                  
-                    return true
-                }
-                else{
-                    print("NOOOOOOOOOOOOOOOOOOOOOOOO")
-                }
-            }
-             else if CurrentDate < date {
-              
-                return false
-            }
             return false
-
         }
     }
     
     
     
+    func add_Slot(Model: [String : AnyObject], index:Int){
+        AddUpdateCartServiceRequest.shared.AddUpdateCartServiceAPI(requestParams: Model) { (user,message,isStatus) in
+            if isStatus {
+                if isStatus {
+                    NotificationAlert().NotificationAlert(titles: message ?? GlobalConstants.successMessage)
+                }
+            }
+            else{
+                NotificationAlert().NotificationAlert(titles:message ?? GlobalConstants.serverError)
+            }
+           
+        }
+    }
+    
+    
+    
+    
+    
     //MARK: - date API
     func dateGetAPI(_ isLoader:Bool){
-        let params = [ "SpaServiceIds": serviceId] as [String : Any]
+        slotId = 0
+        timeIndex = -1
+        self.arrSortedTime.removeAll()
+        self.collectionTime.reloadData()
+        
+        let params = [ "SpaServiceIds": spaServiceId,
+                       "ProfessionalId": professionalId] as [String : Any]
         AvailableDatesRequest.shared.dateListAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
             if isStatus {
                 if arrayData.count > 0{
@@ -471,13 +472,32 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
                         let currentDateTime = formatter.date(from: CurrentDate)
                         formatter.dateFormat = "yyyy-MM-dd"
                         self.selectDate  = formatter.string(from: currentDateTime ?? Date())
+                                                
+                        
+                        self.calenderVw.selectDate = CurrentDate
+                        DispatchQueue.main.async {
+                            self.calenderVw.collectionView.reloadData()
+                        }
                         self.timeGetAPI(false, self.selectDate)
+
                     }
                     else{
                         self.timeGetAPI(false,self.selectDate)
                     }
-                   
+                    self.viewNoData.isHidden = true
+                    self.viewScroll.isHidden = false
+
                 }
+                else{
+                    self.viewNoData.isHidden = false
+                    self.viewScroll.isHidden = true
+
+                }
+            }
+            else{
+                self.viewNoData.isHidden = false
+                self.viewScroll.isHidden = true
+
             }
         }
     }
@@ -485,18 +505,77 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
     
     //MARK: - Time API
     func timeGetAPI(_ isLoader:Bool, _ dateStr:String){
-        let params = [ "SpaServiceIds": serviceId,
-                       "queryDate":dateStr] as [String : Any]
+        let params = [ "SpaServiceIds": spaServiceId,
+                       "queryDate":dateStr,
+                       "ProfessionalId": professionalId] as [String : Any]
         AvailableTimeRequest.shared.timeListAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
             if isStatus {
                 if arrayData?.count ?? 0 > 0{
-                    self.arrSortedTime = arrayData ?? self.arrSortedTime
-                    self.collectionTime.reloadData()
+                    self.arrSortedTime.removeAll()
+                    self.lbeNoSlot.isHidden = false
+
+                        for i in 0 ..< (arrayData?.count ?? 0) {
+                            let dictionary = ["slotCount": 0]as [String : Any]
+                            
+                            var from = ""
+                            from = arrayData?[i].fromTime  ?? ""
+                            
+                            if self.singleDays {
+                                if from.contains("AM"){
+                                    let dict : TimeListModel = TimeListModel.init(fromDictionary: dictionary)
+                                    self.arrSortedTime.append(arrayData?[i] ?? dict)
+                                    self.lbeNoSlot.isHidden = true
+
+                                }
+                            }
+                            else{
+                                if from.contains("PM"){
+                                    let dict : TimeListModel = TimeListModel.init(fromDictionary: dictionary)
+                                    self.arrSortedTime.append(arrayData?[i] ?? dict)
+                                    self.lbeNoSlot.isHidden = true
+
+                                }
+                                
+                            }
+                        }
+                    if self.arrSortedTime.count > 0 {
+                        let result = Int(self.arrSortedTime.count) % 4
+                        if result == 0 {
+                            let count = Int(self.arrSortedTime.count) / 4
+                            self.timeViewH.constant =  CGFloat(count * 52)
+                        }
+                        else{
+                            var count = Int(self.arrSortedTime.count) / 4
+                            count = count + 1
+                            self.timeViewH.constant = CGFloat(count * 52)
+                            
+                        }
+                    }
+                    else{
+                        self.timeViewH.constant = 55
+                        self.arrSortedTime.removeAll()
+                        self.lbeNoSlot.isHidden = false
+                        self.collectionTime.reloadData()
+                    }
+                    }
+                else{
+                    self.arrSortedTime.removeAll()
+                    self.lbeNoSlot.isHidden = false
                 }
+                
+                self.collectionTime.reloadData()
+                }
+            else{
+                self.timeViewH.constant = 55
+                self.arrSortedTime.removeAll()
+                self.lbeNoSlot.isHidden = false
+                self.collectionTime.reloadData()
+
+            }
             }
         }
     }
     
-}
+
 
 

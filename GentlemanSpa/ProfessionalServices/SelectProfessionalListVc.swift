@@ -12,7 +12,7 @@ class SelectProfessionalListVc: UIViewController {
     @IBOutlet weak var lbeServiceName: UILabel!
 
     var arrGetProfessionalList = [GetProfessionalObject]()
-    var serviceId = 0
+    var spaServiceId = 0
     var serviceName = ""
 
     override func viewDidLoad() {
@@ -41,7 +41,7 @@ class SelectProfessionalListVc: UIViewController {
     func GetProfessionalListAPI(_ isLoader:Bool, _ isAppend: Bool, _ type:Int){
         
         let params = [ "spaDetailId": 21,
-                       "spaServiceId":serviceId
+                       "spaServiceId":spaServiceId
         ] as [String : Any]
         
         GetProfessionalListRequest.shared.GetProfessionalListAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
@@ -142,8 +142,8 @@ extension SelectProfessionalListVc: UITableViewDataSource,UITableViewDelegate {
                 controller.imgUserStr = urlString
             }
             controller.arrayData  = arrGetProfessionalList[indexPath.row].object?.arrayData ?? NSArray()
-            controller.professionalDetailId  = arrGetProfessionalList[indexPath.row].object?.professionalDetailId ?? 0
-            controller.serviceId = serviceId
+            controller.professionalId  = arrGetProfessionalList[indexPath.row].object?.professionalDetailId ?? 0
+            controller.spaServiceId = spaServiceId
             self.navigationController?.pushViewController(controller, animated: true)
 
         }

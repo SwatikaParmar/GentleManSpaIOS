@@ -14,7 +14,7 @@ class AvailableDatesRequest: NSObject {
     func dateListAPI(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData:[String],_ message : String?, _ isStatus : Bool) -> Void) {
 
         var apiURL = "b".getAvailableDates
-            apiURL = String(format:"%@?SpaServiceIds=%d",apiURL,requestParams["SpaServiceIds"] as? Int ?? 0)
+            apiURL = String(format:"%@?SpaServiceIds=%d&ProfessionalId=%d",apiURL,requestParams["SpaServiceIds"] as? Int ?? 0,requestParams["ProfessionalId"] as? Int ?? 0)
 
             print("URL---->> ",apiURL)
             print("Request---->> ",requestParams)
@@ -84,7 +84,7 @@ class AvailableTimeRequest: NSObject {
         
         var apiURL = "b".GetAvailableTimeSlots
         
-        apiURL = String(format:"%@?SpaServiceIds=%d&Date=%@",apiURL,requestParams["SpaServiceIds"] as? Int ?? 0,requestParams["queryDate"] as? String ?? "")
+        apiURL = String(format:"%@?SpaServiceIds=%d&Date=%@&ProfessionalId=%d",apiURL,requestParams["SpaServiceIds"] as? Int ?? 0,requestParams["queryDate"] as? String ?? "",requestParams["ProfessionalId"] as? Int ?? 0)
         
         print("URL---->> ",apiURL)
         print("Request---->> ",requestParams)

@@ -66,6 +66,7 @@ extension BookingDoctorViewController: UICollectionViewDataSource,UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         timeIndex = indexPath.row
+        slotId = arrSortedTime[indexPath.row].slotId
         self.collectionTime.reloadData()
         
     }

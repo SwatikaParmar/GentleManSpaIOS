@@ -141,7 +141,7 @@ extension FindPViewController: UITableViewDataSource,UITableViewDelegate {
                 controller.imgUserStr = urlString
             }
             controller.arrayData  = arrGetProfessionalList[indexPath.row].object?.arrayData ?? NSArray()
-            controller.professionalDetailId  = arrGetProfessionalList[indexPath.row].object?.professionalDetailId ?? 0
+            controller.professionalId  = arrGetProfessionalList[indexPath.row].object?.professionalDetailId ?? 0
             
             self.navigationController?.pushViewController(controller, animated: true)
 

@@ -77,19 +77,45 @@ extension SelectProfessionalVc: UITableViewDataSource,UITableViewDelegate {
         
         let cell = tableViewSelectProfessional.dequeueReusableCell(withIdentifier: "SelectProTableViewCell") as! SelectProTableViewCell
         
-        if arrSortedService[indexPath.row].serviceCountInCart == 0 {
-            
-            
-        }
-        else{
-            
-        }
-        
         cell.addToCart.tag = indexPath.row
         cell.addToCart.addTarget(self, action: #selector(btnAddTap(sender:)), for: .touchUpInside)
         cell.lbeName.text = arrSortedService[indexPath.row].serviceName
         
         
+        
+        if self.arrSortedService[indexPath.row].fromTime == "" {
+            cell.lbeTime.text = ""
+
+        }
+        else{
+            var dateStr = ""
+            dateStr =  String(format: "%@, %@ at %@", "".getTodayWeekDay("".dateFromString(self.arrSortedService[indexPath.row].slotDate)),"".getTodayDateDD("".dateFromString(arrSortedService[indexPath.row].slotDate)), self.arrSortedService[indexPath.row].fromTime)
+            
+            cell.lbeTime.text = dateStr
+        }
+        
+        if arrSortedService[indexPath.row].professionalName == "" {
+            cell.lbeProName.text = "Any professional"
+            cell.imgPro?.isHidden = true
+
+        }
+        else{
+            cell.imgPro?.isHidden = false
+            cell.lbeProName.text = arrSortedService[indexPath.row].professionalName
+            
+            
+            if let imgUrl = arrSortedService[indexPath.row].professionalImage,!imgUrl.isEmpty {
+                let img  = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
+                let urlString = img.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                cell.imgPro?.sd_setImage(with: URL.init(string:(urlString)),
+                                         placeholderImage: UIImage(named: "shopPlace"),
+                                         options: .refreshCached,
+                                         completed: nil)
+            }
+            else{
+                cell.imgPro?.image = UIImage(named: "shopPlace")
+            }
+        }
         return cell
         
     }
@@ -101,7 +127,7 @@ extension SelectProfessionalVc: UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller:SelectProfessionalListVc =  UIStoryboard(storyboard: .Services).initVC()
-        controller.serviceId = arrSortedService[indexPath.row].spaServiceId
+        controller.spaServiceId = arrSortedService[indexPath.row].spaServiceId
         controller.serviceName = arrSortedService[indexPath.row].serviceName
         self.navigationController?.pushViewController(controller, animated: true)
 
@@ -111,6 +137,8 @@ extension SelectProfessionalVc: UITableViewDataSource,UITableViewDelegate {
     @objc func btnAddTap(sender:UIButton){
         
         let controller:SelectProfessionalListVc =  UIStoryboard(storyboard: .Services).initVC()
+        controller.spaServiceId = arrSortedService[sender.tag].spaServiceId
+        controller.serviceName = arrSortedService[sender.tag].serviceName
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }

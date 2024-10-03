@@ -232,7 +232,7 @@ class cartServicesDataModel: NSObject {
 class AllCartServices: NSObject {
     
     var productId = 0
-    var salonId = 0
+    var slotId = 0
     var salonName = ""
     var mainCategoryId = 0
     var mainCategoryName = ""
@@ -251,11 +251,15 @@ class AllCartServices: NSObject {
     var serviceCountInCart = 0
     var spaServiceId = 0
     var serviceId = 0
+    var slotDate = ""
+    var fromTime = ""
+    var professionalName = ""
+    var professionalImage : String?
 
     init(fromDictionary dictionary: [String:Any]){
         productId = dictionary["productId"] as? Int ?? 0
         salonName = dictionary["salonName"] as? String ?? ""
-        salonId = dictionary["salonId"] as? Int ?? 0
+        slotId = dictionary["slotId"] as? Int ?? 0
         mainCategoryName = dictionary["mainCategoryName"] as? String ?? ""
         mainCategoryId = dictionary["categoryId"] as? Int ?? 0
         subCategoryName = dictionary["subCategoryName"] as? String ?? ""
@@ -272,6 +276,10 @@ class AllCartServices: NSObject {
         serviceCountInCart = dictionary["serviceCountInCart"] as? Int ?? 0
         spaServiceId = dictionary["spaServiceId"] as? Int ?? 0
         serviceId = dictionary["serviceId"] as? Int ?? 0
+        slotDate = dictionary["slotDate"] as? String ?? ""
+        fromTime = dictionary["fromTime"] as? String ?? ""
+        professionalName = dictionary["professionalName"] as? String ?? ""
+        professionalImage = dictionary["professionalImage"] as? String ?? ""
 
     }
     

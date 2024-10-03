@@ -162,25 +162,45 @@ extension CalendarView: UICollectionViewDataSource {
                     dayCell.bgView.layer.borderColor = UIColor.lightGray.cgColor
 
                 }
-                
+                if  selectDate == str {
+                    dayCell.dotsView.isHidden = false
+                    dayCell.bgView.layer.borderWidth = 1.5
+
+                }
+                else{
+                    dayCell.dotsView.isHidden = true
+                    dayCell.bgView.layer.borderWidth = 1.5
+
+                }
+                dayCell.bgView.alpha = 1
+                dayCell.textLabel.alpha = 1
+
             } else {
                 if date1 == todayStr {
                     dayCell.bgView.backgroundColor = UIColor.clear
-                    dayCell.textLabel.textColor = UIColor.black
-                    dayCell.bgView.layer.borderColor = AppColor.AppTealishRGB.cgColor
+                    dayCell.textLabel.textColor = UIColor.lightGray
+                    dayCell.bgView.layer.borderColor = UIColor.lightGray.cgColor
                 }
                 else if date2 < date! {
                     dayCell.bgView.backgroundColor = UIColor.clear
-                    dayCell.textLabel.textColor = UIColor.black
-                    dayCell.bgView.layer.borderColor = AppColor.AppTealishRGB.cgColor
+                    dayCell.textLabel.textColor = UIColor.lightGray
+                    dayCell.bgView.layer.borderColor = UIColor.lightGray.cgColor
                 }
                 else{
                     dayCell.bgView.backgroundColor = UIColor.clear
                     dayCell.textLabel.textColor = UIColor.lightGray
                     dayCell.bgView.layer.borderColor = UIColor.lightGray.cgColor
                 }
+                dayCell.bgView.backgroundColor = UIColor.clear
+                dayCell.textLabel.textColor = UIColor.lightGray
+                dayCell.bgView.layer.borderColor = UIColor.lightGray.cgColor
+                dayCell.bgView.alpha = 0.5
+                dayCell.textLabel.alpha = 0.5
+                dayCell.bgView.layer.borderWidth = 1
+                dayCell.dotsView.isHidden = true
+
             }
-        dayCell.bgView.layer.borderWidth = 1.3
+       
         return dayCell
     }
 }

@@ -71,7 +71,7 @@ class ProfessionalServicesVc: UIViewController {
         controller.name = self.name
         controller.imgUserStr = imgUser
         controller.arrayData  = arrayData
-        controller.professionalDetailId  = professionalDetailId
+        controller.professionalId  = professionalDetailId
         
         self.navigationController?.pushViewController(controller, animated: true)
     }

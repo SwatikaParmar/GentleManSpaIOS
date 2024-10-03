@@ -38,7 +38,7 @@ extension CalendarView {
         public static var headerHeight: CGFloat = 115.0
         public static var headerTextColor = UIColor.gray
         public static var headerFontName: String = "Helvetica"
-        public static var headerFontSize: CGFloat = 20.0
+        public static var headerFontSize: CGFloat = 18.0
 
         //Common
         public static var cellShape                 = CellShapeOptions.bevel(4.0)

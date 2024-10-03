@@ -14,6 +14,7 @@ class SelectProTableViewCell: UITableViewCell {
     @IBOutlet weak var addToCart: UIButton!
     @IBOutlet weak var lbeName: UILabel!
     @IBOutlet weak var lbeProName: UILabel!
+    @IBOutlet weak var imgPro: UIImageView!
 
     @IBOutlet weak var lbeTime: UILabel!
     

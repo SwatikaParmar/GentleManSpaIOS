@@ -90,7 +90,7 @@ public class CalendarView: UIView {
     var headerView: CalendarHeaderView!
     var collectionView: UICollectionView!
     var bookedSlotDate = [String]()
-    var PendingAppointment = [Bool]()
+    var selectDate = ""
 
     public lazy var calendar : Calendar = {
         var calendarStyle = Calendar(identifier: CalendarView.Style.identifier)

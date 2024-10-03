@@ -94,7 +94,7 @@ open class CalendarDayCell: UICollectionViewCell {
         
         self.textLabel.textAlignment = NSTextAlignment.center
         
-        self.textLabel.font = UIFont(name: CalendarView.Style.headerFontName, size: 12)
+        self.textLabel.font = UIFont(name: CalendarView.Style.headerFontName, size: 13)
 
         self.dotsView.backgroundColor = CalendarView.Style.cellEventColor
         
@@ -102,7 +102,6 @@ open class CalendarDayCell: UICollectionViewCell {
         
         self.addSubview(self.bgView)
         self.addSubview(self.textLabel)
-        
         self.addSubview(self.dotsView)
         
     }
@@ -129,7 +128,7 @@ open class CalendarDayCell: UICollectionViewCell {
         self.bgView.frame           = elementsFrame
         self.textLabel.frame        = elementsFrame
         
-        let size                            = self.bounds.height * 0.08 // always a percentage of the whole cell
+        let size                            = self.bounds.height * 0.1 // always a percentage of the whole cell
         self.dotsView.frame                 = CGRect(x: 0, y: 0, width: size, height: size)
         self.dotsView.center                = CGPoint(x: self.textLabel.center.x, y: self.bounds.height - (2.5 * size))
         self.dotsView.layer.cornerRadius    = size * 0.5 // round it

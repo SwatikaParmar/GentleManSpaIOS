@@ -301,7 +301,7 @@ extension CartUserViewController: UITableViewDataSource,UITableViewDelegate {
               if Utility.shared.DivceTypeString() == "IPad" {
                   return  210
               }
-              return  150
+              return  180
           }
           else if indexPath.section == 1 {
               if self.arrSortedService.count > 0{

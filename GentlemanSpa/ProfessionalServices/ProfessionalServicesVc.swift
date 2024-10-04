@@ -222,11 +222,13 @@ extension ProfessionalServicesVc: UITableViewDataSource,UITableViewDelegate {
         if arrSortedService[indexPath.row].serviceCountInCart == 1 {
             cell.addView.isHidden = false
             cell.addToCart.isHidden = true
+            cell.addToCartImage.isHidden = true
 
         }
         else{
             cell.addView.isHidden = true
             cell.addToCart.isHidden = false
+            cell.addToCartImage.isHidden = false
 
         }
         

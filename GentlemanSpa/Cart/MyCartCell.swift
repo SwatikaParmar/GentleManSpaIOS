@@ -21,6 +21,14 @@ class CartServicesTvCell: UITableViewCell {
     
     @IBOutlet weak var lbeBasePrice: UILabel!
     @IBOutlet weak var lbeTime: UILabel!
+    @IBOutlet weak var lbeDate: UILabelX!
+    
+    @IBOutlet weak var addDate: UIButton!
+
+    @IBOutlet weak var lbeAddDate: UILabelX!
+    @IBOutlet weak var viewAddDate: UIViewX!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

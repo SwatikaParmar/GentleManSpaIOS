@@ -85,11 +85,10 @@ extension SelectProfessionalVc: UITableViewDataSource,UITableViewDelegate {
         
         if self.arrSortedService[indexPath.row].fromTime == "" {
             cell.lbeTime.text = ""
-
         }
         else{
             var dateStr = ""
-            dateStr =  String(format: "%@, %@ at %@", "".getTodayWeekDay("".dateFromString(self.arrSortedService[indexPath.row].slotDate)),"".getTodayDateDD("".dateFromString(arrSortedService[indexPath.row].slotDate)), self.arrSortedService[indexPath.row].fromTime)
+            dateStr =  String(format: "%@, %@ at %@", "".getTodayWeekDay("".dateFromString(self.arrSortedService[indexPath.row].slotDate)),"".convertToDDMMYYYY("".dateFromString(arrSortedService[indexPath.row].slotDate)), self.arrSortedService[indexPath.row].fromTime)
             
             cell.lbeTime.text = dateStr
         }
@@ -120,8 +119,8 @@ extension SelectProfessionalVc: UITableViewDataSource,UITableViewDelegate {
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 111
+         let heightSizeLine = arrSortedService[indexPath.row].serviceName.heightForView(text: "", font: UIFont(name:FontName.Inter.Medium, size: "".dynamicFontSize(17)) ?? UIFont.systemFont(ofSize: 15.0), width: self.view.frame.width - 52)
+        return heightSizeLine + 90
     }
     
     

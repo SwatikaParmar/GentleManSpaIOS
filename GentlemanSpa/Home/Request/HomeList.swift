@@ -31,8 +31,11 @@ class HomeListRequest: NSObject {
                                  var homeListObject : [dashboardCategoryObject] = []
                                     if let dataList = data?["data"] as? NSArray{
                                         for list in dataList{
+                                            
                                             let dict : dashboardCategoryObject = dashboardCategoryObject.init(fromDictionary: list as! [String : Any])
                                             homeListObject.append(dict)
+                                           
+
                                         }
                                         completion(homeListObject,messageString,true)
                                  }

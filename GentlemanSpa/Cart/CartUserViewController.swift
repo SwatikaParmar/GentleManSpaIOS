@@ -37,13 +37,13 @@ class CartUserViewController: UIViewController {
         payNow.isHidden = true
         imgViewEm.isHidden = true
         tableViewMyCart.isHidden = true
-        myCartAPI(true)
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
-        
+        myCartAPI(true)
     }
     
     @IBAction func Back(_ sender: Any) {
@@ -221,20 +221,21 @@ extension CartUserViewController: UITableViewDataSource,UITableViewDelegate {
               
               if arrSortedService[indexPath.row].serviceCountInCart == 0 {
                   cell.addView.isHidden = false
-                  cell.addToCart.isHidden = true
 
               }
               else{
                   cell.addView.isHidden = true
-                  cell.addToCart.isHidden = false
 
               }
               
-              cell.addToCart.tag = indexPath.row
-              cell.addToCart.addTarget(self, action: #selector(btnAddTap(sender:)), for: .touchUpInside)
+             // cell.addToCart.tag = indexPath.row
+            //  cell.addToCart.addTarget(self, action: #selector(btnAddTap(sender:)), for: .touchUpInside)
               
               cell.removeCart.tag = indexPath.row
               cell.removeCart.addTarget(self, action: #selector(btnremoveCartTap(sender:)), for: .touchUpInside)
+              
+              cell.addDate.tag = indexPath.row
+              cell.addDate.addTarget(self, action: #selector(addDateTap(sender:)), for: .touchUpInside)
               
               if let imgUrl = arrSortedService[indexPath.row].serviceImage,!imgUrl.isEmpty {
                   let img  = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
@@ -274,6 +275,23 @@ extension CartUserViewController: UITableViewDataSource,UITableViewDelegate {
               else{
                   cell.lbeTime.text = "30 mins"
               }
+              
+              if self.arrSortedService[indexPath.row].fromTime == "" {
+                  cell.lbeDate.text = ""
+                  cell.lbeAddDate.text = "Select date and time"
+              }
+              else{
+                  var dateStr = ""
+                  dateStr =  String(format: "%@, %@ at %@", "".getTodayWeekDay("".dateFromString(self.arrSortedService[indexPath.row].slotDate)),"".convertToDDMMYYYY("".dateFromString(arrSortedService[indexPath.row].slotDate)), self.arrSortedService[indexPath.row].fromTime)
+                  
+                  cell.lbeDate.text = dateStr
+                  
+                  cell.lbeAddDate.text = "Reschedule"
+
+              }
+              
+             
+              
               return cell
               
           }
@@ -301,7 +319,14 @@ extension CartUserViewController: UITableViewDataSource,UITableViewDelegate {
               if Utility.shared.DivceTypeString() == "IPad" {
                   return  210
               }
-              return  180
+              
+              let lineCount = arrSortedService[indexPath.row].serviceName.lineCount(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(17)) ?? UIFont.systemFont(ofSize: 15.0), width: self.view.frame.width - 174)
+              
+              if lineCount > 1 {
+                  return  212
+
+              }
+              return  160
           }
           else if indexPath.section == 1 {
               if self.arrSortedService.count > 0{
@@ -482,6 +507,16 @@ extension CartUserViewController: UITableViewDataSource,UITableViewDelegate {
         param["slotId"] = 0 as AnyObject
 
         self.addUpdateService(Model: param, index:sender.tag)
+        
+    }
+    
+    @objc func addDateTap(sender:UIButton){
+        
+        let controller:SelectProfessionalListVc =  UIStoryboard(storyboard: .Services).initVC()
+        controller.spaServiceId = arrSortedService[sender.tag].spaServiceId
+        controller.serviceName = arrSortedService[sender.tag].serviceName
+        self.navigationController?.pushViewController(controller, animated: true)
+
         
     }
     

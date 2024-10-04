@@ -250,11 +250,15 @@ extension ServicesViewController: UITableViewDataSource,UITableViewDelegate {
         if arrSortedService[indexPath.row].serviceCountInCart == 1 {
             cell.addView.isHidden = false
             cell.addToCart.isHidden = true
+            cell.addToCartImage.isHidden = true
+
+            
 
         }
         else{
             cell.addView.isHidden = true
             cell.addToCart.isHidden = false
+            cell.addToCartImage.isHidden = false
 
         }
         
@@ -305,8 +309,8 @@ extension ServicesViewController: UITableViewDataSource,UITableViewDelegate {
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 160
+      //  let heightSizeLine = arrSortedService[indexPath.row].serviceName.heightForView(text: "", font: UIFont(name:FontName.Inter.Medium, size: "".dynamicFontSize(17)) ?? UIFont.systemFont(ofSize: 15.0), width: self.view.frame.width - 52)
+        return 100 + 60
     }
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             self.view.endEditing(true)
@@ -359,6 +363,8 @@ class ServicesTvCell: UITableViewCell {
     
     @IBOutlet weak var addView: UIView!
     @IBOutlet weak var addToCart: UIButton!
+    @IBOutlet weak var addToCartImage: UIImageView!
+
     @IBOutlet weak var removeCart: UIButton!
 
     @IBOutlet weak var imgService: UIImageView!

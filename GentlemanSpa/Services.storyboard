@@ -99,23 +99,28 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F5F-Mt-eMd" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
                                                     <rect key="frame" x="14" y="10" width="365" height="140"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your appointment is booked successfully" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kt6-6Z-8do">
-                                                            <rect key="frame" x="12" y="7.9999999999999964" width="343" height="50.666666666666657"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your appointment is booked successfully" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kt6-6Z-8do" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
+                                                            <rect key="frame" x="12" y="8" width="343" height="47.666666666666664"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="17"/>
                                                             <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
+                                                                    <integer key="value" value="17"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J75-Ao-Hm9" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="194" y="95" width="159" height="30"/>
+                                                            <rect key="frame" x="195" y="96" width="158" height="30"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Any professional" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SI9-RT-nXW">
-                                                                    <rect key="frame" x="14" y="0.0" width="116" height="30"/>
+                                                                    <rect key="frame" x="13" y="0.0" width="116" height="30"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="next_black_ic" translatesAutoresizingMaskIntoConstraints="NO" id="NNl-BA-PTx">
-                                                                    <rect key="frame" x="135" y="7.6666666666666714" width="15" height="15"/>
+                                                                    <rect key="frame" x="134" y="7.6666666666666714" width="15" height="15"/>
                                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="15" id="Azd-Sj-tfH"/>
@@ -123,21 +128,21 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bl-XL-dEt">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="159" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="158" height="30"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                                 </button>
                                                             </subviews>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                             <constraints>
                                                                 <constraint firstItem="NNl-BA-PTx" firstAttribute="centerY" secondItem="J75-Ao-Hm9" secondAttribute="centerY" id="3Rk-oM-ZRV"/>
+                                                                <constraint firstAttribute="trailing" secondItem="SI9-RT-nXW" secondAttribute="trailing" constant="29" id="JAq-CR-g4Q"/>
                                                                 <constraint firstAttribute="bottom" secondItem="4bl-XL-dEt" secondAttribute="bottom" id="KNe-fk-R8U"/>
-                                                                <constraint firstItem="NNl-BA-PTx" firstAttribute="leading" secondItem="SI9-RT-nXW" secondAttribute="trailing" constant="5" id="ONR-yY-Bul"/>
                                                                 <constraint firstItem="4bl-XL-dEt" firstAttribute="leading" secondItem="J75-Ao-Hm9" secondAttribute="leading" id="QzI-f6-J6D"/>
                                                                 <constraint firstAttribute="trailing" secondItem="NNl-BA-PTx" secondAttribute="trailing" constant="9" id="ShO-bz-9dk"/>
                                                                 <constraint firstAttribute="height" constant="30" id="Tva-L9-uiN"/>
                                                                 <constraint firstItem="SI9-RT-nXW" firstAttribute="top" secondItem="J75-Ao-Hm9" secondAttribute="top" id="VSu-Y9-ite"/>
-                                                                <constraint firstItem="SI9-RT-nXW" firstAttribute="leading" secondItem="J75-Ao-Hm9" secondAttribute="leading" constant="14" id="Zoj-f4-24O"/>
+                                                                <constraint firstItem="SI9-RT-nXW" firstAttribute="leading" secondItem="J75-Ao-Hm9" secondAttribute="leading" constant="13" id="Zoj-f4-24O"/>
                                                                 <constraint firstItem="4bl-XL-dEt" firstAttribute="top" secondItem="J75-Ao-Hm9" secondAttribute="top" id="cFO-Al-JQQ"/>
                                                                 <constraint firstAttribute="bottom" secondItem="SI9-RT-nXW" secondAttribute="bottom" id="iy3-Mk-ykF"/>
                                                                 <constraint firstAttribute="trailing" secondItem="4bl-XL-dEt" secondAttribute="trailing" id="lgJ-xa-v1g"/>
@@ -146,16 +151,10 @@
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <integer key="value" value="15"/>
                                                                 </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                    <color key="value" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                    <real key="value" value="1.2"/>
-                                                                </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDP-Cp-eGQ" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="12" y="63" width="0.0" height="0.0"/>
+                                                            <rect key="frame" x="12" y="60" width="0.0" height="0.0"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                             <color key="textColor" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -166,7 +165,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 56 (2)" translatesAutoresizingMaskIntoConstraints="NO" id="g9n-9m-zdL" customClass="UIImageViewX" customModule="GentlemanSpa">
-                                                            <rect key="frame" x="136" y="87" width="46" height="46"/>
+                                                            <rect key="frame" x="141" y="88" width="46" height="46"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="46" id="Dgz-Ps-6rT"/>
                                                                 <constraint firstAttribute="width" constant="46" id="u1H-HG-MBp"/>
@@ -186,19 +185,24 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sat, 14-08-2023 at 10:00PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bw2-BT-Gdb">
-                                                            <rect key="frame" x="12" y="61.666666666666664" width="185" height="19.666666666666664"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sat, 14-08-2023 at 10:00PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bw2-BT-Gdb" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
+                                                            <rect key="frame" x="12" y="58.666666666666664" width="185" height="19.666666666666664"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
+                                                                    <integer key="value" value="14"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="J75-Ao-Hm9" secondAttribute="bottom" constant="15" id="8uX-EX-qyu"/>
+                                                        <constraint firstAttribute="bottom" secondItem="J75-Ao-Hm9" secondAttribute="bottom" constant="14" id="8uX-EX-qyu"/>
                                                         <constraint firstItem="kt6-6Z-8do" firstAttribute="leading" secondItem="F5F-Mt-eMd" secondAttribute="leading" constant="12" id="96u-9k-aV3"/>
                                                         <constraint firstAttribute="trailing" secondItem="J75-Ao-Hm9" secondAttribute="trailing" constant="12" id="A8l-rO-qR1"/>
-                                                        <constraint firstItem="J75-Ao-Hm9" firstAttribute="leading" secondItem="g9n-9m-zdL" secondAttribute="trailing" constant="12" id="Bhz-a9-y0z"/>
+                                                        <constraint firstItem="J75-Ao-Hm9" firstAttribute="leading" secondItem="g9n-9m-zdL" secondAttribute="trailing" constant="8" id="Bhz-a9-y0z"/>
                                                         <constraint firstItem="bw2-BT-Gdb" firstAttribute="top" secondItem="kt6-6Z-8do" secondAttribute="bottom" constant="3" id="DET-8z-xAF"/>
                                                         <constraint firstItem="bw2-BT-Gdb" firstAttribute="leading" secondItem="F5F-Mt-eMd" secondAttribute="leading" constant="12" id="HzN-SN-62x"/>
                                                         <constraint firstAttribute="trailing" secondItem="kt6-6Z-8do" secondAttribute="trailing" constant="10" id="Rc3-V3-5ug"/>
@@ -678,6 +682,9 @@
         <image name="search_ic" width="18.333333969116211" height="18"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

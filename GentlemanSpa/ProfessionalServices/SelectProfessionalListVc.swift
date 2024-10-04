@@ -18,13 +18,14 @@ class SelectProfessionalListVc: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         lbeServiceName.text = serviceName
-        GetProfessionalListAPI(true, true, 1)
+       
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
+        GetProfessionalListAPI(true, true, 1)
     }
    
     @IBAction func btnBackPreessed(_ sender: Any){
@@ -133,7 +134,6 @@ extension SelectProfessionalListVc: UITableViewDataSource,UITableViewDelegate {
     }
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let controller:BookingDoctorViewController =  UIStoryboard(storyboard: .User).initVC()
-            
             controller.name = (arrGetProfessionalList[indexPath.row].firstName ?? "") + " " + (arrGetProfessionalList[indexPath.row].lastName ?? "")
             if let imgUrl = arrGetProfessionalList[indexPath.row].profilepic,!imgUrl.isEmpty {
                 

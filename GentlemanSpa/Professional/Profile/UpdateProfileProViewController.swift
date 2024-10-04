@@ -381,8 +381,6 @@ class UpdateProfileProViewController: UIViewController {
                          "professionalDetailId" :  professionalDetailId,
                          "spaDetailId" : 21,] as [String : Any]
 
-                      
-        
         let params = ["email": trimmedEmailName,
                       "firstName":trimmedName ,
                       "lastName": trimmedlast,
@@ -390,7 +388,6 @@ class UpdateProfileProViewController: UIViewController {
                       "phoneNumber":trimmedPhone,
                       "gender":genderStr,
                       "id" : userId(),
-                      
                       "professionalDetail": paramsNew
         ] as [String : Any]
 

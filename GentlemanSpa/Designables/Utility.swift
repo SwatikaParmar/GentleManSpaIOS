@@ -257,7 +257,7 @@ extension String {
     
     func dateFromString(_ dateString : String) -> Date {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         dateFormatter.timeZone = TimeZone.current
         let date = dateFormatter.date(from: dateString) ?? Date()
         return date
@@ -291,6 +291,7 @@ extension String {
         outputDateFormatter.dateFormat = "yyyy'-'MMM'-'dd"
         return outputDateFormatter.string(from: date)
     }
+    
     func changeINDateFormat(_ dateString : String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy'-'MM'-'dd"
@@ -327,6 +328,13 @@ extension String {
         else{
             return self
         }
+    }
+    
+    func convertToDDMMYYYY(_ date:Date)->String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat =  "dd-MM-yyyy"
+        let timeStamp = dateFormatter.string(from: date)
+        return timeStamp
     }
     
     func convertToYYYYMMDD(date:Date)->String{

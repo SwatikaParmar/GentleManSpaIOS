@@ -14,6 +14,8 @@ target 'GentlemanSpa' do
   pod 'Alamofire'
   pod 'SVPinView', '~> 1.0'
   pod 'CountryPickerView'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
   # Pods for GentlemanSpa
 
 end

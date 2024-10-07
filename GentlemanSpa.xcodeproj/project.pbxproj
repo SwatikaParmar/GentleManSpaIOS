@@ -15,6 +15,14 @@
 		3404F3142C3F936E00FF0F41 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3404F3132C3F936E00FF0F41 /* Base */; };
 		3408D4992C5FD6060072C4E4 /* UpdateProfileProViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3408D4982C5FD6060072C4E4 /* UpdateProfileProViewController.swift */; };
 		341748302C58F9610015AF5E /* SpaLocationVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3417482F2C58F9610015AF5E /* SpaLocationVc.swift */; };
+		34186AB72CB39FF900717E47 /* Address.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34186AB62CB39FF900717E47 /* Address.storyboard */; };
+		34186ABD2CB3A16E00717E47 /* MyLocationVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34186ABC2CB3A16E00717E47 /* MyLocationVc.swift */; };
+		34186ABF2CB3A25200717E47 /* LocationApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34186ABE2CB3A25200717E47 /* LocationApiRequest.swift */; };
+		34186AC12CB3A52100717E47 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34186AC02CB3A52100717E47 /* MapsViewController.swift */; };
+		34186AC62CB3A58300717E47 /* GoogleApiHelper+Nearby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34186AC32CB3A58300717E47 /* GoogleApiHelper+Nearby.swift */; };
+		34186AC72CB3A58300717E47 /* NearByEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34186AC42CB3A58300717E47 /* NearByEnum.swift */; };
+		34186AC82CB3A58300717E47 /* GoogleApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34186AC22CB3A58300717E47 /* GoogleApiHelper.swift */; };
+		34186ACA2CB3A61900717E47 /* EditAddressVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34186AC92CB3A61900717E47 /* EditAddressVc.swift */; };
 		343813C02C69D928003B4B30 /* ProductCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343813BF2C69D928003B4B30 /* ProductCategories.swift */; };
 		343813C22C69E420003B4B30 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343813C12C69E420003B4B30 /* HomeCell.swift */; };
 		3438E90B2C609DE4005BFC03 /* CreateSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438E90A2C609DE4005BFC03 /* CreateSchedule.swift */; };
@@ -116,6 +124,14 @@
 		3404F3152C3F936E00FF0F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3408D4982C5FD6060072C4E4 /* UpdateProfileProViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileProViewController.swift; sourceTree = "<group>"; };
 		3417482F2C58F9610015AF5E /* SpaLocationVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaLocationVc.swift; sourceTree = "<group>"; };
+		34186AB62CB39FF900717E47 /* Address.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Address.storyboard; sourceTree = "<group>"; };
+		34186ABC2CB3A16E00717E47 /* MyLocationVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationVc.swift; sourceTree = "<group>"; };
+		34186ABE2CB3A25200717E47 /* LocationApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationApiRequest.swift; sourceTree = "<group>"; };
+		34186AC02CB3A52100717E47 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
+		34186AC22CB3A58300717E47 /* GoogleApiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleApiHelper.swift; sourceTree = "<group>"; };
+		34186AC32CB3A58300717E47 /* GoogleApiHelper+Nearby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GoogleApiHelper+Nearby.swift"; sourceTree = "<group>"; };
+		34186AC42CB3A58300717E47 /* NearByEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByEnum.swift; sourceTree = "<group>"; };
+		34186AC92CB3A61900717E47 /* EditAddressVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddressVc.swift; sourceTree = "<group>"; };
 		343813BF2C69D928003B4B30 /* ProductCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategories.swift; sourceTree = "<group>"; };
 		343813C12C69E420003B4B30 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		3438E90A2C609DE4005BFC03 /* CreateSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSchedule.swift; sourceTree = "<group>"; };
@@ -259,6 +275,7 @@
 				344E0C6B2CA12A0000D32AB6 /* UserProduct.storyboard */,
 				344B96562CABDC950022F502 /* Services.storyboard */,
 				34DEF4812C5DFF3C00F395A8 /* Professional.storyboard */,
+				34186AB62CB39FF900717E47 /* Address.storyboard */,
 				3404F3102C3F936E00FF0F41 /* Assets.xcassets */,
 				3404F3122C3F936E00FF0F41 /* LaunchScreen.storyboard */,
 				3404F3152C3F936E00FF0F41 /* Info.plist */,
@@ -269,6 +286,16 @@
 				34CE924D2C40E8E40007E086 /* Font */,
 			);
 			path = GentlemanSpa;
+			sourceTree = "<group>";
+		};
+		34186AC52CB3A58300717E47 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				34186AC22CB3A58300717E47 /* GoogleApiHelper.swift */,
+				34186AC32CB3A58300717E47 /* GoogleApiHelper+Nearby.swift */,
+				34186AC42CB3A58300717E47 /* NearByEnum.swift */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		344E0C6D2CA133CC00D32AB6 /* MyOrder */ = {
@@ -419,6 +446,11 @@
 			children = (
 				34C5E77F2C6A32D900C5BE0A /* ProductListViewController.swift */,
 				3498173E2C7C860100219379 /* ProductDetailsViewController.swift */,
+				34186ABE2CB3A25200717E47 /* LocationApiRequest.swift */,
+				34186ABC2CB3A16E00717E47 /* MyLocationVc.swift */,
+				34186AC02CB3A52100717E47 /* MapsViewController.swift */,
+				34186AC92CB3A61900717E47 /* EditAddressVc.swift */,
+				34186AC52CB3A58300717E47 /* Source */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -643,6 +675,7 @@
 				344B96572CABDC950022F502 /* Services.storyboard in Resources */,
 				3404F3142C3F936E00FF0F41 /* Base in Resources */,
 				34CE92542C40E8E40007E086 /* Poppins-SemiBold.ttf in Resources */,
+				34186AB72CB39FF900717E47 /* Address.storyboard in Resources */,
 				34B4CD982C48D5D1006B9F1F /* User.storyboard in Resources */,
 				3404F30F2C3F936D00FF0F41 /* Base in Resources */,
 				34CE92532C40E8E40007E086 /* Poppins-Regular.ttf in Resources */,
@@ -750,6 +783,9 @@
 				3408D4992C5FD6060072C4E4 /* UpdateProfileProViewController.swift in Sources */,
 				34CE92702C41097C0007E086 /* SetPasswordVc.swift in Sources */,
 				344B96552CABD53F0022F502 /* SelectProTableViewCell.swift in Sources */,
+				34186AC62CB3A58300717E47 /* GoogleApiHelper+Nearby.swift in Sources */,
+				34186AC72CB3A58300717E47 /* NearByEnum.swift in Sources */,
+				34186AC82CB3A58300717E47 /* GoogleApiHelper.swift in Sources */,
 				34C5E2F12C5B97F700F97C0C /* GetServiceListRequest.swift in Sources */,
 				3438E90D2C60A5C4005BFC03 /* UpdateProfessionalProfile.swift in Sources */,
 				34BE6DC12C622365000C4283 /* MenuProController.swift in Sources */,
@@ -763,15 +799,19 @@
 				34B6D7AF2C44E7680008FC81 /* AlamofireRequest.swift in Sources */,
 				34B6D7AD2C44E7080008FC81 /* LoginRequest.swift in Sources */,
 				34B4CD902C48D512006B9F1F /* HomeUserViewController.swift in Sources */,
+				34186ABD2CB3A16E00717E47 /* MyLocationVc.swift in Sources */,
 				34C093EA2C9A9534001BBB40 /* GetProfessional.swift in Sources */,
 				34D372462C4E3E1C000DC680 /* SpecialitiesViewController.swift in Sources */,
+				34186ACA2CB3A61900717E47 /* EditAddressVc.swift in Sources */,
 				343813C02C69D928003B4B30 /* ProductCategories.swift in Sources */,
+				34186AC12CB3A52100717E47 /* MapsViewController.swift in Sources */,
 				34D404492C4F6C2D0063AEF7 /* HomeBannerModel.swift in Sources */,
 				34D338232C5A7A8E003C6B13 /* CalendarView+Delegate.swift in Sources */,
 				34D338252C5A7A8E003C6B13 /* CalendarView+DataSource.swift in Sources */,
 				34D338282C5A7AE1003C6B13 /* BookingDoctorViewController.swift in Sources */,
 				345001FB2C776DF2001A2A0D /* ProGetProductAPI.swift in Sources */,
 				34D372442C4E1CE6000DC680 /* UpdateProfileUserViewController.swift in Sources */,
+				34186ABF2CB3A25200717E47 /* LocationApiRequest.swift in Sources */,
 				34F559B92C5A52250017F732 /* HomeList.swift in Sources */,
 				34D3381E2C5A7A8E003C6B13 /* CalendarFlowLayout.swift in Sources */,
 				34D338132C5A718D003C6B13 /* FindPViewController.swift in Sources */,
@@ -960,6 +1000,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Gentleman Spa";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app use camera take your photo for profile image";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "By accessing your location, this app can find you a good place to eat.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "By accessing your location, this app can find you a good place to eat.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Privacy - Photo Library Additions Usage Description";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1000,6 +1042,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Gentleman Spa";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app use camera take your photo for profile image";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "By accessing your location, this app can find you a good place to eat.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "By accessing your location, this app can find you a good place to eat.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Privacy - Photo Library Additions Usage Description";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

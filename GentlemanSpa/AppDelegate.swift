@@ -8,7 +8,8 @@
 import UIKit
 import SDWebImage
 import IQKeyboardManagerSwift
-
+import GoogleMaps
+import GooglePlaces
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -19,6 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.toolbarConfiguration.tintColor = .black
         IQKeyboardManager.shared.enableAutoToolbar =  true
+        
+        GMSServices.provideAPIKey(GlobalConstants.GoogleWebAPIKey)
+        GMSPlacesClient.provideAPIKey(GlobalConstants.GoogleWebAPIKey)
+        GoogleApi.shared.initialiseWithKey(GlobalConstants.GoogleWebAPIKey)
+        
         return true
     }
 

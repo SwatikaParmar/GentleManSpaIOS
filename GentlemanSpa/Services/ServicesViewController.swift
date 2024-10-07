@@ -193,8 +193,6 @@ class ServicesViewController: UIViewController {
         GetProductCartRequest.shared.GetCartItemsAPI(requestParams:params, isLoader) { [self] (arrayData,arrayService,message,isStatus,totalAmount) in
             if isStatus {
                 if arrayData != nil{
-                    
-                   
                     if arrayService?.allServicesArray.count ?? 0 > 0 {
                         totalView.isHidden = false
                         view_H_Const.constant = 70
@@ -251,9 +249,6 @@ extension ServicesViewController: UITableViewDataSource,UITableViewDelegate {
             cell.addView.isHidden = false
             cell.addToCart.isHidden = true
             cell.addToCartImage.isHidden = true
-
-            
-
         }
         else{
             cell.addView.isHidden = true

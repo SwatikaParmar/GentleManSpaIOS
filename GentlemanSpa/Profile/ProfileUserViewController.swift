@@ -24,7 +24,6 @@ class ProfileUserViewController: UIViewController,UITableViewDelegate,UITableVie
         self.navigationController?.navigationBar.isHidden = true
         titleArray = ["My Profile","Membership Level","Event","Refer","Support","Product","Service"]
         imagesArray = ["profileEdit","M","E","R","S","P","SE"]
-        
         tableview.contentInsetAdjustmentBehavior = .never
     }
     
@@ -62,17 +61,12 @@ class ProfileUserViewController: UIViewController,UITableViewDelegate,UITableVie
    
     
     //MARK:-   TableView Function
-
-      
       func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-          
           return titleArray.count
-    }
+      }
       
       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
           let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell") as! ProfileCell
-          
           cell.lbeName.text = titleArray[indexPath.row]
           cell.imgVw.image = UIImage (named: imagesArray[indexPath.row])
           return cell
@@ -93,6 +87,8 @@ class ProfileUserViewController: UIViewController,UITableViewDelegate,UITableVie
        
     }
 }
+
+
 class ProfileCell: UITableViewCell {
        @IBOutlet weak var imgVw: UIImageView! = nil
        @IBOutlet weak var lbeName: UILabel! = nil

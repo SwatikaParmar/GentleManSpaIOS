@@ -261,12 +261,38 @@ extension MyLocationVc : UITableViewDelegate ,UITableViewDataSource {
             str = arrayAddressData[indexPath.row].houseNoOrBuildingName + ", " + arrayAddressData[indexPath.row].streetAddresss + ", " +  arrayAddressData[indexPath.row].nearbyLandMark + ", " +  arrayAddressData[indexPath.row].city + ", " +  arrayAddressData[indexPath.row].state
             sizeFonts  = str.heightForView(text: "", font: UIFont(name:FontName.Inter.Regular, size: 16.0) ?? UIFont.systemFont(ofSize: 15.0), width: self.view.frame.width - 115)
             
-            return sizeFonts + 70
+        if  self.arrayAddressData[indexPath.row].status == 1 {
+            return sizeFonts + 80
+
         }
+            return sizeFonts + 60
+        }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        setDataPrimary(arrayAddressData[indexPath.row].customerAddressId)
+    }
+    
+    func setDataPrimary(_ id: Int) {
+                
+                var param = [String : AnyObject]()
+                param["customerAddressId"] =  id  as AnyObject
+                param["status"] = true as AnyObject
+                
+                SetCustomerAddressRequest.shared.SetCustomerAddressAPI(requestParams: param) { (user,message,isStatus) in
+                    if isStatus {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            }
+        }
+    
+    
     
         
     
-}
+
 
 
 class SelectedAddressTableViewCell: UITableViewCell {

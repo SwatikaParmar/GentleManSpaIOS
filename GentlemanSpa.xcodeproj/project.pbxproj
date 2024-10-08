@@ -23,6 +23,7 @@
 		34186AC72CB3A58300717E47 /* NearByEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34186AC42CB3A58300717E47 /* NearByEnum.swift */; };
 		34186AC82CB3A58300717E47 /* GoogleApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34186AC22CB3A58300717E47 /* GoogleApiHelper.swift */; };
 		34186ACA2CB3A61900717E47 /* EditAddressVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34186AC92CB3A61900717E47 /* EditAddressVc.swift */; };
+		342BB9052CB53DA0009E069E /* BookAppointmentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342BB9042CB53DA0009E069E /* BookAppointmentRequest.swift */; };
 		343813C02C69D928003B4B30 /* ProductCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343813BF2C69D928003B4B30 /* ProductCategories.swift */; };
 		343813C22C69E420003B4B30 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343813C12C69E420003B4B30 /* HomeCell.swift */; };
 		3438E90B2C609DE4005BFC03 /* CreateSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438E90A2C609DE4005BFC03 /* CreateSchedule.swift */; };
@@ -132,6 +133,7 @@
 		34186AC32CB3A58300717E47 /* GoogleApiHelper+Nearby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GoogleApiHelper+Nearby.swift"; sourceTree = "<group>"; };
 		34186AC42CB3A58300717E47 /* NearByEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByEnum.swift; sourceTree = "<group>"; };
 		34186AC92CB3A61900717E47 /* EditAddressVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddressVc.swift; sourceTree = "<group>"; };
+		342BB9042CB53DA0009E069E /* BookAppointmentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAppointmentRequest.swift; sourceTree = "<group>"; };
 		343813BF2C69D928003B4B30 /* ProductCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategories.swift; sourceTree = "<group>"; };
 		343813C12C69E420003B4B30 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		3438E90A2C609DE4005BFC03 /* CreateSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSchedule.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				34B905602C984FC000E81DFC /* AddProductCartAPI.swift */,
+				342BB9042CB53DA0009E069E /* BookAppointmentRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -835,6 +838,7 @@
 				34C80D762C75B0EC00FE9E02 /* ProAddProductVc.swift in Sources */,
 				3404F3082C3F936D00FF0F41 /* AppDelegate.swift in Sources */,
 				34CE92632C40EAE60007E086 /* UIViewXRadialGradient.swift in Sources */,
+				342BB9052CB53DA0009E069E /* BookAppointmentRequest.swift in Sources */,
 				3404F30A2C3F936D00FF0F41 /* SceneDelegate.swift in Sources */,
 				34CE92672C40EAE60007E086 /* UILabelX.swift in Sources */,
 				34CE926A2C40EAE60007E086 /* UIImageViewX.swift in Sources */,

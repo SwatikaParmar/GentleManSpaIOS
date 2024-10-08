@@ -262,7 +262,10 @@ extension String{
     var deleteCustomerAddress: String{
         return "Path".path + "Customer/DeleteCustomerAddress"
     }
-
+    
+    var PlaceOrder: String{
+        return "Path".path + "Customer/PlaceOrder"
+    }
     
     
 }

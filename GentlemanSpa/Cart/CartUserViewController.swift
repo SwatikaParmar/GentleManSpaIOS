@@ -14,13 +14,29 @@ class CartUserViewController: UIViewController {
     @IBOutlet weak var lbePayNow: UILabelX!
     @IBOutlet weak var payNow : UIView!
     @IBOutlet weak var imgViewEm : UIImageView!
+    
+    @IBOutlet weak var imgViewHome : UIImageView!
+    @IBOutlet weak var imgViewVenue : UIImageView!
+    @IBOutlet weak var imgViewAddAddress : UIImageView!
+
+    @IBOutlet weak var lbeAddress : UILabel!
+    @IBOutlet weak var paymentView_H_Constraint: NSLayoutConstraint!
+
+    @IBOutlet weak var lbeHomeType : UILabel!
+    @IBOutlet weak var lbeVenueType : UILabel!
+    @IBOutlet weak var lbeAddressTitle : UILabel!
+
+    @IBOutlet weak var btnAdd : UIButton!
+    @IBOutlet weak var btnAdd_Top_Constraint: NSLayoutConstraint!
+
+    
     var itemCount = 0
     var arrObject : CartDataModel?
     var arrSortedProduct = [AllCartProducts]()
-   
     var arrObjectServices : cartServicesDataModel?
     var arrSortedService = [AllCartServices]()
-   
+    var arrayAddressData = [AddressListModel]()
+
     
     func topViewLayout(){
         if HomeViewController.hasSafeArea{
@@ -33,6 +49,8 @@ class CartUserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
+        self.paymentView_H_Constraint.constant = 0
+
         topViewLayout()
         payNow.isHidden = true
         imgViewEm.isHidden = true
@@ -44,6 +62,7 @@ class CartUserViewController: UIViewController {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
         myCartAPI(true)
+      
     }
     
     @IBAction func Back(_ sender: Any) {
@@ -51,9 +70,87 @@ class CartUserViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func PlaceOrder(_ sender: Any) {
+        bookingAPI()
+    }
+    @IBAction func Home(_ sender: Any) {
+        
+        imgViewHome.image = UIImage(named: "checkic")
+        imgViewVenue.image = UIImage(named: "uncheck")
+        self.lbeAddress.text = ""
+        self.lbeAddressTitle.text = ""
+        self.btnAdd.isHidden = false
+        self.imgViewAddAddress.isHidden = false
+        GetAddressAPI()
+    }
+    
+    @IBAction func Venue(_ sender: Any) {
+        imgViewHome.image = UIImage(named: "uncheck")
+        imgViewVenue.image = UIImage(named: "checkic")
+        self.lbeAddress.text = ""
+        self.lbeAddressTitle.text = ""
+        self.btnAdd.isHidden = true
+        self.imgViewAddAddress.isHidden = true
+        self.paymentView_H_Constraint.constant = 220
+        self.btnAdd_Top_Constraint.constant = 60
+    }
+    
+    @IBAction func AddAddress(_ sender: Any) {
+        
+        let storyBoard = UIStoryboard.init(name: "Address", bundle: nil)
+        let controller = (storyBoard.instantiateViewController(withIdentifier: "MyLocationVc") as?  MyLocationVc)!
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    
+    func bookingAPI() {
+
+       let Model = [
+           "customerAddressId": 0,
+           "deliveryType": "AtVenue",
+           "paymentType":  "Cash"] as [String : Any]
+ 
+        BookAppointmentRequest.shared.bookingAPI(requestParams: Model) { (user,message,isStatus) in
+               if isStatus {
+                   
+                   
+               }
+           }
+       }
+    
+    
+    func productAddCart(_ bool:Bool){
+        
+        if bool {
+            imgViewHome.image = UIImage(named: "checkic")
+            self.lbeAddress.text = ""
+            self.lbeAddressTitle.text = ""
+            self.btnAdd.isHidden = false
+            self.imgViewAddAddress.isHidden = false
+            self.imgViewHome.isHidden = false
+            self.imgViewVenue.isHidden = false
+            self.lbeHomeType.isHidden = false
+            self.lbeVenueType.isHidden = false
+
+            GetAddressAPI()
+        }
+        else{
+            self.imgViewHome.isHidden = true
+            self.imgViewVenue.isHidden = true
+            self.lbeAddress.text = ""
+            self.lbeAddressTitle.text = ""
+            self.btnAdd.isHidden = true
+            self.imgViewAddAddress.isHidden = true
+            self.lbeHomeType.isHidden = true
+            self.lbeVenueType.isHidden = true
+            self.paymentView_H_Constraint.constant = 180
+            self.btnAdd_Top_Constraint.constant = 20
+        }
+    }
+    
     
     func myCartAPI(_ isLoader:Bool){
-        var params = [ "availableService": ""
+        var params = [ "availableService": "Active"
         ] as [String : Any]
         
         
@@ -82,9 +179,12 @@ class CartUserViewController: UIViewController {
                         tableViewMyCart.isHidden = false
                         arrSortedProduct = arrayData?.allCartServicesArray ?? arrSortedProduct
                         tableViewMyCart.reloadData()
+                        productAddCart(true)
                     }
                     else{
                         arrSortedProduct.removeAll()
+                        productAddCart(false)
+
                         if arrayService?.allServicesArray.count ?? 0 > 0 {
                             
                             arrObjectServices = arrayService ?? arrObjectServices
@@ -116,7 +216,84 @@ class CartUserViewController: UIViewController {
             }
         }
     
-}
+    func GetAddressAPI(){
+
+        GetAddressListRequest.shared.getLocationList(requestParams:[:], false) { (arrayData,message,isStatus) in
+            if isStatus {
+                if arrayData != nil{
+                    
+                    self.arrayAddressData.removeAll()
+                    self.arrayAddressData = arrayData ?? self.arrayAddressData
+                    if self.arrayAddressData.count > 0 {
+                       
+                         DispatchQueue.main.async {
+                             var status = 1000
+                             
+                             for i in 0..<self.arrayAddressData.count
+                             {
+                                 if self.arrayAddressData[i].status != 0 {
+                                     status = i
+                                 }
+                             }
+                             if self.arrayAddressData.count > status {
+                                 
+                                 self.lbeAddressTitle.text = "Delivering to " + self.arrayAddressData[status].addressType
+                                 
+                                 var stringN = ""
+                                 if self.arrayAddressData[status].nearbyLandMark != "" {
+                                     stringN  = ", " + self.arrayAddressData[status].nearbyLandMark
+                                     if self.arrayAddressData[status].city != "" {
+                                         stringN  =  stringN + ", " + self.arrayAddressData[status].city
+                                     }
+                                     if self.arrayAddressData[status].state != "" {
+                                         stringN  =  stringN + ", " + self.arrayAddressData[status].state
+                                     }
+                                 }
+                                 else{
+                                     if self.arrayAddressData[status].city != "" {
+                                         stringN  = ", " + self.arrayAddressData[status].city
+                                     }
+                                     if self.arrayAddressData[status].state != "" {
+                                         stringN  =  stringN + ", " + self.arrayAddressData[status].state
+                                     }
+                                 }
+                                 
+                                 self.lbeAddress.text = self.arrayAddressData[status].houseNoOrBuildingName + ", " + self.arrayAddressData[status].streetAddresss + stringN
+                                 
+                                 
+                                 
+                                 var sizeFonts = CGFloat()
+                                 sizeFonts  = self.lbeAddress.text?.heightForView(text: "", font: UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(13)) ?? UIFont.systemFont(ofSize: 15.0), width: self.view.frame.width - 65) ?? 20
+                                 self.paymentView_H_Constraint.constant = 220 + sizeFonts
+                                 if Utility.shared.DivceTypeString() == "IPad" {
+                                     self.paymentView_H_Constraint.constant = 260 + sizeFonts
+                                 }
+                                 self.btnAdd_Top_Constraint.constant = 130
+                             }
+                             else{
+                                 self.lbeAddressTitle.text = "Add Address"
+                                 self.lbeAddress.text = ""
+                                 self.paymentView_H_Constraint.constant = 250
+                                 self.btnAdd_Top_Constraint.constant = 90
+
+                             }
+                        }
+                    }
+                    else{
+                        self.lbeAddressTitle.text = "Add Address"
+                        self.lbeAddress.text = ""
+                        self.paymentView_H_Constraint.constant = 250
+                        self.btnAdd_Top_Constraint.constant = 90
+                        self.arrayAddressData.removeAll()
+                    }
+               
+                    }
+                }
+            }
+        }
+    }
+
+
 extension CartUserViewController: UITableViewDataSource,UITableViewDelegate {
    
 

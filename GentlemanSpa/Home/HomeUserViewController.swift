@@ -41,14 +41,12 @@ class HomeUserViewController: UIViewController {
     
     
     @IBAction func notification(_ sender: Any) {
-//        let storyBoard = UIStoryboard.init(name: "User", bundle: nil)
-//        let controller = (storyBoard.instantiateViewController(withIdentifier: "UserNotificationViewController") as?  UserNotificationViewController)!
-//        self.parent?.navigationController?.pushViewController(controller, animated: true)
-        
-        
-        let storyBoard = UIStoryboard.init(name: "Address", bundle: nil)
-        let controller = (storyBoard.instantiateViewController(withIdentifier: "MyLocationVc") as?  MyLocationVc)!
+        let storyBoard = UIStoryboard.init(name: "User", bundle: nil)
+        let controller = (storyBoard.instantiateViewController(withIdentifier: "UserNotificationViewController") as?  UserNotificationViewController)!
         self.parent?.navigationController?.pushViewController(controller, animated: true)
+        
+        
+       
               
         
 

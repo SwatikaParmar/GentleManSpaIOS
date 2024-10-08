@@ -145,7 +145,7 @@ class SetCustomerAddressRequest: NSObject {
     
     func SetCustomerAddressAPI(requestParams : [String:Any], completion: @escaping (_ objectData: LoginObject?,_ message : String?, _ isStatus : Bool) -> Void) {
 
-        var apiURL = String("\("Base".GetCustomerAddressList)")
+        var apiURL = String("\("Base".setCustomerAddressStatus)")
 
         AlamofireRequest.shared.PostBodyForRawData(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader:false, loaderMessage: "") { (data, error) in
                 

@@ -202,12 +202,9 @@ extension ProductListViewController: UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
         let cell = tableViewProduct.dequeueReusableCell(withIdentifier: "ProductLstTvCell") as! ProductLstTvCell
         
-     
         if arrSortedService[indexPath.row].productCountInCart > 0{
-            
             cell.addToCart.isHidden = true
             cell.addView.isHidden = false
             cell.lbeCount.isHidden = false
@@ -218,10 +215,8 @@ extension ProductListViewController: UITableViewDataSource,UITableViewDelegate {
             cell.addToCart.isHidden = false
             cell.lbeCount.text =   String(arrSortedService[indexPath.row].productCountInCart)
             cell.lbeCount.isHidden = false
-
         }
         
-  
         cell.addToCart.tag = indexPath.row
         cell.addToCart.addTarget(self, action: #selector(btnAddTap(sender:)), for: .touchUpInside)
         
@@ -255,7 +250,6 @@ extension ProductListViewController: UITableViewDataSource,UITableViewDelegate {
         }
         cell.lbeAmount.text = "$" + listingPrice
         
-        
         var basePrice = ""
         if arrSortedService[indexPath.row].basePrice.truncatingRemainder(dividingBy: 1) == 0 {
             basePrice = String(format: "%.0f", arrSortedService[indexPath.row].basePrice )
@@ -264,20 +258,13 @@ extension ProductListViewController: UITableViewDataSource,UITableViewDelegate {
             basePrice = String(format: "%.2f", arrSortedService[indexPath.row].basePrice )
         }
         cell.lbeBasePrice.text = "$" + basePrice
-        
-        
-        
-        
-        
+
         return cell
     }
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        
-        
         return 160
-        
-        
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller:ProductDetailsViewController =  UIStoryboard(storyboard: .User).initVC()
@@ -314,8 +301,6 @@ extension ProductListViewController: UITableViewDataSource,UITableViewDelegate {
     @objc func btnIncreaseButtonTap(sender:UIButton){
         
         itemCount = arrSortedService[sender.tag].productCountInCart
-
-        
         if self.arrSortedService[sender.tag].inStock == itemCount {
             
             var stringCount = ""
@@ -324,9 +309,7 @@ extension ProductListViewController: UITableViewDataSource,UITableViewDelegate {
             return
         }
         arrSortedService[sender.tag].productCountInCart = arrSortedService[sender.tag].productCountInCart + 1
-        
         itemCount = arrSortedService[sender.tag].productCountInCart
-        
         self.tableViewProduct.reloadData()
         
         var param = [String : AnyObject]()

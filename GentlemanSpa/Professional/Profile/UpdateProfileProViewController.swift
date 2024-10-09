@@ -374,15 +374,13 @@ class UpdateProfileProViewController: UIViewController {
             return
         }
         
-        
-        
-        
+    
         let paramsNew = ["specialityIds": String(specialityIds),
                          "professionalDetailId" :  professionalDetailId,
                          "spaDetailId" : 21,] as [String : Any]
 
         let params = ["email": trimmedEmailName,
-                      "firstName":trimmedName ,
+                      "firstName":trimmedName,
                       "lastName": trimmedlast,
                       "dialCode": self.phoneCode,
                       "phoneNumber":trimmedPhone,
@@ -395,19 +393,13 @@ class UpdateProfileProViewController: UIViewController {
         UpdateProfessionalProfile.shared.Update(requestParams: params) { (obj, msg, success,Verification) in
             
             if success == false {
-                
                 self.MessageAlert(title: "Alert", message: msg!)
-                
             }
             else
             {
                 self.OnlyMessageAlert(title: "Alert", message: msg!)
-
             }
-            
         }
-        
-        
     }
     
     

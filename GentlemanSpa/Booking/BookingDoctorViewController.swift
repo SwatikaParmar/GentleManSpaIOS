@@ -552,7 +552,7 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
                         }
                     }
                     else{
-                        self.timeViewH.constant = 55
+                        self.timeViewH.constant = 52
                         self.arrSortedTime.removeAll()
                         self.lbeNoSlot.isHidden = false
                         self.collectionTime.reloadData()
@@ -566,7 +566,7 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
                 self.collectionTime.reloadData()
                 }
             else{
-                self.timeViewH.constant = 55
+                self.timeViewH.constant = 52
                 self.arrSortedTime.removeAll()
                 self.lbeNoSlot.isHidden = false
                 self.collectionTime.reloadData()

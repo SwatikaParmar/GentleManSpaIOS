@@ -90,6 +90,7 @@ extension FindPViewController: UITableViewDataSource,UITableViewDelegate {
         
            
            let actionTitleFont = UIFont(name: FontName.Inter.SemiBold, size: CGFloat("".dynamicFontSize(16))) ?? UIFont.systemFont(ofSize: CGFloat(16), weight: .medium)
+        
            cell.nameLabel.font = actionTitleFont
            
            cell.nameLabel.text = (arrGetProfessionalList[indexPath.row].firstName ?? "") + " " + (arrGetProfessionalList[indexPath.row].lastName ?? "")

@@ -24,13 +24,13 @@ class SelectProfessionalVc: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         topViewLayout()
         
-        myCartAPI(true)
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
-        
+        myCartAPI(true)
     }
     
     @IBAction func Back(_ sender: Any) {

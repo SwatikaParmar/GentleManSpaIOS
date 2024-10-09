@@ -14,7 +14,8 @@ class CartUserViewController: UIViewController {
     @IBOutlet weak var lbePayNow: UILabelX!
     @IBOutlet weak var payNow : UIView!
     @IBOutlet weak var imgViewEm : UIImageView!
-    
+    @IBOutlet weak var viewDataBG : UIView!
+
     @IBOutlet weak var imgViewHome : UIImageView!
     @IBOutlet weak var imgViewVenue : UIImageView!
     @IBOutlet weak var imgViewAddAddress : UIImageView!
@@ -31,6 +32,7 @@ class CartUserViewController: UIViewController {
 
     
     var itemCount = 0
+    var isVenueSelected = false
     var arrObject : CartDataModel?
     var arrSortedProduct = [AllCartProducts]()
     var arrObjectServices : cartServicesDataModel?
@@ -41,7 +43,7 @@ class CartUserViewController: UIViewController {
     func topViewLayout(){
         if HomeViewController.hasSafeArea{
             if navigationViewConstraint != nil {
-                navigationViewConstraint.constant = 70
+               // navigationViewConstraint.constant = 70
             }
         }
     }
@@ -81,6 +83,8 @@ class CartUserViewController: UIViewController {
         self.lbeAddressTitle.text = ""
         self.btnAdd.isHidden = false
         self.imgViewAddAddress.isHidden = false
+        self.isVenueSelected = false
+
         GetAddressAPI()
     }
     
@@ -93,6 +97,7 @@ class CartUserViewController: UIViewController {
         self.imgViewAddAddress.isHidden = true
         self.paymentView_H_Constraint.constant = 220
         self.btnAdd_Top_Constraint.constant = 60
+        self.isVenueSelected = true
     }
     
     @IBAction func AddAddress(_ sender: Any) {
@@ -112,7 +117,11 @@ class CartUserViewController: UIViewController {
  
         BookAppointmentRequest.shared.bookingAPI(requestParams: Model) { (user,message,isStatus) in
                if isStatus {
-                   
+                   let controller:OrderPlaceViewController =  UIStoryboard(storyboard: .User).initVC()
+                   controller.providesPresentationContextTransitionStyle = true
+                   controller.definesPresentationContext = true
+                   controller.modalPresentationStyle=UIModalPresentationStyle.overCurrentContext
+                   self.present(controller, animated: true, completion: nil)
                    
                }
            }
@@ -120,6 +129,19 @@ class CartUserViewController: UIViewController {
     
     
     func productAddCart(_ bool:Bool){
+        
+         if self.isVenueSelected {
+             imgViewHome.image = UIImage(named: "uncheck")
+             imgViewVenue.image = UIImage(named: "checkic")
+             self.lbeAddress.text = ""
+             self.lbeAddressTitle.text = ""
+             self.btnAdd.isHidden = true
+             self.imgViewAddAddress.isHidden = true
+             self.paymentView_H_Constraint.constant = 220
+             self.btnAdd_Top_Constraint.constant = 60
+             self.isVenueSelected = true
+             return
+         }
         
         if bool {
             imgViewHome.image = UIImage(named: "checkic")
@@ -165,6 +187,9 @@ class CartUserViewController: UIViewController {
                             arrObjectServices = arrayService ?? arrObjectServices
                             payNow.isHidden = false
                             imgViewEm.isHidden = true
+                            viewDataBG.isHidden = false
+
+                            
                             tableViewMyCart.isHidden = false
                             arrSortedService = arrayService?.allServicesArray ?? arrSortedService
                             tableViewMyCart.reloadData()
@@ -176,6 +201,8 @@ class CartUserViewController: UIViewController {
                         arrObject = arrayData ?? arrObject
                         payNow.isHidden = false
                         imgViewEm.isHidden = true
+                        viewDataBG.isHidden = false
+
                         tableViewMyCart.isHidden = false
                         arrSortedProduct = arrayData?.allCartServicesArray ?? arrSortedProduct
                         tableViewMyCart.reloadData()
@@ -190,6 +217,8 @@ class CartUserViewController: UIViewController {
                             arrObjectServices = arrayService ?? arrObjectServices
                             payNow.isHidden = false
                             imgViewEm.isHidden = true
+                            viewDataBG.isHidden = false
+
                             tableViewMyCart.isHidden = false
                             arrSortedService = arrayService?.allServicesArray ?? arrSortedService
                             tableViewMyCart.reloadData()
@@ -198,6 +227,7 @@ class CartUserViewController: UIViewController {
                         else{
                             payNow.isHidden = true
                             imgViewEm.isHidden = false
+                            viewDataBG.isHidden = true
                             tableViewMyCart.isHidden = true
                         }
                     }
@@ -205,12 +235,14 @@ class CartUserViewController: UIViewController {
                     else{
                         payNow.isHidden = true
                         imgViewEm.isHidden = false
+                        viewDataBG.isHidden = true
                         tableViewMyCart.isHidden = true
                     }
                 }
                 else{
                     payNow.isHidden = true
                     imgViewEm.isHidden = false
+                    viewDataBG.isHidden = true
                     tableViewMyCart.isHidden = true
                 }
             }
@@ -500,10 +532,17 @@ extension CartUserViewController: UITableViewDataSource,UITableViewDelegate {
               let lineCount = arrSortedService[indexPath.row].serviceName.lineCount(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(17)) ?? UIFont.systemFont(ofSize: 15.0), width: self.view.frame.width - 174)
               
               if lineCount > 1 {
-                  return  212
+                  if self.arrSortedService[indexPath.row].fromTime == "" {
+                      return  190
+                  }
+                  return  210
 
               }
-              return  160
+              if self.arrSortedService[indexPath.row].fromTime == "" {
+                  return  160
+
+              }
+              return  180
           }
           else if indexPath.section == 1 {
               if self.arrSortedService.count > 0{

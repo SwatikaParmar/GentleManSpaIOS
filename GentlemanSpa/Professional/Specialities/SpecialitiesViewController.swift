@@ -89,7 +89,6 @@ class SpecialitiesViewController: UIViewController,  UITableViewDataSource,UITab
         }
         else{
             cell.imgView.image = UIImage(named: "uncheck")
-
         }
         return cell
     }

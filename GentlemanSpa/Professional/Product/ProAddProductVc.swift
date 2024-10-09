@@ -593,23 +593,4 @@ extension ProAddProductVc: UIImagePickerControllerDelegate,UINavigationControlle
 }
 
 
-class AddAlertController: UIViewController {
 
-    @IBOutlet weak var addTextLbe : UILabel!
-
-    var addtextString = ""
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true
-        addTextLbe .text = addtextString
-    }
-    
-    @IBAction func goPreessed(_ sender: Any){
-        
-        dismiss(animated: false)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "GoToLast"), object: nil)
-
-       
-
-    }
-}

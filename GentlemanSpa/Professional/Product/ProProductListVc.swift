@@ -72,9 +72,7 @@ func GetProductAPI(_ isLoader:Bool){
         ProDeleteProductRequest.shared.deleteProductRequest(requestParams: id) { (productId, msg, success,Verification) in
             
             if success == false {
-                
                 self.MessageAlert(title: "Alert", message: msg!)
-                
             }
             else
             {
@@ -102,68 +100,77 @@ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> 
 
 }
 
-func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
 
-    let cell = tableViewProduct.dequeueReusableCell(withIdentifier: "ProProductLstTvCell") as! ProProductLstTvCell
-    
-    
-    
-    if let imgUrl = arrSortedService[indexPath.row].serviceImage,!imgUrl.isEmpty {
-        let img  = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
-        let urlString = img.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        cell.imgService?.sd_setImage(with: URL.init(string:(urlString)),
+        let cell = tableViewProduct.dequeueReusableCell(withIdentifier: "ProProductLstTvCell") as! ProProductLstTvCell
+
+        if let imgUrl = arrSortedService[indexPath.row].serviceImage,!imgUrl.isEmpty {
+            let img  = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
+            let urlString = img.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            cell.imgService?.sd_setImage(with: URL.init(string:(urlString)),
                                      placeholderImage: UIImage(named: "productNo"),
                                      options: .refreshCached,
                                      completed: nil)
+        }
+        else{
+            cell.imgService?.image = UIImage(named: "productNo")
+        }
+    
+    
+        cell.lbeName.text = arrSortedService[indexPath.row].serviceName
+    
+        var listingPrice = ""
+        if arrSortedService[indexPath.row].listingPrice.truncatingRemainder(dividingBy: 1) == 0 {
+            listingPrice = String(format: "%.0f", arrSortedService[indexPath.row].listingPrice )
+        }
+        else{
+            listingPrice = String(format: "%.2f", arrSortedService[indexPath.row].listingPrice )
+        }
+        cell.lbeAmount.text = "$" + listingPrice
+    
+    
+        var basePrice = ""
+        if arrSortedService[indexPath.row].basePrice.truncatingRemainder(dividingBy: 1) == 0 {
+            basePrice = String(format: "%.0f", arrSortedService[indexPath.row].basePrice )
+        }
+        else{
+            basePrice = String(format: "%.2f", arrSortedService[indexPath.row].basePrice )
+        }
+        cell.lbeBasePrice.text = "$" + basePrice
+        cell.lbeTime.text = ""
+        cell.lbeStock.text = String(format: "In Stock: %d", arrSortedService[indexPath.row].stock )
+    
+    
+    
+    
+        return cell
     }
-    else{
-        cell.imgService?.image = UIImage(named: "productNo")
+    
+    
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    
+        return 160
     }
-    cell.lbeName.text = arrSortedService[indexPath.row].serviceName
-    
-    
-    var listingPrice = ""
-    if arrSortedService[indexPath.row].listingPrice.truncatingRemainder(dividingBy: 1) == 0 {
-        listingPrice = String(format: "%.0f", arrSortedService[indexPath.row].listingPrice )
-    }
-    else{
-        listingPrice = String(format: "%.2f", arrSortedService[indexPath.row].listingPrice )
-    }
-    cell.lbeAmount.text = "$" + listingPrice
-    
-    
-    var basePrice = ""
-    if arrSortedService[indexPath.row].basePrice.truncatingRemainder(dividingBy: 1) == 0 {
-        basePrice = String(format: "%.0f", arrSortedService[indexPath.row].basePrice )
-    }
-    else{
-        basePrice = String(format: "%.2f", arrSortedService[indexPath.row].basePrice )
-    }
-    cell.lbeBasePrice.text = "$" + basePrice
-    cell.lbeTime.text = ""
-    cell.lbeStock.text = String(format: "In Stock: %d", arrSortedService[indexPath.row].stock )
     
     
     
-    
-    return cell
-}
-func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    
-    return 160
-}
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller:ProAddProductVc =  UIStoryboard(storyboard: .Professional).initVC()
         controller.productId = arrSortedService[indexPath.row].productId
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
       if editingStyle == .delete {
           ActionSheetDelete(id: arrSortedService[indexPath.row].productId , "")
       }
     }
+    
+    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -211,18 +218,13 @@ extension ProProductListVc : UITextFieldDelegate {
         if !searchQuery.isEmpty
         {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
-
                 GetProductAPI(false)
-
-
             }
         }
         else {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
                 searchQuery = ""
                 GetProductAPI(false)
-
-
             }
         }
         return true

@@ -12,7 +12,6 @@ class HomeViewController: UIViewController {
     var pageName = "Upcoming"
     let refreshControlUp = UIRefreshControl()
     
-    
     @IBOutlet weak var lbeTitlePending: UILabel!
     @IBOutlet weak var lbeLinePending: UIView!
     

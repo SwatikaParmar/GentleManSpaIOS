@@ -286,19 +286,7 @@ class VerifiyController: UIViewController ,UITextFieldDelegate{
 }
 
 
-class AlertViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true
-       
-    }
-    
-    @IBAction func goPreessed(_ sender: Any){
-        
-        RootControllerManager().SetRootViewController()
-    }
-}
 class UserResetPasswordRequest: NSObject {
 
     static let shared = UserResetPasswordRequest()

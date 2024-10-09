@@ -126,13 +126,16 @@ extension SelectProfessionalListVc: UITableViewDataSource,UITableViewDelegate {
        
         return cell
     }
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 130 + 22
 
         
     }
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let controller:BookingDoctorViewController =  UIStoryboard(storyboard: .User).initVC()
             controller.name = (arrGetProfessionalList[indexPath.row].firstName ?? "") + " " + (arrGetProfessionalList[indexPath.row].lastName ?? "")
             if let imgUrl = arrGetProfessionalList[indexPath.row].profilepic,!imgUrl.isEmpty {

@@ -41,6 +41,8 @@
 		3460D6FC2C9D43800076C4C2 /* MyCartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3460D6FB2C9D43800076C4C2 /* MyCartCell.swift */; };
 		3460D7002C9D9B3F0076C4C2 /* UserNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3460D6FF2C9D9B3F0076C4C2 /* UserNotificationViewController.swift */; };
 		3498173F2C7C860100219379 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3498173E2C7C860100219379 /* ProductDetailsViewController.swift */; };
+		34ADB3112CB6419600523217 /* GetOrderListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ADB3102CB6419600523217 /* GetOrderListRequest.swift */; };
+		34ADB3132CB66E9600523217 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ADB3122CB66E9600523217 /* AlertViewController.swift */; };
 		34B4CD8E2C48D4C8006B9F1F /* TabBarUserVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B4CD8D2C48D4C8006B9F1F /* TabBarUserVc.swift */; };
 		34B4CD902C48D512006B9F1F /* HomeUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B4CD8F2C48D512006B9F1F /* HomeUserViewController.swift */; };
 		34B4CD922C48D571006B9F1F /* CartUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B4CD912C48D571006B9F1F /* CartUserViewController.swift */; };
@@ -151,6 +153,8 @@
 		3460D6FB2C9D43800076C4C2 /* MyCartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartCell.swift; sourceTree = "<group>"; };
 		3460D6FF2C9D9B3F0076C4C2 /* UserNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationViewController.swift; sourceTree = "<group>"; };
 		3498173E2C7C860100219379 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
+		34ADB3102CB6419600523217 /* GetOrderListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrderListRequest.swift; sourceTree = "<group>"; };
+		34ADB3122CB66E9600523217 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		34B4CD8D2C48D4C8006B9F1F /* TabBarUserVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarUserVc.swift; sourceTree = "<group>"; };
 		34B4CD8F2C48D512006B9F1F /* HomeUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUserViewController.swift; sourceTree = "<group>"; };
 		34B4CD912C48D571006B9F1F /* CartUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartUserViewController.swift; sourceTree = "<group>"; };
@@ -316,6 +320,7 @@
 				34498CF02C463DB900F541DB /* CreateAccountController.swift */,
 				3460D6E52C9D31F30076C4C2 /* TabMenu */,
 				34498CF22C463F1C00F541DB /* VerifiyController.swift */,
+				34ADB3122CB66E9600523217 /* AlertViewController.swift */,
 				3460D6E42C9D31C70076C4C2 /* Request */,
 			);
 			path = SignIn;
@@ -388,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				34B4CD932C48D596006B9F1F /* HistoryUserViewController.swift */,
+				34ADB3102CB6419600523217 /* GetOrderListRequest.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -799,6 +805,7 @@
 				34CE926B2C40EAE60007E086 /* UIViewX.swift in Sources */,
 				341748302C58F9610015AF5E /* SpaLocationVc.swift in Sources */,
 				34D3382A2C5A7D2F003C6B13 /* BookingDaysViewController.swift in Sources */,
+				34ADB3112CB6419600523217 /* GetOrderListRequest.swift in Sources */,
 				34B6D7AF2C44E7680008FC81 /* AlamofireRequest.swift in Sources */,
 				34B6D7AD2C44E7080008FC81 /* LoginRequest.swift in Sources */,
 				34B4CD902C48D512006B9F1F /* HomeUserViewController.swift in Sources */,
@@ -842,6 +849,7 @@
 				3404F30A2C3F936D00FF0F41 /* SceneDelegate.swift in Sources */,
 				34CE92672C40EAE60007E086 /* UILabelX.swift in Sources */,
 				34CE926A2C40EAE60007E086 /* UIImageViewX.swift in Sources */,
+				34ADB3132CB66E9600523217 /* AlertViewController.swift in Sources */,
 				344B96592CABEF9D0022F502 /* SelectProfessionalListVc.swift in Sources */,
 				34BAC59D2C60B4670033D970 /* CreateTimeSlotsController.swift in Sources */,
 			);

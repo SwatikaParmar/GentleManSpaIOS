@@ -52,11 +52,11 @@ extension UserNotificationViewController: UITableViewDataSource,UITableViewDeleg
 
         
     }
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             
         }
 }
-    
     
     
     

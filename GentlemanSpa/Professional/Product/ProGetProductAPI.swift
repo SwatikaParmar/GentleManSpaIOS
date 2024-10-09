@@ -200,6 +200,7 @@ class ProductDetailRequest: NSObject {
             }
         }
 
+
 class ProductDetailModel: NSObject {
     
     var stock = 0

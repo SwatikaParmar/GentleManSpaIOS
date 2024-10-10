@@ -33,11 +33,7 @@ class SpaLocationVc: UIViewController {
                 if arrayData != nil{
                     self.arrSortedLocation = arrayData ?? self.arrSortedLocation
                     self.tblCate.reloadData()
-                    
                 }
-            }
-            else{
-                
             }
         }
     }
@@ -189,7 +185,6 @@ class LocationListingModel: NSObject {
     var phoneNumber2 = ""
     var state = ""
 
-    
 
     
     init(fromDictionary dictionary: [String:Any]){
@@ -197,7 +192,6 @@ class LocationListingModel: NSObject {
         address2 = dictionary["address2"] as? String ?? ""
         pincode = dictionary["pincode"] as? String ?? ""
         spaDetailId = dictionary["spaDetailId"] as? Int ?? 0
-
         city = dictionary["city"] as? String ?? ""
         country = dictionary["country"] as? String ?? ""
         email = dictionary["email"] as? String ?? ""

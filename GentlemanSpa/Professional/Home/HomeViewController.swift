@@ -67,9 +67,9 @@ class HomeViewController: UIViewController {
     
     @objc func RefreshScreenUp() {
       
-                refreshControlUp.endRefreshing()
+        refreshControlUp.endRefreshing()
             
-        }
+    }
     
     
     @IBAction func MyProfile(_ sender: Any) {

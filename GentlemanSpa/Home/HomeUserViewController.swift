@@ -17,8 +17,6 @@ class HomeUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
         self.navigationController?.navigationBar.isHidden = true
     }
     
@@ -43,12 +41,6 @@ class HomeUserViewController: UIViewController {
         let storyBoard = UIStoryboard.init(name: "User", bundle: nil)
         let controller = (storyBoard.instantiateViewController(withIdentifier: "UserNotificationViewController") as?  UserNotificationViewController)!
         self.parent?.navigationController?.pushViewController(controller, animated: true)
-        
-        
-       
-              
-        
-
     }
     
     //MARK: - Category API

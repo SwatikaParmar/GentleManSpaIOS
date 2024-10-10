@@ -14,14 +14,8 @@ extension HomeUserViewController: UITableViewDataSource,UITableViewDelegate,Cate
        
     }
     
-    
-    
-    
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 5
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,7 +43,6 @@ extension HomeUserViewController: UITableViewDataSource,UITableViewDelegate,Cate
             let cell = tableViewHome.dequeueReusableCell(withIdentifier: "HomeBannerTvCell") as! HomeBannerTvCell
 
             cell.arrayHomeBannerModel = self.arrayHomeBannerModel
-            
             cell.pageController.pageIndicatorTintColor = UIColor.darkGray
             cell.pageController.currentPageIndicatorTintColor = UIColor.black
             cell.pageController.numberOfPages = self.arrayHomeBannerModel.count

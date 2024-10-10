@@ -84,6 +84,10 @@ class ProfileUserViewController: UIViewController,UITableViewDelegate,UITableVie
             let controller:UpdateProfileUserViewController =  UIStoryboard(storyboard: .User).initVC()
             self.parent?.navigationController?.pushViewController(controller, animated: true)
         }
+        if indexPath.row == 1 {
+            let controller:MessagesController =  UIStoryboard(storyboard: .Chat).initVC()
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
        
     }
 }

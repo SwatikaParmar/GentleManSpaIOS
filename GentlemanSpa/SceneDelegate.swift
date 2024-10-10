@@ -70,11 +70,8 @@ class RootControllerManager: NSObject {
                 let storyboardMain = UIStoryboard(name: "Professional", bundle: nil)
                 let homecontroller = storyboardMain.instantiateViewController(withIdentifier: "TabBarProVc")
                 
-                
                 let leftController = storyboardMain.instantiateViewController(withIdentifier: "MenuProController")
-                
                 let navigationController = UINavigationController(rootViewController: homecontroller)
-                
                 navigationController.isNavigationBarHidden = true
                 
                 let sideMenu = LGSideMenuController(rootViewController: navigationController,
@@ -82,8 +79,7 @@ class RootControllerManager: NSObject {
                                                     rightViewController: nil)
                 sideMenu.leftViewWidth = UIScreen.main.bounds.size.width - 110
                 sideMenu.navigationController?.isNavigationBarHidden = true
-                //   sideMenu.rootViewStatusBarStyle = .lightContent
-                //   sideMenu.leftViewStatusBarStyle = .lightContent
+               
                 sideMenu.isLeftViewStatusBarHidden = true
                 sideMenu.panGestureForLeftView.isEnabled = false
                 UIApplication.shared.windows.first?.rootViewController = sideMenu

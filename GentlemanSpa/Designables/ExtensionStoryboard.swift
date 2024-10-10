@@ -22,7 +22,7 @@ extension UIStoryboard {
   enum Storyboard:String {
     case main
     case User
-    case Dashboard
+    case Chat
     case Address
     case Services
     case Professional

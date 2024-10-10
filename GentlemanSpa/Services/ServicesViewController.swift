@@ -168,8 +168,6 @@ class ServicesViewController: UIViewController {
     }
     
     
-    
-    
     func addNewProduct(Model: [String : AnyObject], index:Int){
         AddUpdateCartServiceRequest.shared.AddUpdateCartServiceAPI(requestParams: Model) { (user,message,isStatus) in
             if isStatus {

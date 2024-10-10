@@ -267,8 +267,8 @@ extension String{
         return "Path".path + "Customer/PlaceOrder"
     }
     
-    var GetOrderListAPI: String{
-        return "Path".path + "Order/GetOrderList"
+    var GetServiceAppointmentsAPI: String{
+        return "Path".path + "Order/GetServiceAppointments"
     }
     
 }

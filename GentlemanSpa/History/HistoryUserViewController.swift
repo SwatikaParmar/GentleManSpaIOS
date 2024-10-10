@@ -13,7 +13,7 @@ class HistoryUserViewController: UIViewController {
     @IBOutlet weak var lbePAST: UILabel!
     @IBOutlet weak var tableUp: UITableView!
     var pageName = "Upcoming"
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class HistoryUserViewController: UIViewController {
     }
     
     @IBAction func btn_Up(_ sender: Any) {
-      
+        
         lbeUPCOMING.backgroundColor = AppColor.BrownColor
         lbeCONFIRMED.backgroundColor = UIColor.clear
         lbePAST.backgroundColor = UIColor.clear
@@ -76,19 +76,33 @@ class HistoryUserViewController: UIViewController {
         lbePAST.layer.cornerRadius = 17
         pageName = "Past"
         self.tableUp.reloadData()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
+        MyAppointmentAPI(true)
     }
-   
+    
     @IBAction func btnBackPreessed(_ sender: Any){
         self.navigationController?.popViewController(animated: true)
     }
+    
+    
+    
+    func MyAppointmentAPI(_ isLoader:Bool){
+        var params = [ "availableService": ""
+        ] as [String : Any]
+        
+        
+        GetOrderListRequest.shared.GetOrderListAPIRequest(requestParams:params, isLoader) { [self] (arrayData,arrayService,message,isStatus,totalAmount) in
+            if isStatus {
+                
+            }
+        }
+    }
 }
-  
 
 extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
     

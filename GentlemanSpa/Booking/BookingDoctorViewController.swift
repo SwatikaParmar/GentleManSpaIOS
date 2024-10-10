@@ -168,7 +168,6 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
     @IBAction func Back(_ sender: Any)
     {
         self.navigationController?.popViewController(animated: true)
-        
     }
     
     @IBAction func BookingNow(_ sender: Any)

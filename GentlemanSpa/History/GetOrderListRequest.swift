@@ -9,11 +9,11 @@ import UIKit
 
 class GetOrderListRequest: NSObject{
 
-        static let shared = GetProductCartRequest()
+        static let shared = GetOrderListRequest()
         
         func GetOrderListAPIRequest(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData: CartDataModel?, _ objectSer: cartServicesDataModel?, _ message : String?, _ isStatus : Bool, _ totalAmount: Double) -> Void) {
 
-            let apiURL = String("Base".GetOrderListAPI)
+            let apiURL = String("Base".GetServiceAppointmentsAPI)
             
                 print("URL---->> ",apiURL)
                 print("Request---->> ",requestParams)

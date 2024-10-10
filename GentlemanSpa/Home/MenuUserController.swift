@@ -26,27 +26,22 @@ class MenuUserController: UIViewController,UITableViewDelegate,UITableViewDataSo
         super.viewDidLoad()
         
         self.versionLbl.text = Utility.shared.appVersion() + "(\(Utility.shared.appBuildVersion()))"
-       
-        
         titleArray = ["Home","My Orders","Privacy Policy","About Us","Log Out"]
         imagesArray = ["homeTab","Blogs","aboutUsic","privacyic","logoutic"]
-        
         tableview.contentInsetAdjustmentBehavior = .never
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.SideMenuUpdate), name: NSNotification.Name(rawValue: "SideMenuUpdate"), object: nil)
         
-
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         
-         let uName = UserDefaults.standard.string(forKey: Constants.firstName) ?? "Guest User"
+        let uName = UserDefaults.standard.string(forKey: Constants.firstName) ?? "Guest User"
         self.lbeName.text = uName
          
         let st : String = UserDefaults.standard.string(forKey: Constants.stateName) ?? "USA"
         self.lbeSp.text = ""
-        
         
         var stringURL = ""
         let urli : String = UserDefaults.standard.string(forKey: Constants.userImg) ?? ""
@@ -142,9 +137,6 @@ class MenuUserController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     sideMenuController?.rootViewController = navigationController
             }
             else{
-                
-                
-             
                     NotificationCenter.default.post(name: Notification.Name("Menu_Push_Action"), object: nil, userInfo: ["count":String(indexPath.row)])
 
                 }

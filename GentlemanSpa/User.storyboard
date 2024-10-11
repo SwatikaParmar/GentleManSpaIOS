@@ -2424,7 +2424,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CIj-ww-GZk" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
                                 <rect key="frame" x="11" y="103" width="371" height="34"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UPCOMING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAa-Ij-MTa" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAa-Ij-MTa" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="118.66666666666667" height="34"/>
                                         <color key="backgroundColor" red="1" green="0.74901960779999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -2448,7 +2448,7 @@
                                             <action selector="btn_Up:" destination="Qns-ND-Ktg" eventType="touchUpInside" id="uTV-cM-wF3"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONFIRMED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9H-bb-kGS" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9H-bb-kGS" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                         <rect key="frame" x="126" y="0.0" width="119" height="34"/>
                                         <color key="backgroundColor" red="1" green="0.74901960779999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -2469,7 +2469,7 @@
                                             <action selector="btn_Co:" destination="Qns-ND-Ktg" eventType="touchUpInside" id="TKk-5Q-r3P"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PAST" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nB-Lq-Red" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancelled" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nB-Lq-Red" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                         <rect key="frame" x="252.33333333333329" y="0.0" width="118.66666666666666" height="34"/>
                                         <color key="backgroundColor" red="1" green="0.74901960779999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -2986,15 +2986,24 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BU9-Yd-MMb">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="140" height="34"/>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" title="  "/>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.51372549020000002" green="0.46274509800000002" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="lc1-51-1n6" secondAttribute="bottom" constant="5" id="DAM-mX-iGF"/>
+                                                                <constraint firstItem="BU9-Yd-MMb" firstAttribute="top" secondItem="Xqy-62-r3w" secondAttribute="top" id="Daj-Oc-btv"/>
                                                                 <constraint firstItem="lc1-51-1n6" firstAttribute="leading" secondItem="Xqy-62-r3w" secondAttribute="leading" constant="5" id="Gfw-mp-7YP"/>
+                                                                <constraint firstAttribute="bottom" secondItem="BU9-Yd-MMb" secondAttribute="bottom" id="Knq-gq-BaW"/>
                                                                 <constraint firstAttribute="width" constant="140" id="OJ1-cb-Hjx"/>
+                                                                <constraint firstItem="BU9-Yd-MMb" firstAttribute="leading" secondItem="Xqy-62-r3w" secondAttribute="leading" id="Xgv-mH-due"/>
                                                                 <constraint firstAttribute="trailing" secondItem="lc1-51-1n6" secondAttribute="trailing" constant="5" id="cDc-kC-IMM"/>
                                                                 <constraint firstAttribute="height" constant="34" id="iTQ-nv-yrm"/>
                                                                 <constraint firstItem="lc1-51-1n6" firstAttribute="top" secondItem="Xqy-62-r3w" secondAttribute="top" constant="5" id="ih2-Fa-Kdp"/>
+                                                                <constraint firstAttribute="trailing" secondItem="BU9-Yd-MMb" secondAttribute="trailing" id="ul6-gJ-iyZ"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -3019,15 +3028,24 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9R-ph-7xF">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="140" height="33"/>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" title="  "/>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="140" id="1Fu-qS-K19"/>
                                                                 <constraint firstItem="RxB-UV-hej" firstAttribute="top" secondItem="wUI-0W-r32" secondAttribute="top" constant="5" id="9C7-R4-z6w"/>
+                                                                <constraint firstAttribute="bottom" secondItem="x9R-ph-7xF" secondAttribute="bottom" id="E4u-CV-9m1"/>
+                                                                <constraint firstItem="x9R-ph-7xF" firstAttribute="leading" secondItem="wUI-0W-r32" secondAttribute="leading" id="TBw-DC-I6P"/>
                                                                 <constraint firstAttribute="bottom" secondItem="RxB-UV-hej" secondAttribute="bottom" constant="5" id="WQV-bq-CSC"/>
+                                                                <constraint firstItem="x9R-ph-7xF" firstAttribute="top" secondItem="wUI-0W-r32" secondAttribute="top" id="Xrx-WK-HYN"/>
                                                                 <constraint firstAttribute="height" constant="33" id="eKd-sG-Aci"/>
                                                                 <constraint firstAttribute="trailing" secondItem="RxB-UV-hej" secondAttribute="trailing" constant="5" id="fty-iM-sDB"/>
                                                                 <constraint firstItem="RxB-UV-hej" firstAttribute="leading" secondItem="wUI-0W-r32" secondAttribute="leading" constant="5" id="n6Z-XC-KEP"/>
+                                                                <constraint firstAttribute="trailing" secondItem="x9R-ph-7xF" secondAttribute="trailing" id="rTG-EO-tUd"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -3085,6 +3103,17 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="btn_Cancel" destination="x9R-ph-7xF" id="91k-HN-rSn"/>
+                                            <outlet property="btn_Reschedule" destination="BU9-Yd-MMb" id="pFO-mT-iy0"/>
+                                            <outlet property="imgService" destination="SLG-aD-d5u" id="a8v-ZB-Mxh"/>
+                                            <outlet property="lbeAmount" destination="rxd-OL-g7I" id="hr2-i8-Jtt"/>
+                                            <outlet property="lbeBookingID" destination="eUr-MR-ilZ" id="Va2-1G-pq9"/>
+                                            <outlet property="lbeDuration" destination="mhX-qy-n1N" id="UcM-8t-Pbr"/>
+                                            <outlet property="lbeName" destination="5aG-dp-S9a" id="19Y-7w-i8L"/>
+                                            <outlet property="lbeProfessionalName" destination="3tT-Ay-VZN" id="V8s-Lc-C5f"/>
+                                            <outlet property="lbeTime" destination="hE8-C0-pnD" id="fQb-WN-cfi"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PastUTvCell" rowHeight="190" id="vQf-Sy-SDP" customClass="PastUTvCell" customModule="GentlemanSpa" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="490" width="393" height="190"/>

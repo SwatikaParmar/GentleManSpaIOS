@@ -83,16 +83,29 @@ class MyOrderVc: UIViewController {
         self.table_Order.reloadData()
 
     }
+    
+    func MyAppointmentAPI(_ isLoader:Bool){
+        var params = [ "Type": pageName
+        ] as [String : Any]
+        GetServiceAppointmentsListRequest.shared.GetServiceAppointmentsAPIRequest(requestParams:params, isLoader) { [self] (arrayData,arrayService,message,isStatus,totalAmount) in
+            if isStatus {
+              //  arrSortedService = arrayData ?? arrSortedService
+             //   self.tableUp.reloadData()
+            }
+        }
+    }
+    
+    
    
 }
 extension MyOrderVc: UITableViewDataSource,UITableViewDelegate {
+
     
   
     func numberOfSections(in tableView: UITableView) -> Int {
             return 1
     }
 
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         return 2

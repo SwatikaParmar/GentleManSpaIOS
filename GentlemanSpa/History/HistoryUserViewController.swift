@@ -13,7 +13,8 @@ class HistoryUserViewController: UIViewController {
     @IBOutlet weak var lbePAST: UILabel!
     @IBOutlet weak var tableUp: UITableView!
     var pageName = "Upcoming"
-    
+    var arrSortedService = [ServiceBooking]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,7 @@ class HistoryUserViewController: UIViewController {
         lbeCONFIRMED.layer.masksToBounds = true
         lbePAST.clipsToBounds = true
         lbePAST.layer.masksToBounds = true
+        MyAppointmentAPI(true)
     }
     
     @IBAction func btn_Up(_ sender: Any) {
@@ -50,7 +52,10 @@ class HistoryUserViewController: UIViewController {
         lbePAST.clipsToBounds = true
         lbePAST.layer.masksToBounds = true
         pageName = "Upcoming"
+        arrSortedService.removeAll()
         self.tableUp.reloadData()
+        MyAppointmentAPI(true)
+
     }
     
     @IBAction func btn_Co(_ sender: Any) {
@@ -62,8 +67,12 @@ class HistoryUserViewController: UIViewController {
         lbeUPCOMING.layer.cornerRadius = 17
         lbeCONFIRMED.layer.cornerRadius = 17
         lbePAST.layer.cornerRadius = 17
-        pageName = "Confirmed"
+        pageName = "Completed"
+        arrSortedService.removeAll()
+
         self.tableUp.reloadData()
+        MyAppointmentAPI(true)
+
     }
     
     @IBAction func btn_Past(_ sender: Any) {
@@ -75,7 +84,11 @@ class HistoryUserViewController: UIViewController {
         lbeCONFIRMED.layer.cornerRadius = 17
         lbePAST.layer.cornerRadius = 17
         pageName = "Past"
+        arrSortedService.removeAll()
+
         self.tableUp.reloadData()
+        MyAppointmentAPI(true)
+
         
     }
     
@@ -92,13 +105,12 @@ class HistoryUserViewController: UIViewController {
     
     
     func MyAppointmentAPI(_ isLoader:Bool){
-        var params = [ "availableService": ""
+        var params = [ "Type": pageName
         ] as [String : Any]
-        
-        
-        GetOrderListRequest.shared.GetOrderListAPIRequest(requestParams:params, isLoader) { [self] (arrayData,arrayService,message,isStatus,totalAmount) in
+        GetServiceAppointmentsListRequest.shared.GetServiceAppointmentsAPIRequest(requestParams:params, isLoader) { [self] (arrayData,arrayService,message,isStatus,totalAmount) in
             if isStatus {
-                
+                arrSortedService = arrayData ?? arrSortedService
+                self.tableUp.reloadData()
             }
         }
     }
@@ -115,17 +127,63 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
     
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        
-            return 11
+            return arrSortedService.count
 
         }
    
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            
             if  pageName == "Upcoming" {
                 let cell = tableUp.dequeueReusableCell(withIdentifier: "UpcomingUTvCell") as! UpcomingUTvCell
+                
+                cell.btn_Cancel.tag = indexPath.row
+                cell.btn_Cancel.addTarget(self, action: #selector(cancel_Tap(sender:)), for: .touchUpInside)
+                
+                cell.btn_Reschedule.tag = indexPath.row
+                cell.btn_Reschedule.addTarget(self, action: #selector(reschedule_Tap(sender:)), for: .touchUpInside)
+                
+                if let imgUrl = arrSortedService[indexPath.row].image,!imgUrl.isEmpty {
+                    let img  = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
+                    let urlString = img.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                    cell.imgService?.sd_setImage(with: URL.init(string:(urlString)),
+                                                 placeholderImage: UIImage(named: "shopPlace"),
+                                                 options: .refreshCached,
+                                                 completed: nil)
+                }
+                else{
+                    cell.imgService?.image = UIImage(named: "shopPlace")
+                }
+                cell.lbeName.text = arrSortedService[indexPath.row].serviceName
+                
+                
+                var listingPrice = ""
+                if arrSortedService[indexPath.row].price.truncatingRemainder(dividingBy: 1) == 0 {
+                    listingPrice = String(format: "%.2f", arrSortedService[indexPath.row].price )
+                }
+                else{
+                    listingPrice = String(format: "%.2f", arrSortedService[indexPath.row].price )
+                }
+                cell.lbeAmount.text = "$" + listingPrice
+                
+                if self.arrSortedService[indexPath.row].durationInMinutes > 0 {
+                    cell.lbeDuration.text = String(format: "%d mins", self.arrSortedService[indexPath.row].durationInMinutes)
+                }
+                else{
+                    cell.lbeDuration.text = "30 mins"
+                }
+                
+                var dateStr = ""
+                dateStr =  String(format: "%@, %@ at %@", "".getTodayWeekDay("".dateFromString(self.arrSortedService[indexPath.row].slotDate)),"".convertToDDMMYYYY("".dateFromString(arrSortedService[indexPath.row].slotDate)), self.arrSortedService[indexPath.row].fromTime)
+                
+                cell.lbeTime.text = dateStr
+                
+                cell.lbeProfessionalName.text = String(format: "%@ mins", self.arrSortedService[indexPath.row].professionalName )
+                
+                
+                
                 return cell
             }
-            else if pageName == "Confirmed" {
+            else if pageName == "Completed" {
                 let cell = tableUp.dequeueReusableCell(withIdentifier: "ConfirmedUTvCell") as! ConfirmedUTvCell
                 return cell
             }
@@ -133,15 +191,15 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
                 let cell = tableUp.dequeueReusableCell(withIdentifier: "PastUTvCell") as! PastUTvCell
                 return cell
             }
-
-           
         }
+    
+    
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             if  pageName == "Upcoming" {
                 return 250
 
             }
-            else if pageName == "Confirmed" {
+            else if pageName == "Completed" {
                 return 200
             }
             
@@ -152,6 +210,16 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             
         }
+    
+    //MARK:- Add Button Tap
+    @objc func reschedule_Tap(sender:UIButton){
+        
+    }
+    
+    //MARK:- Add Button Tap
+    @objc func cancel_Tap(sender:UIButton){
+        
+    }
 }
     
     
@@ -159,6 +227,20 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
     
 
 class UpcomingUTvCell: UITableViewCell {
+    
+    @IBOutlet weak var imgService: UIImageView!
+    @IBOutlet weak var lbeName: UILabel!
+    @IBOutlet weak var lbeAmount: UILabel!
+    @IBOutlet weak var lbeDuration: UILabel!
+    @IBOutlet weak var lbeTime: UILabel!
+    @IBOutlet weak var lbeProfessionalName: UILabel!
+    @IBOutlet weak var lbeBookingID: UILabel!
+    
+    @IBOutlet weak var btn_Reschedule: UIButton!
+    @IBOutlet weak var btn_Cancel: UIButton!
+
+    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }

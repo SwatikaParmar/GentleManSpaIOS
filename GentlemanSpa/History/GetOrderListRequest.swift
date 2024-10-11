@@ -7,75 +7,99 @@
 
 import UIKit
 
-class GetOrderListRequest: NSObject{
-
-        static let shared = GetOrderListRequest()
+class GetServiceAppointmentsListRequest: NSObject{
+    
+    static let shared = GetServiceAppointmentsListRequest()
+    
+    func GetServiceAppointmentsAPIRequest(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData: [ServiceBooking]?, _ objectSer: cartServicesDataModel?, _ message : String?, _ isStatus : Bool, _ totalAmount: Double) -> Void) {
         
-        func GetOrderListAPIRequest(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData: CartDataModel?, _ objectSer: cartServicesDataModel?, _ message : String?, _ isStatus : Bool, _ totalAmount: Double) -> Void) {
-
-            let apiURL = String("Base".GetServiceAppointmentsAPI)
+        var apiURL = String("Base".GetServiceAppointmentsAPI)
+        
+        apiURL = String(format:"%@?pageNumber=1&pageSize=1000&Type=%@",apiURL,requestParams["Type"] as? String ?? "Upcoming")
+        
+        
+        print("URL---->> ",apiURL)
+        print("Request---->> ",requestParams)
+        
+        AlamofireRequest.shared.GetBodyFrom(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
             
-                print("URL---->> ",apiURL)
-                print("Request---->> ",requestParams)
-            
-            AlamofireRequest.shared.GetBodyFrom(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
-                    
-                         print(data ?? "No data")
-                         if error == nil{
-                             var messageString : String = ""
-                             if let status = data?["isSuccess"] as? Bool{
-                                 if let msg = data?["messages"] as? String{
-                                     messageString = msg
-                                 }
-                                 if status{
-                                     
-                                     var totalAmount = 0.00
-                                     totalAmount = data?["data"]?["spaTotalSellingPrice"] as? Double ?? 0.00
-                                     
-                                     if let result = data?["data"]?["cartProducts"] as? [String : Any]{
-                                        let dict : CartDataModel = CartDataModel.init(fromDictionary: result as! [String : Any])
-                                            
-                                             
-                                         if let result = data?["data"]?["cartServices"] as? [String : Any]{
-                                             let dictNew : cartServicesDataModel = cartServicesDataModel.init(fromDictionary: result as! [String : Any])
-                                             completion(dict,dictNew,messageString,true, totalAmount)
-
-                                         }
-                                         else{
-                                             completion(dict,nil,messageString,true,totalAmount)
-
-                                         }
-
-                                     }
-                                     else{
-                                         if let result = data?["data"]?["cartServices"] as? [String : Any]{
-                                             let dictNew : cartServicesDataModel = cartServicesDataModel.init(fromDictionary: result as! [String : Any])
-                                             completion(nil,dictNew,messageString,true,totalAmount)
-
-                                         }
-                                         else{
-                                             completion(nil,nil,messageString,true,totalAmount)
-                                         }
-                                     }
-                                    
-                          
-                                 }else{
-                                     NotificationAlert().NotificationAlert(titles: messageString)
-                                     completion(nil,nil,messageString,false,0.00)
-                                 }
-                             }
-                             else
-                             {
-                                 completion(nil,nil,"",false,0.00)
-                             }
+            print(data ?? "No data")
+            if error == nil{
+                var messageString : String = ""
+                if let status = data?["isSuccess"] as? Bool{
+                    if let msg = data?["messages"] as? String{
+                        messageString = msg
+                    }
+                    if status{
+                        
+                        var totalAmount = 0.00
+                        
+                        var homeListObject : [ServiceBooking] = []
+                        if let dataList = data?["data"]?["dataList"] as? NSArray{
+                            for list in dataList{
+                                let dict : ServiceBooking = ServiceBooking.init(dict: list as! [String : Any])
+                                homeListObject.append(dict)
+                            }
+                            completion(homeListObject,nil,messageString,true,0.00)
                         }
-                        else
-                            {
-                                
-                            completion(nil,nil,"",false,0.00)
+                        else{
+                            completion(nil,nil,messageString,false,0.00)
                         }
                     }
+                    else
+                    {
+                        completion(nil,nil,"",false,0.00)
+                    }
+                }
+                else
+                {
+                    
+                    completion(nil,nil,"",false,0.00)
                 }
             }
-      
+        }
+    }
+    
+    
+}
+    
+    
+    class ServiceBooking: NSObject {
+        var fromTime: String
+        var image: String?
+        var orderDate: String
+        var orderId: Int
+        var orderStatus: String
+        var price = 0.00
+        var professionalDetailId: Int
+        var professionalName: String
+        var serviceBookingId: Int
+        var serviceName: String
+        var slotDate: String
+        var slotId: Int
+        var spaServiceId: Int
+        var toTime: String
+        var durationInMinutes = 0
+        
+        
+        
+        init(dict: [String: Any]) {
+            self.fromTime = dict["fromTime"] as? String ?? ""
+            self.image = dict["image"] as? String ?? ""
+            self.orderDate = dict["orderDate"] as? String ?? ""
+            self.orderId = dict["orderId"] as? Int ?? 0
+            self.orderStatus = dict["orderStatus"] as? String ?? ""
+            self.price = dict["price"] as? Double ?? 0.00
+            self.professionalDetailId = dict["professionalDetailId"] as? Int ?? 0
+            self.professionalName = dict["professionalName"] as? String ?? ""
+            self.serviceBookingId = dict["serviceBookingId"] as? Int ?? 0
+            self.serviceName = dict["serviceName"] as? String ?? ""
+            self.slotDate = dict["slotDate"] as? String ?? ""
+            self.slotId = dict["slotId"] as? Int ?? 0
+            self.spaServiceId = dict["spaServiceId"] as? Int ?? 0
+            self.toTime = dict["toTime"] as? String ?? ""
+            self.durationInMinutes = dict["durationInMinutes"] as? Int ?? 0
+
+        }
+    }
 

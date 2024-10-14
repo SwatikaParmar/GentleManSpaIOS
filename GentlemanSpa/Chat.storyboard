@@ -69,7 +69,7 @@
                                     </button>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="cE3-JD-8G3"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="yLy-qm-Uvd" firstAttribute="leading" secondItem="ug2-f7-D5f" secondAttribute="leading" constant="13" id="d56-q0-iBa"/>
                                     <constraint firstAttribute="bottom" secondItem="ToK-Dq-BVg" secondAttribute="bottom" id="iO3-Q9-WJL"/>
@@ -233,7 +233,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sch-sA-8tM"/>
-                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="kbB-Zc-aZq" firstAttribute="leading" secondItem="sch-sA-8tM" secondAttribute="leading" constant="22" id="2lw-Pz-tSS"/>
                             <constraint firstItem="RNy-dP-zLp" firstAttribute="top" secondItem="ug2-f7-D5f" secondAttribute="bottom" constant="8" id="3oW-gp-JOK"/>

@@ -11,11 +11,13 @@ class ProfessionalServicesVc: UIViewController {
 
     var arrSortedService = [ServiceListModel]()
     var professionalDetailId = 0
+    var spaServiceId = 0
     var name = ""
     var arrayData = NSArray()
     var imgUser : String?
     @IBOutlet weak var tableViewMale: UITableView!
-    
+    @IBOutlet weak var viewNoData: UIView!
+
     @IBOutlet weak var totalView: UIView!
     @IBOutlet weak var view_H_Const: NSLayoutConstraint!
 
@@ -31,7 +33,7 @@ class ProfessionalServicesVc: UIViewController {
         totalView.isHidden = true
         view_H_Const.constant = 0
         lbeName.text = name
-        
+        viewNoData.isHidden = true
         for i in 0 ..< arrayData.count {
             if i == 0 {
                 lbeSpe.text = String(format:"%@",arrayData[i] as! CVarArg)
@@ -52,11 +54,13 @@ class ProfessionalServicesVc: UIViewController {
         }
 
     }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
         serviceAPI(true)
-        self.myCartAPI(false)
+       
 
     }
    
@@ -72,6 +76,7 @@ class ProfessionalServicesVc: UIViewController {
         controller.imgUserStr = imgUser
         controller.arrayData  = arrayData
         controller.professionalId  = professionalDetailId
+        controller.spaServiceId = spaServiceId
         
         self.navigationController?.pushViewController(controller, animated: true)
     }
@@ -79,7 +84,8 @@ class ProfessionalServicesVc: UIViewController {
 
     //MARK: - Service API
     func serviceAPI(_ isLoader:Bool){
-        
+        totalView.isHidden = true
+        view_H_Const.constant = 0
         let params = [ "professionalDetailId":  professionalDetailId
         ] as [String : Any]
         
@@ -91,15 +97,38 @@ class ProfessionalServicesVc: UIViewController {
                     DispatchQueue.main.async {
                         self.tableViewMale.reloadData()
                     }
+                    
+                    for i in 0 ..< self.arrSortedService.count {
+                        if self.arrSortedService[i].serviceCountInCart == 1 {
+                            self.myCartAPI(false)
+                        }
+
+                        self.spaServiceId = self.arrSortedService[i].spaServiceId
+                    }
+                    
+                    if self.arrSortedService.count > 0 {
+                        self.viewNoData.isHidden = true
+
+                    }
+                    else{
+                        self.arrSortedService.removeAll()
+                        self.tableViewMale.reloadData()
+                        self.viewNoData.isHidden = false
+                    }
+                    
                 }
                 else{
                     self.arrSortedService.removeAll()
                     self.tableViewMale.reloadData()
+                    self.viewNoData.isHidden = false
+
                 }
             }
             else{
                 self.arrSortedService.removeAll()
                 self.tableViewMale.reloadData()
+                self.viewNoData.isHidden = false
+
             }
         }
     }
@@ -124,8 +153,7 @@ class ProfessionalServicesVc: UIViewController {
     
     //MARK:- Add Button Tap
     @objc func btnremoveCartTap(sender:UIButton){
-        
-
+    
         arrSortedService[sender.tag].serviceCountInCart = 0
         self.tableViewMale.reloadData()
         
@@ -152,7 +180,20 @@ class ProfessionalServicesVc: UIViewController {
             else{
                 NotificationAlert().NotificationAlert(titles:message ?? GlobalConstants.serverError)
             }
-            self.myCartAPI(false)
+            
+            var isData = false
+            for i in 0 ..< self.arrSortedService.count {
+                if self.arrSortedService[i].serviceCountInCart == 1 {
+                    isData = true
+                }
+                
+            }
+            if isData {
+                self.myCartAPI(false)
+            }else{
+                self.totalView.isHidden = true
+                self.view_H_Const.constant = 0
+            }
         }
     }
     
@@ -171,11 +212,11 @@ class ProfessionalServicesVc: UIViewController {
                         totalView.isHidden = false
                         view_H_Const.constant = 70
                         amountLbe.text =  String(format: "$%.2f", arrayService?.totalSellingPrice ?? 0.00)
-                        countLbe.text = String(format: "%d services . %d mins", arrayService?.allServicesArray.count ?? 0,arrayService?.durationInMinutes ?? 0)
+                        countLbe.text = String(format: "%d services . %@", arrayService?.allServicesArray.count ?? 0,formatDuration(durationInMinutes: arrayService?.durationInMinutes ?? 0))
+
                         
                         if arrayData?.allCartServicesArray.count == 1 {
-                            countLbe.text = String(format: "%d service . %d mins", arrayService?.allServicesArray.count ?? 0,arrayService?.durationInMinutes ?? 0)
-
+                            countLbe.text = String(format: "%d service . %@", arrayService?.allServicesArray.count ?? 0,formatDuration(durationInMinutes: arrayService?.durationInMinutes ?? 0))
                         }
                     }
                     else{
@@ -271,7 +312,7 @@ extension ProfessionalServicesVc: UITableViewDataSource,UITableViewDelegate {
         }
         cell.lbeBasePrice.text = "$" + basePrice
         if self.arrSortedService[indexPath.row].durationInMinutes > 0 {
-            cell.lbeTime.text = String(format: "%d mins", self.arrSortedService[indexPath.row].durationInMinutes )
+            cell.lbeTime.text = String(format: "%d mins", self.arrSortedService[indexPath.row].durationInMinutes)
             
         }
         else{
@@ -288,7 +329,9 @@ extension ProfessionalServicesVc: UITableViewDataSource,UITableViewDelegate {
         
         return 160
     }
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let controller:ServiceDetailViewController =  UIStoryboard(storyboard: .User).initVC()
             controller.serviceId = self.arrSortedService[indexPath.row].serviceId
             self.navigationController?.pushViewController(controller, animated: true)

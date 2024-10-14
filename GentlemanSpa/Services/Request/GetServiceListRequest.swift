@@ -169,6 +169,8 @@ class ServiceDetailModel: NSObject {
     var serviceIconImage = ""
     var durationInMinutes = 0
     var serviceImageArray = NSMutableArray()
+    var isAddedinCart = 0
+    var spaServiceId = 0
 
     init(fromDictionary dictionary: [String:Any]){
         salonName = dictionary["salonName"] as? String ?? ""
@@ -178,6 +180,10 @@ class ServiceDetailModel: NSObject {
         listingPrice = dictionary["listingPrice"] as? Double ?? 0.00
         serviceIconImage = dictionary["serviceIconImage"] as? String ?? ""
         durationInMinutes = dictionary["durationInMinutes"] as? Int ?? 0
+        isAddedinCart = dictionary["isAddedinCart"] as? Int ?? 0
+        spaServiceId = dictionary["spaServiceId"] as? Int ?? 0
+
+        
         if let dataList = dictionary["imageList"] as? NSArray{
                for list in dataList{
                    serviceImageArray.add(list)
@@ -202,7 +208,6 @@ class GetProfessionalServicesRequest: NSObject {
         
         AlamofireRequest.shared.GetBodyFrom(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
                 
-                     print(data ?? "No data")
                      if error == nil{
                          var messageString : String = ""
                          if let status = data?["isSuccess"] as? Bool{

@@ -270,5 +270,7 @@ extension String{
     var GetServiceAppointmentsAPI: String{
         return "Path".path + "Order/GetServiceAppointments"
     }
-    
+    var GetOrderedProducts: String{
+        return "Path".path + "Order/GetOrderedProducts"
+    }
 }

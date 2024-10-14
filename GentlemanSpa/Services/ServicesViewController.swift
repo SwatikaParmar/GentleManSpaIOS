@@ -195,11 +195,11 @@ class ServicesViewController: UIViewController {
                         totalView.isHidden = false
                         view_H_Const.constant = 70
                         amountLbe.text =  String(format: "$%.2f", arrayService?.totalSellingPrice ?? 0.00)
-                        countLbe.text = String(format: "%d services . %d mins", arrayService?.allServicesArray.count ?? 0,arrayService?.durationInMinutes ?? 0)
+                        countLbe.text = String(format: "%d services . %@", arrayService?.allServicesArray.count ?? 0,formatDuration(durationInMinutes: arrayService?.durationInMinutes ?? 0))
+
                         
                         if arrayData?.allCartServicesArray.count == 1 {
-                            countLbe.text = String(format: "%d service . %d mins", arrayService?.allServicesArray.count ?? 0,arrayService?.durationInMinutes ?? 0)
-
+                            countLbe.text = String(format: "%d service . %@", arrayService?.allServicesArray.count ?? 0,formatDuration(durationInMinutes: arrayService?.durationInMinutes ?? 0))
                         }
                     }
                     else{

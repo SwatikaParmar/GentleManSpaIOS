@@ -107,7 +107,7 @@ class HistoryUserViewController: UIViewController {
     func MyAppointmentAPI(_ isLoader:Bool){
         var params = [ "Type": pageName
         ] as [String : Any]
-        GetServiceAppointmentsListRequest.shared.GetServiceAppointmentsAPIRequest(requestParams:params, isLoader) { [self] (arrayData,arrayService,message,isStatus,totalAmount) in
+        GetServiceAppointmentsListRequest.shared.GetServiceAppointmentsAPIRequest(requestParams:params, isLoader) { [self] (arrayData,arrayService,message,isStatus) in
             if isStatus {
                 arrSortedService = arrayData ?? arrSortedService
                 self.tableUp.reloadData()
@@ -177,7 +177,7 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
                 
                 cell.lbeTime.text = dateStr
                 
-                cell.lbeProfessionalName.text = String(format: "%@ mins", self.arrSortedService[indexPath.row].professionalName )
+                cell.lbeProfessionalName.text = String(format: "%@", self.arrSortedService[indexPath.row].professionalName )
                 
                 
                 
@@ -185,10 +185,85 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
             }
             else if pageName == "Completed" {
                 let cell = tableUp.dequeueReusableCell(withIdentifier: "ConfirmedUTvCell") as! ConfirmedUTvCell
+                if let imgUrl = arrSortedService[indexPath.row].image,!imgUrl.isEmpty {
+                    let img  = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
+                    let urlString = img.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                    cell.imgService?.sd_setImage(with: URL.init(string:(urlString)),
+                                                 placeholderImage: UIImage(named: "shopPlace"),
+                                                 options: .refreshCached,
+                                                 completed: nil)
+                }
+                else{
+                    cell.imgService?.image = UIImage(named: "shopPlace")
+                }
+                cell.lbeName.text = arrSortedService[indexPath.row].serviceName
+                
+                
+                var listingPrice = ""
+                if arrSortedService[indexPath.row].price.truncatingRemainder(dividingBy: 1) == 0 {
+                    listingPrice = String(format: "%.2f", arrSortedService[indexPath.row].price )
+                }
+                else{
+                    listingPrice = String(format: "%.2f", arrSortedService[indexPath.row].price )
+                }
+                cell.lbeAmount.text = "$" + listingPrice
+                
+                if self.arrSortedService[indexPath.row].durationInMinutes > 0 {
+                    cell.lbeDuration.text = String(format: "%d mins", self.arrSortedService[indexPath.row].durationInMinutes)
+                }
+                else{
+                    cell.lbeDuration.text = "30 mins"
+                }
+                
+                var dateStr = ""
+                dateStr =  String(format: "%@, %@ at %@", "".getTodayWeekDay("".dateFromString(self.arrSortedService[indexPath.row].slotDate)),"".convertToDDMMYYYY("".dateFromString(arrSortedService[indexPath.row].slotDate)), self.arrSortedService[indexPath.row].fromTime)
+                
+                cell.lbeTime.text = dateStr
+                
+                cell.lbeProfessionalName.text = String(format: "%@", self.arrSortedService[indexPath.row].professionalName )
+                
+                
                 return cell
             }
             else{
                 let cell = tableUp.dequeueReusableCell(withIdentifier: "PastUTvCell") as! PastUTvCell
+                if let imgUrl = arrSortedService[indexPath.row].image,!imgUrl.isEmpty {
+                    let img  = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
+                    let urlString = img.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                    cell.imgService?.sd_setImage(with: URL.init(string:(urlString)),
+                                                 placeholderImage: UIImage(named: "shopPlace"),
+                                                 options: .refreshCached,
+                                                 completed: nil)
+                }
+                else{
+                    cell.imgService?.image = UIImage(named: "shopPlace")
+                }
+                cell.lbeName.text = arrSortedService[indexPath.row].serviceName
+                
+                
+                var listingPrice = ""
+                if arrSortedService[indexPath.row].price.truncatingRemainder(dividingBy: 1) == 0 {
+                    listingPrice = String(format: "%.2f", arrSortedService[indexPath.row].price )
+                }
+                else{
+                    listingPrice = String(format: "%.2f", arrSortedService[indexPath.row].price )
+                }
+                cell.lbeAmount.text = "$" + listingPrice
+                
+                if self.arrSortedService[indexPath.row].durationInMinutes > 0 {
+                    cell.lbeDuration.text = String(format: "%d mins", self.arrSortedService[indexPath.row].durationInMinutes)
+                }
+                else{
+                    cell.lbeDuration.text = "30 mins"
+                }
+                
+                var dateStr = ""
+                dateStr =  String(format: "%@, %@ at %@", "".getTodayWeekDay("".dateFromString(self.arrSortedService[indexPath.row].slotDate)),"".convertToDDMMYYYY("".dateFromString(arrSortedService[indexPath.row].slotDate)), self.arrSortedService[indexPath.row].fromTime)
+                
+                cell.lbeTime.text = dateStr
+                
+                
+                
                 return cell
             }
         }
@@ -200,10 +275,10 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
 
             }
             else if pageName == "Completed" {
-                return 200
+                return 205
             }
             
-            return 200
+            return 205
 
         
         }
@@ -251,6 +326,15 @@ class UpcomingUTvCell: UITableViewCell {
     }
 }
 class ConfirmedUTvCell: UITableViewCell {
+    
+    @IBOutlet weak var imgService: UIImageView!
+    @IBOutlet weak var lbeName: UILabel!
+    @IBOutlet weak var lbeAmount: UILabel!
+    @IBOutlet weak var lbeDuration: UILabel!
+    @IBOutlet weak var lbeTime: UILabel!
+    @IBOutlet weak var lbeProfessionalName: UILabel!
+    @IBOutlet weak var lbeBookingID: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -261,6 +345,14 @@ class ConfirmedUTvCell: UITableViewCell {
     }
 }
 class PastUTvCell: UITableViewCell {
+    @IBOutlet weak var imgService: UIImageView!
+    @IBOutlet weak var lbeName: UILabel!
+    @IBOutlet weak var lbeAmount: UILabel!
+    @IBOutlet weak var lbeDuration: UILabel!
+    @IBOutlet weak var lbeTime: UILabel!
+    @IBOutlet weak var lbeProfessionalName: UILabel!
+    @IBOutlet weak var lbeBookingID: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

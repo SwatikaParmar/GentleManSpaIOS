@@ -13,8 +13,9 @@ class MyOrderVc: UIViewController {
     @IBOutlet weak var lbeUPCOMING: UILabel!
     @IBOutlet weak var lbeCONFIRMED: UILabel!
     @IBOutlet weak var lbePAST: UILabel!
-    var pageName = "Upcoming"
-    
+    var pageName = "Pending"
+    var arrOrder = [OrderItem]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,6 +34,8 @@ class MyOrderVc: UIViewController {
         lbeCONFIRMED.layer.masksToBounds = true
         lbePAST.clipsToBounds = true
         lbePAST.layer.masksToBounds = true
+        MyOrderAPI(true)
+
     }
     
     @IBAction func sideMenu(_ sender: Any) {
@@ -54,7 +57,9 @@ class MyOrderVc: UIViewController {
         lbeCONFIRMED.layer.masksToBounds = true
         lbePAST.clipsToBounds = true
         lbePAST.layer.masksToBounds = true
-        pageName = "Upcoming"
+        pageName = "Pending"
+        MyOrderAPI(true)
+
         self.table_Order.reloadData()
     }
     
@@ -67,7 +72,9 @@ class MyOrderVc: UIViewController {
         lbeUPCOMING.layer.cornerRadius = 17
         lbeCONFIRMED.layer.cornerRadius = 17
         lbePAST.layer.cornerRadius = 17
-        pageName = "Confirmed"
+        pageName = "Completed"
+        MyOrderAPI(true)
+
         self.table_Order.reloadData()
     }
     
@@ -79,18 +86,20 @@ class MyOrderVc: UIViewController {
         lbeUPCOMING.layer.cornerRadius = 17
         lbeCONFIRMED.layer.cornerRadius = 17
         lbePAST.layer.cornerRadius = 17
-        pageName = "Past"
+        pageName = "Canceled"
+        MyOrderAPI(true)
         self.table_Order.reloadData()
 
     }
     
-    func MyAppointmentAPI(_ isLoader:Bool){
+    func MyOrderAPI(_ isLoader:Bool){
+        arrOrder.removeAll()
         var params = [ "Type": pageName
         ] as [String : Any]
-        GetServiceAppointmentsListRequest.shared.GetServiceAppointmentsAPIRequest(requestParams:params, isLoader) { [self] (arrayData,arrayService,message,isStatus,totalAmount) in
+        GetOrderedProductsListRequest.shared.GetOrderedProductsRequest(requestParams:params, isLoader) { [self] (arrayData,arrayService,message,isStatus) in
             if isStatus {
-              //  arrSortedService = arrayData ?? arrSortedService
-             //   self.tableUp.reloadData()
+                arrOrder = arrayData ?? arrOrder
+                self.table_Order.reloadData()
             }
         }
     }
@@ -108,7 +117,7 @@ extension MyOrderVc: UITableViewDataSource,UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
-        return 2
+        return arrOrder.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -116,42 +125,53 @@ extension MyOrderVc: UITableViewDataSource,UITableViewDelegate {
        
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyOrderTableViewCell") as! MyOrderTableViewCell
             
-            Utility.shared.makeShadowsOfView_roundCorner(view: cell.cellViewRound, shadowRadius: 3.0, cornerRadius: 10.0, borderColor: UIColor.lightGray.withAlphaComponent(0.10))
-            Utility.shared.makeShadowsOfView_roundCorner(view: cell.imgViewRound, shadowRadius: 3.0, cornerRadius: 8.0, borderColor: UIColor.lightGray.withAlphaComponent(0.10))
+        if let imgUrl = arrOrder[indexPath.row].productImage,!imgUrl.isEmpty {
+            let img  = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
+            let urlString = img.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            cell.imageV?.sd_setImage(with: URL.init(string:(urlString)),
+                                         placeholderImage: UIImage(named: "shopPlace"),
+                                         options: .refreshCached,
+                                         completed: nil)
+        }
+        else{
+            cell.imageV?.image = UIImage(named: "shopPlace")
+        }
         
         
-        cell.lbeName.text = "Hydrating Milk Cleanser"
+        var dateStr = ""
+        dateStr =  String(format: "Order date %@", "".convertToDDMMYYYY("".dateFromString(self.arrOrder[indexPath.row].orderDate)))
+        cell.lbeAmount.text = dateStr
+        cell.lbeName.text = arrOrder[indexPath.row].productName
         
-        var mrp = "111"
+        var mrp = ""
         var price = 0.00
-        price = 100
+        price = arrOrder[indexPath.row].price
         
         if price.truncatingRemainder(dividingBy: 1) == 0 {
-            mrp = String(format: "$%.0f", price)
+            mrp = String(format: "$%.2f", price)
         }
         else{
             mrp = String(format: "$%.2f", price)
         }
-        
         cell.lbeQML.text = mrp
-        cell.lbeAmount.text = "Order date " + "23-9-2024"
+        
+      
         cell.lbeDelivery.text =  "Delivery"
         
-        if pageName == "Upcoming"{
+        if pageName == "Pending"{
             cell.lbeOrder.text =  "Pending"
 
         }
-        if pageName == "Confirmed"{
+        if pageName == "Completed"{
             cell.lbeOrder.text =  "Completed"
 
         }
-        if pageName == "Past"{
+        if pageName == "Canceled"{
             cell.lbeOrder.text =  "Cancel"
 
         }
         
         cell.lbePayment.text =  "Paid"
-        cell.imageV?.image = UIImage(named: "imagesProduct")
 
      
     return cell

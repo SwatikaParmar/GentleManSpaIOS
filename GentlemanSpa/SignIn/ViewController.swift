@@ -268,4 +268,23 @@ extension UIViewController {
         
         UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
     }
+    
+    
+    func formatDuration(durationInMinutes: Int) -> String {
+        let hours = durationInMinutes / 60
+        let minutes = durationInMinutes % 60
+        
+        let hoursPart = hours > 0 ? "\(hours) hour\(hours > 1 ? "s" : "")" : ""
+        let minutesPart = minutes > 0 ? "\(minutes) min\(minutes > 1 ? "s" : "")" : ""
+        
+        if hours > 0 && minutes > 0 {
+            return "\(hoursPart) \(minutesPart)".trimmingCharacters(in: .whitespaces)
+        } else if hours > 0 {
+            return hoursPart
+        } else if minutes > 0 {
+            return minutesPart
+        } else {
+            return "0 mins"
+        }
+    }
 }

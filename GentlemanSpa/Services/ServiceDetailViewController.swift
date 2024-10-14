@@ -34,6 +34,8 @@ class ServiceDetailViewController: UIViewController {
     func ServiceDetailAPI(_ isLoader:Bool){
         let params = [ "serviceId": serviceId,
                        "spaDetailId":  21] as [String : Any]
+        
+        
         ServiceDetailRequest.shared.serviceDetailAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
             if isStatus {
                 if arrayData != nil{
@@ -58,9 +60,6 @@ class ServiceDetailViewController: UIViewController {
             }
         }
     }
-    
-
-    
 }
 extension ServiceDetailViewController: UITableViewDataSource,UITableViewDelegate {
     
@@ -113,6 +112,25 @@ extension ServiceDetailViewController: UITableViewDataSource,UITableViewDelegate
             }
             cell.lbeBasePrice.text = "$" + basePrice
             
+            if arrSortedService?.isAddedinCart == 1 {
+                cell.addView.isHidden = false
+                cell.addToCart.isHidden = true
+                cell.addToCartImage.isHidden = true
+            }
+            else{
+                cell.addView.isHidden = true
+                cell.addToCart.isHidden = false
+                cell.addToCartImage.isHidden = false
+
+            }
+            
+            cell.addToCart.tag = indexPath.row
+            cell.addToCart.addTarget(self, action: #selector(btnAddTap(sender:)), for: .touchUpInside)
+            
+            cell.removeCart.tag = indexPath.row
+            cell.removeCart.addTarget(self, action: #selector(btnremoveCartTap(sender:)), for: .touchUpInside)
+            
+            
             return cell
         }
         else {
@@ -123,6 +141,8 @@ extension ServiceDetailViewController: UITableViewDataSource,UITableViewDelegate
 
         }
     }
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
             
@@ -137,9 +157,61 @@ extension ServiceDetailViewController: UITableViewDataSource,UITableViewDelegate
             return heightSizeLine
         }
     }
+    
+    
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             
         }
+    
+    //MARK:- Add Button Tap
+    @objc func btnAddTap(sender:UIButton){
+        
+
+        arrSortedService?.isAddedinCart = 1
+        self.tableViewDetail.reloadData()
+        
+     
+        var param = [String : AnyObject]()
+        param["spaServiceId"] = arrSortedService?.spaServiceId as AnyObject
+        param["spaDetailId"] = 21 as AnyObject
+        param["serviceCountInCart"] = 1 as AnyObject
+        param["slotId"] = 0 as AnyObject
+
+        
+        self.addUpdateService(Model: param, index:sender.tag)
+        
+    }
+    
+    @objc func btnremoveCartTap(sender:UIButton){
+    
+        arrSortedService?.isAddedinCart = 0
+        self.tableViewDetail.reloadData()
+
+        var param = [String : AnyObject]()
+        param["spaServiceId"] = arrSortedService?.spaServiceId as AnyObject
+        param["spaDetailId"] = 21 as AnyObject
+        param["serviceCountInCart"] = 0 as AnyObject
+        param["slotId"] = 0 as AnyObject
+
+        self.addUpdateService(Model: param, index:sender.tag)
+        
+    }
+    
+    
+    func addUpdateService(Model: [String : AnyObject], index:Int){
+        AddUpdateCartServiceRequest.shared.AddUpdateCartServiceAPI(requestParams: Model) { (user,message,isStatus) in
+            if isStatus {
+                if isStatus {
+                    NotificationAlert().NotificationAlert(titles: message ?? GlobalConstants.successMessage)
+                }
+            }
+            else{
+                NotificationAlert().NotificationAlert(titles:message ?? GlobalConstants.serverError)
+            }
+           
+        }
+    }
+    
 }
     
     
@@ -150,6 +222,7 @@ class ServicesDetailTvCell: UITableViewCell {
     
     @IBOutlet weak var addView: UIView!
     @IBOutlet weak var addToCart: UIButton!
+    
     @IBOutlet weak var lbeName: UILabel!
     @IBOutlet weak var lbeAmount: UILabel!
     @IBOutlet weak var lbeTime: UILabel!
@@ -157,6 +230,10 @@ class ServicesDetailTvCell: UITableViewCell {
     @IBOutlet weak var lbeCount: UILabel!
     @IBOutlet weak var increaseButton: UIButton!
     @IBOutlet weak var decreaseButton: UIButton!
+    
+    @IBOutlet weak var addToCartImage: UIImageView!
+    @IBOutlet weak var removeCart: UIButton!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -709,10 +709,8 @@ extension CartUserViewController: UITableViewDataSource,UITableViewDelegate {
         
     }
     
-    //MARK:- Add Button Tap
     @objc func btnremoveCartTap(sender:UIButton){
-        
-
+    
         arrSortedService[sender.tag].serviceCountInCart = 0
         self.tableViewMyCart.reloadData()
         

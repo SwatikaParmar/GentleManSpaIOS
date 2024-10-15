@@ -184,7 +184,7 @@ class ServicesViewController: UIViewController {
     
     
     func myCartAPI(_ isLoader:Bool){
-        var params = [ "availableService": ""
+        let params = [ "availableService": ""
         ] as [String : Any]
         
         

@@ -83,13 +83,13 @@ class HistoryUserViewController: UIViewController {
         lbeUPCOMING.layer.cornerRadius = 17
         lbeCONFIRMED.layer.cornerRadius = 17
         lbePAST.layer.cornerRadius = 17
-        pageName = "Past"
+        pageName = "Cancelled"
         arrSortedService.removeAll()
 
         self.tableUp.reloadData()
+      
         MyAppointmentAPI(true)
 
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -189,12 +189,12 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
                     let img  = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
                     let urlString = img.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
                     cell.imgService?.sd_setImage(with: URL.init(string:(urlString)),
-                                                 placeholderImage: UIImage(named: "shopPlace"),
+                                                 placeholderImage: UIImage(named: "placeHolderSer"),
                                                  options: .refreshCached,
                                                  completed: nil)
                 }
                 else{
-                    cell.imgService?.image = UIImage(named: "shopPlace")
+                    cell.imgService?.image = UIImage(named: "placeHolderSer")
                 }
                 cell.lbeName.text = arrSortedService[indexPath.row].serviceName
                 
@@ -261,9 +261,6 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
                 dateStr =  String(format: "%@, %@ at %@", "".getTodayWeekDay("".dateFromString(self.arrSortedService[indexPath.row].slotDate)),"".convertToDDMMYYYY("".dateFromString(arrSortedService[indexPath.row].slotDate)), self.arrSortedService[indexPath.row].fromTime)
                 
                 cell.lbeTime.text = dateStr
-                
-                
-                
                 return cell
             }
         }
@@ -289,11 +286,65 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
     //MARK:- Add Button Tap
     @objc func reschedule_Tap(sender:UIButton){
         
+        
+        let controller:BookingDoctorViewController =  UIStoryboard(storyboard: .User).initVC()
+        
+        controller.name = self.arrSortedService[sender.tag].professionalName
+        if let imgUrl = self.arrSortedService[sender.tag].professionalImage,!imgUrl.isEmpty {
+            
+            let imagePath = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
+            let urlString = imagePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            controller.imgUserStr = urlString
+        }
+        controller.professionalId  = self.arrSortedService[sender.tag].professionalDetailId
+        controller.spaServiceId = self.arrSortedService[sender.tag].spaServiceId
+        controller.orderId = self.arrSortedService[sender.tag].orderId
+        controller.serviceBookingId = self.arrSortedService[sender.tag].serviceBookingId
+
+        self.parent?.navigationController?.pushViewController(controller, animated: true)
     }
     
     //MARK:- Add Button Tap
     @objc func cancel_Tap(sender:UIButton){
+        var str = ""
+        str = String(format: "Are you sure you want to cancel Service?")
+        let alert = UIAlertController(title: nil, message:str, preferredStyle: .alert)
         
+        let No = UIAlertAction(title:"No", style: .default, handler: { action in
+        })
+            alert.addAction(No)
+        
+        let Yes = UIAlertAction(title:"Yes", style: UIAlertAction.Style.destructive, handler: { action in
+            
+            var array : [Int] = []
+            array.append(self.arrSortedService[sender.tag].serviceBookingId)
+            
+            let paramsNew = ["serviceBookingIds": array,
+                             "orderId" :  self.arrSortedService[sender.tag].orderId] as [String : AnyObject]
+            
+            
+            
+            self.CancelService(Model: paramsNew, index: 0)
+         
+        })
+        alert.addAction(Yes)
+        DispatchQueue.main.async(execute: {
+            self.present(alert, animated: true)
+        })
+    }
+    
+    func CancelService(Model: [String : AnyObject], index:Int){
+        CancelOrderServiceRequest.shared.CancelOrderAPI(requestParams: Model) { (user,message,isStatus) in
+            if isStatus {
+                if isStatus {
+                    NotificationAlert().NotificationAlert(titles: message ?? GlobalConstants.successMessage)
+                    self.MyAppointmentAPI(false)
+                }
+            }
+            else{
+                NotificationAlert().NotificationAlert(titles:message ?? GlobalConstants.serverError)
+            }
+        }
     }
 }
     

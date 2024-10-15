@@ -92,8 +92,7 @@ extension HomeBannerTvCell:UICollectionViewDataSource,UICollectionViewDelegateFl
 
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
-        
-      
+    
         let size = CGSize(width:  (UIScreen.main.bounds.size.width), height: collectionView.frame.size.height)
         return size
     }

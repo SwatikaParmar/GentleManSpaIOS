@@ -54,8 +54,6 @@ class HomeUserViewController: UIViewController {
             if isStatus {
                 if arrayData != nil{
                     self.arrSortedCategory = arrayData ?? self.arrSortedCategory
-                 
-                  
                     if self.arrSortedCategory.count > 0 {
                         self.tableViewHome.reloadData()
                     }
@@ -67,7 +65,6 @@ class HomeUserViewController: UIViewController {
             }
             else{
                 self.arrSortedCategory.removeAll()
-                
                 self.tableViewHome.reloadData()
             }
         }

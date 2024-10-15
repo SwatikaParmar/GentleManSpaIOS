@@ -97,7 +97,6 @@ class MenuUserController: UIViewController,UITableViewDelegate,UITableViewDataSo
     //MARK:-   TableView Function
       func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-          
           return titleArray.count
     }
     

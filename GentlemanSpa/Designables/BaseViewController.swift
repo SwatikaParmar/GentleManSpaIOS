@@ -22,7 +22,7 @@ class NotificationAlert {
     func NotificationAlert(titles:String){
             
             let toastView = UILabel()
-            toastView.backgroundColor = UIColor.white
+            toastView.backgroundColor = UIColor.green
             toastView.textColor = UIColor.black
             toastView.textAlignment = .center
             toastView.font = UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(14)) ?? UIFont.systemFont(ofSize: 15)

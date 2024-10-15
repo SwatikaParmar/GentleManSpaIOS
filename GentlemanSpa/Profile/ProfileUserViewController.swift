@@ -22,7 +22,7 @@ class ProfileUserViewController: UIViewController,UITableViewDelegate,UITableVie
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.isHidden = true
-        titleArray = ["My Profile","Membership Level","Event","Refer","Support","Product","Service"]
+        titleArray = ["My Profile","Messages","Event","Refer","Support","Product","Service"]
         imagesArray = ["profileEdit","M","E","R","S","P","SE"]
         tableview.contentInsetAdjustmentBehavior = .never
     }
@@ -86,7 +86,7 @@ class ProfileUserViewController: UIViewController,UITableViewDelegate,UITableVie
         }
         if indexPath.row == 1 {
             let controller:MessagesController =  UIStoryboard(storyboard: .Chat).initVC()
-            self.navigationController?.pushViewController(controller, animated: true)
+            self.parent?.navigationController?.pushViewController(controller, animated: true)
         }
        
     }

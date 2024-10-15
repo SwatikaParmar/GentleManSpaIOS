@@ -273,4 +273,12 @@ extension String{
     var GetOrderedProducts: String{
         return "Path".path + "Order/GetOrderedProducts"
     }
+    
+    var CancelOrder: String{
+        return "Path".path + "Order/CancelOrder"
+    }
+    
+    var RescheduleService: String{
+        return "Path".path + "Order/RescheduleService"
+    }
 }

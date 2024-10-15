@@ -26,6 +26,13 @@ class MessagesController: UIViewController ,UITableViewDataSource,UITableViewDel
         self.navigationController?.isNavigationBarHidden = true
     }
     
+    @IBAction func Back(_ sender: Any) {
+        
+        self.navigationController?.popViewController(animated: true)
+
+    }
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

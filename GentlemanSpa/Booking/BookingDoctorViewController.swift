@@ -47,6 +47,10 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
     var spaServiceId = 0
     var professionalId = 0
     var slotId = 0
+    var orderId = 0
+    var serviceBookingId = 0
+
+
     var selectDate = ""
     var selectTime = ""
     var typePackage = ""
@@ -172,18 +176,33 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
     
     @IBAction func BookingNow(_ sender: Any)
     {
-        
-        if slotId > 0 {
-            var param = [String : AnyObject]()
-            param["spaServiceId"] = spaServiceId as AnyObject
-            param["spaDetailId"] = 21 as AnyObject
-            param["serviceCountInCart"] = 1 as AnyObject
-            param["slotId"] = slotId as AnyObject
-            
-            self.add_Slot(Model: param, index:0)
+        if orderId > 0 {
+            if slotId > 0 {
+                var param = [String : AnyObject]()
+                param["orderId"] = orderId as AnyObject
+                param["serviceBookingId"] = serviceBookingId as AnyObject
+                param["slotId"] = slotId as AnyObject
+                
+                self.RescheduleService(Model: param, index:0)
+            }
+            else{
+                self.MessageAlert(title: "Oops!", message:"Please select time")
+            }
         }
         else{
-            self.MessageAlert(title: "Oops!", message:"Please select time")
+    
+            if slotId > 0 {
+                var param = [String : AnyObject]()
+                param["spaServiceId"] = spaServiceId as AnyObject
+                param["spaDetailId"] = 21 as AnyObject
+                param["serviceCountInCart"] = 1 as AnyObject
+                param["slotId"] = slotId as AnyObject
+                
+                self.add_Slot(Model: param, index:0)
+            }
+            else{
+                self.MessageAlert(title: "Oops!", message:"Please select time")
+            }
         }
     }
 
@@ -439,7 +458,19 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
         }
     }
     
-    
+    func RescheduleService(Model: [String : AnyObject], index:Int){
+        RescheduleServiceRequest.shared.RescheduleAPI(requestParams: Model) { (user,message,isStatus) in
+            if isStatus {
+                if isStatus {
+                    NotificationAlert().NotificationAlert(titles: message ?? GlobalConstants.successMessage)
+                }
+            }
+            else{
+                NotificationAlert().NotificationAlert(titles:message ?? GlobalConstants.serverError)
+            }
+           
+        }
+    }
     
     
     

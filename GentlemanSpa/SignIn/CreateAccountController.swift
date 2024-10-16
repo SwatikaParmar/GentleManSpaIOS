@@ -294,7 +294,7 @@ class CreateAccountController: UIViewController {
         ResendEmailAPIRequest.shared.ResendEmail(requestParams: param, accessToken:"") { (message, status,otp) in
             
             if status == true{
-                let controller:VerifiyController =  UIStoryboard(storyboard: .main).initVC()
+                let controller:VerifiyController = UIStoryboard(storyboard: .main).initVC()
                 controller.codeStr = String(otp)
                 controller.email = self.stringEmail
                 controller.trimmedName = self.trimmedName

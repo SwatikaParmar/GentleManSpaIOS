@@ -115,21 +115,15 @@ class MyLocationVc: UIViewController {
             {
                 
                 if self.arrayAddressData[i].addressType == "Home" {
-                    
                     Home =  ""
-                    
                 }
                 
                 if self.arrayAddressData[i].addressType == "Work" {
-                    
                     Work =  ""
-
                 }
                 
                 if self.arrayAddressData[i].addressType == "Other" {
-                    
                     Other =  ""
-
                 }
             }
             

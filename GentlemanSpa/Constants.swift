@@ -62,12 +62,9 @@ class AppColor: NSObject {
     static let AppThemeColor : UIColor =  UIColor(red: 0 / 255.0, green: 166.0 / 255.0, blue: 234.0 / 255.0, alpha: 1.0)
     static let BrownColor : UIColor =  UIColor(red: 183.0 / 255.0, green: 137.0 / 255.0, blue: 69.0 / 255.0, alpha: 1.0)
     static let BlackColor : UIColor =  UIColor(red: 38.0 / 255.0, green: 50.0 / 255.0, blue: 56.0 / 255.0, alpha: 1.0)
-    
     static let AppTealishRGB : UIColor =  UIColor(red: 197.0 / 255.0, green: 154.0 / 255.0, blue: 86.0 / 255.0, alpha: 1.0)
     static let Timebg : UIColor =  UIColor(red: 243.0 / 255.0, green: 243.0 / 255.0, blue: 243.0 / 255.0, alpha: 1.0)
-
     static let YellowColor : UIColor = UIColor( red: CGFloat(197/255.0), green: CGFloat(154/255.0), blue: CGFloat(86/255.0), alpha: CGFloat(1.0) )
-    
     static let AppThemeColorPro : UIColor =  UIColor(red: 183 / 255.0, green: 137.0 / 255.0, blue: 69.0 / 255.0, alpha: 1.0)
 
 }
@@ -118,9 +115,6 @@ extension String{
     var ResetPassword: String{
         return "Path".path + "Auth/ResetPassword"
     }
-    
-    
-    
     var IsPhoneUnique: String{
         return "Path".path + "Auth/IsPhoneUnique"
     }

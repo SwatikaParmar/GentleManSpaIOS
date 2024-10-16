@@ -57,14 +57,14 @@ class ProductListViewController:  UIViewController {
                 if arrayData != nil{
                     
                    
-                    if arrayData?.allCartServicesArray.count ?? 0 > 0 {
+                    if arrayData?.allCartProductArray.count ?? 0 > 0 {
                         totalView.isHidden = false
                         view_H_Const.constant = 70
                         amountLbe.text =  String(format: "$%.2f", arrayData?.totalSellingPrice ?? 0.00)
-                        countLbe.text = String(format: "%d products added", arrayData?.allCartServicesArray.count ?? 0)
+                        countLbe.text = String(format: "%d products added", arrayData?.allCartProductArray.count ?? 0)
                         
-                        if arrayData?.allCartServicesArray.count == 1 {
-                            countLbe.text = String(format: "%d product added", arrayData?.allCartServicesArray.count ?? 0)
+                        if arrayData?.allCartProductArray.count == 1 {
+                            countLbe.text = String(format: "%d product added", arrayData?.allCartProductArray.count ?? 0)
 
                         }
                     }

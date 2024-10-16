@@ -181,7 +181,7 @@ class CartUserViewController: UIViewController {
                 if arrayData != nil{
                     
                     lbePayNow.text = String(format: "Pay $%.2f", totalAmount)
-                    if arrayData?.allCartServicesArray.count ?? 0 > 0 {
+                    if arrayData?.allCartProductArray.count ?? 0 > 0 {
                     
                         if arrayService?.allServicesArray.count ?? 0 > 0 {
                             arrObjectServices = arrayService ?? arrObjectServices
@@ -204,7 +204,7 @@ class CartUserViewController: UIViewController {
                         viewDataBG.isHidden = false
 
                         tableViewMyCart.isHidden = false
-                        arrSortedProduct = arrayData?.allCartServicesArray ?? arrSortedProduct
+                        arrSortedProduct = arrayData?.allCartProductArray ?? arrSortedProduct
                         tableViewMyCart.reloadData()
                         productAddCart(true)
                     }

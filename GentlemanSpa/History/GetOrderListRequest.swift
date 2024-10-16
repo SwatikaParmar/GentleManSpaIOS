@@ -50,14 +50,11 @@ class GetServiceAppointmentsListRequest: NSObject{
                 }
                 else
                 {
-                    
                     completion(nil,nil,"",false)
                 }
             }
         }
     }
-    
-    
 }
     
     

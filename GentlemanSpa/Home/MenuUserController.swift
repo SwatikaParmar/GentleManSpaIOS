@@ -58,8 +58,6 @@ class MenuUserController: UIViewController,UITableViewDelegate,UITableViewDataSo
                                placeholderImage: UIImage(named: "placeholder_Male"),
                                options: .refreshCached,
                                completed: nil)
-        
-
         self.tableview.reloadData()
         
     }

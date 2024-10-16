@@ -19,6 +19,7 @@ class UserNotificationViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
     }
+    
     @IBAction func btnBackPreessed(_ sender: Any){
         self.navigationController?.popViewController(animated: true)
     }

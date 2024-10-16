@@ -81,7 +81,7 @@ class MapsViewController: UIViewController{
         topViewLayout()
         tableviewSearch.delegate = self
         tableviewSearch.dataSource = self
-        textfieldAddress.font = UIFont(name:FontName.Inter.Regular, size:  "".dynamicFontSize(16))
+        textfieldAddress.font = UIFont(name:FontName.Inter.Regular, size:  "".dynamicFontSize(14))
         mapView.delegate = self
         locationManager.startUpdatingLocation()
        
@@ -274,40 +274,31 @@ class MapsViewController: UIViewController{
     
 }
 // MARK: - CLLocationManagerDelegate
-//1
+
 extension MapsViewController: CLLocationManagerDelegate, GMSMapViewDelegate{
-  // 2
+  
   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-    // 3
+
     guard status == .authorizedWhenInUse else {
       return
     }
-    // 4
+    
     locationManager.startUpdatingLocation()
-      
-    //5
     mapView.settings.compassButton = true
     mapView.isMyLocationEnabled = true
     mapView.settings.myLocationButton = true
       
   }
   
-  // 6
+  
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         guard let location = locations.first else {
           
             return
         }
-        
-        // 7
-        mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 18, bearing: 0, viewingAngle: 0)
-        
-        // 8
-        
     
-        
-       
+        mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 18, bearing: 0, viewingAngle: 0)
     }
     func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
         textfieldAddress.text = ""
@@ -317,9 +308,7 @@ extension MapsViewController: CLLocationManagerDelegate, GMSMapViewDelegate{
     
     
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
-        
-        
-        
+
         print(position.target)
      
     }

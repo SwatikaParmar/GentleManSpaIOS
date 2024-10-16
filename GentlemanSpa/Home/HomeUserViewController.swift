@@ -30,7 +30,6 @@ class HomeUserViewController: UIViewController {
     }
     
     
-    
     @IBAction func sideMenu(_ sender: Any) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SideMenuUpdate"), object: nil)
         sideMenuController?.showLeftView(animated: true)
@@ -38,8 +37,11 @@ class HomeUserViewController: UIViewController {
     
     
     @IBAction func notification(_ sender: Any) {
-        let storyBoard = UIStoryboard.init(name: "User", bundle: nil)
-        let controller = (storyBoard.instantiateViewController(withIdentifier: "UserNotificationViewController") as?  UserNotificationViewController)!
+      //  let storyBoard = UIStoryboard.init(name: "User", bundle: nil)
+      //  let controller = (storyBoard.instantiateViewController(withIdentifier: "UserNotificationViewController") as?  UserNotificationViewController)!
+        
+        let storyBoard = UIStoryboard.init(name: "UserProduct", bundle: nil)
+        let controller = (storyBoard.instantiateViewController(withIdentifier: "MyCartViewController") as?  MyCartViewController)!
         self.parent?.navigationController?.pushViewController(controller, animated: true)
     }
     

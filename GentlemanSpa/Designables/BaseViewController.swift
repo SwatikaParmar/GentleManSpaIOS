@@ -21,16 +21,16 @@ class NotificationAlert {
     
     func NotificationAlert(titles:String){
             
-            let toastView = UILabel()
-            toastView.backgroundColor = UIColor.green
-            toastView.textColor = UIColor.black
-            toastView.textAlignment = .center
-            toastView.font = UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(14)) ?? UIFont.systemFont(ofSize: 15)
-            toastView.layer.masksToBounds = true
-            toastView.text = titles
-            toastView.numberOfLines = 0
-            toastView.alpha = 0
-            toastView.translatesAutoresizingMaskIntoConstraints = false
+        let toastView = UILabel()
+        toastView.backgroundColor = UIColor.gray
+        toastView.textColor = UIColor.black
+        toastView.textAlignment = .center
+        toastView.font = UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(14)) ?? UIFont.systemFont(ofSize: 15)
+        toastView.layer.masksToBounds = true
+        toastView.text = titles
+        toastView.numberOfLines = 0
+        toastView.alpha = 0
+        toastView.translatesAutoresizingMaskIntoConstraints = false
       
        //     debugPrint(actualNumberOfLines(label: toastView))
         

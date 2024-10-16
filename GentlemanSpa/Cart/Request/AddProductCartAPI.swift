@@ -130,7 +130,7 @@ class CartDataModel: NSObject {
     var salonCount = 0
     var morningDailyDeliveryTime = 0
     var eveningDailyDeliveryTime = 0
-    var allCartServicesArray : [AllCartProducts] = []
+    var allCartProductArray : [AllCartProducts] = []
 
     
     init(fromDictionary dictionary: [String:Any]) {
@@ -144,7 +144,7 @@ class CartDataModel: NSObject {
         if let dataList = dictionary["products"] as? NSArray{
                for list in dataList{
                    let dict : AllCartProducts = AllCartProducts.init(fromDictionary: list as! [String : Any])
-                   allCartServicesArray.append(dict)
+                   allCartProductArray.append(dict)
             }
         }
 

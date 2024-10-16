@@ -40,6 +40,8 @@
 		345001FB2C776DF2001A2A0D /* ProGetProductAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345001FA2C776DF2001A2A0D /* ProGetProductAPI.swift */; };
 		3460D6FC2C9D43800076C4C2 /* MyCartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3460D6FB2C9D43800076C4C2 /* MyCartCell.swift */; };
 		3460D7002C9D9B3F0076C4C2 /* UserNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3460D6FF2C9D9B3F0076C4C2 /* UserNotificationViewController.swift */; };
+		3470FAF02CBF931D00BF5C7A /* MyCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3470FAEF2CBF931D00BF5C7A /* MyCartViewController.swift */; };
+		3470FAF22CBF953700BF5C7A /* MyCartExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3470FAF12CBF953700BF5C7A /* MyCartExtension.swift */; };
 		3498173F2C7C860100219379 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3498173E2C7C860100219379 /* ProductDetailsViewController.swift */; };
 		34ADB3112CB6419600523217 /* GetOrderListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ADB3102CB6419600523217 /* GetOrderListRequest.swift */; };
 		34ADB3132CB66E9600523217 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ADB3122CB66E9600523217 /* AlertViewController.swift */; };
@@ -154,6 +156,8 @@
 		345001FA2C776DF2001A2A0D /* ProGetProductAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProGetProductAPI.swift; sourceTree = "<group>"; };
 		3460D6FB2C9D43800076C4C2 /* MyCartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartCell.swift; sourceTree = "<group>"; };
 		3460D6FF2C9D9B3F0076C4C2 /* UserNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationViewController.swift; sourceTree = "<group>"; };
+		3470FAEF2CBF931D00BF5C7A /* MyCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartViewController.swift; sourceTree = "<group>"; };
+		3470FAF12CBF953700BF5C7A /* MyCartExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartExtension.swift; sourceTree = "<group>"; };
 		3498173E2C7C860100219379 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		34ADB3102CB6419600523217 /* GetOrderListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrderListRequest.swift; sourceTree = "<group>"; };
 		34ADB3122CB66E9600523217 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
@@ -380,6 +384,8 @@
 			isa = PBXGroup;
 			children = (
 				34B4CD912C48D571006B9F1F /* CartUserViewController.swift */,
+				3470FAEF2CBF931D00BF5C7A /* MyCartViewController.swift */,
+				3470FAF12CBF953700BF5C7A /* MyCartExtension.swift */,
 				3460D6FB2C9D43800076C4C2 /* MyCartCell.swift */,
 				3460D6E92C9D32F20076C4C2 /* Request */,
 			);
@@ -769,6 +775,7 @@
 				34C5E7802C6A32D900C5BE0A /* ProductListViewController.swift in Sources */,
 				34CE92722C410BBD0007E086 /* Constants.swift in Sources */,
 				3498173F2C7C860100219379 /* ProductDetailsViewController.swift in Sources */,
+				3470FAF02CBF931D00BF5C7A /* MyCartViewController.swift in Sources */,
 				34B905612C984FC000E81DFC /* AddProductCartAPI.swift in Sources */,
 				34C5E2EF2C5B7AFF00F97C0C /* MoreCollection.swift in Sources */,
 				34CE92642C40EAE60007E086 /* BaseViewController.swift in Sources */,
@@ -810,6 +817,7 @@
 				344B96532CABD2830022F502 /* SelectProfessionalVc.swift in Sources */,
 				34498CF12C463DB900F541DB /* CreateAccountController.swift in Sources */,
 				34CE926B2C40EAE60007E086 /* UIViewX.swift in Sources */,
+				3470FAF22CBF953700BF5C7A /* MyCartExtension.swift in Sources */,
 				341748302C58F9610015AF5E /* SpaLocationVc.swift in Sources */,
 				34D3382A2C5A7D2F003C6B13 /* BookingDaysViewController.swift in Sources */,
 				34ADB3112CB6419600523217 /* GetOrderListRequest.swift in Sources */,

@@ -216,6 +216,7 @@ class ProductDetailModel: NSObject {
     var countInCart = 0
     var inStock = 0
     var productId = 0
+    
     init(fromDictionary dictionary: [String:Any]){
         stock = dictionary["stock"] as? Int ?? 0
         serviceName = dictionary["name"] as? String ?? ""

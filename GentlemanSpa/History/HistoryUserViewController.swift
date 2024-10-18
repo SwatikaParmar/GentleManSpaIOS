@@ -268,14 +268,14 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
     
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             if  pageName == "Upcoming" {
-                return 250
+                return 255
 
             }
             else if pageName == "Completed" {
-                return 205
+                return 210
             }
             
-            return 205
+            return 210
 
         
         }

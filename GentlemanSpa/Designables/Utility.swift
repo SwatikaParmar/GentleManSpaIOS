@@ -318,7 +318,7 @@ extension String {
     var dobDateToDateString:String {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = NSTimeZone.local
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
         let localDate = dateFormatter.date(from: self)
         dateFormatter.dateFormat = "dd-MM-yyyy"
         if localDate != nil {

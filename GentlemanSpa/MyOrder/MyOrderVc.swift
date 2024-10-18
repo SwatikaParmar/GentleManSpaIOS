@@ -139,8 +139,8 @@ extension MyOrderVc: UITableViewDataSource,UITableViewDelegate {
         
         
         var dateStr = ""
-        dateStr =  String(format: "Order date %@", "".convertToDDMMYYYY("".dateFromString(self.arrOrder[indexPath.row].orderDate)))
-        cell.lbeAmount.text = dateStr
+        dateStr =  String(format: "ORDER DATE: %@", "".convertToDDMMYYYY("".dateFromString(self.arrOrder[indexPath.row].orderDate)))
+        cell.lbeDate.text = dateStr
         cell.lbeName.text = arrOrder[indexPath.row].productName
         
         var mrp = ""
@@ -181,7 +181,7 @@ extension MyOrderVc: UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-         return 190
+         return 231
      
     }
     
@@ -192,19 +192,12 @@ extension MyOrderVc: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         
-        
+        let controller:OrderDetailsViewController =  UIStoryboard(storyboard: .Cart).initVC()
+        controller.orderId = self.arrOrder[indexPath.row].orderId
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-            return false
-    }
-    
+
 
 }
 
@@ -221,5 +214,6 @@ class MyOrderTableViewCell: UITableViewCell {
     @IBOutlet weak var lbeDelivery: UILabel!
     @IBOutlet weak var lbeOrder: UILabel!
     @IBOutlet weak var lbePayment: UILabel!
+    @IBOutlet weak var lbeDate: UILabel!
 
 }

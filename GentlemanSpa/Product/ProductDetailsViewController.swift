@@ -88,7 +88,6 @@ extension ProductDetailsViewController: UITableViewDataSource,UITableViewDelegat
             cell.lbeName.text = arrSortedService?.serviceName
             cell.lbeTime.text = ""
 
-    
             if arrSortedService?.countInCart ?? 0 > 0{
                 
                 cell.addToCart.isHidden = true

@@ -217,3 +217,176 @@ class CancelOrderServiceRequest: NSObject {
                 }
             }
         }
+
+
+
+
+
+class GetOrderDetailRequest: NSObject{
+    
+    static let shared = GetOrderDetailRequest()
+    
+    func GetOrderDetail(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData: [OrderDetails]?, _ message : String?, _ isStatus : Bool) -> Void) {
+        
+        var apiURL = String("Base".GetOrderDetail)
+        
+        apiURL = String(format:"%@/%d",apiURL,requestParams["orderId"] as? Int ?? 0)
+        
+        
+        print("URL---->> ",apiURL)
+        print("Request---->> ",requestParams)
+        
+        AlamofireRequest.shared.GetBodyFrom(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
+            
+            print(data ?? "No data")
+            if error == nil{
+                var messageString : String = ""
+                if let status = data?["isSuccess"] as? Bool{
+                    if let msg = data?["messages"] as? String{
+                        messageString = msg
+                    }
+                    if status{
+                        var homeListObject : [OrderDetails] = []
+                        if let list = data?["data"] as? [String : Any]{
+                            let dict : OrderDetails = OrderDetails.init(dict: list )
+                                homeListObject.append(dict)
+                            
+                            completion(homeListObject,messageString,true)
+                        }
+                        else{
+                            completion(nil,messageString,false)
+                        }
+                    }
+                    else
+                    {
+                        completion(nil,"",false)
+                    }
+                }
+                else
+                {
+                    
+                    completion(nil,"",false)
+                }
+            }
+        }
+    }
+    
+    
+}
+class OrderDetails: NSObject {
+    var orderId: Int
+    var orderDate: String
+    var totalOrder: Int
+    var servicesCount: Int
+    var productsCount: Int
+    var orderStatus: String
+    var totalAmount: Double
+    var cancelledAmount: Int
+    var refundedAmount: Int
+    var paybleAmount: Int
+    var customerName: String
+    var delieveryType: String
+    var paymentType: String
+    var paymentStatus: String?
+    var customerAddressId: String?
+    var services: [OrderService] = []
+    var products: [OrderProduct] = []
+    var customerAddress: String?
+
+    init(dict: [String: Any]) {
+        self.orderId = dict["orderId"] as? Int ?? 0
+        self.orderDate = dict["orderDate"] as? String ?? ""
+        self.totalOrder = dict["totalOrder"] as? Int ?? 0
+        self.servicesCount = dict["servicesCount"] as? Int ?? 0
+        self.productsCount = dict["productsCount"] as? Int ?? 0
+        self.orderStatus = dict["orderStatus"] as? String ?? ""
+        self.totalAmount = dict["totalAmount"] as? Double ?? 0.00
+        self.cancelledAmount = dict["cancelledAmount"] as? Int ?? 0
+        self.refundedAmount = dict["refundedAmount"] as? Int ?? 0
+        self.paybleAmount = dict["paybleAmount"] as? Int ?? 0
+        self.customerName = dict["customerName"] as? String ?? ""
+        self.delieveryType = dict["delieveryType"] as? String ?? ""
+        self.paymentType = dict["paymentType"] as? String ?? ""
+        self.paymentStatus = dict["paymentStatus"] as? String
+        self.customerAddressId = dict["customerAddressId"] as? String
+        self.customerAddress = dict["customerAddress"] as? String
+
+        if let dataList = dict["services"] as? NSArray{
+               for list in dataList{
+                   let dict : OrderService = OrderService.init(dict: list as! [String : Any])
+                   services.append(dict)
+            }
+        }
+        
+
+    
+        if let dataList = dict["products"] as? NSArray{
+               for list in dataList{
+                   let dict : OrderProduct = OrderProduct.init(dict: list as! [String : Any])
+                   products.append(dict)
+            }
+        }
+    }
+}
+
+class OrderService: NSObject {
+    var orderId: Int
+    var spaServiceId: Int
+    var slotId: Int
+    var serviceBookingId: Int
+    var serviceName: String
+    var image: String?
+    var slotDate: String
+    var fromTime: String
+    var toTime: String
+    var price: Double
+    var professionalDetailId: Int
+    var professionalName: String
+    var professionalImage: String?
+    var orderStatus: String
+    var orderDate: String?
+
+    init(dict: [String: Any]) {
+        self.orderId = dict["orderId"] as? Int ?? 0
+        self.spaServiceId = dict["spaServiceId"] as? Int ?? 0
+        self.slotId = dict["slotId"] as? Int ?? 0
+        self.serviceBookingId = dict["serviceBookingId"] as? Int ?? 0
+        self.serviceName = dict["serviceName"] as? String ?? ""
+        self.image = dict["image"] as? String ?? ""
+        self.slotDate = dict["slotDate"] as? String ?? ""
+        self.fromTime = dict["fromTime"] as? String ?? ""
+        self.toTime = dict["toTime"] as? String ?? ""
+        self.price = dict["price"] as? Double ?? 0.00
+        self.professionalDetailId = dict["professionalDetailId"] as? Int ?? 0
+        self.professionalName = dict["professionalName"] as? String ?? ""
+        self.professionalImage = dict["professionalImage"] as? String
+        self.orderStatus = dict["orderStatus"] as? String ?? ""
+        self.orderDate = dict["orderDate"] as? String
+    }
+}
+
+class OrderProduct: NSObject {
+    var orderId: Int
+    var productId: Int
+    var productName: String
+    var productImage: String?
+    var quantity: Int
+    var price: Double
+    var orderStatus: String
+    var professionalDetailId: Int
+    var professionalName: String
+    var orderDate: String?
+
+    init(dict: [String: Any]) {
+        self.orderId = dict["orderId"] as? Int ?? 0
+        self.productId = dict["productId"] as? Int ?? 0
+        self.productName = dict["productName"] as? String ?? ""
+        self.productImage = dict["productImage"] as? String ?? ""
+        self.quantity = dict["quantity"] as? Int ?? 0
+        self.price = dict["price"] as? Double ?? 0.00
+        self.orderStatus = dict["orderStatus"] as? String ?? ""
+        self.professionalDetailId = dict["professionalDetailId"] as? Int ?? 0
+        self.professionalName = dict["professionalName"] as? String ?? ""
+        self.orderDate = dict["orderDate"] as? String
+    }
+}

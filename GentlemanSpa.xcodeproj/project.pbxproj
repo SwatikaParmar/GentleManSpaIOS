@@ -35,7 +35,7 @@
 		344B96572CABDC950022F502 /* Services.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 344B96562CABDC950022F502 /* Services.storyboard */; };
 		344B96592CABEF9D0022F502 /* SelectProfessionalListVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344B96582CABEF9D0022F502 /* SelectProfessionalListVc.swift */; };
 		344B965B2CABF93C0022F502 /* AvailableDatesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344B965A2CABF93C0022F502 /* AvailableDatesRequest.swift */; };
-		344E0C6C2CA12A0000D32AB6 /* UserProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 344E0C6B2CA12A0000D32AB6 /* UserProduct.storyboard */; };
+		344E0C6C2CA12A0000D32AB6 /* Cart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 344E0C6B2CA12A0000D32AB6 /* Cart.storyboard */; };
 		344E0C702CA1341500D32AB6 /* MyOrderVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344E0C6F2CA1341500D32AB6 /* MyOrderVc.swift */; };
 		345001FB2C776DF2001A2A0D /* ProGetProductAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345001FA2C776DF2001A2A0D /* ProGetProductAPI.swift */; };
 		3460D6FC2C9D43800076C4C2 /* MyCartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3460D6FB2C9D43800076C4C2 /* MyCartCell.swift */; };
@@ -115,6 +115,9 @@
 		34DEF4892C5E03E100F395A8 /* AppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DEF4882C5E03E100F395A8 /* AppointmentsViewController.swift */; };
 		34DEF48B2C5E03F400F395A8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DEF48A2C5E03F400F395A8 /* ProfileViewController.swift */; };
 		34DEF48D2C5E040700F395A8 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DEF48C2C5E040700F395A8 /* NotificationViewController.swift */; };
+		34EC323C2CC22F74007067AD /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EC323B2CC22F74007067AD /* OrderDetailsViewController.swift */; };
+		34EC323E2CC2339E007067AD /* OrderDetailsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EC323D2CC2339E007067AD /* OrderDetailsExtension.swift */; };
+		34EC32402CC23417007067AD /* OrderDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EC323F2CC23417007067AD /* OrderDetailsTableViewCell.swift */; };
 		34F559B92C5A52250017F732 /* HomeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F559B82C5A52250017F732 /* HomeList.swift */; };
 		34F559BB2C5A569B0017F732 /* CategoryHomeTvCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F559BA2C5A569B0017F732 /* CategoryHomeTvCell.swift */; };
 		75C71B34A104F5698502BB7E /* Pods_GentlemanSpa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A789DEF5BEC1FF7F72085A5 /* Pods_GentlemanSpa.framework */; };
@@ -151,7 +154,7 @@
 		344B96562CABDC950022F502 /* Services.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Services.storyboard; sourceTree = "<group>"; };
 		344B96582CABEF9D0022F502 /* SelectProfessionalListVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProfessionalListVc.swift; sourceTree = "<group>"; };
 		344B965A2CABF93C0022F502 /* AvailableDatesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableDatesRequest.swift; sourceTree = "<group>"; };
-		344E0C6B2CA12A0000D32AB6 /* UserProduct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProduct.storyboard; sourceTree = "<group>"; };
+		344E0C6B2CA12A0000D32AB6 /* Cart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cart.storyboard; sourceTree = "<group>"; };
 		344E0C6F2CA1341500D32AB6 /* MyOrderVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderVc.swift; sourceTree = "<group>"; };
 		345001FA2C776DF2001A2A0D /* ProGetProductAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProGetProductAPI.swift; sourceTree = "<group>"; };
 		3460D6FB2C9D43800076C4C2 /* MyCartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartCell.swift; sourceTree = "<group>"; };
@@ -231,6 +234,9 @@
 		34DEF4882C5E03E100F395A8 /* AppointmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsViewController.swift; sourceTree = "<group>"; };
 		34DEF48A2C5E03F400F395A8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		34DEF48C2C5E040700F395A8 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		34EC323B2CC22F74007067AD /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
+		34EC323D2CC2339E007067AD /* OrderDetailsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsExtension.swift; sourceTree = "<group>"; };
+		34EC323F2CC23417007067AD /* OrderDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		34F559B82C5A52250017F732 /* HomeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeList.swift; sourceTree = "<group>"; };
 		34F559BA2C5A569B0017F732 /* CategoryHomeTvCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryHomeTvCell.swift; sourceTree = "<group>"; };
 		5A789DEF5BEC1FF7F72085A5 /* Pods_GentlemanSpa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GentlemanSpa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -287,7 +293,7 @@
 				34DEF4832C5DFF8100F395A8 /* Professional */,
 				3404F30D2C3F936D00FF0F41 /* Main.storyboard */,
 				34B4CD972C48D5D1006B9F1F /* User.storyboard */,
-				344E0C6B2CA12A0000D32AB6 /* UserProduct.storyboard */,
+				344E0C6B2CA12A0000D32AB6 /* Cart.storyboard */,
 				344B96562CABDC950022F502 /* Services.storyboard */,
 				34DEF4812C5DFF3C00F395A8 /* Professional.storyboard */,
 				34186AB62CB39FF900717E47 /* Address.storyboard */,
@@ -318,6 +324,9 @@
 			isa = PBXGroup;
 			children = (
 				344E0C6F2CA1341500D32AB6 /* MyOrderVc.swift */,
+				34EC323B2CC22F74007067AD /* OrderDetailsViewController.swift */,
+				34EC323D2CC2339E007067AD /* OrderDetailsExtension.swift */,
+				34EC323F2CC23417007067AD /* OrderDetailsTableViewCell.swift */,
 			);
 			path = MyOrder;
 			sourceTree = "<group>";
@@ -701,7 +710,7 @@
 				34B4CD982C48D5D1006B9F1F /* User.storyboard in Resources */,
 				3404F30F2C3F936D00FF0F41 /* Base in Resources */,
 				34CE92532C40E8E40007E086 /* Poppins-Regular.ttf in Resources */,
-				344E0C6C2CA12A0000D32AB6 /* UserProduct.storyboard in Resources */,
+				344E0C6C2CA12A0000D32AB6 /* Cart.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -781,6 +790,7 @@
 				34CE92642C40EAE60007E086 /* BaseViewController.swift in Sources */,
 				34D338242C5A7A8E003C6B13 /* EventsManager.swift in Sources */,
 				34D338262C5A7A8E003C6B13 /* CalendarView.swift in Sources */,
+				34EC323E2CC2339E007067AD /* OrderDetailsExtension.swift in Sources */,
 				34D338112C5A7142003C6B13 /* ServicesViewController.swift in Sources */,
 				34C093EC2C9AA380001BBB40 /* ProfessionalServicesVc.swift in Sources */,
 				34D338202C5A7A8E003C6B13 /* CalendarView+Extensions.swift in Sources */,
@@ -825,6 +835,7 @@
 				34B6D7AD2C44E7080008FC81 /* LoginRequest.swift in Sources */,
 				34B4CD902C48D512006B9F1F /* HomeUserViewController.swift in Sources */,
 				34186ABD2CB3A16E00717E47 /* MyLocationVc.swift in Sources */,
+				34EC32402CC23417007067AD /* OrderDetailsTableViewCell.swift in Sources */,
 				34C093EA2C9A9534001BBB40 /* GetProfessional.swift in Sources */,
 				34D372462C4E3E1C000DC680 /* SpecialitiesViewController.swift in Sources */,
 				34186ACA2CB3A61900717E47 /* EditAddressVc.swift in Sources */,
@@ -859,6 +870,7 @@
 				34C80D742C75B0C200FE9E02 /* ProProductListVc.swift in Sources */,
 				34D404472C4F67200063AEF7 /* HomeBannerTvCell.swift in Sources */,
 				34C80D762C75B0EC00FE9E02 /* ProAddProductVc.swift in Sources */,
+				34EC323C2CC22F74007067AD /* OrderDetailsViewController.swift in Sources */,
 				3404F3082C3F936D00FF0F41 /* AppDelegate.swift in Sources */,
 				34CE92632C40EAE60007E086 /* UIViewXRadialGradient.swift in Sources */,
 				342BB9052CB53DA0009E069E /* BookAppointmentRequest.swift in Sources */,

@@ -144,9 +144,6 @@ class ServiceDetailRequest: NSObject {
                                  NotificationAlert().NotificationAlert(titles: messageString)
                              }
                          }
-                         else
-                         {
-                         }
                     }
                     else
                         {

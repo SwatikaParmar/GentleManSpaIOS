@@ -9,22 +9,19 @@ import UIKit
 
 class MyLocationVc: UIViewController {
     @IBOutlet weak var selectedTableView: UITableView!
-    var arrayAddressData = [AddressListModel]()
     @IBOutlet weak var btnAddress: UIView!
 
+    var arrayAddressData = [AddressListModel]()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         selectedTableView.delegate = self
         selectedTableView.dataSource = self
-        
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         self.GetAddressAPI(true)
-
     }
     
     
@@ -67,7 +64,7 @@ class MyLocationVc: UIViewController {
                                  }
                              }
 
-                             self.btnAddress.isHidden = true
+                        self.btnAddress.isHidden = true
 
                         if Home == "Home"{
                                  self.btnAddress.isHidden = false
@@ -83,7 +80,6 @@ class MyLocationVc: UIViewController {
                         }
                     }
                 }
-
             }
         }
     }
@@ -129,23 +125,23 @@ class MyLocationVc: UIViewController {
             
             
             let controller:MapsViewController =  UIStoryboard(storyboard: .Address).initVC()
-            if Home == "Home"{
-                controller.addressType = "Home"
-                self.navigationController?.pushViewController(controller, animated: true)
-                return
+                if Home == "Home"{
+                    controller.addressType = "Home"
+                    self.navigationController?.pushViewController(controller, animated: true)
+                    return
+                }
+                if Work == "Work"{
+                    controller.addressType = "Work"
+                    self.navigationController?.pushViewController(controller, animated: true)
+                    return
+                }
+                if Other == "Other"{
+                    controller.addressType = "Other"
+                    self.navigationController?.pushViewController(controller, animated: true)
+                    return
+                }
             }
-            if Work == "Work"{
-                controller.addressType = "Work"
-                self.navigationController?.pushViewController(controller, animated: true)
-                return
-            }
-            if Other == "Other"{
-                controller.addressType = "Other"
-                self.navigationController?.pushViewController(controller, animated: true)
-                return
         }
-    }
-   }
     
     func ActionSheetDelete(shopId:Int, _ type:String)
     {

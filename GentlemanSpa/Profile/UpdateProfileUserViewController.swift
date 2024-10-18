@@ -24,9 +24,6 @@ class UpdateProfileUserViewController: UIViewController {
     @IBOutlet weak var countryPicker: CountryPickerView!
     @IBOutlet weak var lbeSpe : UILabel!
     @IBOutlet weak var imgUserProfile : UIImageView!
-
-    
-
     @IBOutlet weak var specialityConst: NSLayoutConstraint!
 
     let dropGender = DropDown()
@@ -42,6 +39,8 @@ class UpdateProfileUserViewController: UIViewController {
 
     var stringPhoneNo = ""
     var stringEmail = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,6 +78,8 @@ class UpdateProfileUserViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.Category_Push_Action(_:)), name: NSNotification.Name(rawValue: "Category_Push_Action"), object: nil)
 
     }
+    
+    
     @objc func Category_Push_Action(_ notification: NSNotification) {
         var string = ""
         lbeSpe.text = ""
@@ -87,7 +88,6 @@ class UpdateProfileUserViewController: UIViewController {
             for i in 0 ..< array.count {
                 if i == 0 {
                     lbeSpe.text = String(format:"%@",array[i] as! CVarArg)
-
                 }
                 else{
                     lbeSpe.text = String(format:"%@, %@", lbeSpe.text ?? "", array[i] as! CVarArg)
@@ -99,6 +99,8 @@ class UpdateProfileUserViewController: UIViewController {
         }
         
     }
+    
+    
     @IBAction func subCate(_ sender: Any) {
         
         let storyBoard = UIStoryboard.init(name: "User", bundle: nil)
@@ -107,6 +109,8 @@ class UpdateProfileUserViewController: UIViewController {
         controller!.selectArray = ["4","6"]
         self.present(controller!, animated: true, completion: nil)
     }
+    
+    
     func topViewLayout(){
         if !CreateAccountController.hasSafeArea{
             if view_NavConst != nil {

@@ -296,7 +296,7 @@ class AddressDeleteRequest: NSObject {
 
         var apiURL = String("\("Base".deleteCustomerAddress)")
         apiURL = String(format: "%@?customerAddressId=%d",apiURL,id)
-
+        print(apiURL)
         AlamofireRequest.shared.DeleteBodyFrom(urlString:apiURL, parameters: [:], authToken:accessToken(), isLoader: true, loaderMessage: "") { (data, error) in
                 
                      print(data ?? "No data")

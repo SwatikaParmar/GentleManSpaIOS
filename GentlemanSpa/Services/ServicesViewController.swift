@@ -82,7 +82,6 @@ class ServicesViewController: UIViewController {
             }
             else{
                 self.arrSortedCategory.removeAll()
-                
                 self.cvHeader.reloadData()
             }
         }

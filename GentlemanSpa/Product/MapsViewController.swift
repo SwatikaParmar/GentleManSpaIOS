@@ -158,7 +158,7 @@ class MapsViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        let manager = CLLocationManager()
+       // let manager = CLLocationManager()
         let locationManager = CLLocationManager()
             var locationAuthorizationStatus : CLAuthorizationStatus
             if #available(iOS 14.0, *) {
@@ -169,48 +169,51 @@ class MapsViewController: UIViewController{
             }
         
         
-        if CLLocationManager.locationServicesEnabled() {
+        DispatchQueue.global().async {
             
-            switch(locationAuthorizationStatus) {
-            case .restricted, .denied:
-                print("No access")
-                let accessAlert = UIAlertController(title: "Location Services Disabled", message: "You need to enable location services in settings.", preferredStyle: UIAlertController.Style.alert)
+            if CLLocationManager.locationServicesEnabled() {
                 
-                accessAlert.addAction(UIAlertAction(title: "Okay!", style: .default, handler: { (action: UIAlertAction!) in UIApplication.shared.open(URL(string: "\(UIApplication.openSettingsURLString)")!)
-                }))
-                
-                let keyWindow = UIApplication.shared.connectedScenes
+                switch(locationAuthorizationStatus) {
+                case .restricted, .denied:
+                    print("No access")
+                    let accessAlert = UIAlertController(title: "Location Services Disabled", message: "You need to enable location services in settings.", preferredStyle: UIAlertController.Style.alert)
+                    
+                    accessAlert.addAction(UIAlertAction(title: "Okay!", style: .default, handler: { (action: UIAlertAction!) in UIApplication.shared.open(URL(string: "\(UIApplication.openSettingsURLString)")!)
+                    }))
+                    
+                    let keyWindow = UIApplication.shared.connectedScenes
                         .filter({$0.activationState == .foregroundActive})
                         .compactMap({$0 as? UIWindowScene})
                         .first?.windows
                         .filter({$0.isKeyWindow}).first
+                    
+                    keyWindow?.rootViewController?.present(accessAlert, animated: true, completion: nil)
+                    
+                    //check if services are allowed for this app
+                case .authorizedAlways, .authorizedWhenInUse:
+                    print("Access! We're good to go!")
+                    //check if we need to ask for access
+                case .notDetermined:
+                    print("asking for access...")
+                    
+                @unknown default: break
+                    
+                }
+            } else {
+                let accessAlert = UIAlertController(title: "", message: "GPS access is restricted. In order to use Pay and Checking, Please enable GPS in the Settigs app under Privacy, Location Services.", preferredStyle: UIAlertController.Style.alert)
+                accessAlert.addAction(UIAlertAction(title: "Go to Settings now", style: UIAlertAction.Style.default, handler: { (alert: UIAlertAction!) in
+                    UIApplication.shared.open(URL(string: "\(UIApplication.openSettingsURLString)")!)
+                    
+                }))
                 
-                keyWindow?.rootViewController?.present(accessAlert, animated: true, completion: nil)
-                
-            //check if services are allowed for this app
-            case .authorizedAlways, .authorizedWhenInUse:
-                print("Access! We're good to go!")
-            //check if we need to ask for access
-            case .notDetermined:
-                print("asking for access...")
-                
-            @unknown default: break
-                
-            }
-        } else {
-            let accessAlert = UIAlertController(title: "", message: "GPS access is restricted. In order to use Pay and Checking, Please enable GPS in the Settigs app under Privacy, Location Services.", preferredStyle: UIAlertController.Style.alert)
-            accessAlert.addAction(UIAlertAction(title: "Go to Settings now", style: UIAlertAction.Style.default, handler: { (alert: UIAlertAction!) in
-                UIApplication.shared.open(URL(string: "\(UIApplication.openSettingsURLString)")!)
-                
-            }))
-            
-            let keyWindow = UIApplication.shared.connectedScenes
+                let keyWindow = UIApplication.shared.connectedScenes
                     .filter({$0.activationState == .foregroundActive})
                     .compactMap({$0 as? UIWindowScene})
                     .first?.windows
                     .filter({$0.isKeyWindow}).first
-            
-            keyWindow?.rootViewController?.present(accessAlert, animated: true, completion: nil)
+                
+                keyWindow?.rootViewController?.present(accessAlert, animated: true, completion: nil)
+            }
         }
         
     }

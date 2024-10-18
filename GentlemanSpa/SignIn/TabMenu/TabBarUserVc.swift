@@ -43,7 +43,7 @@ class TabBarUserVc: UIViewController {
             super.viewDidLoad()
             
             print(accessToken())
-            
+            getProfileAPI()
 //            TabBarView.layer.masksToBounds = false
 //            TabBarView?.layer.shadowColor = UIColor.darkGray.cgColor
 //            TabBarView?.layer.shadowOffset =  CGSize.zero
@@ -61,26 +61,28 @@ class TabBarUserVc: UIViewController {
             imgViewChats.image = UIImage(named: "his_s_ic")
             imgViewUser.image = UIImage(named: "profile_s_ic")
             
-            imgViewHome.tintColor = AppColor.BrownColor
-            imgViewSearch.tintColor = AppColor.BrownColor
-            imgViewChats.tintColor = AppColor.BrownColor
-            imgViewUser.tintColor = AppColor.BrownColor
-            lbeHome.textColor = AppColor.BrownColor
-            lbePro.textColor = AppColor.BrownColor
-            lbeReward.textColor = AppColor.BrownColor
-            lbeProfile.textColor = AppColor.BrownColor
-            
-            GetProductCountInCartCall()
-            getProfileAPI()
-            lbePro.font = UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(11)) ?? UIFont.systemFont(ofSize: 15)
-            lbeReward.font = UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(11)) ?? UIFont.systemFont(ofSize: 15)
-            lbeProfile.font = UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(11)) ?? UIFont.systemFont(ofSize: 15)
-            lbeHome.font = UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(11)) ?? UIFont.systemFont(ofSize: 15)
+            if className != "MyCart" {
+                
+                imgViewHome.tintColor = AppColor.BrownColor
+                imgViewSearch.tintColor = AppColor.BrownColor
+                imgViewChats.tintColor = AppColor.BrownColor
+                imgViewUser.tintColor = AppColor.BrownColor
+                lbeHome.textColor = AppColor.BrownColor
+                lbePro.textColor = AppColor.BrownColor
+                lbeReward.textColor = AppColor.BrownColor
+                lbeProfile.textColor = AppColor.BrownColor
+                
+                lbePro.font = UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(11)) ?? UIFont.systemFont(ofSize: 15)
+                lbeReward.font = UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(11)) ?? UIFont.systemFont(ofSize: 15)
+                lbeProfile.font = UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(11)) ?? UIFont.systemFont(ofSize: 15)
+                lbeHome.font = UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(11)) ?? UIFont.systemFont(ofSize: 15)
+            }
 
             if className == "Home" {
                
                 lbeHome.font = UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(12)) ?? UIFont.systemFont(ofSize: 15)
-               
+                imgViewHome.tintColor = AppColor.TabSelectColor
+                lbeHome.textColor = AppColor.TabSelectColor
                 
                 if homeClass != nil {
                     homeClassNav?.popToRootViewController(animated: false)
@@ -103,26 +105,12 @@ class TabBarUserVc: UIViewController {
             }
             
             
-            else if className == "ProductVc"{
-               
-               // lbePro.font = UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(12)) ?? UIFont.systemFont(ofSize: 15)
-                
-//                if Contentview.contains(searchNav?.view ?? UIView()){
-//                    searchNav?.view.removeFromSuperview()
-//                }
-//                
-//                guard let home = self.storyboard?.instantiateViewController(identifier: "CartUserViewController") as? CartUserViewController else { return}
-//                home.view.frame = Contentview.bounds
-//                searchNav = UINavigationController(rootViewController: home)
-//                searchNav?.view.frame = Contentview.bounds
-//                addChild(searchNav!)
-//                Contentview.addSubview((searchNav?.view)!)
-//                searchNav!.didMove(toParent: self)
-                
-                guard let controller = self.storyboard?.instantiateViewController(identifier: "CartUserViewController") as? CartUserViewController else { return}
+            else if className == "MyCart"{
+    
+                let controller:MyCartViewController =  UIStoryboard(storyboard: .Cart).initVC()
                 self.navigationController?.pushViewController(controller, animated: true)
                 
-                lastOpenClass = "Favourites"
+                lastOpenClass = "MyCart"
                 
             }
             
@@ -130,7 +118,8 @@ class TabBarUserVc: UIViewController {
               
                 
                 lbeReward.font = UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(12)) ?? UIFont.systemFont(ofSize: 15)
-                
+                imgViewChats.tintColor = AppColor.TabSelectColor
+                lbeReward.textColor = AppColor.TabSelectColor
                 
                 if Contentview.contains(notificationNav?.view ?? UIView()){
                     notificationNav?.view.removeFromSuperview()
@@ -152,7 +141,8 @@ class TabBarUserVc: UIViewController {
              
                 
                 lbeProfile.font = UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(12)) ?? UIFont.systemFont(ofSize: 15)
-                
+                imgViewUser.tintColor = AppColor.TabSelectColor
+                lbeProfile.textColor = AppColor.TabSelectColor
                 
                 
                 if Contentview.contains(profileNav?.view ?? UIView()){
@@ -168,7 +158,7 @@ class TabBarUserVc: UIViewController {
                 addChild(profileNav!)
                 Contentview.addSubview((profileNav?.view)!)
                 profileNav!.didMove(toParent: self)
-                lastOpenClass = "p"
+                lastOpenClass = "Profile"
                 
             }
             
@@ -181,7 +171,7 @@ class TabBarUserVc: UIViewController {
         
         @objc func Refresh_Cart_Count(_ notification: NSNotification) {
             
-            GetProductCountInCartCall()
+            
             
         }
         
@@ -206,10 +196,7 @@ class TabBarUserVc: UIViewController {
             }
     }
         
-        // MARK: - Cart API
-        func GetProductCountInCartCall(){
-            
-        }
+   
         
         @objc func showHomeClass(_ notification: NSNotification) {
             
@@ -239,7 +226,7 @@ class TabBarUserVc: UIViewController {
         }
         @IBAction func SearchAction(_ sender: Any) {
             
-            className = "ProductVc"
+            className = "MyCart"
             viewDidLoad()
         }
         

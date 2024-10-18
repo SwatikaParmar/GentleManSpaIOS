@@ -167,12 +167,12 @@ class EditAddressVc: UIViewController {
         if apiUpdate == "" {
             
             self.btnAdd.setTitle("Add", for: .normal)
-            self.lbeTitle.text = "Add address"
+            self.lbeTitle.text = "Add Address"
             
         }
         else{
             self.btnAdd.setTitle("Update", for: .normal)
-            self.lbeTitle.text = "Edit address"
+            self.lbeTitle.text = "Update Address"
             
         }
     }
@@ -355,7 +355,7 @@ class EditAddressVc: UIViewController {
             apiUpdate = "Home"
             apiUpdateID = self.idType1
             self.btnAdd.setTitle("Update", for: .normal)
-            self.lbeTitle.text = "Edit address"
+            self.lbeTitle.text = "Update Address"
             
             
             
@@ -363,7 +363,7 @@ class EditAddressVc: UIViewController {
         else{
             apiUpdate = ""
             self.btnAdd.setTitle("Add", for: .normal)
-            self.lbeTitle.text = "Add address"
+            self.lbeTitle.text = "Add Address"
             
             
         }
@@ -388,19 +388,13 @@ class EditAddressVc: UIViewController {
             apiUpdate = "Work"
             apiUpdateID = self.idType2
             self.btnAdd.setTitle("Update", for: .normal)
-            self.lbeTitle.text = "Edit address"
-            
-            
+            self.lbeTitle.text = "Update Address"
         }
         else{
             apiUpdate = ""
             self.btnAdd.setTitle("Add", for: .normal)
-            self.lbeTitle.text = "Add address"
-            
-            
+            self.lbeTitle.text = "Add Address"
         }
-        
-        
     }
     
     @IBAction func Other(_ sender: Any) {
@@ -423,7 +417,7 @@ class EditAddressVc: UIViewController {
             apiUpdate = "Other"
             apiUpdateID = self.idType3
             self.btnAdd.setTitle("Update", for: .normal)
-            self.lbeTitle.text = "Edit address"
+            self.lbeTitle.text = "Update Address"
             
             
             
@@ -431,7 +425,7 @@ class EditAddressVc: UIViewController {
         else{
             apiUpdate = ""
             self.btnAdd.setTitle("Add", for: .normal)
-            self.lbeTitle.text = "Add address"
+            self.lbeTitle.text = "Add Address"
         }
     }
     

@@ -138,8 +138,6 @@ class TabBarUserVc: UIViewController {
             }
             else{
                 
-             
-                
                 lbeProfile.font = UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(12)) ?? UIFont.systemFont(ofSize: 15)
                 imgViewUser.tintColor = AppColor.TabSelectColor
                 lbeProfile.textColor = AppColor.TabSelectColor

@@ -13,9 +13,9 @@ class SelectProfessionalVc: UIViewController {
     var arrObjectServices : cartServicesDataModel?
     var arrSortedService = [AllCartServices]()
     func topViewLayout(){
-        if HomeViewController.hasSafeArea{
+        if !HomeViewController.hasSafeArea{
             if navigationViewConstraint != nil {
-                navigationViewConstraint.constant = 70
+               // navigationViewConstraint.constant = 70
             }
         }
     }

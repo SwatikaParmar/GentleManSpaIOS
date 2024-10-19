@@ -28,10 +28,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ug2-f7-D5f">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="95"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTg-W5-kPF" customClass="UILabelX" customModule="GentlemanSpa">
-                                        <rect key="frame" x="160.33333333333334" y="59.666666666666664" width="72.666666666666657" height="22.666666666666664"/>
+                                        <rect key="frame" x="160.33333333333334" y="61.666666666666664" width="72.666666666666657" height="22.666666666666664"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -42,13 +42,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backimg" translatesAutoresizingMaskIntoConstraints="NO" id="yLy-qm-Uvd">
-                                        <rect key="frame" x="12.999999999999998" y="55.666666666666664" width="30.333333333333329" height="30.333333333333336"/>
+                                        <rect key="frame" x="13.999999999999998" y="57.666666666666664" width="30.333333333333329" height="30.333333333333336"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ToK-Dq-BVg">
-                                        <rect key="frame" x="0.0" y="0.0" width="40" height="95"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="94"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="4OV-7Y-t4m"/>
+                                            <constraint firstAttribute="width" constant="50" id="4OV-7Y-t4m"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
@@ -59,13 +59,13 @@
                                 <viewLayoutGuide key="safeArea" id="cE3-JD-8G3"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="yLy-qm-Uvd" firstAttribute="leading" secondItem="ug2-f7-D5f" secondAttribute="leading" constant="13" id="d56-q0-iBa"/>
+                                    <constraint firstItem="yLy-qm-Uvd" firstAttribute="leading" secondItem="ug2-f7-D5f" secondAttribute="leading" constant="14" id="d56-q0-iBa"/>
                                     <constraint firstAttribute="bottom" secondItem="ToK-Dq-BVg" secondAttribute="bottom" id="iO3-Q9-WJL"/>
-                                    <constraint firstAttribute="bottom" secondItem="yLy-qm-Uvd" secondAttribute="bottom" constant="9" id="oiS-q3-PNl"/>
+                                    <constraint firstAttribute="bottom" secondItem="yLy-qm-Uvd" secondAttribute="bottom" constant="6" id="oiS-q3-PNl"/>
                                     <constraint firstItem="ToK-Dq-BVg" firstAttribute="top" secondItem="ug2-f7-D5f" secondAttribute="top" id="oz0-ru-OwG"/>
                                     <constraint firstItem="wTg-W5-kPF" firstAttribute="centerY" secondItem="yLy-qm-Uvd" secondAttribute="centerY" id="qRW-bm-EKQ"/>
                                     <constraint firstItem="wTg-W5-kPF" firstAttribute="centerX" secondItem="ug2-f7-D5f" secondAttribute="centerX" id="rpq-cd-SJX"/>
-                                    <constraint firstAttribute="height" constant="95" id="xs6-tA-vUn"/>
+                                    <constraint firstAttribute="height" constant="94" id="xs6-tA-vUn"/>
                                     <constraint firstItem="ToK-Dq-BVg" firstAttribute="leading" secondItem="ug2-f7-D5f" secondAttribute="leading" id="yiq-vt-pg7"/>
                                 </constraints>
                             </view>
@@ -95,7 +95,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RNy-dP-zLp">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="102" width="393" height="716"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MessagesCell" rowHeight="147" id="Q1e-Jx-NGr" customClass="MessagesCell" customModule="GentlemanSpa" customModuleProvider="target">
@@ -254,7 +254,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

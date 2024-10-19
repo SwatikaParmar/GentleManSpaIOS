@@ -23,6 +23,7 @@
 		34186AC72CB3A58300717E47 /* NearByEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34186AC42CB3A58300717E47 /* NearByEnum.swift */; };
 		34186AC82CB3A58300717E47 /* GoogleApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34186AC22CB3A58300717E47 /* GoogleApiHelper.swift */; };
 		34186ACA2CB3A61900717E47 /* EditAddressVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34186AC92CB3A61900717E47 /* EditAddressVc.swift */; };
+		342026CE2CC37C20001A8FFD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 342026CD2CC37C20001A8FFD /* GoogleService-Info.plist */; };
 		342BB9052CB53DA0009E069E /* BookAppointmentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342BB9042CB53DA0009E069E /* BookAppointmentRequest.swift */; };
 		343813C02C69D928003B4B30 /* ProductCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343813BF2C69D928003B4B30 /* ProductCategories.swift */; };
 		343813C22C69E420003B4B30 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343813C12C69E420003B4B30 /* HomeCell.swift */; };
@@ -142,6 +143,8 @@
 		34186AC32CB3A58300717E47 /* GoogleApiHelper+Nearby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GoogleApiHelper+Nearby.swift"; sourceTree = "<group>"; };
 		34186AC42CB3A58300717E47 /* NearByEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByEnum.swift; sourceTree = "<group>"; };
 		34186AC92CB3A61900717E47 /* EditAddressVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddressVc.swift; sourceTree = "<group>"; };
+		342026CD2CC37C20001A8FFD /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		342026CF2CC380F3001A8FFD /* GentlemanSpa.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GentlemanSpa.entitlements; sourceTree = "<group>"; };
 		342BB9042CB53DA0009E069E /* BookAppointmentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAppointmentRequest.swift; sourceTree = "<group>"; };
 		343813BF2C69D928003B4B30 /* ProductCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategories.swift; sourceTree = "<group>"; };
 		343813C12C69E420003B4B30 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
@@ -277,6 +280,7 @@
 		3404F3062C3F936D00FF0F41 /* GentlemanSpa */ = {
 			isa = PBXGroup;
 			children = (
+				342026CF2CC380F3001A8FFD /* GentlemanSpa.entitlements */,
 				3404F3072C3F936D00FF0F41 /* AppDelegate.swift */,
 				3404F3092C3F936D00FF0F41 /* SceneDelegate.swift */,
 				3460D6E32C9D318F0076C4C2 /* SignIn */,
@@ -301,6 +305,7 @@
 				3404F3102C3F936E00FF0F41 /* Assets.xcassets */,
 				3404F3122C3F936E00FF0F41 /* LaunchScreen.storyboard */,
 				3404F3152C3F936E00FF0F41 /* Info.plist */,
+				342026CD2CC37C20001A8FFD /* GoogleService-Info.plist */,
 				34CE92712C410BBD0007E086 /* Constants.swift */,
 				34B6D7AE2C44E7680008FC81 /* AlamofireRequest.swift */,
 				34D338142C5A7A8E003C6B13 /* CalendarView */,
@@ -711,6 +716,7 @@
 				3404F30F2C3F936D00FF0F41 /* Base in Resources */,
 				34CE92532C40E8E40007E086 /* Poppins-Regular.ttf in Resources */,
 				344E0C6C2CA12A0000D32AB6 /* Cart.storyboard in Resources */,
+				342026CE2CC37C20001A8FFD /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1030,6 +1036,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GentlemanSpa/GentlemanSpa.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 5;
@@ -1072,6 +1079,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GentlemanSpa/GentlemanSpa.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 5;

@@ -67,7 +67,7 @@ class AppColor: NSObject {
     static let YellowColor : UIColor = UIColor( red: CGFloat(197/255.0), green: CGFloat(154/255.0), blue: CGFloat(86/255.0), alpha: CGFloat(1.0) )
     static let AppThemeColorPro : UIColor =  UIColor(red: 183 / 255.0, green: 137.0 / 255.0, blue: 69.0 / 255.0, alpha: 1.0)
 
-    static let TabSelectColor : UIColor =  UIColor(red: 255.0 / 255.0, green: 233.0 / 255.0, blue: 177.0 / 255.0, alpha: 1.0)
+    static let TabSelectColor : UIColor =  UIColor(red: 223.0 / 255.0, green: 186.0 / 255.0, blue: 98.0 / 255.0, alpha: 1.0)
 
 }
 

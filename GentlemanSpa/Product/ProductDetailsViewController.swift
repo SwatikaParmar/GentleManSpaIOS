@@ -230,7 +230,7 @@ extension ProductDetailsViewController: UITableViewDataSource,UITableViewDelegat
 
     
     func addNewProduct(Model: [String : AnyObject], index:Int){
-        AddOrUpdateProductInCartRequest.shared.addProductAPI(requestParams: Model) { (user,message,isStatus) in
+        AddOrUpdateProductInCartRequest.shared.addProductAPI(requestParams: Model, false) { (user,message,isStatus) in
             if isStatus {
                 if isStatus {
                     NotificationAlert().NotificationAlert(titles: message ?? GlobalConstants.successMessage)

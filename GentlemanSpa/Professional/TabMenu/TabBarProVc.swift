@@ -81,6 +81,8 @@ class TabBarProVc: UIViewController {
         if className == "Home" {
            
             lbeHome.font = UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(12)) ?? UIFont.systemFont(ofSize: 15)
+            imgViewHome.tintColor = AppColor.TabSelectColor
+            lbeHome.textColor = AppColor.TabSelectColor
            
             
             if homeClass != nil {
@@ -107,6 +109,9 @@ class TabBarProVc: UIViewController {
         else if className == "ProductVc"{
            
             lbePro.font = UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(12)) ?? UIFont.systemFont(ofSize: 15)
+            imgViewSearch.tintColor = AppColor.TabSelectColor
+            lbePro.textColor = AppColor.TabSelectColor
+           
             
             if Contentview.contains(searchNav?.view ?? UIView()){
                 searchNav?.view.removeFromSuperview()
@@ -128,7 +133,8 @@ class TabBarProVc: UIViewController {
           
             
             lbeReward.font = UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(12)) ?? UIFont.systemFont(ofSize: 15)
-            
+            imgViewChats.tintColor = AppColor.TabSelectColor
+            lbeReward.textColor = AppColor.TabSelectColor
             
             if Contentview.contains(notificationNav?.view ?? UIView()){
                 notificationNav?.view.removeFromSuperview()
@@ -150,6 +156,8 @@ class TabBarProVc: UIViewController {
          
             
             lbeProfile.font = UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(12)) ?? UIFont.systemFont(ofSize: 15)
+            imgViewUser.tintColor = AppColor.TabSelectColor
+            lbeProfile.textColor = AppColor.TabSelectColor
             
             
             

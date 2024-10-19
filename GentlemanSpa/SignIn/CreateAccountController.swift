@@ -101,9 +101,6 @@ class CreateAccountController: UIViewController {
         self.view .endEditing(true)
     }
     
-    
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
     }

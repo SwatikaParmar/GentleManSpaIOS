@@ -536,7 +536,7 @@ class Indicator: NSObject , NVActivityIndicatorViewable {
                                     message: withMessage,
                                     messageFont: UIFont.systemFont(ofSize: 16.0, weight: .regular),
                                     type: NVActivityIndicatorType.ballClipRotateMultiple,
-                                    color: UIColor.yellow,
+                                    color: AppColor.TabSelectColor,
                                     padding: 0,
                                     displayTimeThreshold: NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD,
                                     minimumDisplayTime: NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME,

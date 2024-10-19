@@ -10,11 +10,11 @@ class AddOrUpdateProductInCartRequest: NSObject {
 
     static let shared = AddOrUpdateProductInCartRequest()
     
-    func addProductAPI(requestParams : [String:Any], completion: @escaping (_ objectData: LoginObject?,_ message : String?, _ isStatus : Bool) -> Void) {
+    func addProductAPI(requestParams : [String:Any], _ isLoader : Bool, completion: @escaping (_ objectData: LoginObject?,_ message : String?, _ isStatus : Bool) -> Void) {
 
         let apiURL = String("Base".AddOrUpdateProductInCart)
         
-        AlamofireRequest.shared.PostBodyForRawData(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: true, loaderMessage: "") { (data, error) in
+        AlamofireRequest.shared.PostBodyForRawData(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
                      print(data ?? "No data")
                      if error == nil{
                          var messageString : String = ""

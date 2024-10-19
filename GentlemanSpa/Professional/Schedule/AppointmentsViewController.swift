@@ -18,8 +18,7 @@ class AppointmentsViewController: UIViewController, UITableViewDataSource,UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoryAPI()
-        // Do any additional setup after loading the view.
+       
     }
     @IBAction func MyProfile(_ sender: Any) {
        
@@ -27,11 +26,11 @@ class AppointmentsViewController: UIViewController, UITableViewDataSource,UITabl
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
-        categoryAPI()
+        GetWeekdaysAPI()
     }
     
-    //MARK: - Category API
-    func categoryAPI(){
+    //MARK: - Get Weekdays API
+    func  GetWeekdaysAPI(){
         
         let params = [ "": ""
         ] as [String : Any]

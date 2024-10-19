@@ -218,10 +218,10 @@ class VerifiyController: UIViewController ,UITextFieldDelegate{
         
         var fileName = ""
         fileName =  "iOS" + NSUUID().uuidString + ".jpeg"
-        var apiURL = String("\("Base".uploadProfilePic)")
+        let apiURL = String("\("Base".uploadProfilePic)")
 
 
-        AlamofireRequest().uploadImageRemote(urlString: apiURL, image:  self.img ?? UIImage(), name: fileName , userID:  UserDefaults.standard.string(forKey: Constants.userId) ?? ""){ data, error -> Void in
+        AlamofireRequest().uploadImageRemote(urlString: apiURL, image:  self.img, name: fileName , userID:  UserDefaults.standard.string(forKey: Constants.userId) ?? ""){ data, error -> Void in
             
             
             if !data!.isEmpty{
@@ -292,7 +292,7 @@ class UserResetPasswordRequest: NSObject {
     static let shared = UserResetPasswordRequest()
     func ResetPasswordData(requestParams : [String:Any], _ isLoader : Bool, completion: @escaping (_ message : String?, _ isStatus : Bool) -> Void) {
 
-        var apiURL = String("BaseURL".ResetPassword)
+        let apiURL = String("BaseURL".ResetPassword)
         
     
         AlamofireRequest.shared.PostBodyForRawData(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
@@ -305,14 +305,7 @@ class UserResetPasswordRequest: NSObject {
                                  messageString = msg
                              }
                              if status {
-                                    if let dataList = data?["data"] as? NSArray{
-                                       
-                                        completion(messageString,true)
-                                 }
-                                 else{
-                                     completion(messageString,true)
-                                 }
-                      
+                                 completion(messageString,true)
                              }else{
                                  completion(messageString,false)
                              }
@@ -325,7 +318,7 @@ class UserResetPasswordRequest: NSObject {
                         else
                         {
                             completion(GlobalConstants.serverError,false)
+                        }
                 }
             }
         }
-}

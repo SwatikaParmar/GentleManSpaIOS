@@ -33,8 +33,9 @@ class HomeListRequest: NSObject {
                                         for list in dataList{
                                             
                                             let dict : dashboardCategoryObject = dashboardCategoryObject.init(fromDictionary: list as! [String : Any])
-                                            homeListObject.append(dict)
                                            
+                                            homeListObject.append(dict)
+
 
                                         }
                                         completion(homeListObject,messageString,true)

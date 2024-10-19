@@ -41,7 +41,7 @@ class CartUserViewController: UIViewController {
 
     
     func topViewLayout(){
-        if HomeViewController.hasSafeArea{
+        if !HomeViewController.hasSafeArea{
             if navigationViewConstraint != nil {
                // navigationViewConstraint.constant = 70
             }
@@ -677,7 +677,7 @@ extension CartUserViewController: UITableViewDataSource,UITableViewDelegate {
 
     
     func addNewProduct(Model: [String : AnyObject], index:Int){
-        AddOrUpdateProductInCartRequest.shared.addProductAPI(requestParams: Model) { (user,message,isStatus) in
+        AddOrUpdateProductInCartRequest.shared.addProductAPI(requestParams: Model, false) { (user,message,isStatus) in
             if isStatus {
                 if isStatus {
                     self.myCartAPI(false)

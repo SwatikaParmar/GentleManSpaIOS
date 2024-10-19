@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -39,10 +38,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJf-Tw-Ola">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="867"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="872"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Back !" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkk-km-GfN" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="90.333333333333329" y="322.66666666666669" width="212.33333333333337" height="36.666666666666686"/>
+                                                <rect key="frame" x="90.333333333333329" y="327.66666666666669" width="212.33333333333337" height="36.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="26"/>
                                                 <color key="textColor" red="0.71764705882352942" green="0.53725490196078429" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -53,7 +52,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please sign in to continue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhY-gH-0xC" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="113" y="359.33333333333331" width="167" height="18.333333333333314"/>
+                                                <rect key="frame" x="113" y="364.33333333333331" width="167" height="18.333333333333314"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -64,7 +63,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1GK-y8-l7e" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="399.66666666666669" width="351" height="48"/>
+                                                <rect key="frame" x="21" y="404.66666666666669" width="351" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BHQ-dg-lcw" customClass="CocoaTextField" customModule="CocoaTextField">
                                                         <rect key="frame" x="2" y="2" width="347" height="44"/>
@@ -128,7 +127,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5bE-fS-fYA" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="464.66666666666669" width="351" height="48.000000000000057"/>
+                                                <rect key="frame" x="21" y="469.66666666666669" width="351" height="48.000000000000057"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="I4p-sY-lks" customClass="CocoaTextField" customModule="CocoaTextField">
                                                         <rect key="frame" x="2" y="2" width="347" height="44"/>
@@ -192,7 +191,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgW-Nk-xU4" customClass="UIButtonX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="238" y="515.66666666666663" width="134" height="33"/>
+                                                <rect key="frame" x="238" y="520.66666666666663" width="134" height="33"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
                                                 <state key="normal" title="Forgot Password?">
                                                     <color key="titleColor" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -207,7 +206,7 @@
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxp-Cp-TdC" customClass="UIButtonX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="548.66666666666663" width="351" height="0.0"/>
+                                                <rect key="frame" x="21" y="553.66666666666663" width="351" height="0.0"/>
                                                 <color key="backgroundColor" red="0.0" green="0.65098039220000004" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="vtS-8E-UHH"/>
@@ -244,7 +243,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJE-oZ-JTm">
-                                                <rect key="frame" x="195.66666666666666" y="588.66666666666663" width="2" height="0.0"/>
+                                                <rect key="frame" x="195.66666666666666" y="593.66666666666663" width="2" height="0.0"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="2" id="OPs-y7-j7H"/>
                                                 </constraints>
@@ -253,7 +252,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UIL-zl-0gs">
-                                                <rect key="frame" x="65" y="748.66666666666663" width="263.33333333333331" height="60"/>
+                                                <rect key="frame" x="65" y="753.66666666666663" width="263.33333333333331" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up as professional" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3L-rd-6Kc" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="0.0" width="162.33333333333334" height="60"/>
@@ -307,7 +306,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Nk-f0-FTv" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="616.66666666666663" width="351" height="48"/>
+                                                <rect key="frame" x="21" y="621.66666666666663" width="351" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aP3-aX-XLS" customClass="CocoaTextField" customModule="CocoaTextField">
                                                         <rect key="frame" x="2" y="2" width="347" height="44"/>
@@ -371,7 +370,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzQ-sT-avf" customClass="UIButtonX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="687.66666666666663" width="351" height="40"/>
+                                                <rect key="frame" x="21" y="692.66666666666663" width="351" height="40"/>
                                                 <color key="backgroundColor" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="hC9-xn-sMW"/>
@@ -402,10 +401,10 @@
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_ic" translatesAutoresizingMaskIntoConstraints="NO" id="FN6-FR-Yja">
-                                                <rect key="frame" x="30" y="75" width="333" height="207"/>
+                                                <rect key="frame" x="30" y="80" width="333" height="207"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AkH-xe-fQ6">
-                                                <rect key="frame" x="20" y="576.66666666666663" width="156.66666666666666" height="1"/>
+                                                <rect key="frame" x="20" y="581.66666666666663" width="156.66666666666666" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="6M4-X4-EdK"/>
@@ -415,7 +414,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHB-hr-eHj">
-                                                <rect key="frame" x="176.66666666666666" y="566.66666666666663" width="40" height="21"/>
+                                                <rect key="frame" x="176.66666666666666" y="571.66666666666663" width="40" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="hwU-D0-liR"/>
                                                 </constraints>
@@ -424,7 +423,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZj-0m-9GG">
-                                                <rect key="frame" x="216.66666666666663" y="576.66666666666663" width="156.33333333333337" height="1"/>
+                                                <rect key="frame" x="216.66666666666663" y="581.66666666666663" width="156.33333333333337" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="hpr-dl-q6Z"/>
@@ -469,7 +468,7 @@
                                             <constraint firstItem="1GK-y8-l7e" firstAttribute="top" secondItem="dhY-gH-0xC" secondAttribute="bottom" constant="22" id="miZ-em-2j4"/>
                                             <constraint firstAttribute="trailing" secondItem="1GK-y8-l7e" secondAttribute="trailing" constant="21" id="r2S-Zi-i9R"/>
                                             <constraint firstItem="fkk-km-GfN" firstAttribute="centerX" secondItem="zJf-Tw-Ola" secondAttribute="centerX" id="toK-kc-Riv"/>
-                                            <constraint firstItem="FN6-FR-Yja" firstAttribute="top" secondItem="zJf-Tw-Ola" secondAttribute="top" constant="75" id="wwb-QG-Yck"/>
+                                            <constraint firstItem="FN6-FR-Yja" firstAttribute="top" secondItem="zJf-Tw-Ola" secondAttribute="top" constant="80" id="wwb-QG-Yck"/>
                                             <constraint firstItem="dhY-gH-0xC" firstAttribute="centerX" secondItem="zJf-Tw-Ola" secondAttribute="centerX" id="xFr-jU-Ct5"/>
                                             <constraint firstItem="rJE-oZ-JTm" firstAttribute="centerX" secondItem="zJf-Tw-Ola" secondAttribute="centerX" id="zQ0-bZ-sbE"/>
                                         </constraints>
@@ -792,7 +791,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="90"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backimg" translatesAutoresizingMaskIntoConstraints="NO" id="fTo-gt-da5">
-                                        <rect key="frame" x="15.999999999999998" y="56.666666666666664" width="30.333333333333321" height="30.333333333333336"/>
+                                        <rect key="frame" x="14.999999999999998" y="59.666666666666664" width="30.333333333333329" height="30.333333333333336"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6MU-ga-XOK">
@@ -808,11 +807,11 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="6MU-ga-XOK" firstAttribute="top" secondItem="kiX-Zd-h2f" secondAttribute="top" id="BTN-hF-cso"/>
-                                    <constraint firstItem="fTo-gt-da5" firstAttribute="leading" secondItem="kiX-Zd-h2f" secondAttribute="leading" constant="16" id="HyT-hx-2Qn"/>
+                                    <constraint firstItem="fTo-gt-da5" firstAttribute="leading" secondItem="kiX-Zd-h2f" secondAttribute="leading" constant="15" id="HyT-hx-2Qn"/>
                                     <constraint firstAttribute="bottom" secondItem="6MU-ga-XOK" secondAttribute="bottom" constant="-5" id="ef0-sx-6N3"/>
                                     <constraint firstItem="6MU-ga-XOK" firstAttribute="leading" secondItem="kiX-Zd-h2f" secondAttribute="leading" id="gbA-f5-Sl2"/>
                                     <constraint firstAttribute="height" constant="90" id="kBd-Sh-lF3"/>
-                                    <constraint firstAttribute="bottom" secondItem="fTo-gt-da5" secondAttribute="bottom" constant="3" id="z2G-Wr-26d"/>
+                                    <constraint firstAttribute="bottom" secondItem="fTo-gt-da5" secondAttribute="bottom" id="z2G-Wr-26d"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -849,10 +848,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hqi-CE-fPp">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="90"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsT-7X-ggU">
-                                        <rect key="frame" x="15" y="49" width="31" height="31"/>
+                                        <rect key="frame" x="15" y="59" width="31" height="31"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="backimg"/>
                                         <connections>
@@ -864,11 +863,11 @@
                                 <constraints>
                                     <constraint firstItem="xsT-7X-ggU" firstAttribute="leading" secondItem="Hqi-CE-fPp" secondAttribute="leading" constant="15" id="NGV-QT-ky6"/>
                                     <constraint firstAttribute="bottom" secondItem="xsT-7X-ggU" secondAttribute="bottom" id="ZXe-Ta-GTj"/>
-                                    <constraint firstAttribute="height" constant="80" id="eNM-KW-Ruz"/>
+                                    <constraint firstAttribute="height" constant="90" id="eNM-KW-Ruz"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txa-uw-Asi">
-                                <rect key="frame" x="0.0" y="81" width="393" height="771"/>
+                                <rect key="frame" x="0.0" y="91" width="393" height="761"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2j-3s-ggR">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
@@ -1783,7 +1782,7 @@ youremail@gmail.com</string>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backimg" translatesAutoresizingMaskIntoConstraints="NO" id="Wcw-Xo-6rl">
-                                <rect key="frame" x="15" y="45" width="30" height="30"/>
+                                <rect key="frame" x="15" y="58" width="30" height="30"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzy-Cv-nFY">
@@ -1804,7 +1803,7 @@ youremail@gmail.com</string>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="s9d-7D-lHz" secondAttribute="bottom" constant="5" id="5hT-tS-43O"/>
                             <constraint firstItem="hzy-Cv-nFY" firstAttribute="leading" secondItem="8hT-n1-v9z" secondAttribute="leading" id="FIb-ix-9js"/>
-                            <constraint firstItem="Wcw-Xo-6rl" firstAttribute="top" secondItem="myl-gX-vGO" secondAttribute="top" constant="45" id="FhU-uH-QIP"/>
+                            <constraint firstItem="Wcw-Xo-6rl" firstAttribute="top" secondItem="myl-gX-vGO" secondAttribute="top" constant="58" id="FhU-uH-QIP"/>
                             <constraint firstItem="8hT-n1-v9z" firstAttribute="trailing" secondItem="s9d-7D-lHz" secondAttribute="trailing" id="KOB-bg-I5w"/>
                             <constraint firstItem="s9d-7D-lHz" firstAttribute="top" secondItem="myl-gX-vGO" secondAttribute="top" constant="110" id="OHw-mp-Cls"/>
                             <constraint firstItem="s9d-7D-lHz" firstAttribute="leading" secondItem="8hT-n1-v9z" secondAttribute="leading" id="UTi-Ix-5tA"/>

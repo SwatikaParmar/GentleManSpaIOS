@@ -263,7 +263,7 @@ class ProductOrderDetailsTableViewCell: UITableViewCell {
     }
     
     func addNewProduct(Model: [String : AnyObject], index:Int){
-        AddOrUpdateProductInCartRequest.shared.addProductAPI(requestParams: Model) { (user,message,isStatus) in
+        AddOrUpdateProductInCartRequest.shared.addProductAPI(requestParams: Model, false) { (user,message,isStatus) in
             if isStatus {
                 if isStatus {
                     NotificationCenter.default.post(name: Notification.Name("Table_Refresh"), object: nil, userInfo: nil)

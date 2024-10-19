@@ -32,6 +32,7 @@ class ProductCategoriesRequest: NSObject {
                                         for list in dataList{
                                             let dict : ProductCategoriesObject = ProductCategoriesObject.init(fromDictionary: list as! [String : Any])
                                             homeListObject.append(dict)
+
                                         }
                                         completion(homeListObject,messageString,true)
                                  }

@@ -168,21 +168,21 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Polly Clark" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Co9-Ga-x9Q">
-                                                    <rect key="frame" x="55" y="29.333333333333329" width="82" height="22.666666666666671"/>
+                                                    <rect key="frame" x="56.999999999999993" y="28.666666666666671" width="87.333333333333314" height="24"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
-                                                            <real key="value" value="16"/>
+                                                            <integer key="value" value="17"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="Co9-Ga-x9Q" firstAttribute="leading" secondItem="sHC-M9-JPx" secondAttribute="leading" constant="55" id="HYA-sj-PGv"/>
+                                                <constraint firstItem="Co9-Ga-x9Q" firstAttribute="leading" secondItem="sHC-M9-JPx" secondAttribute="leading" constant="57" id="HYA-sj-PGv"/>
                                                 <constraint firstItem="szf-g2-ZMv" firstAttribute="centerY" secondItem="sHC-M9-JPx" secondAttribute="centerY" id="tnz-aI-B38"/>
                                                 <constraint firstItem="szf-g2-ZMv" firstAttribute="leading" secondItem="sHC-M9-JPx" secondAttribute="leading" constant="17" id="vuC-K8-FYT"/>
                                                 <constraint firstItem="Co9-Ga-x9Q" firstAttribute="centerY" secondItem="sHC-M9-JPx" secondAttribute="centerY" id="wCU-bB-9L9"/>
@@ -370,14 +370,14 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G8U-jk-7Or">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="34"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service  Categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CR0-rG-q9w" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="16" y="13" width="147.33333333333334" height="21"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="15"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service  Categories" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CR0-rG-q9w" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
+                                                            <rect key="frame" x="16" y="10" width="165.66666666666666" height="24"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="17"/>
                                                             <color key="textColor" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
-                                                                    <real key="value" value="16"/>
+                                                                    <integer key="value" value="17"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
@@ -391,7 +391,7 @@
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tPN-gG-iD1">
                                                     <rect key="frame" x="0.0" y="35" width="393" height="165"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="KSn-R0-IsV">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="KSn-R0-IsV">
                                                         <size key="itemSize" width="128" height="128"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -399,7 +399,7 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DashCategoryHomeCollCell" id="O5c-3T-YhQ" customClass="DashCategoryHomeCollCell" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="-5" width="222" height="175"/>
+                                                            <rect key="frame" x="85.666666666666671" y="0.0" width="222" height="175"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="222" height="175"/>
@@ -550,14 +550,14 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GP0-fG-z20">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="39"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="id3-2Z-1hN" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="16" y="17" width="147.66666666666666" height="21"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="15"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Categories" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="id3-2Z-1hN" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
+                                                            <rect key="frame" x="16" y="14" width="165.66666666666666" height="24"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="17"/>
                                                             <color key="textColor" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
-                                                                    <real key="value" value="16"/>
+                                                                    <integer key="value" value="17"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
@@ -571,7 +571,7 @@
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vNw-QO-yQH">
                                                     <rect key="frame" x="0.0" y="40" width="393" height="160"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="RFB-hE-Lcl">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="RFB-hE-Lcl">
                                                         <size key="itemSize" width="128" height="128"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -579,7 +579,7 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCateCall" id="VVH-Ey-RDR" customClass="ProductCateCall" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="-7.666666666666667" width="222" height="175"/>
+                                                            <rect key="frame" x="85.666666666666671" y="0.0" width="222" height="175"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="222" height="175"/>
@@ -730,9 +730,9 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wie-mL-yw1">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="40"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWV-iJ-jxi" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="16" y="19" width="44" height="21"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="15"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWV-iJ-jxi" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
+                                                            <rect key="frame" x="16.000000000000004" y="16" width="49.333333333333343" height="24"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="17"/>
                                                             <color key="textColor" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
@@ -919,19 +919,19 @@
                                         <color key="tintColor" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ra1-uD-UxL">
-                                        <rect key="frame" x="5" y="0.0" width="40" height="94"/>
+                                        <rect key="frame" x="5" y="0.0" width="50" height="94"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="Cac-aX-dnJ"/>
+                                            <constraint firstAttribute="width" constant="50" id="Cac-aX-dnJ"/>
                                         </constraints>
                                         <connections>
                                             <action selector="sideMenu:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ccc-E9-hbh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krV-eg-Z3X">
-                                        <rect key="frame" x="316" y="0.0" width="77" height="94"/>
+                                        <rect key="frame" x="343" y="0.0" width="50" height="94"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="77" id="Ppw-gI-CSo"/>
+                                            <constraint firstAttribute="width" constant="50" id="Ppw-gI-CSo"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
@@ -996,7 +996,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Cart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YO-Mi-XFQ" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                        <rect key="frame" x="167" y="62" width="59" height="21"/>
+                                        <rect key="frame" x="167" y="62.666666666666657" width="59" height="21"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1007,7 +1007,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backimg" translatesAutoresizingMaskIntoConstraints="NO" id="7zi-8s-Tcg">
-                                        <rect key="frame" x="14" y="57.666666666666657" width="30" height="30"/>
+                                        <rect key="frame" x="14" y="58" width="30" height="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zfr-sf-Q6j">
@@ -1025,8 +1025,8 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Zfr-sf-Q6j" firstAttribute="leading" secondItem="epB-An-gQE" secondAttribute="leading" id="1hl-s2-ieN"/>
+                                    <constraint firstAttribute="bottom" secondItem="7zi-8s-Tcg" secondAttribute="bottom" constant="6" id="9wO-H0-VCP"/>
                                     <constraint firstItem="7zi-8s-Tcg" firstAttribute="centerY" secondItem="4YO-Mi-XFQ" secondAttribute="centerY" id="CAe-e0-0Wj"/>
-                                    <constraint firstAttribute="bottom" secondItem="4YO-Mi-XFQ" secondAttribute="bottom" constant="11" id="DYs-Uq-820"/>
                                     <constraint firstAttribute="bottom" secondItem="Zfr-sf-Q6j" secondAttribute="bottom" id="GKK-fr-m75"/>
                                     <constraint firstAttribute="height" constant="94" id="S6y-tY-NCG"/>
                                     <constraint firstItem="7zi-8s-Tcg" firstAttribute="leading" secondItem="epB-An-gQE" secondAttribute="leading" constant="14" id="U0k-pr-jFZ"/>
@@ -2351,7 +2351,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="G9L-QK-6b5"/>
-                        <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="83q-zZ-Im4" firstAttribute="top" secondItem="epB-An-gQE" secondAttribute="bottom" id="2bd-dR-oZC"/>
                             <constraint firstItem="zfG-JN-QIg" firstAttribute="centerX" secondItem="cdH-rL-2VQ" secondAttribute="centerX" id="FP5-uZ-DW9"/>
@@ -2400,7 +2400,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvA-JL-Jlq">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="92"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Appointment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmk-dF-4dA" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                         <rect key="frame" x="133.66666666666666" y="63" width="125.66666666666666" height="21"/>
@@ -2416,13 +2416,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="92" id="Z7L-S8-Fkz"/>
-                                    <constraint firstAttribute="bottom" secondItem="tmk-dF-4dA" secondAttribute="bottom" constant="8" id="i9Q-7t-b0Y"/>
+                                    <constraint firstAttribute="height" constant="94" id="Z7L-S8-Fkz"/>
+                                    <constraint firstAttribute="bottom" secondItem="tmk-dF-4dA" secondAttribute="bottom" constant="10" id="i9Q-7t-b0Y"/>
                                     <constraint firstItem="tmk-dF-4dA" firstAttribute="centerX" secondItem="qvA-JL-Jlq" secondAttribute="centerX" id="os5-Of-rw8"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CIj-ww-GZk" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                <rect key="frame" x="11" y="103" width="371" height="34"/>
+                                <rect key="frame" x="11" y="105" width="371" height="34"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAa-Ij-MTa" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="118.66666666666667" height="34"/>
@@ -2538,7 +2538,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aiP-kz-k2V">
-                                <rect key="frame" x="0.0" y="148" width="393" height="704"/>
+                                <rect key="frame" x="0.0" y="150" width="393" height="702"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ConfirmedUTvCell" rowHeight="190" id="Kso-aS-Vc3" customClass="ConfirmedUTvCell" customModule="GentlemanSpa" customModuleProvider="target">
@@ -3417,6 +3417,7 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgprofile" translatesAutoresizingMaskIntoConstraints="NO" id="7Xw-q5-1Ak">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="250"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_dot" translatesAutoresizingMaskIntoConstraints="NO" id="QmD-Oj-lyv">
                                             <rect key="frame" x="199" y="50" width="46.666666666666657" height="46.666666666666657"/>
@@ -3827,12 +3828,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKP-N2-eRr">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cH5-I4-BLV">
-                                        <rect key="frame" x="15" y="49" width="31" height="31"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backimg" translatesAutoresizingMaskIntoConstraints="NO" id="SZq-Qd-WT7">
+                                        <rect key="frame" x="14" y="57" width="30" height="31"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="backimg"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cH5-I4-BLV">
+                                        <rect key="frame" x="1" y="1" width="50" height="92"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="BFC-HA-opO"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <action selector="Back:" destination="aI6-ee-muZ" eventType="touchUpInside" id="daF-Gl-4ER"/>
                                         </connections>
@@ -3840,13 +3847,16 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="cH5-I4-BLV" firstAttribute="leading" secondItem="dKP-N2-eRr" secondAttribute="leading" constant="15" id="Kke-57-p8G"/>
-                                    <constraint firstAttribute="bottom" secondItem="cH5-I4-BLV" secondAttribute="bottom" id="U2W-ip-4rg"/>
-                                    <constraint firstAttribute="height" constant="80" id="ekN-jt-aEd"/>
+                                    <constraint firstItem="cH5-I4-BLV" firstAttribute="leading" secondItem="dKP-N2-eRr" secondAttribute="leading" constant="1" id="13E-RH-UlZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="SZq-Qd-WT7" secondAttribute="bottom" constant="6" id="ZQC-Wa-q68"/>
+                                    <constraint firstAttribute="height" constant="94" id="ekN-jt-aEd"/>
+                                    <constraint firstItem="SZq-Qd-WT7" firstAttribute="leading" secondItem="dKP-N2-eRr" secondAttribute="leading" constant="14" id="lc2-mt-cB4"/>
+                                    <constraint firstAttribute="bottom" secondItem="cH5-I4-BLV" secondAttribute="bottom" constant="1" id="lhD-yh-Sv2"/>
+                                    <constraint firstItem="cH5-I4-BLV" firstAttribute="top" secondItem="dKP-N2-eRr" secondAttribute="top" constant="1" id="tZM-FA-hAo"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad5-nt-oCX">
-                                <rect key="frame" x="0.0" y="81" width="393" height="771"/>
+                                <rect key="frame" x="0.0" y="95" width="393" height="757"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTt-nd-32B">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="715"/>
@@ -4911,14 +4921,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0FU-YZ-ncg">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="95"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backimg" translatesAutoresizingMaskIntoConstraints="NO" id="Ovd-PD-L0V">
-                                        <rect key="frame" x="14" y="56" width="30" height="30"/>
+                                        <rect key="frame" x="14" y="58" width="30" height="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Services" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAU-CN-l4H" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                        <rect key="frame" x="140" y="60.666666666666657" width="113" height="21"/>
+                                        <rect key="frame" x="140" y="62.666666666666657" width="113" height="21"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -4929,9 +4939,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKg-AO-gnr">
-                                        <rect key="frame" x="1" y="1" width="75" height="93"/>
+                                        <rect key="frame" x="1" y="1" width="50" height="92"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="BsH-7G-8qC"/>
+                                            <constraint firstAttribute="width" constant="50" id="BsH-7G-8qC"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" "/>
@@ -4946,14 +4956,14 @@
                                     <constraint firstItem="QAU-CN-l4H" firstAttribute="centerY" secondItem="Ovd-PD-L0V" secondAttribute="centerY" id="6Th-7n-j2d"/>
                                     <constraint firstItem="BKg-AO-gnr" firstAttribute="top" secondItem="0FU-YZ-ncg" secondAttribute="top" constant="1" id="8cv-dI-JFl"/>
                                     <constraint firstItem="BKg-AO-gnr" firstAttribute="leading" secondItem="0FU-YZ-ncg" secondAttribute="leading" constant="1" id="G56-KA-awc"/>
-                                    <constraint firstAttribute="height" constant="95" id="GNT-PD-EoR"/>
+                                    <constraint firstAttribute="height" constant="94" id="GNT-PD-EoR"/>
                                     <constraint firstAttribute="bottom" secondItem="BKg-AO-gnr" secondAttribute="bottom" constant="1" id="Ns1-wm-XZn"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ovd-PD-L0V" secondAttribute="bottom" constant="9" id="o9a-rX-cqo"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ovd-PD-L0V" secondAttribute="bottom" constant="6" id="o9a-rX-cqo"/>
                                     <constraint firstItem="Ovd-PD-L0V" firstAttribute="leading" secondItem="0FU-YZ-ncg" secondAttribute="leading" constant="14" id="tx5-I2-Enp"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WCs-Fz-5Ud" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                <rect key="frame" x="13" y="102" width="318" height="38"/>
+                                <rect key="frame" x="13" y="101" width="318" height="38"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_ic" translatesAutoresizingMaskIntoConstraints="NO" id="hPj-dc-5aA">
                                         <rect key="frame" x="10" y="10" width="18" height="18"/>
@@ -5006,7 +5016,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QuA-CF-WZX" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                <rect key="frame" x="339" y="102" width="42" height="38"/>
+                                <rect key="frame" x="339" y="101" width="42" height="38"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filter_ic" translatesAutoresizingMaskIntoConstraints="NO" id="eTj-qv-d2J">
                                         <rect key="frame" x="7" y="7" width="28" height="24"/>
@@ -5058,7 +5068,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="d2j-0H-i9J">
-                                <rect key="frame" x="0.0" y="210" width="393" height="571"/>
+                                <rect key="frame" x="0.0" y="209" width="393" height="572"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ServicesTvCell" rowHeight="162" id="DKw-cC-nDN" customClass="ServicesTvCell" customModule="GentlemanSpa" customModuleProvider="target">
@@ -5318,7 +5328,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gka-Wx-GDT" customClass="UIViewX" customModule="GentlemanSpa">
-                                <rect key="frame" x="0.0" y="150" width="393" height="55"/>
+                                <rect key="frame" x="0.0" y="149" width="393" height="55"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cCC-3E-DV9">
                                         <rect key="frame" x="2" y="2" width="389" height="51"/>
@@ -5551,14 +5561,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Af-JX-Sa3">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="95"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backimg" translatesAutoresizingMaskIntoConstraints="NO" id="VOe-G7-m3R">
-                                        <rect key="frame" x="14" y="56" width="30" height="30"/>
+                                        <rect key="frame" x="14" y="58" width="30" height="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Services Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txI-zU-DxG" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                        <rect key="frame" x="137.33333333333334" y="60.666666666666657" width="118.66666666666666" height="21"/>
+                                        <rect key="frame" x="137.33333333333334" y="62.666666666666657" width="118.66666666666666" height="21"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -5569,9 +5579,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZ8-tl-Rb9">
-                                        <rect key="frame" x="1" y="1" width="75" height="93"/>
+                                        <rect key="frame" x="1" y="1" width="50" height="92"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="xWh-zv-ZPw"/>
+                                            <constraint firstAttribute="width" constant="50" id="xWh-zv-ZPw"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" "/>
@@ -5582,18 +5592,18 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="VOe-G7-m3R" secondAttribute="bottom" constant="9" id="1nn-0Y-4AA"/>
+                                    <constraint firstAttribute="bottom" secondItem="VOe-G7-m3R" secondAttribute="bottom" constant="6" id="1nn-0Y-4AA"/>
                                     <constraint firstItem="txI-zU-DxG" firstAttribute="centerX" secondItem="3Af-JX-Sa3" secondAttribute="centerX" id="4EX-Q3-j1z"/>
                                     <constraint firstAttribute="bottom" secondItem="eZ8-tl-Rb9" secondAttribute="bottom" constant="1" id="GQc-5z-Ssy"/>
                                     <constraint firstItem="txI-zU-DxG" firstAttribute="centerY" secondItem="VOe-G7-m3R" secondAttribute="centerY" id="M7r-I1-1Ml"/>
                                     <constraint firstItem="eZ8-tl-Rb9" firstAttribute="top" secondItem="3Af-JX-Sa3" secondAttribute="top" constant="1" id="OMP-Hi-ndu"/>
                                     <constraint firstItem="VOe-G7-m3R" firstAttribute="leading" secondItem="3Af-JX-Sa3" secondAttribute="leading" constant="14" id="h6X-mI-dWh"/>
-                                    <constraint firstAttribute="height" constant="95" id="oUK-OA-585"/>
+                                    <constraint firstAttribute="height" constant="94" id="oUK-OA-585"/>
                                     <constraint firstItem="eZ8-tl-Rb9" firstAttribute="leading" secondItem="3Af-JX-Sa3" secondAttribute="leading" constant="1" id="z38-YT-9M8"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wnt-Bo-Kt8">
-                                <rect key="frame" x="0.0" y="95" width="393" height="757"/>
+                                <rect key="frame" x="0.0" y="94" width="393" height="758"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="nk0-vx-zaS">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="208"/>
@@ -5975,14 +5985,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BfJ-iL-fgr">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="95"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backimg" translatesAutoresizingMaskIntoConstraints="NO" id="a9g-ry-PG2">
-                                        <rect key="frame" x="14" y="56" width="30" height="30"/>
+                                        <rect key="frame" x="14" y="58" width="30" height="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Professional" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4sA-ok-m2v" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                        <rect key="frame" x="125.66666666666669" y="60.666666666666657" width="142" height="21"/>
+                                        <rect key="frame" x="125.66666666666669" y="62.666666666666657" width="142" height="21"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -5993,9 +6003,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5E-sq-h23">
-                                        <rect key="frame" x="1" y="1" width="70" height="93"/>
+                                        <rect key="frame" x="1" y="1" width="50" height="92"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="70" id="RyE-5c-yO7"/>
+                                            <constraint firstAttribute="width" constant="50" id="RyE-5c-yO7"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" "/>
@@ -6007,17 +6017,17 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="4sA-ok-m2v" firstAttribute="centerY" secondItem="a9g-ry-PG2" secondAttribute="centerY" id="3mO-Zb-dQN"/>
-                                    <constraint firstAttribute="height" constant="95" id="PPD-kg-HiW"/>
+                                    <constraint firstAttribute="height" constant="94" id="PPD-kg-HiW"/>
                                     <constraint firstItem="a9g-ry-PG2" firstAttribute="leading" secondItem="BfJ-iL-fgr" secondAttribute="leading" constant="14" id="azF-M2-hZT"/>
                                     <constraint firstItem="4sA-ok-m2v" firstAttribute="centerX" secondItem="BfJ-iL-fgr" secondAttribute="centerX" id="erE-Or-6Oc"/>
                                     <constraint firstAttribute="bottom" secondItem="Y5E-sq-h23" secondAttribute="bottom" constant="1" id="isx-gS-10Z"/>
-                                    <constraint firstAttribute="bottom" secondItem="a9g-ry-PG2" secondAttribute="bottom" constant="9" id="lVF-bH-otd"/>
+                                    <constraint firstAttribute="bottom" secondItem="a9g-ry-PG2" secondAttribute="bottom" constant="6" id="lVF-bH-otd"/>
                                     <constraint firstItem="Y5E-sq-h23" firstAttribute="leading" secondItem="BfJ-iL-fgr" secondAttribute="leading" constant="1" id="lpL-Pb-5Zv"/>
                                     <constraint firstItem="Y5E-sq-h23" firstAttribute="top" secondItem="BfJ-iL-fgr" secondAttribute="top" constant="1" id="m6j-Lo-f21"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bcc-eb-pkP" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                <rect key="frame" x="13" y="102" width="318" height="38"/>
+                                <rect key="frame" x="13" y="101" width="318" height="38"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_ic" translatesAutoresizingMaskIntoConstraints="NO" id="yDo-Cy-vbB">
                                         <rect key="frame" x="10" y="10" width="18" height="18"/>
@@ -6067,7 +6077,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GM3-Gp-wLQ" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                <rect key="frame" x="339" y="102" width="42" height="38"/>
+                                <rect key="frame" x="339" y="101" width="42" height="38"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filter_ic" translatesAutoresizingMaskIntoConstraints="NO" id="xak-oX-g5Q">
                                         <rect key="frame" x="7" y="7" width="28" height="24"/>
@@ -6092,7 +6102,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Dwp-6M-P1T">
-                                <rect key="frame" x="0.0" y="147" width="393" height="705"/>
+                                <rect key="frame" x="0.0" y="146" width="393" height="706"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="dJ9-ZW-f9R">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="133"/>
@@ -6421,7 +6431,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nqJ-i7-9SD">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="92"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make Appointment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9z-tw-iuK" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                         <rect key="frame" x="124.33333333333333" y="62" width="144.66666666666669" height="21"/>
@@ -6435,11 +6445,11 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backimg" translatesAutoresizingMaskIntoConstraints="NO" id="Lww-DC-cCm">
-                                        <rect key="frame" x="14" y="57" width="30" height="30"/>
+                                        <rect key="frame" x="14" y="57" width="30" height="31"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddG-dV-pd1">
-                                        <rect key="frame" x="0.0" y="25" width="67" height="67"/>
+                                        <rect key="frame" x="0.0" y="27" width="67" height="67"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="67" id="h4c-b6-gnT"/>
                                             <constraint firstAttribute="width" constant="67" id="y3D-Jh-JLx"/>
@@ -6453,17 +6463,17 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="E9z-tw-iuK" secondAttribute="bottom" constant="9" id="1bw-Ov-NQu"/>
-                                    <constraint firstAttribute="bottom" secondItem="Lww-DC-cCm" secondAttribute="bottom" constant="5" id="5bt-11-VhW"/>
                                     <constraint firstItem="ddG-dV-pd1" firstAttribute="leading" secondItem="nqJ-i7-9SD" secondAttribute="leading" id="6CN-Kv-L69"/>
                                     <constraint firstAttribute="bottom" secondItem="ddG-dV-pd1" secondAttribute="bottom" id="DdO-rz-Ojn"/>
+                                    <constraint firstItem="E9z-tw-iuK" firstAttribute="centerY" secondItem="Lww-DC-cCm" secondAttribute="centerY" id="h7y-z0-q1d"/>
                                     <constraint firstItem="Lww-DC-cCm" firstAttribute="leading" secondItem="nqJ-i7-9SD" secondAttribute="leading" constant="14" id="rGQ-7t-2Ho"/>
-                                    <constraint firstAttribute="height" constant="92" id="sOH-ed-HjD"/>
+                                    <constraint firstAttribute="height" constant="94" id="sOH-ed-HjD"/>
+                                    <constraint firstAttribute="bottom" secondItem="Lww-DC-cCm" secondAttribute="bottom" constant="6" id="t6e-ts-TSf"/>
                                     <constraint firstItem="E9z-tw-iuK" firstAttribute="centerX" secondItem="nqJ-i7-9SD" secondAttribute="centerX" id="yEv-4s-kQR"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idC-NG-Ych" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                <rect key="frame" x="12" y="103" width="369" height="112"/>
+                                <rect key="frame" x="12" y="105" width="369" height="112"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YS6-cm-AqT" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
                                         <rect key="frame" x="12" y="10" width="92" height="92"/>
@@ -6606,7 +6616,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bty-LR-kg9">
-                                <rect key="frame" x="0.0" y="225" width="393" height="627"/>
+                                <rect key="frame" x="0.0" y="227" width="393" height="625"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iEb-ow-G2T">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="717.66666666666663"/>
@@ -7019,14 +7029,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rZ0-UW-thg">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="95"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backimg" translatesAutoresizingMaskIntoConstraints="NO" id="BIN-Mg-7Ha">
-                                        <rect key="frame" x="14" y="56" width="30" height="30"/>
+                                        <rect key="frame" x="14" y="58" width="30" height="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Products" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2SC-cj-4h7" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                        <rect key="frame" x="163" y="60.666666666666657" width="67" height="21"/>
+                                        <rect key="frame" x="163" y="62.666666666666657" width="67" height="21"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -7037,9 +7047,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ydw-ax-h01">
-                                        <rect key="frame" x="1" y="1" width="75" height="93"/>
+                                        <rect key="frame" x="1" y="1" width="50" height="92"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="whj-UC-myD"/>
+                                            <constraint firstAttribute="width" constant="50" id="whj-UC-myD"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title=" "/>
@@ -7050,18 +7060,18 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="11g-Aq-rkG"/>
+                                    <constraint firstAttribute="height" constant="94" id="11g-Aq-rkG"/>
                                     <constraint firstItem="2SC-cj-4h7" firstAttribute="centerY" secondItem="BIN-Mg-7Ha" secondAttribute="centerY" id="MdN-JX-n2C"/>
                                     <constraint firstItem="2SC-cj-4h7" firstAttribute="centerX" secondItem="rZ0-UW-thg" secondAttribute="centerX" id="fvh-Su-BPs"/>
                                     <constraint firstAttribute="bottom" secondItem="Ydw-ax-h01" secondAttribute="bottom" constant="1" id="g6c-rN-PAv"/>
                                     <constraint firstItem="Ydw-ax-h01" firstAttribute="leading" secondItem="rZ0-UW-thg" secondAttribute="leading" constant="1" id="hpt-4K-F9Y"/>
                                     <constraint firstItem="BIN-Mg-7Ha" firstAttribute="leading" secondItem="rZ0-UW-thg" secondAttribute="leading" constant="14" id="jXK-zj-hKu"/>
-                                    <constraint firstAttribute="bottom" secondItem="BIN-Mg-7Ha" secondAttribute="bottom" constant="9" id="u4O-1c-nbg"/>
+                                    <constraint firstAttribute="bottom" secondItem="BIN-Mg-7Ha" secondAttribute="bottom" constant="6" id="u4O-1c-nbg"/>
                                     <constraint firstItem="Ydw-ax-h01" firstAttribute="top" secondItem="rZ0-UW-thg" secondAttribute="top" constant="1" id="xla-bb-5vm"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ad-rF-kaC" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                <rect key="frame" x="13" y="102" width="318" height="38"/>
+                                <rect key="frame" x="13" y="101" width="318" height="38"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_ic" translatesAutoresizingMaskIntoConstraints="NO" id="nKt-kq-xoB">
                                         <rect key="frame" x="10" y="10" width="18" height="18"/>
@@ -7114,7 +7124,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rm5-6O-pnV" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                <rect key="frame" x="339" y="102" width="42" height="38"/>
+                                <rect key="frame" x="339" y="101" width="42" height="38"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filter_ic" translatesAutoresizingMaskIntoConstraints="NO" id="dY2-3F-odv">
                                         <rect key="frame" x="7" y="7" width="28" height="24"/>
@@ -7166,7 +7176,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yMC-kb-wAS">
-                                <rect key="frame" x="0.0" y="210" width="393" height="571"/>
+                                <rect key="frame" x="0.0" y="209" width="393" height="572"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProductLstTvCell" rowHeight="162" id="Ea8-vd-h0I" customClass="ProductLstTvCell" customModule="GentlemanSpa" customModuleProvider="target">
@@ -7472,7 +7482,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCm-qw-fAh" customClass="UIViewX" customModule="GentlemanSpa">
-                                <rect key="frame" x="0.0" y="150" width="393" height="55"/>
+                                <rect key="frame" x="0.0" y="149" width="393" height="55"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="38g-Tm-P3D">
                                         <rect key="frame" x="2" y="2" width="389" height="51"/>
@@ -7705,14 +7715,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pcF-OX-LD9">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="95"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backimg" translatesAutoresizingMaskIntoConstraints="NO" id="yUN-6G-eMf">
-                                        <rect key="frame" x="14" y="56" width="30" height="30"/>
+                                        <rect key="frame" x="14" y="58" width="30" height="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJE-C7-XsD">
-                                        <rect key="frame" x="1" y="1" width="75" height="93"/>
+                                        <rect key="frame" x="1" y="1" width="75" height="92"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="75" id="oll-cE-DtB"/>
                                         </constraints>
@@ -7723,7 +7733,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1e-QL-y37" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                        <rect key="frame" x="131.66666666666669" y="59" width="129.66666666666669" height="24"/>
+                                        <rect key="frame" x="131.66666666666669" y="61" width="129.66666666666669" height="24"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -7739,15 +7749,15 @@
                                     <constraint firstItem="x1e-QL-y37" firstAttribute="centerX" secondItem="pcF-OX-LD9" secondAttribute="centerX" id="QpN-es-Ldk"/>
                                     <constraint firstItem="SJE-C7-XsD" firstAttribute="leading" secondItem="pcF-OX-LD9" secondAttribute="leading" constant="1" id="XiP-PE-QdT"/>
                                     <constraint firstItem="yUN-6G-eMf" firstAttribute="leading" secondItem="pcF-OX-LD9" secondAttribute="leading" constant="14" id="Y25-ef-9vH"/>
-                                    <constraint firstAttribute="height" constant="95" id="Z6D-y8-OuR"/>
-                                    <constraint firstAttribute="bottom" secondItem="yUN-6G-eMf" secondAttribute="bottom" constant="9" id="dL2-rX-m5G"/>
+                                    <constraint firstAttribute="height" constant="94" id="Z6D-y8-OuR"/>
+                                    <constraint firstAttribute="bottom" secondItem="yUN-6G-eMf" secondAttribute="bottom" constant="6" id="dL2-rX-m5G"/>
                                     <constraint firstItem="SJE-C7-XsD" firstAttribute="top" secondItem="pcF-OX-LD9" secondAttribute="top" constant="1" id="hdp-b3-7DI"/>
                                     <constraint firstAttribute="bottom" secondItem="SJE-C7-XsD" secondAttribute="bottom" constant="1" id="n9k-eA-hkW"/>
                                     <constraint firstItem="x1e-QL-y37" firstAttribute="centerY" secondItem="yUN-6G-eMf" secondAttribute="centerY" id="zS8-uQ-BH9"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="F2n-rj-8ND">
-                                <rect key="frame" x="0.0" y="95" width="393" height="757"/>
+                                <rect key="frame" x="0.0" y="94" width="393" height="758"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="rBQ-UZ-xK0">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="208"/>
@@ -8172,14 +8182,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4OO-zg-GbI">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="95"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backimg" translatesAutoresizingMaskIntoConstraints="NO" id="3Ny-6C-AaZ">
-                                        <rect key="frame" x="14" y="56" width="30" height="30"/>
+                                        <rect key="frame" x="14" y="58" width="30" height="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Services" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IX2-oe-2Z0" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                        <rect key="frame" x="140" y="60.666666666666657" width="113" height="21"/>
+                                        <rect key="frame" x="140" y="62.666666666666657" width="113" height="21"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -8190,7 +8200,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKk-sT-KHk">
-                                        <rect key="frame" x="1" y="1" width="75" height="93"/>
+                                        <rect key="frame" x="1" y="1" width="75" height="92"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="75" id="aMo-u8-HJ8"/>
                                         </constraints>
@@ -8204,8 +8214,8 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="IX2-oe-2Z0" firstAttribute="centerX" secondItem="4OO-zg-GbI" secondAttribute="centerX" id="92R-Nz-UIA"/>
-                                    <constraint firstAttribute="height" constant="95" id="BxH-Jd-FTh"/>
-                                    <constraint firstAttribute="bottom" secondItem="3Ny-6C-AaZ" secondAttribute="bottom" constant="9" id="cPc-nt-AYP"/>
+                                    <constraint firstAttribute="height" constant="94" id="BxH-Jd-FTh"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Ny-6C-AaZ" secondAttribute="bottom" constant="6" id="cPc-nt-AYP"/>
                                     <constraint firstAttribute="bottom" secondItem="TKk-sT-KHk" secondAttribute="bottom" constant="1" id="iIg-wR-VYh"/>
                                     <constraint firstItem="3Ny-6C-AaZ" firstAttribute="leading" secondItem="4OO-zg-GbI" secondAttribute="leading" constant="14" id="kaY-l8-yqT"/>
                                     <constraint firstItem="TKk-sT-KHk" firstAttribute="leading" secondItem="4OO-zg-GbI" secondAttribute="leading" constant="1" id="p0e-dB-0yM"/>
@@ -8241,7 +8251,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fPo-f5-9u4">
-                                <rect key="frame" x="0.0" y="229" width="393" height="552"/>
+                                <rect key="frame" x="0.0" y="228" width="393" height="553"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ServicesTvCell" rowHeight="162" id="xhk-sV-RO4" customClass="ServicesTvCell" customModule="GentlemanSpa" customModuleProvider="target">
@@ -8501,7 +8511,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUQ-MR-RR5" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                <rect key="frame" x="12" y="106" width="369" height="112"/>
+                                <rect key="frame" x="12" y="105" width="369" height="112"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDR-8B-seZ" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
                                         <rect key="frame" x="12" y="10" width="92" height="92"/>
@@ -8757,7 +8767,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNu-X5-Ajs">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="92"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgO-AW-yov" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                         <rect key="frame" x="149" y="62" width="95" height="21"/>
@@ -8771,13 +8781,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backimg" translatesAutoresizingMaskIntoConstraints="NO" id="saN-La-4hA">
-                                        <rect key="frame" x="14" y="57" width="30" height="30"/>
+                                        <rect key="frame" x="14" y="57" width="30" height="31"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5m-mp-6I7">
-                                        <rect key="frame" x="0.0" y="25" width="67" height="67"/>
+                                        <rect key="frame" x="0.0" y="27" width="50" height="67"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="67" id="4X9-qH-Nkp"/>
+                                            <constraint firstAttribute="width" constant="50" id="4X9-qH-Nkp"/>
                                             <constraint firstAttribute="height" constant="67" id="chN-rK-ZpI"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
@@ -8790,16 +8800,16 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="v5m-mp-6I7" firstAttribute="leading" secondItem="SNu-X5-Ajs" secondAttribute="leading" id="7x7-fn-yvW"/>
-                                    <constraint firstAttribute="height" constant="92" id="C2V-8Z-ikm"/>
+                                    <constraint firstAttribute="height" constant="94" id="C2V-8Z-ikm"/>
                                     <constraint firstAttribute="bottom" secondItem="v5m-mp-6I7" secondAttribute="bottom" id="HLo-WY-Dic"/>
                                     <constraint firstItem="saN-La-4hA" firstAttribute="leading" secondItem="SNu-X5-Ajs" secondAttribute="leading" constant="14" id="IFF-MU-Whc"/>
-                                    <constraint firstAttribute="bottom" secondItem="saN-La-4hA" secondAttribute="bottom" constant="5" id="PsF-qR-uNc"/>
+                                    <constraint firstAttribute="bottom" secondItem="saN-La-4hA" secondAttribute="bottom" constant="6" id="PsF-qR-uNc"/>
                                     <constraint firstItem="bgO-AW-yov" firstAttribute="centerX" secondItem="SNu-X5-Ajs" secondAttribute="centerX" id="i7q-Cp-uW9"/>
-                                    <constraint firstAttribute="bottom" secondItem="bgO-AW-yov" secondAttribute="bottom" constant="9" id="lbG-fv-Qc8"/>
+                                    <constraint firstItem="bgO-AW-yov" firstAttribute="centerY" secondItem="saN-La-4hA" secondAttribute="centerY" id="ts8-3t-Utl"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fWI-RE-ICp">
-                                <rect key="frame" x="0.0" y="92" width="393" height="760"/>
+                                <rect key="frame" x="0.0" y="94" width="393" height="758"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="NotificationCell" rowHeight="162" id="ze3-74-OTe" customClass="NotificationCell" customModule="GentlemanSpa" customModuleProvider="target">
@@ -9114,16 +9124,16 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

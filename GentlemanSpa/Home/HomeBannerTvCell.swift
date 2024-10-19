@@ -36,6 +36,8 @@ class HomeBannerTvCell: UITableViewCell {
 extension HomeBannerTvCell:UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
    
     @objc func changeImage() {
+        
+        print("YES")
         if counter < arrayHomeBannerModel.count {
         let index = IndexPath.init(item: counter, section: 0)
              self.collectionVB.scrollToItem(at: index, at: .centeredHorizontally, animated: true)

@@ -14,10 +14,20 @@ class HomeUserViewController: UIViewController {
     var arrSortedProductCategories = [ProductCategoriesObject]()
     var arrGetProfessionalList = [GetProfessionalObject]()
 
+    func topViewLayout(){
+        if !CreateAccountController.hasSafeArea{
+           print("YES")
+        }
+        else{
+      
+            
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
+        topViewLayout()
     }
     
     

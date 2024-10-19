@@ -25,13 +25,8 @@ class LoginAPIRequest: NSObject {
                     var accessToken : String = ""
                     var emailConfirmed : Bool = false
                     var lastScreenId : Int = 0
-                    var firstNameis : String = ""
-                    var lastNameis : String = ""
-                    var profilePicis : String = ""
-                    var percentageProfileComplete : Int = 0
-                    var countryis : String = ""
-                    var cityIs : String = ""
                     var email : String = ""
+                    
                     if let msg = data?["messages"] as? String{
                         messageString = msg
                     }
@@ -44,8 +39,7 @@ class LoginAPIRequest: NSObject {
                                 accessToken = accessTokenS
                                 UserDefaults.standard.set(accessToken, forKey: Constants.accessToken)
                                 UserDefaults.standard.synchronize()
-                                
-                                
+                        
                             }
                             
                             if Result["role"] as? String == "Professional" {
@@ -71,8 +65,6 @@ class LoginAPIRequest: NSObject {
                                     let userModel : LoginObject = LoginObject.init(model: Result as [String : Any])
                                     completion(userModel, messageString, status,true,lastScreenId,accessToken, email)
                                 }
-                               
-                                
                             }
                             else{
                                 if let email = Result["email"] as? String{
@@ -81,26 +73,16 @@ class LoginAPIRequest: NSObject {
                                     completion(nil, messageString, status,emailConfirmed,lastScreenId,accessToken, email)
                                 }
                             }
-                            
-                           
                         }
-                        
                     }
                     else
                     {
-                     
-                       
                             completion(nil, messageString, status,emailConfirmed,lastScreenId,"", "")
-                            
                     }
-                    
-                    
                 }
                 else
                 {
-                    
                     completion(nil, GlobalConstants.serverError, false,false,0,"","")
-                    
                 }
             }
             else{

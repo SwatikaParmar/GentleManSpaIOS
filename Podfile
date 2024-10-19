@@ -16,6 +16,9 @@ target 'GentlemanSpa' do
   pod 'CountryPickerView'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'FirebaseAuth'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
   # Pods for GentlemanSpa
 
 end

@@ -90,6 +90,7 @@
 		34CE926E2C40EAE60007E086 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE92622C40EAE60007E086 /* GradientView.swift */; };
 		34CE92702C41097C0007E086 /* SetPasswordVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE926F2C41097C0007E086 /* SetPasswordVc.swift */; };
 		34CE92722C410BBD0007E086 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE92712C410BBD0007E086 /* Constants.swift */; };
+		34D2B5B42CC78FDF0012C358 /* ProfessionalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D2B5B32CC78FDF0012C358 /* ProfessionalDetailViewController.swift */; };
 		34D338112C5A7142003C6B13 /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D338102C5A7142003C6B13 /* ServicesViewController.swift */; };
 		34D338132C5A718D003C6B13 /* FindPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D338122C5A718D003C6B13 /* FindPViewController.swift */; };
 		34D3381E2C5A7A8E003C6B13 /* CalendarFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D338152C5A7A8E003C6B13 /* CalendarFlowLayout.swift */; };
@@ -211,6 +212,7 @@
 		34CE92622C40EAE60007E086 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		34CE926F2C41097C0007E086 /* SetPasswordVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordVc.swift; sourceTree = "<group>"; };
 		34CE92712C410BBD0007E086 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		34D2B5B32CC78FDF0012C358 /* ProfessionalDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalDetailViewController.swift; sourceTree = "<group>"; };
 		34D338102C5A7142003C6B13 /* ServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
 		34D338122C5A718D003C6B13 /* FindPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPViewController.swift; sourceTree = "<group>"; };
 		34D338152C5A7A8E003C6B13 /* CalendarFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarFlowLayout.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				3460D6F02C9D34390076C4C2 /* Product */,
 				344E0C6D2CA133CC00D32AB6 /* MyOrder */,
 				34CC18BB2CB7AF68003128DE /* MessagesController.swift */,
+				34D2B5B32CC78FDF0012C358 /* ProfessionalDetailViewController.swift */,
 				3460D6E82C9D32BB0076C4C2 /* Cart */,
 				3460D6EF2C9D34180076C4C2 /* ProfessionalServices */,
 				34DEF4832C5DFF8100F395A8 /* Professional */,
@@ -839,6 +842,7 @@
 				34ADB3112CB6419600523217 /* GetOrderListRequest.swift in Sources */,
 				34B6D7AF2C44E7680008FC81 /* AlamofireRequest.swift in Sources */,
 				34B6D7AD2C44E7080008FC81 /* LoginRequest.swift in Sources */,
+				34D2B5B42CC78FDF0012C358 /* ProfessionalDetailViewController.swift in Sources */,
 				34B4CD902C48D512006B9F1F /* HomeUserViewController.swift in Sources */,
 				34186ABD2CB3A16E00717E47 /* MyLocationVc.swift in Sources */,
 				34EC32402CC23417007067AD /* OrderDetailsTableViewCell.swift in Sources */,
@@ -1039,7 +1043,7 @@
 				CODE_SIGN_ENTITLEMENTS = GentlemanSpa/GentlemanSpa.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = U4CMW5Y2G6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1082,7 +1086,7 @@
 				CODE_SIGN_ENTITLEMENTS = GentlemanSpa/GentlemanSpa.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = U4CMW5Y2G6;
 				GENERATE_INFOPLIST_FILE = YES;

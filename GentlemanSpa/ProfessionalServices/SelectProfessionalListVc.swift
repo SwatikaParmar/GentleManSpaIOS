@@ -150,6 +150,13 @@ extension SelectProfessionalListVc: UITableViewDataSource,UITableViewDelegate {
             self.navigationController?.pushViewController(controller, animated: true)
 
         }
+    
+    
+//    let controller:BookingDoctorViewController =  UIStoryboard(storyboard: .User).initVC()
+//    controller.professionalId  = arrGetProfessionalList[indexPath.row].object?.professionalDetailId ?? 0
+//    self.navigationController?.pushViewController(controller, animated: true)
+
+    
 }
     
     

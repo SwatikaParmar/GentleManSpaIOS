@@ -20,14 +20,19 @@ class HomeBannerTvCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        NotificationCenter.default.removeObserver(self, name:NSNotification.Name(rawValue: "Banner_Timer_Stop"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.stopTimer), name: NSNotification.Name(rawValue: "Banner_Timer_Stop"), object: nil)
+        
         self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
 
     }
-    func stopTimer() {
+    @objc func stopTimer() {
         guard timer != nil else { return }
+        guard timer.isValid != false else { return }
         timer.invalidate()
-        
     }
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -37,7 +42,7 @@ extension HomeBannerTvCell:UICollectionViewDataSource,UICollectionViewDelegateFl
    
     @objc func changeImage() {
         
-        print("YES")
+       
         if counter < arrayHomeBannerModel.count {
         let index = IndexPath.init(item: counter, section: 0)
              self.collectionVB.scrollToItem(at: index, at: .centeredHorizontally, animated: true)

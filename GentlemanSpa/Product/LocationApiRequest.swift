@@ -13,7 +13,7 @@ class LiveLocationRequest: NSObject {
     static let shared = LiveLocationRequest()
     func liveLocationAPI(requestParams : [String:Any], completion: @escaping (_ objectData: LoginObject?,_ message : String?, _ isStatus : Bool) -> Void) {
 
-        var apiURL = String("\("Base".updateLiveLocation)")
+        let apiURL = String("\("Base".updateLiveLocation)")
 
 
         AlamofireRequest.shared.LivePostBodyForRawData(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader:false, loaderMessage: "") { (data, error) in
@@ -53,7 +53,7 @@ class GetAddressListRequest: NSObject {
     static let shared = GetAddressListRequest()
     func getLocationList(requestParams : [String:Any], _ isLoader : Bool, completion: @escaping (_ objectData: [AddressListModel]?,_ message : String?, _ isStatus : Bool) -> Void) {
 
-        var apiURL = String("\("Base".GetCustomerAddressList)")
+        let apiURL = String("\("Base".GetCustomerAddressList)")
 
         AlamofireRequest.shared.GetBodyFrom(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
                 
@@ -145,7 +145,7 @@ class SetCustomerAddressRequest: NSObject {
     
     func SetCustomerAddressAPI(requestParams : [String:Any], completion: @escaping (_ objectData: LoginObject?,_ message : String?, _ isStatus : Bool) -> Void) {
 
-        var apiURL = String("\("Base".setCustomerAddressStatus)")
+        let apiURL = String("\("Base".setCustomerAddressStatus)")
 
         AlamofireRequest.shared.PostBodyForRawData(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader:false, loaderMessage: "") { (data, error) in
                 
@@ -191,7 +191,7 @@ class AddCustomerAddressRequest: NSObject {
     
     func addAddressAPI(requestParams : [String:Any], completion: @escaping (_ objectData: AddressModel?,_ message : String?, _ isStatus : Bool) -> Void) {
 
-        var apiURL = String("\("Base".addCustomerAddress)")
+        let apiURL = String("\("Base".addCustomerAddress)")
 
 
         AlamofireRequest.shared.PostBodyForRawData(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader:true, loaderMessage: "") { (data, error) in
@@ -224,7 +224,7 @@ class AddCustomerAddressRequest: NSObject {
                         {
                          
                             completion(nil,"",false)
-                        }
+                    }
                 }
             }
         }

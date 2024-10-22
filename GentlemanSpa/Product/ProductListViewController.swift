@@ -48,24 +48,22 @@ class ProductListViewController:  UIViewController {
     }
     
     func myCartAPI(_ isLoader:Bool){
-        var params = [ "availableService": ""
+        let params = [ "availableService": ""
         ] as [String : Any]
         
-        
+         
         GetProductCartRequest.shared.GetCartItemsAPI(requestParams:params, isLoader) { [self] (arrayData,arrayService,message,isStatus,totalAmount) in
             if isStatus {
                 if arrayData != nil{
-                    
-                   
                     if arrayData?.allCartProductArray.count ?? 0 > 0 {
                         totalView.isHidden = false
                         view_H_Const.constant = 70
                         amountLbe.text =  String(format: "$%.2f", arrayData?.totalSellingPrice ?? 0.00)
-                        countLbe.text = String(format: "%d products added", arrayData?.allCartProductArray.count ?? 0)
-                        
                         if arrayData?.allCartProductArray.count == 1 {
                             countLbe.text = String(format: "%d product added", arrayData?.allCartProductArray.count ?? 0)
-
+                        }
+                        else{
+                            countLbe.text = String(format: "%d products added", arrayData?.allCartProductArray.count ?? 0)
                         }
                     }
                     else{
@@ -73,7 +71,7 @@ class ProductListViewController:  UIViewController {
                         view_H_Const.constant = 0
                     }
                 }
-                    else{
+                else{
                         totalView.isHidden = true
                         view_H_Const.constant = 0
                     }
@@ -406,18 +404,13 @@ extension ProductListViewController : UITextFieldDelegate {
         if !searchQuery.isEmpty
         {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
-
                 self.productAPI(false, true, "",self.arrSortedCategory[self.indexInt].mainCategoryId,self.genderPreferences, 0)
-
-
             }
         }
         else {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
                 searchQuery = ""
                 self.productAPI(false, true, "",self.arrSortedCategory[self.indexInt].mainCategoryId,self.genderPreferences, 0)
-
-
             }
         }
         return true

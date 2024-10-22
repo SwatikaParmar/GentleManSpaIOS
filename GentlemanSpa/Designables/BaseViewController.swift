@@ -82,14 +82,3 @@ class NotificationAlert {
 }
 
 
-class FontName{
-    struct Inter {
-        static let Bold = "Poppins-Bold"
-        static let SemiBold = "Poppins-SemiBold"
-
-        static let Regular = "Poppins-Regular"
-        static let Medium = "Poppins-Medium"
-    }
-   
-}
-

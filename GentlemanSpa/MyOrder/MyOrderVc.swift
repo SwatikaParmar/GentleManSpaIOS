@@ -13,12 +13,11 @@ class MyOrderVc: UIViewController {
     @IBOutlet weak var lbeUPCOMING: UILabel!
     @IBOutlet weak var lbeCONFIRMED: UILabel!
     @IBOutlet weak var lbePAST: UILabel!
-    var pageName = "Pending"
+    var pageName = "Upcoming"
     var arrOrder = [OrderItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         lbeUPCOMING.textColor = AppColor.BlackColor
         lbePAST.textColor = AppColor.BlackColor
         lbeCONFIRMED.textColor = AppColor.BlackColor
@@ -57,7 +56,7 @@ class MyOrderVc: UIViewController {
         lbeCONFIRMED.layer.masksToBounds = true
         lbePAST.clipsToBounds = true
         lbePAST.layer.masksToBounds = true
-        pageName = "Pending"
+        pageName = "Upcoming"
         MyOrderAPI(true)
 
         self.table_Order.reloadData()
@@ -86,7 +85,7 @@ class MyOrderVc: UIViewController {
         lbeUPCOMING.layer.cornerRadius = 17
         lbeCONFIRMED.layer.cornerRadius = 17
         lbePAST.layer.cornerRadius = 17
-        pageName = "Canceled"
+        pageName = "Cancelled"
         MyOrderAPI(true)
         self.table_Order.reloadData()
 
@@ -94,7 +93,7 @@ class MyOrderVc: UIViewController {
     
     func MyOrderAPI(_ isLoader:Bool){
         arrOrder.removeAll()
-        var params = [ "Type": pageName
+        let params = [ "Type": pageName
         ] as [String : Any]
         GetOrderedProductsListRequest.shared.GetOrderedProductsRequest(requestParams:params, isLoader) { [self] (arrayData,arrayService,message,isStatus) in
             if isStatus {
@@ -158,7 +157,7 @@ extension MyOrderVc: UITableViewDataSource,UITableViewDelegate {
       
         cell.lbeDelivery.text =  "Delivery"
         
-        if pageName == "Pending"{
+        if pageName == "Upcoming"{
             cell.lbeOrder.text =  "Pending"
 
         }
@@ -166,7 +165,7 @@ extension MyOrderVc: UITableViewDataSource,UITableViewDelegate {
             cell.lbeOrder.text =  "Completed"
 
         }
-        if pageName == "Canceled"{
+        if pageName == "Cancelled"{
             cell.lbeOrder.text =  "Cancel"
 
         }

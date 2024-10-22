@@ -163,11 +163,6 @@ extension ServicesOrderDetailsTableViewCell: UITableViewDataSource,UITableViewDe
 
         }
             
-
-        
-        
-       
-        
         return cell
         
     }
@@ -177,13 +172,11 @@ extension ServicesOrderDetailsTableViewCell: UITableViewDataSource,UITableViewDe
         let lineCount = arrSortedService[indexPath.row].serviceName.lineCount(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(15)) ?? UIFont.systemFont(ofSize: 15.0), width: tableView.frame.width - 174)
         
         if lineCount > 1 {
-            if self.arrSortedService[indexPath.row].fromTime == "" {
-                return  190
-            }
-            return  195
+          
+            return  155
         }
       
-        return  145
+        return  140
         
     }
     
@@ -216,8 +209,6 @@ class ProductOrderDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var lbetotalMrp: UILabel!
     @IBOutlet weak var lbetotalSellingPrice: UILabel!
    
-    
-    
     @IBOutlet weak var imgViewHome : UIImageView!
     @IBOutlet weak var imgViewVenue : UIImageView!
     @IBOutlet weak var imgViewAddAddress : UIImageView!
@@ -234,8 +225,6 @@ class ProductOrderDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var addressView: UIView!
 
     
-    
-
     var arrSortedProduct = [OrderProduct]()
     var itemCount = 0
 

@@ -237,6 +237,9 @@ class EditAddressVc: UIViewController {
                 }
             }
         }
+        else{
+            goToScreen()
+        }
     }
     
     func goToScreen() {
@@ -245,12 +248,12 @@ class EditAddressVc: UIViewController {
             var isPop = false
             
             for viewController in viewControllers {
-                //                if viewController.isKind(of: CheckoutController.self) {
-                //                    self.navigationController?.popToViewController(viewController, animated: true)
-                //                    isPop = true
-                //                    break
-                //
-                //                }
+                                if viewController.isKind(of: MyLocationVc.self) {
+                                    self.navigationController?.popToViewController(viewController, animated: true)
+                                    isPop = true
+                                    break
+                
+                                }
             }
             
             if !isPop {
@@ -279,11 +282,11 @@ class EditAddressVc: UIViewController {
         if let viewControllers = self.navigationController?.viewControllers {
             var isPop = false
             for viewController in viewControllers {
-                //                if viewController.isKind(of: MyAddressesVc.self) {
-                //                    self.navigationController?.popToViewController(viewController, animated: true)
-                //                    isPop = true
-                //                    break
-                //                }
+                                if viewController.isKind(of: MyLocationVc.self) {
+                                    self.navigationController?.popToViewController(viewController, animated: true)
+                                    isPop = true
+                                    break
+                                }
             }
             
             if !isPop {

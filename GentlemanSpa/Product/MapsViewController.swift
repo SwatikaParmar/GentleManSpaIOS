@@ -73,15 +73,12 @@ class MapsViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         if Utility.shared.DivceTypeString() == "IPad" {
-            l_TConstraints.constant = 100
-            t_TConstraints.constant = 100
-            searchView_HConst.constant = 80
-            viewSearch.layer.cornerRadius = 40
+          
         }
         topViewLayout()
         tableviewSearch.delegate = self
         tableviewSearch.dataSource = self
-        textfieldAddress.font = UIFont(name:FontName.Inter.Regular, size:  "".dynamicFontSize(14))
+        textfieldAddress.font = UIFont(name:FontName.Inter.Regular, size:  "".dynamicFontSize(13))
         mapView.delegate = self
         locationManager.startUpdatingLocation()
        

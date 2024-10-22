@@ -197,20 +197,21 @@ class GoogleApi : NSObject {
     func initialiseWithKey(_ key:String) {
         googleApiKey = key
     }
+  // country:IN
     func getUrl(_  usedFor:UsedFor,input:String) -> String {
         guard !input.isEmpty else { return input }
         switch usedFor {
         case .autocomplete:
             let updatedInput = input.lowercased()
-            return String(format: "%@?input=%@&key=%@&components=country:IN",GoogleUrl.autocomplete.rawValue,updatedInput,googleApiKey)
+            return String(format: "%@?input=%@&key=%@&components=",GoogleUrl.autocomplete.rawValue,updatedInput,googleApiKey)
         case .placeInformation:
-            return String(format: "%@?placeid=%@&key=%@&components=country:IN",GoogleUrl.placeInfo.rawValue,input,googleApiKey)
+            return String(format: "%@?placeid=%@&key=%@&components=",GoogleUrl.placeInfo.rawValue,input,googleApiKey)
         case .reverseGeo:
-            return String(format: "%@?latlng=%@&key=%@&components=country:IN",GoogleUrl.reverseGeo.rawValue,input,googleApiKey)
+            return String(format: "%@?latlng=%@&key=%@&components=",GoogleUrl.reverseGeo.rawValue,input,googleApiKey)
         case .path:
-            return String(format: "%@?%@&key=%@&components=country:IN",GoogleUrl.path.rawValue,input,googleApiKey)
+            return String(format: "%@?%@&key=%@&components=",GoogleUrl.path.rawValue,input,googleApiKey)
         case .nearBy:
-            return String(format: "%@?%@&key=%@&components=country:IN",GoogleUrl.nearby.rawValue,input,googleApiKey)
+            return String(format: "%@?%@&key=%@&components=",GoogleUrl.nearby.rawValue,input,googleApiKey)
         }
     }
     func cancelOldRequest() {

@@ -22,7 +22,7 @@ class OrderDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableViewOrderDetails.isHidden = true
         viewPayNow.isHidden = true
         imgViewEmpty.isHidden = true
 
@@ -52,6 +52,7 @@ class OrderDetailsViewController: UIViewController {
                         arrOrderArray = arrayData ?? []
                         servicesArray = arrayData?[0].services ?? []
                         productsArray = arrayData?[0].products ?? []
+                        tableViewOrderDetails.isHidden = false
                         tableViewOrderDetails.reloadData()
                     }
                 }

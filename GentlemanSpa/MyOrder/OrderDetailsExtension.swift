@@ -83,21 +83,11 @@ extension OrderDetailsViewController : UITableViewDataSource,UITableViewDelegate
                 lineCount = CGFloat(servicesArray[i].serviceName.lineCount(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(15)) ?? UIFont.systemFont(ofSize: 15.0), width: tableView.frame.width - 185))
                 
                 if lineCount > 1 {
-                    if self.servicesArray[i].fromTime == "" {
-                        totalCount =  totalCount + 165
-                    }
-                    else{
-                        totalCount =  totalCount +   165
-                    }
+                    totalCount =  totalCount +   158
+
                 }
                 else{
-                    if self.servicesArray[i].fromTime == "" {
-                        totalCount =  totalCount  +   145
-                    }
-                    else{
-                        totalCount =  totalCount  +   145
-                        
-                    }
+                    totalCount =  totalCount  +   142
                 }
             }
             return 32 + totalCount

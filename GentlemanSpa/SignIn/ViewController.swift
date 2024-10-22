@@ -31,6 +31,9 @@ class ViewController: UIViewController {
         
         applyStyle(to: txt_ActivationCode)
         txt_ActivationCode.placeholder = "Activation code"
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Banner_Timer_Stop"), object: nil)
+
     }
     
     func addEye() {
@@ -95,8 +98,7 @@ class ViewController: UIViewController {
                 }
                 dataDict = ["emailOrPhoneNumber": "",
                               "password":  "",
-                              "activationCode": trimmedAc ?? "",
-                              "language":Language.English.rawValue] as [String : Any]
+                              "activationCode": trimmedAc ?? ""] as [String : Any]
                 
                 loginRequest(Params: dataDict)
             }
@@ -108,8 +110,7 @@ class ViewController: UIViewController {
                 
                 dataDict = ["emailOrPhoneNumber": trimmedEmailName ?? "",
                               "password": trimmedPassword ?? "",
-                              "activationCode": "",
-                              "language":Language.English.rawValue] as [String : Any]
+                              "activationCode": ""] as [String : Any]
                 
                 loginRequest(Params: dataDict)
 

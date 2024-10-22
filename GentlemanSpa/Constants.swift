@@ -16,7 +16,6 @@ struct Constants {
     static let userId = "userId"
     static let userType = "userType"
     static let professionalDetailId = "professionalDetailId"
-
     static let enterpriseId = "enterpriseId"
     static let phone = "phone"
     static let email = "email"
@@ -66,21 +65,20 @@ class AppColor: NSObject {
     static let Timebg : UIColor =  UIColor(red: 243.0 / 255.0, green: 243.0 / 255.0, blue: 243.0 / 255.0, alpha: 1.0)
     static let YellowColor : UIColor = UIColor( red: CGFloat(197/255.0), green: CGFloat(154/255.0), blue: CGFloat(86/255.0), alpha: CGFloat(1.0) )
     static let AppThemeColorPro : UIColor =  UIColor(red: 183 / 255.0, green: 137.0 / 255.0, blue: 69.0 / 255.0, alpha: 1.0)
-
     static let TabSelectColor : UIColor =  UIColor(red: 223.0 / 255.0, green: 186.0 / 255.0, blue: 98.0 / 255.0, alpha: 1.0)
 
 }
 
-enum Language : String{
-    case English = "en"
-    
+class FontName{
+    struct Inter {
+        static let Bold = "Poppins-Bold"
+        static let SemiBold = "Poppins-SemiBold"
+        static let Regular = "Poppins-Regular"
+        static let Medium = "Poppins-Medium"
+    }
 }
 
-enum UserType : String{
-    case customer = "customer"
-    case professional = "professional"
 
-}
 struct GlobalConstants {
     
     static let serverError = "There was an error connecting to server."
@@ -92,7 +90,8 @@ struct GlobalConstants {
     static let FemalePlaceHolding: String = "placeholder_FeMale"
     static let OtherPlaceHolding: String = "placeholder_Male"
     
-    static let GoogleWebAPIKey = "AIzaSyBgLMQ8wvy5yda0qP1_8y1e_aJJ_HrTdZw"    
+    static let GoogleWebAPIKey = "AIzaSyBgLMQ8wvy5yda0qP1_8y1e_aJJ_HrTdZw"
+
     static let BASE_IMAGE_URL = "https://gentlemanspa-file.s3.ap-south-1.amazonaws.com/FileToSave/"
 }
 extension String{

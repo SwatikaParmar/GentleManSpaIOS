@@ -318,7 +318,7 @@ class AlamofireRequest: NSObject {
                 
             if authToken != nil{
                 let bearer : String = "Bearer \(authToken!)"
-                print(bearer)
+              
                 urlRequest.addValue(bearer, forHTTPHeaderField: "Authorization")
                 urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
             }
@@ -408,9 +408,7 @@ class AlamofireRequest: NSObject {
                 do{
                     if let jsonData = response.data{
                         let parsedData = try JSONSerialization.jsonObject(with: jsonData) as! Dictionary<String, AnyObject>
-                        print(parsedData)
                         let dataImage = parsedData["data"] as! String
-                        print(dataImage)
                         callback(dataImage , nil )
                         
                     }
@@ -421,7 +419,7 @@ class AlamofireRequest: NSObject {
                 }
             }
             else{
-                print(response.error)
+                print(response.error ?? "")
                 callback("failure",nil)
 
             }
@@ -463,9 +461,7 @@ class AlamofireRequest: NSObject {
                 do{
                     if let jsonData = response.data{
                         let parsedData = try JSONSerialization.jsonObject(with: jsonData) as! Dictionary<String, AnyObject>
-                        print(parsedData)
                         let dataImage = "successfully"
-                        print(dataImage)
                         callback(dataImage , nil )
                         
                     }
@@ -476,7 +472,7 @@ class AlamofireRequest: NSObject {
                 }
             }
             else{
-                print(response.error)
+                print(response.error ?? "")
                 callback("failure",nil)
 
             }

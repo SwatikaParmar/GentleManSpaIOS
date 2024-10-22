@@ -913,10 +913,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VMu-G3-waQ" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                <rect key="frame" x="20" y="104" width="353" height="46"/>
+                                <rect key="frame" x="17" y="104" width="359" height="46"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Start typing to search..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aUy-ZK-33g" customClass="UITextFieldX" customModule="GentlemanSpa" customModuleProvider="target">
-                                        <rect key="frame" x="12" y="0.0" width="303" height="46"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Start typing to search..." textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="aUy-ZK-33g" customClass="UITextFieldX" customModule="GentlemanSpa" customModuleProvider="target">
+                                        <rect key="frame" x="12" y="0.0" width="309" height="46"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="13"/>
@@ -939,11 +939,14 @@
                                             <outlet property="delegate" destination="465-HA-wcc" id="9oe-ag-L1C"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIT-r7-3n0">
-                                        <rect key="frame" x="320" y="5" width="33" height="36"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIT-r7-3n0">
+                                        <rect key="frame" x="326" y="8" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="78u-NX-8Xf"/>
+                                            <constraint firstAttribute="height" constant="30" id="qbC-R1-l5I"/>
+                                        </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="search_ic"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="closeic"/>
                                         <connections>
                                             <action selector="SearchCancelTap:" destination="465-HA-wcc" eventType="touchUpInside" id="t7x-Jb-sZ2"/>
                                         </connections>
@@ -952,13 +955,11 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="aUy-ZK-33g" firstAttribute="top" secondItem="VMu-G3-waQ" secondAttribute="top" id="1W8-QP-swy"/>
-                                    <constraint firstAttribute="bottom" secondItem="vIT-r7-3n0" secondAttribute="bottom" constant="5" id="2X3-67-fOT"/>
                                     <constraint firstAttribute="trailing" secondItem="aUy-ZK-33g" secondAttribute="trailing" constant="38" id="67v-TC-bcq"/>
                                     <constraint firstItem="aUy-ZK-33g" firstAttribute="leading" secondItem="VMu-G3-waQ" secondAttribute="leading" constant="12" id="7Yt-xk-bQs"/>
-                                    <constraint firstItem="vIT-r7-3n0" firstAttribute="leading" secondItem="aUy-ZK-33g" secondAttribute="trailing" constant="5" id="Bqg-6x-jsc"/>
+                                    <constraint firstItem="vIT-r7-3n0" firstAttribute="centerY" secondItem="VMu-G3-waQ" secondAttribute="centerY" id="OhT-6z-bbL"/>
                                     <constraint firstAttribute="height" constant="46" id="RDA-In-FqA"/>
-                                    <constraint firstAttribute="trailing" secondItem="vIT-r7-3n0" secondAttribute="trailing" id="X0E-mA-8Xg"/>
-                                    <constraint firstItem="vIT-r7-3n0" firstAttribute="top" secondItem="VMu-G3-waQ" secondAttribute="top" constant="5" id="XX3-7v-6OY"/>
+                                    <constraint firstItem="vIT-r7-3n0" firstAttribute="leading" secondItem="aUy-ZK-33g" secondAttribute="trailing" constant="5" id="X5A-q9-nDR"/>
                                     <constraint firstAttribute="bottom" secondItem="aUy-ZK-33g" secondAttribute="bottom" id="tsr-g2-kZo"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -1222,12 +1223,12 @@
                             <constraint firstItem="zzb-vt-TxJ" firstAttribute="trailing" secondItem="uP9-bm-L0u" secondAttribute="trailing" id="RY2-ia-Vya"/>
                             <constraint firstItem="QpG-8S-XgH" firstAttribute="top" secondItem="uP9-bm-L0u" secondAttribute="bottom" id="TUl-Tu-n31"/>
                             <constraint firstItem="sZj-pA-NKE" firstAttribute="leading" secondItem="zTs-Zy-j7J" secondAttribute="leading" id="ZSx-rq-t2f"/>
-                            <constraint firstItem="VMu-G3-waQ" firstAttribute="leading" secondItem="zzb-vt-TxJ" secondAttribute="leading" constant="20" id="Zjg-gK-Rww"/>
+                            <constraint firstItem="VMu-G3-waQ" firstAttribute="leading" secondItem="zzb-vt-TxJ" secondAttribute="leading" constant="17" id="Zjg-gK-Rww"/>
                             <constraint firstItem="zzb-vt-TxJ" firstAttribute="trailing" secondItem="sZj-pA-NKE" secondAttribute="trailing" id="aYa-Sp-1jw"/>
                             <constraint firstItem="uP9-bm-L0u" firstAttribute="top" secondItem="sZj-pA-NKE" secondAttribute="bottom" id="mDn-nD-Hf1"/>
                             <constraint firstItem="bgv-Se-wCU" firstAttribute="centerY" secondItem="uP9-bm-L0u" secondAttribute="centerY" multiplier="0.95" id="mF8-Kx-LKg"/>
                             <constraint firstItem="QpG-8S-XgH" firstAttribute="leading" secondItem="zzb-vt-TxJ" secondAttribute="leading" id="mP7-eU-YOd"/>
-                            <constraint firstItem="zzb-vt-TxJ" firstAttribute="trailing" secondItem="VMu-G3-waQ" secondAttribute="trailing" constant="20" id="nxD-AQ-hDz"/>
+                            <constraint firstItem="zzb-vt-TxJ" firstAttribute="trailing" secondItem="VMu-G3-waQ" secondAttribute="trailing" constant="17" id="nxD-AQ-hDz"/>
                             <constraint firstItem="bgv-Se-wCU" firstAttribute="centerX" secondItem="uP9-bm-L0u" secondAttribute="centerX" id="ocL-1A-xoS"/>
                             <constraint firstItem="VMu-G3-waQ" firstAttribute="top" secondItem="sZj-pA-NKE" secondAttribute="bottom" constant="10" id="rBJ-pA-sPE"/>
                             <constraint firstItem="M7g-gF-SxX" firstAttribute="top" secondItem="VMu-G3-waQ" secondAttribute="bottom" constant="5" id="wZg-l2-vUp"/>
@@ -1853,6 +1854,7 @@
         <image name="backimg" width="30.333333969116211" height="30.333333969116211"/>
         <image name="close (2)" width="30" height="30"/>
         <image name="close_ic" width="256" height="256"/>
+        <image name="closeic" width="20" height="20"/>
         <image name="homeAdd" width="256" height="256"/>
         <image name="locationAt_ic" width="170.66667175292969" height="170.66667175292969"/>
         <image name="location_pin" width="170.66667175292969" height="170.66667175292969"/>
@@ -1860,7 +1862,6 @@
         <image name="myLocation" width="256" height="256"/>
         <image name="navigation" width="30" height="30"/>
         <image name="nextPink" width="256" height="256"/>
-        <image name="search_ic" width="18.333333969116211" height="18"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -1868,7 +1869,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

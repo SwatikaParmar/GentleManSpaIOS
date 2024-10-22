@@ -5814,13 +5814,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgN-Ar-mMD" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                    <rect key="frame" x="331.66666666666669" y="47.666666666666657" width="39.333333333333314" height="39.333333333333343"/>
+                                                    <rect key="frame" x="335.66666666666669" y="47.666666666666657" width="35.333333333333314" height="35.333333333333343"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkSer" translatesAutoresizingMaskIntoConstraints="NO" id="GEG-9X-gdk">
-                                                            <rect key="frame" x="3.9999999999999982" y="3.9999999999999982" width="31.333333333333329" height="31.333333333333329"/>
+                                                            <rect key="frame" x="1.9999999999999982" y="1.9999999999999982" width="31.333333333333329" height="31.333333333333329"/>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGz-fi-atR" customClass="UIButtonX" customModule="AnfasUser">
-                                                            <rect key="frame" x="0.0" y="0.0" width="39.333333333333336" height="39.333333333333336"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="35.333333333333336" height="35.333333333333336"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                                                             <state key="normal" title=" ">
@@ -5841,14 +5841,14 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="GEG-9X-gdk" firstAttribute="leading" secondItem="rgN-Ar-mMD" secondAttribute="leading" constant="4" id="0wt-2m-Prt"/>
                                                         <constraint firstItem="IGz-fi-atR" firstAttribute="top" secondItem="rgN-Ar-mMD" secondAttribute="top" id="58J-HG-99d"/>
                                                         <constraint firstAttribute="bottom" secondItem="IGz-fi-atR" secondAttribute="bottom" id="5Xu-tG-j6L"/>
                                                         <constraint firstAttribute="trailing" secondItem="IGz-fi-atR" secondAttribute="trailing" id="Iwp-ho-GUe"/>
-                                                        <constraint firstAttribute="bottom" secondItem="GEG-9X-gdk" secondAttribute="bottom" constant="4" id="ScT-0a-DWe"/>
+                                                        <constraint firstAttribute="trailing" secondItem="GEG-9X-gdk" secondAttribute="trailing" constant="2" id="VeI-2l-iBH"/>
                                                         <constraint firstItem="IGz-fi-atR" firstAttribute="leading" secondItem="rgN-Ar-mMD" secondAttribute="leading" id="Vlh-Az-bPC"/>
-                                                        <constraint firstItem="GEG-9X-gdk" firstAttribute="top" secondItem="rgN-Ar-mMD" secondAttribute="top" constant="4" id="ZvC-Gw-GFq"/>
-                                                        <constraint firstAttribute="trailing" secondItem="GEG-9X-gdk" secondAttribute="trailing" constant="4" id="lwB-h2-2Xt"/>
+                                                        <constraint firstItem="GEG-9X-gdk" firstAttribute="leading" secondItem="rgN-Ar-mMD" secondAttribute="leading" constant="2" id="duq-4p-kPU"/>
+                                                        <constraint firstAttribute="bottom" secondItem="GEG-9X-gdk" secondAttribute="bottom" constant="2" id="iuB-zt-T4d"/>
+                                                        <constraint firstItem="GEG-9X-gdk" firstAttribute="top" secondItem="rgN-Ar-mMD" secondAttribute="top" constant="2" id="sAg-Xq-cKo"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

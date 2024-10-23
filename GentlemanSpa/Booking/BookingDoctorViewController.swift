@@ -19,7 +19,7 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
     @IBOutlet weak var btnLast_M: UIButton!
     @IBOutlet weak var imgLeftArr: UIImageView!
     @IBOutlet weak var imgRightArr: UIImageView!
-    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+  
     @IBOutlet weak var timeViewH: NSLayoutConstraint!
 
     @IBOutlet weak var collectionTime: UICollectionView!
@@ -27,7 +27,10 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
     @IBOutlet weak var lbeMultiDays: UILabel!
     @IBOutlet weak var btnSingleDay: UIButton!
     @IBOutlet weak var btnMultiDays: UIButton!
-    @IBOutlet weak var lbeSlots: UILabel!
+    
+    @IBOutlet weak var btnBooking: UIButton!
+
+    
     @IBOutlet var lbeDate: UILabel!
     @IBOutlet var viewNoData: UIView!
     @IBOutlet var viewScroll: UIScrollView!
@@ -43,6 +46,8 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
     var strMonth = String()
     var timeIndex = -1
     var singleDays = true
+    var isReschedule = false
+    var isMyCart = false
     var serviceId = 0
     var spaServiceId = 0
     var professionalId = 0
@@ -51,6 +56,7 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
     var serviceBookingId = 0
 
 
+    var bookingMessage = ""
     var selectDate = ""
     var selectTime = ""
     var typePackage = ""
@@ -63,6 +69,17 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
         super.viewDidLoad()
         
         lbeD.text = name
+        if orderId > 0 {
+            btnBooking.setTitle("Reschedule an Appointment", for: .normal)
+        }
+        else {
+            if self.isReschedule {
+                btnBooking.setTitle("Reschedule an Appointment", for: .normal)
+            }
+            else{
+                btnBooking.setTitle("Book an Appointment", for: .normal)
+            }
+        }
         
         for i in 0 ..< arrayData.count {
             if i == 0 {
@@ -107,6 +124,9 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
         lbeMultiDays.layer.masksToBounds = true
         btnMultiDays.addTarget(self, action: #selector(connected_MultiDays(sender:)), for: .touchUpInside)
         btnSingleDay.addTarget(self, action: #selector(connected_SingleDay(sender:)), for: .touchUpInside)
+        
+        NotificationCenter.default.removeObserver(self, name:NSNotification.Name(rawValue: "Go_To_Last_Class"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.Go_To_Last_Class), name: NSNotification.Name(rawValue: "Go_To_Last_Class"), object: nil)
 
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -129,8 +149,49 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
         
         self.calenderVw.bookedSlotDate =  self.dateSelectArray
         self.calenderVw.collectionView.reloadData()
-        
+    
         }
+    
+    
+    
+    @objc func Go_To_Last_Class(_ notification: NSNotification) {
+        
+        if let dict = notification.userInfo as NSDictionary? {
+            if let id = dict["class"] as? String{
+                
+                if id == "Home" {
+                    UserDefaults.standard.set(true, forKey: "MyCart")
+                    RootControllerManager().SetRootViewController()
+                }
+                else {
+                    if let viewControllers = self.navigationController?.viewControllers {
+                        var isPop = false
+                        for viewController in viewControllers {
+                            if viewController.isKind(of: MyCartViewController.self) {
+                                self.navigationController?.popToViewController(viewController, animated: true)
+                                isPop = true
+                                break
+                            }
+                        }
+                        if !isPop {
+                            for viewController in viewControllers {
+                                if viewController.isKind(of: SelectProfessionalVc.self) {
+                                    self.navigationController?.popToViewController(viewController, animated: true)
+                                    isPop = true
+                                    break
+                                }
+                            }
+                            
+                        }
+                        if !isPop {
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     
     func changedata(){
         if singleDays{
@@ -448,7 +509,27 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
         AddUpdateCartServiceRequest.shared.AddUpdateCartServiceAPI(requestParams: Model) { (user,message,isStatus) in
             if isStatus {
                 if isStatus {
-                    NotificationAlert().NotificationAlert(titles: message ?? GlobalConstants.successMessage)
+                    
+                    
+                    let controller:ServiceBookingAlertController =  UIStoryboard(storyboard: .User).initVC()
+                    controller.providesPresentationContextTransitionStyle = true
+                    controller.definesPresentationContext = true
+                    controller.modalPresentationStyle=UIModalPresentationStyle.overCurrentContext
+                    if self.isReschedule {
+                        controller.titleTextString = "Rescheduling Successful!"
+
+                    }
+                    else{
+                        controller.titleTextString = "Booking Successfully Scheduled!"
+                    }
+                    
+                    var dateStr = ""
+                    dateStr =  String(format: "%@", "".convertToDDMMYYYY("".dateFromString(self.selectDate)))
+
+                    controller.addTextString = String(format: "Your booking has been scheduled for %@ at %@ with %@", dateStr, self.selectTime, self.name )
+                    controller.isGoToCart = false
+                    controller.isGoToCart = self.isMyCart
+                    self.present(controller, animated: true, completion: nil)
                 }
             }
             else{
@@ -462,7 +543,17 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
         RescheduleServiceRequest.shared.RescheduleAPI(requestParams: Model) { (user,message,isStatus) in
             if isStatus {
                 if isStatus {
-                    NotificationAlert().NotificationAlert(titles: message ?? GlobalConstants.successMessage)
+                    let controller:ServiceBookingAlertController =  UIStoryboard(storyboard: .User).initVC()
+                    controller.providesPresentationContextTransitionStyle = true
+                    controller.definesPresentationContext = true
+                    controller.modalPresentationStyle=UIModalPresentationStyle.overCurrentContext
+                    controller.titleTextString = "Rescheduling Successful!"
+                    var dateStr = ""
+                    dateStr =  String(format: "%@", "".convertToDDMMYYYY("".dateFromString(self.selectDate)))
+
+                    controller.addTextString = String(format: "Your booking has been scheduled for %@ at %@ with %@", dateStr, self.selectTime, self.name )
+                    controller.isGoToCart = true
+                    self.present(controller, animated: true, completion: nil)
                 }
             }
             else{

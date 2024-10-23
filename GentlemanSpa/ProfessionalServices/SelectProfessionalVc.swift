@@ -128,6 +128,10 @@ extension SelectProfessionalVc: UITableViewDataSource,UITableViewDelegate {
         let controller:SelectProfessionalListVc =  UIStoryboard(storyboard: .Services).initVC()
         controller.spaServiceId = arrSortedService[indexPath.row].spaServiceId
         controller.serviceName = arrSortedService[indexPath.row].serviceName
+        if arrSortedService[indexPath.row].professionalName != ""{
+            controller.isReschedule = true
+            controller.isMyCart = false
+        }
         self.navigationController?.pushViewController(controller, animated: true)
 
     }
@@ -138,6 +142,11 @@ extension SelectProfessionalVc: UITableViewDataSource,UITableViewDelegate {
         let controller:SelectProfessionalListVc =  UIStoryboard(storyboard: .Services).initVC()
         controller.spaServiceId = arrSortedService[sender.tag].spaServiceId
         controller.serviceName = arrSortedService[sender.tag].serviceName
+        if arrSortedService[sender.tag].professionalName != ""{
+            controller.isReschedule = true
+            controller.isMyCart = false
+
+        }
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }

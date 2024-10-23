@@ -51,7 +51,6 @@ class ProductListViewController:  UIViewController {
         let params = [ "availableService": ""
         ] as [String : Any]
         
-         
         GetProductCartRequest.shared.GetCartItemsAPI(requestParams:params, isLoader) { [self] (arrayData,arrayService,message,isStatus,totalAmount) in
             if isStatus {
                 if arrayData != nil{

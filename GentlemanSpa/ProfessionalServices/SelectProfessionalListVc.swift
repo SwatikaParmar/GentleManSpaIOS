@@ -14,6 +14,8 @@ class SelectProfessionalListVc: UIViewController {
     var arrGetProfessionalList = [GetProfessionalObject]()
     var spaServiceId = 0
     var serviceName = ""
+    var isReschedule = false
+    var isMyCart = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -147,6 +149,9 @@ extension SelectProfessionalListVc: UITableViewDataSource,UITableViewDelegate {
             controller.arrayData  = arrGetProfessionalList[indexPath.row].object?.arrayData ?? NSArray()
             controller.professionalId  = arrGetProfessionalList[indexPath.row].object?.professionalDetailId ?? 0
             controller.spaServiceId = spaServiceId
+            controller.isReschedule = self.isReschedule
+            controller.isMyCart = self.isMyCart
+
             self.navigationController?.pushViewController(controller, animated: true)
 
         }

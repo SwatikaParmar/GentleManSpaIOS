@@ -729,6 +729,9 @@ extension CartUserViewController: UITableViewDataSource,UITableViewDelegate {
         let controller:SelectProfessionalListVc =  UIStoryboard(storyboard: .Services).initVC()
         controller.spaServiceId = arrSortedService[sender.tag].spaServiceId
         controller.serviceName = arrSortedService[sender.tag].serviceName
+        if arrSortedService[sender.tag].professionalName != ""{
+            controller.isReschedule = true
+        }
         self.navigationController?.pushViewController(controller, animated: true)
 
         

@@ -86,7 +86,6 @@ class GetServiceAppointmentsListRequest: NSObject{
             self.orderStatus = dict["orderStatus"] as? String ?? ""
             self.price = dict["price"] as? Double ?? 0.00
             self.professionalDetailId = dict["professionalDetailId"] as? Int ?? 0
-            self.professionalName = dict["professionalName"] as? String ?? ""
             self.serviceBookingId = dict["serviceBookingId"] as? Int ?? 0
             self.serviceName = dict["serviceName"] as? String ?? ""
             self.slotDate = dict["slotDate"] as? String ?? ""
@@ -95,6 +94,9 @@ class GetServiceAppointmentsListRequest: NSObject{
             self.toTime = dict["toTime"] as? String ?? ""
             self.durationInMinutes = dict["durationInMinutes"] as? Int ?? 0
             self.professionalImage = dict["professionalImage"] as? String ?? ""
+            
+            professionalName = dict["professionalName"] as? String ?? "".capitalized
+            professionalName = professionalName.capitalized
 
         }
     }

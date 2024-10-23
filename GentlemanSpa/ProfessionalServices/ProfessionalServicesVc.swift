@@ -101,9 +101,10 @@ class ProfessionalServicesVc: UIViewController {
                     for i in 0 ..< self.arrSortedService.count {
                         if self.arrSortedService[i].serviceCountInCart == 1 {
                             self.myCartAPI(false)
+                            self.spaServiceId = self.arrSortedService[i].spaServiceId
+
                         }
 
-                        self.spaServiceId = self.arrSortedService[i].spaServiceId
                     }
                     
                     if self.arrSortedService.count > 0 {
@@ -185,6 +186,7 @@ class ProfessionalServicesVc: UIViewController {
             for i in 0 ..< self.arrSortedService.count {
                 if self.arrSortedService[i].serviceCountInCart == 1 {
                     isData = true
+                    self.spaServiceId = self.arrSortedService[i].spaServiceId
                 }
                 
             }

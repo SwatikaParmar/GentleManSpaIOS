@@ -278,7 +278,10 @@ class AllCartServices: NSObject {
         serviceId = dictionary["serviceId"] as? Int ?? 0
         slotDate = dictionary["slotDate"] as? String ?? ""
         fromTime = dictionary["fromTime"] as? String ?? ""
-        professionalName = dictionary["professionalName"] as? String ?? ""
+        
+        professionalName = dictionary["professionalName"] as? String ?? "".capitalized
+        professionalName = professionalName.capitalized
+        
         professionalImage = dictionary["professionalImage"] as? String ?? ""
 
     }

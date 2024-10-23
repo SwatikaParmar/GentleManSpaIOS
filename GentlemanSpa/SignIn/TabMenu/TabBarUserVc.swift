@@ -41,9 +41,15 @@ class TabBarUserVc: UIViewController {
         
         override func viewDidLoad() {
             super.viewDidLoad()
+           
+            
+
             
             print(accessToken())
             getProfileAPI()
+            
+            
+            
 //            TabBarView.layer.masksToBounds = false
 //            TabBarView?.layer.shadowColor = UIColor.darkGray.cgColor
 //            TabBarView?.layer.shadowOffset =  CGSize.zero
@@ -88,7 +94,6 @@ class TabBarUserVc: UIViewController {
                     homeClassNav?.popToRootViewController(animated: false)
                     homeClassNav!.didMove(toParent: self)
                     self.Contentview.bringSubviewToFront(self.homeClassNav!.view)
-                    
                     lastOpenClass = "Home"
                 }
                 else{
@@ -101,15 +106,19 @@ class TabBarUserVc: UIViewController {
                     homeClassNav!.didMove(toParent: self)
                     lastOpenClass = "Home"
                     
+                    if UserDefaults.standard.bool(forKey: "MyCart"){
+                        UserDefaults.standard.set(false, forKey: "MyCart")
+                        let controller:MyCartViewController =  UIStoryboard(storyboard: .Cart).initVC()
+                        self.navigationController?.pushViewController(controller, animated: true)
+                        lastOpenClass = "MyCart"
+                    }
                 }
             }
             
             
             else if className == "MyCart"{
-    
                 let controller:MyCartViewController =  UIStoryboard(storyboard: .Cart).initVC()
                 self.navigationController?.pushViewController(controller, animated: true)
-                
                 lastOpenClass = "MyCart"
                 
             }
@@ -233,5 +242,6 @@ class TabBarUserVc: UIViewController {
             
             
         }
+        
         
     }

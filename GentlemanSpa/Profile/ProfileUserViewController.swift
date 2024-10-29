@@ -88,7 +88,61 @@ class ProfileUserViewController: UIViewController,UITableViewDelegate,UITableVie
             let controller:MessagesController =  UIStoryboard(storyboard: .Chat).initVC()
             self.parent?.navigationController?.pushViewController(controller, animated: true)
         }
+        if indexPath.row == 2 {
+            let controller:EventsViewController =  UIStoryboard(storyboard: .Chat).initVC()
+            self.parent?.navigationController?.pushViewController(controller, animated: true)
+        }
        
+        if indexPath.row == 3 {
+            shareData()
+        }
+        if indexPath.row == 4 {
+            let controller:AboutUsViewController =  UIStoryboard(storyboard: .Services).initVC()
+            self.parent?.navigationController?.pushViewController(controller, animated: true)
+        }
+        
+    }
+    
+    
+    func shareData(){
+        // Setting description
+            let firstActivityItem = "Description you want.."
+
+            // Setting url
+            let secondActivityItem : NSURL = NSURL(string: "http://your-url.com/")!
+            
+            // If you want to use an image
+        let image : UIImage = UIImage(named: "login_ic") ?? UIImage()
+            let activityViewController : UIActivityViewController = UIActivityViewController(
+                activityItems: [firstActivityItem, secondActivityItem, image], applicationActivities: nil)
+            
+            // This lines is for the popover you need to show in iPad
+           // activityViewController.popoverPresentationController?.sourceView = (sender as! UIButton)
+            
+            // This line remove the arrow of the popover to show in iPad
+            activityViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.down
+            activityViewController.popoverPresentationController?.sourceRect = CGRect(x: 150, y: 150, width: 0, height: 0)
+            
+            // Pre-configuring activity items
+            activityViewController.activityItemsConfiguration = [
+            UIActivity.ActivityType.message
+            ] as? UIActivityItemsConfigurationReading
+            
+            // Anything you want to exclude
+            activityViewController.excludedActivityTypes = [
+                UIActivity.ActivityType.postToWeibo,
+                UIActivity.ActivityType.print,
+                UIActivity.ActivityType.assignToContact,
+                UIActivity.ActivityType.saveToCameraRoll,
+                UIActivity.ActivityType.addToReadingList,
+                UIActivity.ActivityType.postToFlickr,
+                UIActivity.ActivityType.postToVimeo,
+                UIActivity.ActivityType.postToTencentWeibo,
+                UIActivity.ActivityType.postToFacebook
+            ]
+            
+            activityViewController.isModalInPresentation = true
+            self.present(activityViewController, animated: true, completion: nil)
     }
 }
 

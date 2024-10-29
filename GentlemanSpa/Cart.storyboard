@@ -2021,10 +2021,11 @@
                                             <outlet property="imageV" destination="Jl1-Iv-lSN" id="wW0-zT-GSt"/>
                                             <outlet property="imgViewRound" destination="TPY-UK-dAD" id="K8P-9d-fOJ"/>
                                             <outlet property="lbeAmount" destination="ZE9-SQ-dsS" id="uaY-1a-LxI"/>
+                                            <outlet property="lbeBookingID" destination="BlC-CD-D9g" id="Q0y-rp-cWU"/>
                                             <outlet property="lbeDate" destination="TCs-Xa-jlM" id="qaZ-X1-QIQ"/>
                                             <outlet property="lbeDelivery" destination="aax-nr-Dbp" id="9by-cl-JkM"/>
                                             <outlet property="lbeName" destination="uUv-0k-MwR" id="F6o-yh-DfJ"/>
-                                            <outlet property="lbeOrder" destination="xdT-HJ-MpT" id="TsD-82-Sts"/>
+                                            <outlet property="lbeOrder" destination="xdT-HJ-MpT" id="3Jm-ka-4p3"/>
                                             <outlet property="lbePayment" destination="u2f-ye-GJQ" id="v6X-Zp-PAv"/>
                                             <outlet property="lbeQML" destination="xlY-Ur-2ki" id="Puv-oJ-j0G"/>
                                         </connections>

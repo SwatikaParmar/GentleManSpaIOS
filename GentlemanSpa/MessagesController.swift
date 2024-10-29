@@ -44,12 +44,12 @@ class MessagesController: UIViewController ,UITableViewDataSource,UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessagesCell") as! MessagesCell
-        cell.imgView.layer.masksToBounds = true
-        cell.imgView.layer.cornerRadius = 35
-        cell.imgView.layer.borderWidth = 0.5
-        cell.imgView.layer.backgroundColor = UIColor.darkGray.cgColor
-        cell.lbeOnline.layer.cornerRadius = 8
-        cell.lbeOnline.clipsToBounds = true
+            cell.imgView.layer.masksToBounds = true
+            cell.imgView.layer.cornerRadius = 35
+            cell.imgView.layer.borderWidth = 0.5
+            cell.imgView.layer.backgroundColor = UIColor.darkGray.cgColor
+            cell.lbeOnline.layer.cornerRadius = 8
+            cell.lbeOnline.clipsToBounds = true
         
         if indexPath.row == 0{
             cell.lbeOnline.isHidden = false
@@ -68,7 +68,8 @@ class MessagesController: UIViewController ,UITableViewDataSource,UITableViewDel
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {

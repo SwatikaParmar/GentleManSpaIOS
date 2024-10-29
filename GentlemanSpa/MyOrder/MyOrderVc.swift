@@ -139,6 +139,9 @@ extension MyOrderVc: UITableViewDataSource,UITableViewDelegate {
         
         var dateStr = ""
         dateStr =  String(format: "ORDER DATE: %@", "".convertToDDMMYYYY("".dateFromString(self.arrOrder[indexPath.row].orderDate)))
+        
+        cell.lbeBookingID.text = String(format: "ORDER ID: %d", self.arrOrder[indexPath.row].orderId )
+
         cell.lbeDate.text = dateStr
         cell.lbeName.text = arrOrder[indexPath.row].productName
         
@@ -214,5 +217,6 @@ class MyOrderTableViewCell: UITableViewCell {
     @IBOutlet weak var lbeOrder: UILabel!
     @IBOutlet weak var lbePayment: UILabel!
     @IBOutlet weak var lbeDate: UILabel!
+    @IBOutlet weak var lbeBookingID: UILabel!
 
 }

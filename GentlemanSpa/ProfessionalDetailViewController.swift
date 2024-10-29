@@ -25,8 +25,6 @@ class ProfessionalDetailViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-  
-    
     // MARK: - get Profile API
     func getProfileAPI(){
     
@@ -38,7 +36,6 @@ class ProfessionalDetailViewController: UIViewController {
                                                placeholderImage: UIImage(named: "placeholder_Male"),
                                                options: .refreshCached,
                                                completed: nil)
-                        
                         
                         self.lbeSpe.text = ""
                         if let array = user?.objectPro?.speciality as? NSMutableArray {
@@ -53,18 +50,13 @@ class ProfessionalDetailViewController: UIViewController {
                                 }
                                 self.lbeSpe.textColor = UIColor.black
                             }
-                            
-                            
                         }
                         
                         let heightSizeLine = self.lbeSpe.text?.heightForView(text: "", font: UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(14)) ?? UIFont.systemFont(ofSize: 15.0), width: self.view.frame.width - 100)
                         self.specialityConst.constant = CGFloat((heightSizeLine ?? 32) + 6)
                       
-                    }
                 }
             }
+        }
     }
-    
-
-
 }

@@ -191,6 +191,10 @@ class ServicesListTableViewCell: UITableViewCell {
             controller.isReschedule = true
             controller.isMyCart = true
         }
+        else{
+            controller.isMyCart = true
+        }
+
         
         self.lastClass.navigationController?.pushViewController(controller, animated: true)
 

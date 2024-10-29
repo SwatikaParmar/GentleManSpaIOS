@@ -58,6 +58,7 @@ class HomeUserViewController: UIViewController {
         
         let params = [ "spaDetailId": 21,
                        "categoryType": type,
+                       
         ] as [String : Any]
         
         HomeListRequest.shared.homeListAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in

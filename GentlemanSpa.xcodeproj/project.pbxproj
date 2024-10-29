@@ -14,6 +14,12 @@
 		3404F3112C3F936E00FF0F41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3404F3102C3F936E00FF0F41 /* Assets.xcassets */; };
 		3404F3142C3F936E00FF0F41 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3404F3132C3F936E00FF0F41 /* Base */; };
 		3408D4992C5FD6060072C4E4 /* UpdateProfileProViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3408D4982C5FD6060072C4E4 /* UpdateProfileProViewController.swift */; };
+		340E7C3E2CCF876C00CA531F /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E7C3D2CCF876C00CA531F /* ChatController.swift */; };
+		340E7C402CCF88B200CA531F /* ChatRightTextTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E7C3F2CCF88B200CA531F /* ChatRightTextTableCell.swift */; };
+		340E7C422CCF897900CA531F /* ChatRightTextTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340E7C412CCF897900CA531F /* ChatRightTextTableCell.xib */; };
+		340E7C442CCF898200CA531F /* ChatLeftTextTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340E7C432CCF898200CA531F /* ChatLeftTextTableCell.xib */; };
+		340E7C462CCF8D9B00CA531F /* ChatLeftTextTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E7C452CCF8D9B00CA531F /* ChatLeftTextTableCell.swift */; };
+		340E7C482CCFAAE900CA531F /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E7C472CCFAAE900CA531F /* AboutUsViewController.swift */; };
 		341748302C58F9610015AF5E /* SpaLocationVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3417482F2C58F9610015AF5E /* SpaLocationVc.swift */; };
 		34186AB72CB39FF900717E47 /* Address.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34186AB62CB39FF900717E47 /* Address.storyboard */; };
 		34186ABD2CB3A16E00717E47 /* MyLocationVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34186ABC2CB3A16E00717E47 /* MyLocationVc.swift */; };
@@ -29,6 +35,8 @@
 		343813C22C69E420003B4B30 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343813C12C69E420003B4B30 /* HomeCell.swift */; };
 		3438E90B2C609DE4005BFC03 /* CreateSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438E90A2C609DE4005BFC03 /* CreateSchedule.swift */; };
 		3438E90D2C60A5C4005BFC03 /* UpdateProfessionalProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438E90C2C60A5C4005BFC03 /* UpdateProfessionalProfile.swift */; };
+		343F94252CD0ADA8008A1A23 /* RequestsManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343F94242CD0ADA8008A1A23 /* RequestsManagementViewController.swift */; };
+		343F94292CD0CAB8008A1A23 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343F94282CD0CAB8008A1A23 /* EventsViewController.swift */; };
 		34498CF12C463DB900F541DB /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34498CF02C463DB900F541DB /* CreateAccountController.swift */; };
 		34498CF32C463F1C00F541DB /* VerifiyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34498CF22C463F1C00F541DB /* VerifiyController.swift */; };
 		344B96532CABD2830022F502 /* SelectProfessionalVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344B96522CABD2830022F502 /* SelectProfessionalVc.swift */; };
@@ -135,6 +143,12 @@
 		3404F3132C3F936E00FF0F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3404F3152C3F936E00FF0F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3408D4982C5FD6060072C4E4 /* UpdateProfileProViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileProViewController.swift; sourceTree = "<group>"; };
+		340E7C3D2CCF876C00CA531F /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
+		340E7C3F2CCF88B200CA531F /* ChatRightTextTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRightTextTableCell.swift; sourceTree = "<group>"; };
+		340E7C412CCF897900CA531F /* ChatRightTextTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatRightTextTableCell.xib; sourceTree = "<group>"; };
+		340E7C432CCF898200CA531F /* ChatLeftTextTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatLeftTextTableCell.xib; sourceTree = "<group>"; };
+		340E7C452CCF8D9B00CA531F /* ChatLeftTextTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLeftTextTableCell.swift; sourceTree = "<group>"; };
+		340E7C472CCFAAE900CA531F /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		3417482F2C58F9610015AF5E /* SpaLocationVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaLocationVc.swift; sourceTree = "<group>"; };
 		34186AB62CB39FF900717E47 /* Address.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Address.storyboard; sourceTree = "<group>"; };
 		34186ABC2CB3A16E00717E47 /* MyLocationVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationVc.swift; sourceTree = "<group>"; };
@@ -151,6 +165,8 @@
 		343813C12C69E420003B4B30 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		3438E90A2C609DE4005BFC03 /* CreateSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSchedule.swift; sourceTree = "<group>"; };
 		3438E90C2C60A5C4005BFC03 /* UpdateProfessionalProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfessionalProfile.swift; sourceTree = "<group>"; };
+		343F94242CD0ADA8008A1A23 /* RequestsManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsManagementViewController.swift; sourceTree = "<group>"; };
+		343F94282CD0CAB8008A1A23 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		34498CF02C463DB900F541DB /* CreateAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
 		34498CF22C463F1C00F541DB /* VerifiyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiyController.swift; sourceTree = "<group>"; };
 		344B96522CABD2830022F502 /* SelectProfessionalVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProfessionalVc.swift; sourceTree = "<group>"; };
@@ -294,7 +310,13 @@
 				3460D6F02C9D34390076C4C2 /* Product */,
 				344E0C6D2CA133CC00D32AB6 /* MyOrder */,
 				34CC18BB2CB7AF68003128DE /* MessagesController.swift */,
+				340E7C3D2CCF876C00CA531F /* ChatController.swift */,
+				340E7C412CCF897900CA531F /* ChatRightTextTableCell.xib */,
+				340E7C3F2CCF88B200CA531F /* ChatRightTextTableCell.swift */,
+				340E7C432CCF898200CA531F /* ChatLeftTextTableCell.xib */,
+				340E7C452CCF8D9B00CA531F /* ChatLeftTextTableCell.swift */,
 				34D2B5B32CC78FDF0012C358 /* ProfessionalDetailViewController.swift */,
+				340E7C472CCFAAE900CA531F /* AboutUsViewController.swift */,
 				3460D6E82C9D32BB0076C4C2 /* Cart */,
 				3460D6EF2C9D34180076C4C2 /* ProfessionalServices */,
 				34DEF4832C5DFF8100F395A8 /* Professional */,
@@ -433,6 +455,7 @@
 				34B4CD952C48D5AE006B9F1F /* ProfileUserViewController.swift */,
 				34D372432C4E1CE6000DC680 /* UpdateProfileUserViewController.swift */,
 				3417482F2C58F9610015AF5E /* SpaLocationVc.swift */,
+				343F94282CD0CAB8008A1A23 /* EventsViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -545,6 +568,7 @@
 				345001FA2C776DF2001A2A0D /* ProGetProductAPI.swift */,
 				34C80D752C75B0EC00FE9E02 /* ProAddProductVc.swift */,
 				34DA67AB2C7C3437002C0EE9 /* ProductCategoryViewController.swift */,
+				343F94242CD0ADA8008A1A23 /* RequestsManagementViewController.swift */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -708,6 +732,7 @@
 			files = (
 				34CC18BE2CB7B680003128DE /* Chat.storyboard in Resources */,
 				34DEF4822C5DFF3C00F395A8 /* Professional.storyboard in Resources */,
+				340E7C442CCF898200CA531F /* ChatLeftTextTableCell.xib in Resources */,
 				3404F3112C3F936E00FF0F41 /* Assets.xcassets in Resources */,
 				34CE92522C40E8E40007E086 /* Poppins-Medium.ttf in Resources */,
 				34CE92552C40E8E40007E086 /* Poppins-Italic.ttf in Resources */,
@@ -717,6 +742,7 @@
 				34186AB72CB39FF900717E47 /* Address.storyboard in Resources */,
 				34B4CD982C48D5D1006B9F1F /* User.storyboard in Resources */,
 				3404F30F2C3F936D00FF0F41 /* Base in Resources */,
+				340E7C422CCF897900CA531F /* ChatRightTextTableCell.xib in Resources */,
 				34CE92532C40E8E40007E086 /* Poppins-Regular.ttf in Resources */,
 				344E0C6C2CA12A0000D32AB6 /* Cart.storyboard in Resources */,
 				342026CE2CC37C20001A8FFD /* GoogleService-Info.plist in Resources */,
@@ -810,10 +836,13 @@
 				34498CF32C463F1C00F541DB /* VerifiyController.swift in Sources */,
 				34BB81852C622D630090581C /* MyServiceViewController.swift in Sources */,
 				34DEF48D2C5E040700F395A8 /* NotificationViewController.swift in Sources */,
+				340E7C402CCF88B200CA531F /* ChatRightTextTableCell.swift in Sources */,
 				34D338222C5A7A8E003C6B13 /* CalendarView+Style.swift in Sources */,
 				3404F30C2C3F936D00FF0F41 /* ViewController.swift in Sources */,
 				344E0C702CA1341500D32AB6 /* MyOrderVc.swift in Sources */,
+				340E7C482CCFAAE900CA531F /* AboutUsViewController.swift in Sources */,
 				3460D6FC2C9D43800076C4C2 /* MyCartCell.swift in Sources */,
+				343F94252CD0ADA8008A1A23 /* RequestsManagementViewController.swift in Sources */,
 				34CE92682C40EAE60007E086 /* UIViewAnchorPoint.swift in Sources */,
 				34CE92662C40EAE60007E086 /* UIButtonX.swift in Sources */,
 				34D404452C4F66550063AEF7 /* HomeUTableView.swift in Sources */,
@@ -846,6 +875,7 @@
 				34B4CD902C48D512006B9F1F /* HomeUserViewController.swift in Sources */,
 				34186ABD2CB3A16E00717E47 /* MyLocationVc.swift in Sources */,
 				34EC32402CC23417007067AD /* OrderDetailsTableViewCell.swift in Sources */,
+				343F94292CD0CAB8008A1A23 /* EventsViewController.swift in Sources */,
 				34C093EA2C9A9534001BBB40 /* GetProfessional.swift in Sources */,
 				34D372462C4E3E1C000DC680 /* SpecialitiesViewController.swift in Sources */,
 				34186ACA2CB3A61900717E47 /* EditAddressVc.swift in Sources */,
@@ -854,6 +884,7 @@
 				34D404492C4F6C2D0063AEF7 /* HomeBannerModel.swift in Sources */,
 				34D338232C5A7A8E003C6B13 /* CalendarView+Delegate.swift in Sources */,
 				34D338252C5A7A8E003C6B13 /* CalendarView+DataSource.swift in Sources */,
+				340E7C3E2CCF876C00CA531F /* ChatController.swift in Sources */,
 				34D338282C5A7AE1003C6B13 /* BookingDoctorViewController.swift in Sources */,
 				345001FB2C776DF2001A2A0D /* ProGetProductAPI.swift in Sources */,
 				34D372442C4E1CE6000DC680 /* UpdateProfileUserViewController.swift in Sources */,
@@ -873,6 +904,7 @@
 				34B4CD8E2C48D4C8006B9F1F /* TabBarUserVc.swift in Sources */,
 				34BB81872C6230770090581C /* MyServiceAPI.swift in Sources */,
 				34DEF4852C5DFFCB00F395A8 /* TabBarProVc.swift in Sources */,
+				340E7C462CCF8D9B00CA531F /* ChatLeftTextTableCell.swift in Sources */,
 				34CE926D2C40EAE60007E086 /* ExtensionStoryboard.swift in Sources */,
 				34DEF4892C5E03E100F395A8 /* AppointmentsViewController.swift in Sources */,
 				34D3381F2C5A7A8E003C6B13 /* CalendarHeaderView.swift in Sources */,

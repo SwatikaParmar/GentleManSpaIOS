@@ -497,6 +497,7 @@ class GetProfileProRequest: NSObject {
                 }
             }
         }
+
 class ProfileProUpdateData: NSObject {
     var countryId = 0
     var stateId = 0

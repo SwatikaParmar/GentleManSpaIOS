@@ -28,8 +28,8 @@ class MenuProController: UIViewController,UITableViewDelegate,UITableViewDataSou
         self.versionLbl.text = Utility.shared.appVersion() + "(\(Utility.shared.appBuildVersion()))"
        
         
-        titleArray = ["Home","My Service","Add Product","Log Out"]
-        imagesArray = ["homeTab","myprofile","newProduct","logoutic"]
+        titleArray = ["Home","My Service","Add Product","Request","Refer","Log Out"]
+        imagesArray = ["homeTab","servicePro","newProduct","request_ic","ReferPro","logoutic"]
         
         tableview.contentInsetAdjustmentBehavior = .never
         
@@ -154,9 +154,61 @@ class MenuProController: UIViewController,UITableViewDelegate,UITableViewDataSou
                        navigationController.isNavigationBarHidden = true
                        sideMenuController?.rootViewController = navigationController
            }
+            else if indexPath.row == 3{
+                   
+                   let storyBoard = UIStoryboard.init(name: "Professional", bundle: nil)
+                   let controller = storyBoard.instantiateViewController(withIdentifier: "RequestsManagementViewController")
+                   let navigationController = UINavigationController(rootViewController: controller)
+                       navigationController.isNavigationBarHidden = true
+                       sideMenuController?.rootViewController = navigationController
+           }
+            else if indexPath.row == 4 {
+                shareData()
+            }
                 
             }
         }
+    
+    func shareData(){
+        // Setting description
+            let firstActivityItem = ""
+
+            // Setting url
+            let secondActivityItem : NSURL = NSURL(string: "http://your-url.com/")!
+            
+            // If you want to use an image
+        let image : UIImage = UIImage(named: "login_ic") ?? UIImage()
+            let activityViewController : UIActivityViewController = UIActivityViewController(
+                activityItems: [firstActivityItem, secondActivityItem, image], applicationActivities: nil)
+            
+            // This lines is for the popover you need to show in iPad
+           // activityViewController.popoverPresentationController?.sourceView = (sender as! UIButton)
+            
+            // This line remove the arrow of the popover to show in iPad
+            activityViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.down
+            activityViewController.popoverPresentationController?.sourceRect = CGRect(x: 150, y: 150, width: 0, height: 0)
+            
+            // Pre-configuring activity items
+            activityViewController.activityItemsConfiguration = [
+            UIActivity.ActivityType.message
+            ] as? UIActivityItemsConfigurationReading
+            
+            // Anything you want to exclude
+            activityViewController.excludedActivityTypes = [
+                UIActivity.ActivityType.postToWeibo,
+                UIActivity.ActivityType.print,
+                UIActivity.ActivityType.assignToContact,
+                UIActivity.ActivityType.saveToCameraRoll,
+                UIActivity.ActivityType.addToReadingList,
+                UIActivity.ActivityType.postToFlickr,
+                UIActivity.ActivityType.postToVimeo,
+                UIActivity.ActivityType.postToTencentWeibo,
+                UIActivity.ActivityType.postToFacebook
+            ]
+            
+            activityViewController.isModalInPresentation = true
+            self.present(activityViewController, animated: true, completion: nil)
+    }
     
     //MARK: - Logout Message Action Sheet
     func ActionSheet()

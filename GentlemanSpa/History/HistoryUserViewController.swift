@@ -179,7 +179,8 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
                 
                 cell.lbeProfessionalName.text = String(format: "%@", self.arrSortedService[indexPath.row].professionalName )
                 
-                
+                cell.lbeBookingID.text = String(format: "BOOKING ID: %d", self.arrSortedService[indexPath.row].orderId )
+
                 
                 return cell
             }
@@ -222,7 +223,8 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
                 
                 cell.lbeProfessionalName.text = String(format: "%@", self.arrSortedService[indexPath.row].professionalName )
                 
-                
+                cell.lbeBookingID.text = String(format: "BOOKING ID: %d", self.arrSortedService[indexPath.row].orderId )
+
                 return cell
             }
             else{
@@ -261,6 +263,8 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
                 dateStr =  String(format: "%@, %@ at %@", "".getTodayWeekDay("".dateFromString(self.arrSortedService[indexPath.row].slotDate)),"".convertToDDMMYYYY("".dateFromString(arrSortedService[indexPath.row].slotDate)), self.arrSortedService[indexPath.row].fromTime)
                 
                 cell.lbeTime.text = dateStr
+                cell.lbeBookingID.text = String(format: "BOOKING ID: %d", self.arrSortedService[indexPath.row].orderId )
+
                 return cell
             }
         }

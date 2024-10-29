@@ -711,16 +711,7 @@ class CreateTimeSlotsController:UIViewController,UIPickerViewDataSource,UIPicker
                     self.popMessageAlert(title: "Alert", message: msg!)
 
                 }
-                
             }
-            
-            
-        
-            
-            }
-            else{
-             
-               
         }
     }
 

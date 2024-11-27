@@ -18,7 +18,6 @@ class LiveLocationRequest: NSObject {
 
         AlamofireRequest.shared.LivePostBodyForRawData(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader:false, loaderMessage: "") { (data, error) in
                 
-                   
                      if error == nil{
                          var messageString : String = ""
                          if let status = data?["isSuccess"] as? Bool{

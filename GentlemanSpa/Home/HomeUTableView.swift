@@ -133,7 +133,7 @@ extension HomeUserViewController: UITableViewDataSource,UITableViewDelegate,Cate
                     
                 }
             }
-            return  300
+            return  0
         }
         
         if indexPath.section == 3 {
@@ -152,14 +152,14 @@ extension HomeUserViewController: UITableViewDataSource,UITableViewDelegate,Cate
                     
                 }
             }
-            return  300
+            return  0
         }
         
         if indexPath.section == 4 {
             
-          
-            return 225
-
+            if self.arrGetProfessionalList.count > 0{
+                return 225
+            }
            
         }
         

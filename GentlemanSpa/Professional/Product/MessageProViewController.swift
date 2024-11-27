@@ -1,14 +1,15 @@
 //
-//  MessagesController.swift
+//  MessageProViewController.swift
 //  GentlemanSpa
 //
-//  Created by AbsolveTech on 10/10/24.
+//  Created by AbsolveTech on 27/11/24.
 //
 
 import UIKit
+import UIKit
 import Firebase
 import FirebaseDatabase
-class MessagesController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class MessageProViewController:UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var navigationViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var navigationView: UIView!
@@ -60,8 +61,7 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         topViewLayout()
-        self.noUserView.isHidden = true
-
+        // Do any additional setup after loading the view.
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.ChatUserList_ObserverRemove), name: NSNotification.Name(rawValue: "ChatUserList_ObserverRemove"), object: nil)
@@ -411,28 +411,6 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
               }
            }
         }
-}
-
-
-class MessagesCell: UITableViewCell {
-
-    @IBOutlet weak var imgView : UIImageView!
-    @IBOutlet weak var lbeName : UILabel!
-    @IBOutlet weak var lbeLastMessage : UILabel!
-    @IBOutlet weak var lbeTime : UILabel!
-    @IBOutlet weak var lbeOnline : UILabel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
 
 

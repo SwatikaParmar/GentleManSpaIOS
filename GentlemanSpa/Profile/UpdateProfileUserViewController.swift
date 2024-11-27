@@ -202,8 +202,8 @@ class UpdateProfileUserViewController: UIViewController {
                                 UserDefaults.standard.set(user?.email, forKey: Constants.email)
                                 UserDefaults.standard.set(user?.profilePic, forKey: Constants.userImg)
                                 UserDefaults.standard.set(user?.phone, forKey: Constants.phone)
+                                UserDefaults.standard.set(user?.gender, forKey: Constants.gender)
 
-                        
                                 UserDefaults.standard.synchronize()
                         
                                 self.showDataOnProfile()
@@ -310,10 +310,6 @@ class UpdateProfileUserViewController: UIViewController {
         }
         
         
-       
-
-                      
-        
         let params = ["email": trimmedEmailName,
                       "firstName":trimmedName ,
                       "lastName": trimmedlast,
@@ -336,10 +332,7 @@ class UpdateProfileUserViewController: UIViewController {
                 self.MessageAlert(title: "Alert", message: msg!)
 
             }
-            
         }
-        
-        
     }
     
     
@@ -349,7 +342,7 @@ class UpdateProfileUserViewController: UIViewController {
         
         var fileName = ""
         fileName =  "iOS" + NSUUID().uuidString + ".jpeg"
-        var apiURL = String("\("Base".uploadProfilePic)")
+        let apiURL = String("\("Base".uploadProfilePic)")
 
 
         AlamofireRequest().uploadImageRemote(urlString: apiURL, image:  self.imgProfile ?? UIImage(), name: fileName , userID:  UserDefaults.standard.string(forKey: Constants.userId) ?? ""){ data, error -> Void in

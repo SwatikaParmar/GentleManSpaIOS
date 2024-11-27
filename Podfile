@@ -19,6 +19,8 @@ target 'GentlemanSpa' do
   pod 'FirebaseAuth'
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
-  # Pods for GentlemanSpa
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Crashlytics'
 
 end

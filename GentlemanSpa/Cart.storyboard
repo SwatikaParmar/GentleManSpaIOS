@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -522,7 +522,7 @@
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$70.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ip-qu-afE" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                                                                         <rect key="frame" x="201.66666666666666" y="82.666666666666671" width="49" height="21"/>
                                                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
-                                                                                        <color key="textColor" white="0.33333333329999998" alpha="0.65017073680000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="0.64740513392857146" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                         <userDefinedRuntimeAttributes>
                                                                                             <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
@@ -1495,7 +1495,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Be3-0t-QPC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="-85"/>
+            <point key="canvasLocation" x="136.64122137404578" y="-85.211267605633807"/>
         </scene>
         <!--My Order Vc-->
         <scene sceneID="uvQ-kO-rrO">
@@ -3737,10 +3737,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

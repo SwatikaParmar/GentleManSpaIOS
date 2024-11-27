@@ -10,8 +10,13 @@ import SDWebImage
 import IQKeyboardManagerSwift
 import GoogleMaps
 import GooglePlaces
+
+import CocoaTextField
+import LGSideMenuController
 import FirebaseCore
 import FirebaseMessaging
+import Firebase
+import FirebaseAuth
 
 
 @main

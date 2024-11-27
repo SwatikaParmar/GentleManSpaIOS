@@ -114,10 +114,10 @@ extension ProductDetailsViewController: UITableViewDataSource,UITableViewDelegat
             
             var basePrice = ""
             if arrSortedService?.basePrice.truncatingRemainder(dividingBy: 1) == 0 {
-                basePrice = String(format: "%.0f", arrSortedService?.basePrice ?? 0.00 )
+                basePrice = String(format: "%.0f", arrSortedService?.basePrice ?? 0.00)
             }
             else{
-                basePrice = String(format: "%.2f", arrSortedService?.basePrice ?? 0.00 )
+                basePrice = String(format: "%.2f", arrSortedService?.basePrice ?? 0.00)
             }
             cell.lbeBasePrice.text = "$" + basePrice
             

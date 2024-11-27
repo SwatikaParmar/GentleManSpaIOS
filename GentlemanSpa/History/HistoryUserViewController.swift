@@ -180,7 +180,9 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
                 cell.lbeProfessionalName.text = String(format: "%@", self.arrSortedService[indexPath.row].professionalName )
                 
                 cell.lbeBookingID.text = String(format: "BOOKING ID: %d", self.arrSortedService[indexPath.row].orderId )
-
+                cell.btnMessage.tag = indexPath.row
+                cell.btnMessage.addTarget(self, action: #selector(Message_Connected(sender:)), for: .touchUpInside)
+                cell.viewMessage.alpha = 1
                 
                 return cell
             }
@@ -224,7 +226,9 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
                 cell.lbeProfessionalName.text = String(format: "%@", self.arrSortedService[indexPath.row].professionalName )
                 
                 cell.lbeBookingID.text = String(format: "BOOKING ID: %d", self.arrSortedService[indexPath.row].orderId )
-
+                cell.btnMessage.tag = indexPath.row
+                cell.btnMessage.addTarget(self, action: #selector(Message_Connected(sender:)), for: .touchUpInside)
+                cell.viewMessage.alpha = 1
                 return cell
             }
             else{
@@ -276,7 +280,7 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
 
             }
             else if pageName == "Completed" {
-                return 210
+                return 255
             }
             
             return 210
@@ -287,12 +291,64 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
             
         }
     
+    
+    @objc func Message_Connected(sender: UIButton){
+        
+
+        open_ChatView(sender.tag)
+        
+     
+    }
+    
+    func open_ChatView(_ int:Int){
+        
+        if arrSortedService.count > int{
+            
+            
+            
+            
+            Indicator.shared.startAnimating(withMessage:"", colorType: AppColor.TabSelectColor, colorText: UIColor.cyan)
+            
+            DatabaseManager.shared.userExists(with: "4544f9cf-ccb6-4438-a145-abb9d5ac7e0c", completion: {exists in
+                if exists{
+                    DatabaseManager.shared.conversationExists(with: "", completion: {[weak self] result in
+                        Indicator.shared.stopAnimating()
+                        guard let strongSelf = self else{
+                            return
+                        }
+                        switch result {
+                        case .success(let conversationId):
+                            let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
+                            controller.isNewConversation = false
+                            controller.otherUserEmail = "pushpraj@gmail.com"
+                            controller.userName =      self?.arrSortedService[int].professionalName ?? ""
+                            controller.imgString =  self?.arrSortedService[int].professionalImage ?? "No"
+                            controller.otherUserID =  "4544f9cf-ccb6-4438-a145-abb9d5ac7e0c"
+                            self?.parent?.navigationController?.pushViewController(controller, animated: true)
+                        case .failure(_):
+                            let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
+                            controller.otherUserEmail = "pushpraj@gmail.com"
+                            controller.userName =              self?.arrSortedService[int].professionalName ?? ""
+                            controller.imgString =  self?.arrSortedService[int].professionalImage ?? "No"
+                            controller.otherUserID =  "4544f9cf-ccb6-4438-a145-abb9d5ac7e0c"
+                            controller.isNewConversation = true
+
+                            self?.parent?.navigationController?.pushViewController(controller, animated: true)
+                        }
+                    })
+                }
+                else{
+                    Indicator.shared.stopAnimating()
+                }
+            })
+        }
+    }
+    
     //MARK:- Add Button Tap
     @objc func reschedule_Tap(sender:UIButton){
         
         
         let controller:BookingDoctorViewController =  UIStoryboard(storyboard: .User).initVC()
-        
         controller.name = self.arrSortedService[sender.tag].professionalName
         if let imgUrl = self.arrSortedService[sender.tag].professionalImage,!imgUrl.isEmpty {
             
@@ -368,7 +424,8 @@ class UpcomingUTvCell: UITableViewCell {
     
     @IBOutlet weak var btn_Reschedule: UIButton!
     @IBOutlet weak var btn_Cancel: UIButton!
-
+    @IBOutlet weak var viewMessage: UIView!
+    @IBOutlet weak var btnMessage : UIButton!
     
 
     override func awakeFromNib() {
@@ -389,6 +446,8 @@ class ConfirmedUTvCell: UITableViewCell {
     @IBOutlet weak var lbeTime: UILabel!
     @IBOutlet weak var lbeProfessionalName: UILabel!
     @IBOutlet weak var lbeBookingID: UILabel!
+    @IBOutlet weak var viewMessage: UIView!
+    @IBOutlet weak var btnMessage : UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

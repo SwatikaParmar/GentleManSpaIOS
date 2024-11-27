@@ -31,6 +31,7 @@
 		34186ACA2CB3A61900717E47 /* EditAddressVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34186AC92CB3A61900717E47 /* EditAddressVc.swift */; };
 		342026CE2CC37C20001A8FFD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 342026CD2CC37C20001A8FFD /* GoogleService-Info.plist */; };
 		342BB9052CB53DA0009E069E /* BookAppointmentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342BB9042CB53DA0009E069E /* BookAppointmentRequest.swift */; };
+		343198AE2CF71D58008A0C8F /* MessageProViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343198AD2CF71D58008A0C8F /* MessageProViewController.swift */; };
 		343813C02C69D928003B4B30 /* ProductCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343813BF2C69D928003B4B30 /* ProductCategories.swift */; };
 		343813C22C69E420003B4B30 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343813C12C69E420003B4B30 /* HomeCell.swift */; };
 		3438E90B2C609DE4005BFC03 /* CreateSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438E90A2C609DE4005BFC03 /* CreateSchedule.swift */; };
@@ -128,6 +129,8 @@
 		34EC323C2CC22F74007067AD /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EC323B2CC22F74007067AD /* OrderDetailsViewController.swift */; };
 		34EC323E2CC2339E007067AD /* OrderDetailsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EC323D2CC2339E007067AD /* OrderDetailsExtension.swift */; };
 		34EC32402CC23417007067AD /* OrderDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EC323F2CC23417007067AD /* OrderDetailsTableViewCell.swift */; };
+		34ED12D12CF59740002306BF /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ED12D02CF59740002306BF /* DatabaseManager.swift */; };
+		34ED12D32CF59748002306BF /* ConversationsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ED12D22CF59748002306BF /* ConversationsModels.swift */; };
 		34F559B92C5A52250017F732 /* HomeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F559B82C5A52250017F732 /* HomeList.swift */; };
 		34F559BB2C5A569B0017F732 /* CategoryHomeTvCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F559BA2C5A569B0017F732 /* CategoryHomeTvCell.swift */; };
 		75C71B34A104F5698502BB7E /* Pods_GentlemanSpa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A789DEF5BEC1FF7F72085A5 /* Pods_GentlemanSpa.framework */; };
@@ -161,6 +164,7 @@
 		342026CD2CC37C20001A8FFD /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		342026CF2CC380F3001A8FFD /* GentlemanSpa.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GentlemanSpa.entitlements; sourceTree = "<group>"; };
 		342BB9042CB53DA0009E069E /* BookAppointmentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAppointmentRequest.swift; sourceTree = "<group>"; };
+		343198AD2CF71D58008A0C8F /* MessageProViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageProViewController.swift; sourceTree = "<group>"; };
 		343813BF2C69D928003B4B30 /* ProductCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategories.swift; sourceTree = "<group>"; };
 		343813C12C69E420003B4B30 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		3438E90A2C609DE4005BFC03 /* CreateSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSchedule.swift; sourceTree = "<group>"; };
@@ -258,6 +262,8 @@
 		34EC323B2CC22F74007067AD /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		34EC323D2CC2339E007067AD /* OrderDetailsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsExtension.swift; sourceTree = "<group>"; };
 		34EC323F2CC23417007067AD /* OrderDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		34ED12D02CF59740002306BF /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		34ED12D22CF59748002306BF /* ConversationsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsModels.swift; sourceTree = "<group>"; };
 		34F559B82C5A52250017F732 /* HomeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeList.swift; sourceTree = "<group>"; };
 		34F559BA2C5A569B0017F732 /* CategoryHomeTvCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryHomeTvCell.swift; sourceTree = "<group>"; };
 		5A789DEF5BEC1FF7F72085A5 /* Pods_GentlemanSpa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GentlemanSpa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -315,6 +321,8 @@
 				340E7C3F2CCF88B200CA531F /* ChatRightTextTableCell.swift */,
 				340E7C432CCF898200CA531F /* ChatLeftTextTableCell.xib */,
 				340E7C452CCF8D9B00CA531F /* ChatLeftTextTableCell.swift */,
+				34ED12D22CF59748002306BF /* ConversationsModels.swift */,
+				34ED12D02CF59740002306BF /* DatabaseManager.swift */,
 				34D2B5B32CC78FDF0012C358 /* ProfessionalDetailViewController.swift */,
 				340E7C472CCFAAE900CA531F /* AboutUsViewController.swift */,
 				3460D6E82C9D32BB0076C4C2 /* Cart */,
@@ -569,6 +577,7 @@
 				34C80D752C75B0EC00FE9E02 /* ProAddProductVc.swift */,
 				34DA67AB2C7C3437002C0EE9 /* ProductCategoryViewController.swift */,
 				343F94242CD0ADA8008A1A23 /* RequestsManagementViewController.swift */,
+				343198AD2CF71D58008A0C8F /* MessageProViewController.swift */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -827,6 +836,7 @@
 				34D338262C5A7A8E003C6B13 /* CalendarView.swift in Sources */,
 				34EC323E2CC2339E007067AD /* OrderDetailsExtension.swift in Sources */,
 				34D338112C5A7142003C6B13 /* ServicesViewController.swift in Sources */,
+				34ED12D32CF59748002306BF /* ConversationsModels.swift in Sources */,
 				34C093EC2C9AA380001BBB40 /* ProfessionalServicesVc.swift in Sources */,
 				34D338202C5A7A8E003C6B13 /* CalendarView+Extensions.swift in Sources */,
 				34CE926E2C40EAE60007E086 /* GradientView.swift in Sources */,
@@ -842,6 +852,7 @@
 				344E0C702CA1341500D32AB6 /* MyOrderVc.swift in Sources */,
 				340E7C482CCFAAE900CA531F /* AboutUsViewController.swift in Sources */,
 				3460D6FC2C9D43800076C4C2 /* MyCartCell.swift in Sources */,
+				343198AE2CF71D58008A0C8F /* MessageProViewController.swift in Sources */,
 				343F94252CD0ADA8008A1A23 /* RequestsManagementViewController.swift in Sources */,
 				34CE92682C40EAE60007E086 /* UIViewAnchorPoint.swift in Sources */,
 				34CE92662C40EAE60007E086 /* UIButtonX.swift in Sources */,
@@ -895,6 +906,7 @@
 				34CE92692C40EAE60007E086 /* UIViewControllerX.swift in Sources */,
 				34B4CD922C48D571006B9F1F /* CartUserViewController.swift in Sources */,
 				34DEF48B2C5E03F400F395A8 /* ProfileViewController.swift in Sources */,
+				34ED12D12CF59740002306BF /* DatabaseManager.swift in Sources */,
 				34D3382C2C5A9C85003C6B13 /* ProductCell.swift in Sources */,
 				34B4CD962C48D5AE006B9F1F /* ProfileUserViewController.swift in Sources */,
 				34DA67AC2C7C3437002C0EE9 /* ProductCategoryViewController.swift in Sources */,
@@ -1075,7 +1087,7 @@
 				CODE_SIGN_ENTITLEMENTS = GentlemanSpa/GentlemanSpa.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = U4CMW5Y2G6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1118,7 +1130,7 @@
 				CODE_SIGN_ENTITLEMENTS = GentlemanSpa/GentlemanSpa.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = U4CMW5Y2G6;
 				GENERATE_INFOPLIST_FILE = YES;

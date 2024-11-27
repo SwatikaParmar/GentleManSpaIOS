@@ -13,7 +13,7 @@ class HomeListRequest: NSObject {
     func homeListAPI(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData: [dashboardCategoryObject]?,_ message : String?, _ isStatus : Bool) -> Void) {
 
         var apiURL = "BaseURL".homeApi
-            apiURL = String(format:"%@?spaDetailId=%d&categoryType=%d",apiURL,requestParams["spaDetailId"] as? Int ?? 0,requestParams["categoryType"] as? Int ?? 0)
+            apiURL = String(format:"%@?spaDetailId=%d",apiURL,requestParams["spaDetailId"] as? Int ?? 0)
 
             print("URL---->> ",apiURL)
             print("Request---->> ",requestParams)

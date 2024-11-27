@@ -220,6 +220,9 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
     @objc func connected_MultiDays(sender: UIButton){
         singleDays = false
         changedata()
+        slotId = 0
+        timeIndex = -1
+        self.collectionTime.reloadData()
         self.timeGetAPI(false, self.selectDate)
     }
     
@@ -227,6 +230,9 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
  
         singleDays = true
         changedata()
+        slotId = 0
+        timeIndex = -1
+        self.collectionTime.reloadData()
         self.timeGetAPI(false, self.selectDate)
     }
     

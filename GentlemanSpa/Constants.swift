@@ -85,22 +85,20 @@ struct GlobalConstants {
     static let timedOutError = "The request timed out."
     static let oopsError = "Oops!"
     static let successMessage = "SUCCESS!"
-    
     static let MalePlaceHolding: String = "placeholder_Male"
     static let FemalePlaceHolding: String = "placeholder_FeMale"
     static let OtherPlaceHolding: String = "placeholder_Male"
-    
     static let GoogleWebAPIKey = "AIzaSyBgLMQ8wvy5yda0qP1_8y1e_aJJ_HrTdZw"
-
+    
     static let BASE_IMAGE_URL = "https://gentlemanspa-file.s3.ap-south-1.amazonaws.com/FileToSave/"
+    static let LiveBaseURL = "https://s1jpw3b88a.execute-api.ap-south-1.amazonaws.com/api/"
+
 }
 extension String{
     
-    static let LiveBaseURL = "https://s1jpw3b88a.execute-api.ap-south-1.amazonaws.com/api/"
-    static let LiveDevBaseURL = "https://s1jpw3b88a.execute-api.ap-south-1.amazonaws.com/api/"
     
     var path: String{
-        return .LiveBaseURL
+        return GlobalConstants.LiveBaseURL
     }
     
     var LoginURL: String{

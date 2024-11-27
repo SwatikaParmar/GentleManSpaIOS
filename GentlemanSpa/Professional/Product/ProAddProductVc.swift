@@ -13,7 +13,7 @@ import AVFoundation
 import Photos
 import IQKeyboardManagerSwift
 import SDWebImage
-class ProAddProductVc: UIViewController ,UITextFieldDelegate, UITextViewDelegate{
+class ProAddProductVc: UIViewController , UITextViewDelegate{
     @IBOutlet weak var productCollection : UICollectionView!
     @IBOutlet weak var txt_Name : CocoaTextField!
     @IBOutlet weak var txt_basePrice : CocoaTextField!
@@ -358,8 +358,23 @@ class ProAddProductVc: UIViewController ,UITextFieldDelegate, UITextViewDelegate
     
     
     
+   
+}
+
+extension ProAddProductVc: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if range.location == 0 && string == " "  {
+               return false
+           }
+        
+        if string == ""{
+            return true
+        }
+        if textField.text == "" && string == " "{
+            return false
+        }
+        
         if txt_listingPrice == textField || txt_basePrice == textField {
             guard let oldText = textField.text, let r = Range(range, in: oldText) else {
                 return true
@@ -378,10 +393,19 @@ class ProAddProductVc: UIViewController ,UITextFieldDelegate, UITextViewDelegate
             
             return isNumeric && numberOfDots <= 1 && numberOfDecimalDigits <= 2
         }
+      
+        if textField.text?.count ?? 0 > 100{
+            return false
+        }
         return true
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+         textField.resignFirstResponder()
+         return true
+     }
     
 }
+
 
 
 extension ProAddProductVc:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
@@ -466,7 +490,7 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
          productCollection.reloadData()
          isImageAdd = true
          if logoImages.count > 2 {
-             collection_H_Const.constant = 260
+             collection_H_Const.constant = 270
          }
          else{
              collection_H_Const.constant = 130
@@ -577,7 +601,7 @@ extension ProAddProductVc: UIImagePickerControllerDelegate,UINavigationControlle
         productCollection.reloadData()
         
         if logoImages.count > 2 {
-            collection_H_Const.constant = 260
+            collection_H_Const.constant = 270
         }
         else{
             collection_H_Const.constant = 130

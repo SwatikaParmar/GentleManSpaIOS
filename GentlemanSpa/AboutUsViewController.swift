@@ -72,13 +72,17 @@ class AboutUsViewController: UIViewController,WKNavigationDelegate, WKUIDelegate
               </html>
  """
         
-        webAbout.loadHTMLString(htmlString, baseURL: nil)
-        webAbout.evaluateJavaScript("document.getElementsByTagName('body')[0].style.fontSize='35px';") { (result, error) in
-            if let error = error {
-                print("Error adjusting font size: \(error)")
-            }
-        }
+//        webAbout.loadHTMLString(htmlString, baseURL: nil)
+//        webAbout.evaluateJavaScript("document.getElementsByTagName('body')[0].style.fontSize='35px';") { (result, error) in
+//            if let error = error {
+//                print("Error adjusting font size: \(error)")
+//            }
+//        }
         
+        
+        if let url = URL(string: "https://www.buda.com.au/") {
+            webAbout.load(URLRequest(url: url))
+               }
         
         
     }
@@ -86,22 +90,22 @@ class AboutUsViewController: UIViewController,WKNavigationDelegate, WKUIDelegate
         self.view.endEditing(true)
         self.navigationController?.popViewController(animated: true)
     }
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        
-        if let url = navigationAction.request.url {
-            // Check if the URL is an external link
-            if navigationAction.navigationType == .linkActivated, url.host != nil {
-                // Open external link in Safari
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                decisionHandler(.cancel) // Cancel the navigation in WKWebView
-            } else {
-                // Allow WKWebView to load the URL
-                decisionHandler(.allow)
-            }
-        } else {
-            decisionHandler(.allow)
-        }
-    }
+//    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+//        
+//        if let url = navigationAction.request.url {
+//            // Check if the URL is an external link
+//            if navigationAction.navigationType == .linkActivated, url.host != nil {
+//                // Open external link in Safari
+//             //   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//              //  decisionHandler(.cancel) // Cancel the navigation in WKWebView
+//            } else {
+//                // Allow WKWebView to load the URL
+//                decisionHandler(.allow)
+//            }
+//        } else {
+//            decisionHandler(.allow)
+//        }
+//    }
     
     
     
@@ -118,7 +122,7 @@ class AboutUsViewController: UIViewController,WKNavigationDelegate, WKUIDelegate
             if let height = result as? CGFloat {
                 // Update the web view's height constraint
                 print(height)
-                self.specialityConst.constant = height / 2 - 65
+             //   self.specialityConst.constant = height
                 self.view.layoutIfNeeded()
             }
         }

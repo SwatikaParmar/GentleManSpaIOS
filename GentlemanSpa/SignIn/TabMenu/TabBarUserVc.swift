@@ -41,15 +41,10 @@ class TabBarUserVc: UIViewController {
         
         override func viewDidLoad() {
             super.viewDidLoad()
-           
-            
-
-            
+    
             print(accessToken())
             getProfileAPI()
-            
-            
-            
+        
 //            TabBarView.layer.masksToBounds = false
 //            TabBarView?.layer.shadowColor = UIColor.darkGray.cgColor
 //            TabBarView?.layer.shadowOffset =  CGSize.zero

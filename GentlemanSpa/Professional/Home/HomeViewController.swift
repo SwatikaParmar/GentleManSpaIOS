@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import Reachability
+import FirebaseAuth
+import Firebase
+import FirebaseDatabase
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var tableUp: UITableView!
@@ -20,7 +24,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var lbeTitlePast: UILabel!
     @IBOutlet weak var lbeLinePast: UIView!
     @IBOutlet weak var imgProfile: UIImageView!
-
+    private var userExitPro: DatabaseHandle?
+    let UsersRefPro = DatabaseManager.database.child("Users").child(userId())
+    var isOnline = true
     
 
     override func viewDidLoad() {
@@ -41,6 +47,10 @@ class HomeViewController: UIViewController {
 
         pageName = "Upcoming"
         self.tableUp.reloadData()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.firebaseDataPro()
+        }
     }
     
 
@@ -65,6 +75,92 @@ class HomeViewController: UIViewController {
                                completed: nil)
     }
     
+    func firebaseDataPro(){
+        userExitPro = UsersRefPro.observe(.value, with: { (snapshot) in
+            guard snapshot.key as? String != nil else{
+                print("user doesnt exist")
+                self.getUserDataAPI("Update")
+                return
+            }
+            if let dictionary = snapshot.value as? [String: Any] {
+             let latestMessage = dictionary["userState"] as? [String:Any]
+                let state = latestMessage?["state"] as? String
+                if state == "offline"{
+                    self.getUserDataAPI("Update")
+                }
+                else{
+                    if self.isOnline {
+                        self.getUserDataAPI("Update")
+                    }
+                    else{
+                      //  self.getUserDataAPI("Profile")
+                    }
+                }
+            }
+            else{
+                if self.isOnline {
+                    self.getUserDataAPI("Update")
+                }
+            }
+        }
+        )
+    }
+        
+        func getUserDataAPI(_ text:String){
+            
+            if UserDefaults.standard.bool(forKey: Constants.login) {
+                
+                GetProfileProRequest.shared.proProfileAPI(requestParams:[:], false) { (user,message,isStatus) in
+                        if isStatus {
+                        if user != nil{
+                            UserDefaults.standard.set(user?.firstName, forKey: Constants.firstName)
+                            UserDefaults.standard.set(user?.lastName, forKey: Constants.lastName)
+                            UserDefaults.standard.set(user?.gender, forKey: Constants.gender)
+                            UserDefaults.standard.set(user?.email, forKey: Constants.email)
+                            UserDefaults.standard.set(user?.profilePic, forKey: Constants.userImg)
+                            UserDefaults.standard.set(user?.phone, forKey: Constants.phone)
+                            UserDefaults.standard.synchronize()
+                            
+                            if text == "Update"{
+                                
+                                self.userAddPro(self.isOnline, "online")
+                            }
+                            
+                            if text == "Profile"{
+                                NotificationCenter.default.post(name: Notification.Name("SideMenuUpdate"), object: nil, userInfo: ["count":String(0)])
+                            }
+                        }
+                        
+                        else{
+                            self.userAddPro(self.isOnline, "online")
+                        }
+                        
+                    }
+                }
+            }
+            else {
+                if let refHandle = userExitPro{
+                    UsersRefPro.removeObserver(withHandle: refHandle)
+                }
+            }
+        }
+        
+        func userAddPro(_ isCall:Bool, _ logout:String){
+            self.isOnline = false
+            let chatUser = ChatAppUser(firstName: UserDefaults.standard.string(forKey: Constants.firstName) ?? "",
+                                       lastName: UserDefaults.standard.string(forKey: Constants.lastName) ?? "",
+                                       emailAddress: UserDefaults.standard.string(forKey: Constants.email) ?? "", profilePictureFileName: UserDefaults.standard.string(forKey: Constants.userImg) ?? "",userID: userId())
+            
+            DatabaseManager.shared.insertUser(with: chatUser, logout, completion: {success in
+                if success{
+                    if isCall {
+                      //  DatabaseManager.shared.observeOnline()
+                    }
+                }
+            })
+        }
+        
+    
     @objc func RefreshScreenUp() {
       
         refreshControlUp.endRefreshing()
@@ -74,7 +170,8 @@ class HomeViewController: UIViewController {
     
     @IBAction func MyProfile(_ sender: Any) {
        
-       
+        let controller:MessageProViewController =  UIStoryboard(storyboard: .Professional).initVC()
+        self.parent?.navigationController?.pushViewController(controller, animated: true)
        
     }
     

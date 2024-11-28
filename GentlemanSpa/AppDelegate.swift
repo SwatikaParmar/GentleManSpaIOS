@@ -65,6 +65,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate, UNUserN
         print("Firebase registration token: \(String(describing: fcmToken))")
         UserDefaults.standard.setValue(fcmToken, forKey:Constants.fcmToken)
         UserDefaults.standard.synchronize()
+        
+        Constants.fcmTokenFirePuch = fcmToken ?? ""
     }
     
     

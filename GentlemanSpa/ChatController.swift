@@ -477,9 +477,9 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if textView == self.textMessage {
             
-            print(self.viewChat.frame.size.height)
-            print(self.textMessage.contentSize.height)
-            print(self.textMessage.frame.size.height)
+         //   print(self.viewChat.frame.size.height)
+        //    print(self.textMessage.contentSize.height)
+         //   print(self.textMessage.frame.size.height)
             
             if self.viewChat.frame.size.height >= 100 {
                 if self.textMessage.contentSize.height < self.textMessage.frame.size.height {
@@ -574,17 +574,13 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
                 }
             })
             
-            
-            
             DatabaseManager.shared.userExists(with: otherUserID, completion: {exists in
                 if exists{
                     DatabaseManager.shared.conversationExists(with: self.otherUserID, completion: {[weak self] result in
                         
                         switch result {
                         case .success(_):
-                            print("yes")
-                            
-                            
+                        
                             DatabaseManager.shared.finishCreatingConversation(otherUserID: self!.otherUserID,name:self!.userName, firstMessage: message, completion: { [weak self] success in
                                 if success{
                                     print("message sent")
@@ -924,6 +920,14 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
                     }
                     else{
                         self.tblView.reloadData()
+                        let UsersOther = DatabaseManager.database.child("Contacts").child(self.otherUserID).child(userId()).child("latest_message").child("message")
+                        UsersOther.setValue("")
+                        
+                        let UsersCurrent = DatabaseManager.database.child("Contacts").child(userId()).child(self.otherUserID).child("latest_message").child("message")
+                        UsersCurrent.setValue("")
+                        
+                        
+                        
                     }
                 }
             }

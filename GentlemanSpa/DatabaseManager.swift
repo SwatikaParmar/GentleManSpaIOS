@@ -70,7 +70,7 @@ extension DatabaseManager{
             "name": user.firstName,
             "gender": UserDefaults.standard.string(forKey: Constants.gender) ?? "",
             "email": user.emailAddress,
-            "fcm_token": Constants.fcmToken,
+            "fcm_token": Constants.fcmTokenFirePuch,
             "image": user.profilePictureFileName,
             "uid":user.userID,
             "userState": onlineData,

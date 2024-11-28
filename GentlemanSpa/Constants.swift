@@ -36,6 +36,7 @@ struct Constants {
     static let gender = "gender"
     static let login = "LoginBool"
     static let stateName = "stateName"
+    static var fcmTokenFirePuch =  "fcmToken"
 
 }
 
@@ -80,7 +81,7 @@ class FontName{
 
 
 struct GlobalConstants {
-    
+    static let fbUserError = "This user unavailable for chat."
     static let serverError = "There was an error connecting to server."
     static let timedOutError = "The request timed out."
     static let oopsError = "Oops!"

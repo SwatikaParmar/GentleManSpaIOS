@@ -61,7 +61,8 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         topViewLayout()
-        // Do any additional setup after loading the view.
+        self.noUserView.isHidden = true
+
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.ChatUserList_ObserverRemove), name: NSNotification.Name(rawValue: "ChatUserList_ObserverRemove"), object: nil)
@@ -226,6 +227,7 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
 
                         let sortedPost = self.conversations.sorted{ $0.latestMessage.timeStamp > $1.latestMessage.timeStamp  }
                         self.conversationsSort = sortedPost
+                        
                      DispatchQueue.main.async {
                        self.tableView.reloadData()
                      }
@@ -306,7 +308,7 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessagesCell") as! MessagesCell
         
         cell.imgView.layer.masksToBounds = true
-        cell.imgView.layer.cornerRadius = 35
+        cell.imgView.layer.cornerRadius = 32.5
         cell.imgView.layer.borderWidth = 0.5
         cell.imgView.layer.backgroundColor = UIColor.darkGray.cgColor
         if self.conversationsSort.count > indexPath.row {
@@ -318,15 +320,7 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
             
             let imagePath = String("\(GlobalConstants.BASE_IMAGE_URL)\( self.conversationsSort[indexPath.row].imageUser)")
             let urlString = imagePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-            
-            if self.conversationsSort[indexPath.row].gender == 0  || self.conversationsSort[indexPath.row].gender == 1{
-                cell.imgView.sd_setImage(with:URL(string: urlString), placeholderImage: UIImage(named: GlobalConstants.MalePlaceHolding))
-
-            }
-            else if self.conversationsSort[indexPath.row].gender == 3  || self.conversationsSort[indexPath.row].gender == 2{
-                cell.imgView.sd_setImage(with:URL(string: urlString), placeholderImage: UIImage(named: GlobalConstants.FemalePlaceHolding))
-
-            }
+            cell.imgView.sd_setImage(with:URL(string: urlString), placeholderImage: UIImage(named: GlobalConstants.MalePlaceHolding))
             
             cell.lbeOnline.layer.cornerRadius = 8
             cell.lbeOnline.clipsToBounds = true
@@ -343,7 +337,7 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 108
+        return 100
         }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){

@@ -303,10 +303,6 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
     func open_ChatView(_ int:Int){
         
         if arrSortedService.count > int{
-            
-            
-            
-            
             Indicator.shared.startAnimating(withMessage:"", colorType: AppColor.TabSelectColor, colorText: UIColor.cyan)
             
             DatabaseManager.shared.userExists(with: "4544f9cf-ccb6-4438-a145-abb9d5ac7e0c", completion: {exists in
@@ -339,6 +335,8 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
                 }
                 else{
                     Indicator.shared.stopAnimating()
+                    NotificationAlert().NotificationAlert(titles:GlobalConstants.fbUserError)
+
                 }
             })
         }

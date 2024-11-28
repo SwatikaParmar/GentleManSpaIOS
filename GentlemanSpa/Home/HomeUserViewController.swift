@@ -164,8 +164,23 @@ func firebaseData(){
     }
     
     func userAdd(_ isCall:Bool, _ logout:String){
+        
+        if UserDefaults.standard.string(forKey: Constants.firstName) ?? "" == "" ||
+            UserDefaults.standard.string(forKey: Constants.firstName) ?? "" == nil {
+            return
+        }
+        
+        var firstName = ""
+        firstName = UserDefaults.standard.string(forKey: Constants.firstName) ?? ""
+        
+        var lastName = ""
+        lastName = UserDefaults.standard.string(forKey: Constants.lastName) ?? ""
+        
+        let name = firstName + " " + lastName
+
+        
         self.isOnline = false
-        let chatUser = ChatAppUser(firstName: UserDefaults.standard.string(forKey: Constants.firstName) ?? "",
+        let chatUser = ChatAppUser(firstName: name.capitalized,
                                    lastName: UserDefaults.standard.string(forKey: Constants.lastName) ?? "",
                                    emailAddress: UserDefaults.standard.string(forKey: Constants.email) ?? "", profilePictureFileName: UserDefaults.standard.string(forKey: Constants.userImg) ?? "",userID: userId())
         

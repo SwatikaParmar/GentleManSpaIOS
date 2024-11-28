@@ -365,7 +365,7 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
         dateComponents.month = -1
         let today = Date()
         let threeMonthsAgo = self.calenderVw.calendar.date(byAdding: dateComponents, to: today)!
-        print(threeMonthsAgo)
+       
         return today
     }
     

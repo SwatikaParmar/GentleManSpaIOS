@@ -23,8 +23,6 @@ class CreateAccountController: UIViewController {
     @IBOutlet weak var btn_Gender : UIButton!
     @IBOutlet weak var imgUserProfile : UIImageView!
 
-    
-
     @IBOutlet weak var view_NavConst: NSLayoutConstraint!
     @IBOutlet weak var countryPicker: CountryPickerView!
 
@@ -74,7 +72,6 @@ class CreateAccountController: UIViewController {
         
         applyStyle(to: txt_Email)
         txt_Email.placeholder = "Email"
-        
         
         applyStyle(to: txt_Password)
         txt_Password.placeholder = "Password"

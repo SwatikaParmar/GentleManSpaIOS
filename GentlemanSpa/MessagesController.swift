@@ -306,7 +306,7 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessagesCell") as! MessagesCell
         
         cell.imgView.layer.masksToBounds = true
-        cell.imgView.layer.cornerRadius = 35
+        cell.imgView.layer.cornerRadius = 32.5
         cell.imgView.layer.borderWidth = 0.5
         cell.imgView.layer.backgroundColor = UIColor.darkGray.cgColor
         if self.conversationsSort.count > indexPath.row {
@@ -318,15 +318,8 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
             
             let imagePath = String("\(GlobalConstants.BASE_IMAGE_URL)\( self.conversationsSort[indexPath.row].imageUser)")
             let urlString = imagePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-            
-            if self.conversationsSort[indexPath.row].gender == 0  || self.conversationsSort[indexPath.row].gender == 1{
-                cell.imgView.sd_setImage(with:URL(string: urlString), placeholderImage: UIImage(named: GlobalConstants.MalePlaceHolding))
+            cell.imgView.sd_setImage(with:URL(string: urlString), placeholderImage: UIImage(named: GlobalConstants.MalePlaceHolding))
 
-            }
-            else if self.conversationsSort[indexPath.row].gender == 3  || self.conversationsSort[indexPath.row].gender == 2{
-                cell.imgView.sd_setImage(with:URL(string: urlString), placeholderImage: UIImage(named: GlobalConstants.FemalePlaceHolding))
-
-            }
             
             cell.lbeOnline.layer.cornerRadius = 8
             cell.lbeOnline.clipsToBounds = true
@@ -343,7 +336,7 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 108
+        return 100
         }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){

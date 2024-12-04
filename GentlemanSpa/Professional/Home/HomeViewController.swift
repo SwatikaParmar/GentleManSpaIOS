@@ -27,7 +27,8 @@ class HomeViewController: UIViewController {
     private var userExitPro: DatabaseHandle?
     let UsersRefPro = DatabaseManager.database.child("Users").child(userId())
     var isOnline = true
-    
+    var arrSortedService = [ServiceBooking]()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,10 +45,14 @@ class HomeViewController: UIViewController {
         
         lbeTitleConfirmed.textColor = AppColor.AppThemeColorPro
         lbeLineConfirmed.backgroundColor = UIColor.clear
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.Menu_Push_Pro), name: NSNotification.Name(rawValue: "Menu_Push_Pro"), object: nil)
+
 
         pageName = "Upcoming"
         self.tableUp.reloadData()
-        
+        MyAppointmentAPI(true)
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.firebaseDataPro()
         }
@@ -58,8 +63,57 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
         
- 
+
     }
+    
+    @objc func Menu_Push_Pro(_ notification: NSNotification) {
+        if let count = notification.userInfo?["count"] as? String {
+            
+            
+            if count == "Logout"{
+                //  DatabaseManager.myConnectionsRef.cancelDisconnectOperations()
+                if let refHandle = userExitPro{
+                    UsersRefPro.removeObserver(withHandle: refHandle)
+                }
+                self.userAddPro(false, "Logout")
+                
+                let FCSToken = UserDefaults.standard.value(forKey:Constants.deviceToken)
+                UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+                UserDefaults.standard.synchronize()
+                UserDefaults.standard.setValue(FCSToken, forKey:Constants.deviceToken)
+                UserDefaults.standard.synchronize()
+                UserDefaults.standard.set(false, forKey: Constants.login)
+                UserDefaults.standard.synchronize()
+                RootControllerManager().SetRootViewController()
+            }
+            
+            if count == "DeleteAccount"{
+                if let refHandle = userExitPro{
+                    UsersRefPro.removeObserver(withHandle: refHandle)
+                }
+            }
+            
+            if count == "FirebaseDataUpdate"{
+                self.userAddPro(false, "online")
+            }
+            
+            if count == "offline"{
+                self.userAddPro(false, "offline")
+            }
+        }
+    }
+    
+    func MyAppointmentAPI(_ isLoader:Bool){
+        var params = [ "Type": pageName
+        ] as [String : Any]
+        GetServiceAppointmentsPro.shared.GetSerProAPIRequest(requestParams:params, isLoader) { [self] (arrayData,arrayService,message,isStatus) in
+            if isStatus {
+                arrSortedService = arrayData ?? arrSortedService
+                self.tableUp.reloadData()
+            }
+        }
+    }
+    
     
     func firebaseDataPro(){
         userExitPro = UsersRefPro.observe(.value, with: { (snapshot) in
@@ -197,6 +251,8 @@ class HomeViewController: UIViewController {
         lbeLineConfirmed.backgroundColor = UIColor.clear
 
         pageName = "Upcoming"
+        MyAppointmentAPI(true)
+
         self.tableUp.reloadData()
     }
  
@@ -214,7 +270,9 @@ class HomeViewController: UIViewController {
         lbeLinePending.backgroundColor =  UIColor.clear
         
    
-        pageName = "Confirmed"
+        pageName = "Completed"
+        MyAppointmentAPI(true)
+
         self.tableUp.reloadData()
 
     }
@@ -233,7 +291,9 @@ class HomeViewController: UIViewController {
         lbeLinePending.backgroundColor = UIColor.clear
         
         
-        pageName = "Past"
+        pageName = "Cancelled"
+        MyAppointmentAPI(true)
+
         self.tableUp.reloadData()
 
     }
@@ -250,21 +310,104 @@ extension HomeViewController: UITableViewDataSource,UITableViewDelegate {
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
-            return 11
+            return arrSortedService.count
 
         }
    
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             if  pageName == "Upcoming" {
                 let cell = tableUp.dequeueReusableCell(withIdentifier: "UpcomingTvCell") as! UpcomingTvCell
+                
+                if let imgUrl = arrSortedService[indexPath.row].userImage,!imgUrl.isEmpty {
+                    let img  = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
+                    let urlString = img.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                    cell.imgService?.sd_setImage(with: URL.init(string:(urlString)),
+                                                 placeholderImage: UIImage(named: "shopPlace"),
+                                                 options: .refreshCached,
+                                                 completed: nil)
+                }
+                else{
+                    cell.imgService?.image = UIImage(named: "shopPlace")
+                }
+                cell.lbeName.text = arrSortedService[indexPath.row].userName
+                cell.lbeDuration.text = arrSortedService[indexPath.row].serviceName
+
+        
+                
+        
+                var dateStr = ""
+                dateStr =  String(format: "%@, %@ at %@", "".getTodayWeekDay("".dateFromString(self.arrSortedService[indexPath.row].slotDate)),"".convertToDDMMYYYY("".dateFromString(arrSortedService[indexPath.row].slotDate)), self.arrSortedService[indexPath.row].fromTime)
+                
+                cell.lbeTime.text = dateStr
+                
+                
+                cell.lbeBookingID.text = String(format: "BOOKING ID: %d", self.arrSortedService[indexPath.row].orderId )
+                cell.btnMessage.tag = indexPath.row
+                cell.btnMessage.addTarget(self, action: #selector(Message_ConnectedPro(sender:)), for: .touchUpInside)
+                cell.viewMessage.alpha = 1
+                
                 return cell
             }
-            else if pageName == "Confirmed" {
+            else if pageName == "Completed" {
                 let cell = tableUp.dequeueReusableCell(withIdentifier: "ConfirmedTvCell") as! ConfirmedTvCell
+                
+                if let imgUrl = arrSortedService[indexPath.row].userImage,!imgUrl.isEmpty {
+                    let img  = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
+                    let urlString = img.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                    cell.imgService?.sd_setImage(with: URL.init(string:(urlString)),
+                                                 placeholderImage: UIImage(named: "shopPlace"),
+                                                 options: .refreshCached,
+                                                 completed: nil)
+                }
+                else{
+                    cell.imgService?.image = UIImage(named: "shopPlace")
+                }
+                cell.lbeName.text = arrSortedService[indexPath.row].userName
+                cell.lbeDuration.text = arrSortedService[indexPath.row].serviceName
+
+        
+                
+        
+                var dateStr = ""
+                dateStr =  String(format: "%@, %@ at %@", "".getTodayWeekDay("".dateFromString(self.arrSortedService[indexPath.row].slotDate)),"".convertToDDMMYYYY("".dateFromString(arrSortedService[indexPath.row].slotDate)), self.arrSortedService[indexPath.row].fromTime)
+                
+                cell.lbeTime.text = dateStr
+                
+                
+                cell.lbeBookingID.text = String(format: "BOOKING ID: %d", self.arrSortedService[indexPath.row].orderId )
+                cell.btnMessage.tag = indexPath.row
+                cell.btnMessage.addTarget(self, action: #selector(Message_ConnectedPro(sender:)), for: .touchUpInside)
+                cell.viewMessage.alpha = 1
                 return cell
             }
             else{
                 let cell = tableUp.dequeueReusableCell(withIdentifier: "PastTvCell") as! PastTvCell
+                
+                
+                if let imgUrl = arrSortedService[indexPath.row].userImage,!imgUrl.isEmpty {
+                    let img  = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
+                    let urlString = img.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                    cell.imgService?.sd_setImage(with: URL.init(string:(urlString)),
+                                                 placeholderImage: UIImage(named: "shopPlace"),
+                                                 options: .refreshCached,
+                                                 completed: nil)
+                }
+                else{
+                    cell.imgService?.image = UIImage(named: "shopPlace")
+                }
+                cell.lbeName.text = arrSortedService[indexPath.row].userName
+                cell.lbeDuration.text = arrSortedService[indexPath.row].serviceName
+
+        
+                
+        
+                var dateStr = ""
+                dateStr =  String(format: "%@, %@ at %@", "".getTodayWeekDay("".dateFromString(self.arrSortedService[indexPath.row].slotDate)),"".convertToDDMMYYYY("".dateFromString(arrSortedService[indexPath.row].slotDate)), self.arrSortedService[indexPath.row].fromTime)
+                
+                cell.lbeTime.text = dateStr
+                
+                
+              
                 return cell
             }
 
@@ -272,20 +415,72 @@ extension HomeViewController: UITableViewDataSource,UITableViewDelegate {
         }
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             if  pageName == "Upcoming" {
-                return 250
+                return 205
 
             }
-            else if pageName == "Confirmed" {
-                return 200
+            else if pageName == "Completed" {
+                return 205
             }
             
-            return 200
+            return 205
 
         
         }
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             
         }
+    
+    
+    
+    @objc func Message_ConnectedPro(sender: UIButton){
+        
+
+        open_ChatView(sender.tag)
+        
+     
+    }
+    
+    func open_ChatView(_ int:Int){
+        
+        if arrSortedService.count > int{
+            Indicator.shared.startAnimating(withMessage:"", colorType: AppColor.TabSelectColor, colorText: UIColor.cyan)
+            
+            DatabaseManager.shared.userExists(with: self.arrSortedService[int].userId ?? "", completion: {exists in
+                if exists{
+                    DatabaseManager.shared.conversationExists(with: "", completion: {[weak self] result in
+                        Indicator.shared.stopAnimating()
+                        guard let strongSelf = self else{
+                            return
+                        }
+                        switch result {
+                        case .success(let conversationId):
+                            let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
+                            controller.isNewConversation = false
+                            controller.otherUserEmail = "Email"
+                            controller.userName =      self?.arrSortedService[int].userName ?? ""
+                            controller.imgString =  self?.arrSortedService[int].userImage ?? "No"
+                            controller.otherUserID =  self?.arrSortedService[int].userId ?? ""
+                            self?.parent?.navigationController?.pushViewController(controller, animated: true)
+                        case .failure(_):
+                            let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
+                            controller.otherUserEmail = "Email"
+                            controller.userName =              self?.arrSortedService[int].userName ?? ""
+                            controller.imgString =  self?.arrSortedService[int].userImage ?? "No"
+                            controller.otherUserID =  self?.arrSortedService[int].userId ?? ""
+                            controller.isNewConversation = true
+
+                            self?.parent?.navigationController?.pushViewController(controller, animated: true)
+                        }
+                    })
+                }
+                else{
+                    Indicator.shared.stopAnimating()
+                    NotificationAlert().NotificationAlert(titles:GlobalConstants.fbUserError)
+
+                }
+            })
+        }
+    }
 }
     
     
@@ -293,6 +488,14 @@ extension HomeViewController: UITableViewDataSource,UITableViewDelegate {
     
 
 class UpcomingTvCell: UITableViewCell {
+    @IBOutlet weak var imgService: UIImageView!
+    @IBOutlet weak var lbeName: UILabel!
+    @IBOutlet weak var lbeDuration: UILabel!
+    @IBOutlet weak var lbeTime: UILabel!
+    @IBOutlet weak var lbeBookingID: UILabel!
+    @IBOutlet weak var viewMessage: UIView!
+    @IBOutlet weak var btnMessage : UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -303,6 +506,15 @@ class UpcomingTvCell: UITableViewCell {
     }
 }
 class ConfirmedTvCell: UITableViewCell {
+    
+    @IBOutlet weak var imgService: UIImageView!
+    @IBOutlet weak var lbeName: UILabel!
+    @IBOutlet weak var lbeDuration: UILabel!
+    @IBOutlet weak var lbeTime: UILabel!
+    @IBOutlet weak var lbeBookingID: UILabel!
+    @IBOutlet weak var viewMessage: UIView!
+    @IBOutlet weak var btnMessage : UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -313,6 +525,15 @@ class ConfirmedTvCell: UITableViewCell {
     }
 }
 class PastTvCell: UITableViewCell {
+    
+    @IBOutlet weak var imgService: UIImageView!
+    @IBOutlet weak var lbeName: UILabel!
+    @IBOutlet weak var lbeDuration: UILabel!
+    @IBOutlet weak var lbeTime: UILabel!
+    @IBOutlet weak var lbeBookingID: UILabel!
+  
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -320,5 +541,55 @@ class PastTvCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
+    }
+}
+
+class GetServiceAppointmentsPro: NSObject{
+    
+    static let shared = GetServiceAppointmentsPro()
+    
+    func GetSerProAPIRequest(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData: [ServiceBooking]?, _ objectSer: cartServicesDataModel?, _ message : String?, _ isStatus : Bool) -> Void) {
+        
+        var apiURL = String("Base".GetServiceAppointmentsAPI)
+        
+        apiURL = String(format:"%@?pageNumber=1&pageSize=1000&Type=%@&ProfessionalDetailId=%d",apiURL,requestParams["Type"] as? String ?? "Upcoming",professionalDetailId())
+        
+        
+        print("URL---->> ",apiURL)
+        print("Request---->> ",requestParams)
+        
+        AlamofireRequest.shared.GetBodyFrom(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
+            
+            print(data ?? "No data")
+            if error == nil{
+                var messageString : String = ""
+                if let status = data?["isSuccess"] as? Bool{
+                    if let msg = data?["messages"] as? String{
+                        messageString = msg
+                    }
+                    if status{
+                        var homeListObject : [ServiceBooking] = []
+                        if let dataList = data?["data"]?["dataList"] as? NSArray{
+                            for list in dataList{
+                                let dict : ServiceBooking = ServiceBooking.init(dict: list as! [String : Any])
+                                homeListObject.append(dict)
+                            }
+                            completion(homeListObject,nil,messageString,true)
+                        }
+                        else{
+                            completion(nil,nil,messageString,false)
+                        }
+                    }
+                    else
+                    {
+                        completion(nil,nil,"",false)
+                    }
+                }
+                else
+                {
+                    completion(nil,nil,"",false)
+                }
+            }
+        }
     }
 }

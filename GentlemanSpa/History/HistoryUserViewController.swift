@@ -303,9 +303,13 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
     func open_ChatView(_ int:Int){
         
         if arrSortedService.count > int{
+            
+            
+            
+            
             Indicator.shared.startAnimating(withMessage:"", colorType: AppColor.TabSelectColor, colorText: UIColor.cyan)
             
-            DatabaseManager.shared.userExists(with: "4544f9cf-ccb6-4438-a145-abb9d5ac7e0c", completion: {exists in
+            DatabaseManager.shared.userExists(with: self.arrSortedService[int].ProfessionalUserId ?? "", completion: {exists in
                 if exists{
                     DatabaseManager.shared.conversationExists(with: "", completion: {[weak self] result in
                         Indicator.shared.stopAnimating()
@@ -316,17 +320,17 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
                         case .success(let conversationId):
                             let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
                             controller.isNewConversation = false
-                            controller.otherUserEmail = "pushpraj@gmail.com"
+                            controller.otherUserEmail = "Email"
                             controller.userName =      self?.arrSortedService[int].professionalName ?? ""
                             controller.imgString =  self?.arrSortedService[int].professionalImage ?? "No"
-                            controller.otherUserID =  "4544f9cf-ccb6-4438-a145-abb9d5ac7e0c"
+                            controller.otherUserID =  self?.arrSortedService[int].ProfessionalUserId ?? ""
                             self?.parent?.navigationController?.pushViewController(controller, animated: true)
                         case .failure(_):
                             let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
-                            controller.otherUserEmail = "pushpraj@gmail.com"
+                            controller.otherUserEmail = "Email"
                             controller.userName =              self?.arrSortedService[int].professionalName ?? ""
                             controller.imgString =  self?.arrSortedService[int].professionalImage ?? "No"
-                            controller.otherUserID =  "4544f9cf-ccb6-4438-a145-abb9d5ac7e0c"
+                            controller.otherUserID =  self?.arrSortedService[int].ProfessionalUserId ?? ""
                             controller.isNewConversation = true
 
                             self?.parent?.navigationController?.pushViewController(controller, animated: true)

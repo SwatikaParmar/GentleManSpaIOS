@@ -47,6 +47,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if UserDefaults.standard.bool(forKey: Constants.login){
             if UserDefaults.standard.string(forKey: Constants.userType) == "Professional" {
+                NotificationCenter.default.post(name: Notification.Name("Menu_Push_Pro"), object: nil, userInfo: ["count":"FirebaseDataUpdate"])
+
             }
             else{
                 NotificationCenter.default.post(name: Notification.Name("Menu_Push_Action"), object: nil, userInfo: ["count":"FirebaseDataUpdate"])
@@ -73,6 +75,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if UserDefaults.standard.bool(forKey: Constants.login){
             if UserDefaults.standard.string(forKey: Constants.userType) == "Professional" {
+                NotificationCenter.default.post(name: Notification.Name("Menu_Push_Pro"), object: nil, userInfo: ["count":"offline"])
+
             }
             else{
                 NotificationCenter.default.post(name: Notification.Name("Menu_Push_Action"), object: nil, userInfo: ["count":"offline"])

@@ -2762,12 +2762,12 @@
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcx-Hb-9Ug" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                                                     <rect key="frame" x="5" y="5" width="110" height="22"/>
-                                                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
+                                                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
-                                                                            <real key="value" value="15"/>
+                                                                            <real key="value" value="14"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
@@ -3038,12 +3038,12 @@
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reschedule" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lc1-51-1n6" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                                                     <rect key="frame" x="5" y="5" width="120" height="22"/>
-                                                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
+                                                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                                                                     <color key="textColor" red="1" green="0.82352941180000006" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
-                                                                            <real key="value" value="15"/>
+                                                                            <real key="value" value="14"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
@@ -3086,7 +3086,7 @@
                                                                     <real key="value" value="1"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                    <color key="value" systemColor="systemRedColor"/>
+                                                                    <color key="value" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <real key="value" value="3"/>
@@ -3106,12 +3106,12 @@
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anc-N4-5Z2" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                                                     <rect key="frame" x="5" y="5" width="110" height="22"/>
-                                                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
+                                                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
-                                                                            <real key="value" value="15"/>
+                                                                            <real key="value" value="14"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
@@ -6704,7 +6704,7 @@
                                 <rect key="frame" x="0.0" y="227" width="393" height="673"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iEb-ow-G2T">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="685.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="675.66666666666663"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appointment Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XP8-Y3-iNE">
                                                 <rect key="frame" x="17" y="11.000000000000002" width="185.66666666666666" height="22.666666666666671"/>
@@ -6713,10 +6713,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DgV-Lt-wM3" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="40" width="363" height="380"/>
+                                                <rect key="frame" x="15" y="40" width="363" height="370"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9AL-qO-QrR" customClass="CalendarView" customModule="GentlemanSpa" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="10" width="343" height="365"/>
+                                                        <rect key="frame" x="10" y="10" width="343" height="359"/>
                                                         <viewLayoutGuide key="safeArea" id="8yu-S1-R3c"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
@@ -6761,9 +6761,9 @@
                                                     <constraint firstItem="Jqt-Ru-oH1" firstAttribute="top" secondItem="DgV-Lt-wM3" secondAttribute="top" constant="19" id="Wyg-pq-GPV"/>
                                                     <constraint firstItem="G6S-Zs-Qb6" firstAttribute="top" secondItem="DgV-Lt-wM3" secondAttribute="top" id="YUv-NB-PvV"/>
                                                     <constraint firstItem="G6S-Zs-Qb6" firstAttribute="leading" secondItem="DgV-Lt-wM3" secondAttribute="leading" id="ama-De-Nlj"/>
-                                                    <constraint firstAttribute="height" constant="380" id="b9D-C4-I8w"/>
+                                                    <constraint firstAttribute="height" constant="370" id="b9D-C4-I8w"/>
                                                     <constraint firstItem="9AL-qO-QrR" firstAttribute="top" secondItem="DgV-Lt-wM3" secondAttribute="top" constant="10" id="gcO-SJ-uRY"/>
-                                                    <constraint firstAttribute="bottom" secondItem="9AL-qO-QrR" secondAttribute="bottom" constant="5" id="kvg-MV-rTU"/>
+                                                    <constraint firstAttribute="bottom" secondItem="9AL-qO-QrR" secondAttribute="bottom" constant="1" id="kvg-MV-rTU"/>
                                                     <constraint firstAttribute="trailing" secondItem="9AL-qO-QrR" secondAttribute="trailing" constant="10" id="v1T-XU-9dw"/>
                                                     <constraint firstAttribute="trailing" secondItem="jZe-Su-phh" secondAttribute="trailing" constant="23" id="xCO-Zx-VIF"/>
                                                     <constraint firstItem="jZe-Su-phh" firstAttribute="top" secondItem="DgV-Lt-wM3" secondAttribute="top" constant="19" id="ySO-fA-Pxj"/>
@@ -6793,7 +6793,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kha-Ko-SXh" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="520" width="363" height="65"/>
+                                                <rect key="frame" x="15" y="510" width="363" height="65"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCA-l8-wKk">
                                                         <rect key="frame" x="124" y="22.333333333333371" width="115" height="20"/>
@@ -6909,7 +6909,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kZ-sp-k81" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="438" width="361" height="34"/>
+                                                <rect key="frame" x="16" y="428" width="361" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morning" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCh-XA-2gI" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="178" height="34"/>
@@ -6991,13 +6991,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Slot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8Z-ym-zL4">
-                                                <rect key="frame" x="19" y="489.33333333333337" width="74" height="22.666666666666629"/>
+                                                <rect key="frame" x="19" y="479.33333333333337" width="74" height="22.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9U5-lq-Xyf" customClass="UIButtonX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="25" y="613.66666666666663" width="343" height="40"/>
+                                                <rect key="frame" x="25" y="603.66666666666663" width="343" height="40"/>
                                                 <color key="backgroundColor" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="dMV-ea-X8Q"/>

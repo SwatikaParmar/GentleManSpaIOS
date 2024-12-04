@@ -75,6 +75,13 @@ class GetServiceAppointmentsListRequest: NSObject{
         var toTime: String
         var durationInMinutes = 0
         var professionalImage: String?
+        var userFirstName: String?
+        var userName: String?
+
+        var userLastName: String?
+        var userImage: String?
+        var userId: String?
+        var ProfessionalUserId : String?
 
         
         
@@ -97,6 +104,16 @@ class GetServiceAppointmentsListRequest: NSObject{
             
             professionalName = dict["professionalName"] as? String ?? "".capitalized
             professionalName = professionalName.capitalized
+            
+            self.userImage = dict["userImage"] as? String ?? ""
+            self.userId = dict["userId"] as? String ?? ""
+            self.userFirstName = dict["userFirstName"] as? String ?? ""
+            self.userLastName = dict["userLastName"] as? String ?? ""
+            self.ProfessionalUserId = dict["professionalUserId"] as? String ?? ""
+            
+            self.userName = (self.userFirstName ?? "") + " " + (self.userLastName ?? "")
+            userName = userName?.capitalized
+
 
         }
     }

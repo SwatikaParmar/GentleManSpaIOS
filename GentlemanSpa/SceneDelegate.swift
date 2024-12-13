@@ -36,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if UserDefaults.standard.string(forKey: Constants.userType) == "Professional" {
             }
             else{
-                DatabaseManager.shared.observeOnline()
+             //   DatabaseManager.shared.observeOnline()
             }
         }
     }

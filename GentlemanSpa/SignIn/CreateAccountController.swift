@@ -311,7 +311,7 @@ class CreateAccountController: UIViewController {
     }
     
     
-    //MARK:-  Resend OTP on Email
+    //MARK:-  Resend OTP on Phone
     func callResendPhoneApi(param : [String : Any]){
         
         IsPhoneUniqueAPIRequest.shared.IsPhoneUniqueEmail(requestParams: param, accessToken:"") { (message, status,otp) in

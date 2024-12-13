@@ -74,6 +74,7 @@ class HomeUserViewController: UIViewController {
                 UserDefaults.standard.set(false, forKey: Constants.login)
                 UserDefaults.standard.synchronize()
                 RootControllerManager().SetRootViewController()
+       
             }
             
             if count == "DeleteAccount"{

@@ -259,7 +259,7 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
             let childern = snapshot.children
             for child in childern{
                 let key = (child as AnyObject).key as String
-                print("key :- ",key)
+             //   print("key :- ",key)
 
                 let newChild = child as! DataSnapshot
                 if let checkID = newChild.value as? [String: Any]{
@@ -270,7 +270,7 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
 
                 }
             }
-            print("Array :- ",self.friendLastMessage.count)
+        //    print("Array :- ",self.friendLastMessage.count)
 
             if self.friendLastMessage.count > 0 {
                 self.noUserView.isHidden = true

@@ -467,7 +467,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face and Body Bleach Services" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zb-Uv-abp" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="118" y="89.333333333333329" width="239" height="19.666666666666671"/>
+                                                            <rect key="frame" x="118" y="85.333333333333329" width="239" height="19.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                             <color key="textColor" red="0.26274509800000001" green="0.23137254900000001" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -529,7 +529,7 @@
                                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="1LE-qC-QGm" secondAttribute="bottom" constant="12" id="31A-hD-GKo"/>
-                                                        <constraint firstItem="0zb-Uv-abp" firstAttribute="top" secondItem="Dy6-1z-K6F" secondAttribute="bottom" constant="5" id="4n8-JL-zrt"/>
+                                                        <constraint firstItem="0zb-Uv-abp" firstAttribute="top" secondItem="Dy6-1z-K6F" secondAttribute="bottom" constant="1" id="4n8-JL-zrt"/>
                                                         <constraint firstAttribute="trailing" secondItem="Dy6-1z-K6F" secondAttribute="trailing" constant="8" id="7dA-2u-Xe2"/>
                                                         <constraint firstItem="0zb-Uv-abp" firstAttribute="leading" secondItem="ZmU-g5-aQn" secondAttribute="trailing" constant="9" id="7n3-qY-nfH"/>
                                                         <constraint firstItem="amo-a6-DDX" firstAttribute="top" secondItem="UNf-ob-kBd" secondAttribute="top" id="EgY-Zk-2as"/>
@@ -693,7 +693,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Santino Marco" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kT1-LY-gEH" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="119" y="66" width="238" height="18.333333333333329"/>
+                                                            <rect key="frame" x="118" y="66" width="239" height="18.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="13"/>
                                                             <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -704,7 +704,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face and Body Bleach Services" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzn-r8-8tV" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="119" y="89.333333333333329" width="238" height="19.666666666666671"/>
+                                                            <rect key="frame" x="118" y="85.333333333333329" width="239" height="19.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                             <color key="textColor" red="0.26274509800000001" green="0.23137254900000001" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -768,16 +768,16 @@
                                                         <constraint firstItem="kT1-LY-gEH" firstAttribute="top" secondItem="Cmn-aT-dnA" secondAttribute="bottom" constant="12" id="51Z-Pm-gcR"/>
                                                         <constraint firstAttribute="bottom" secondItem="tuM-BD-o7T" secondAttribute="bottom" constant="12" id="60x-xR-CSW"/>
                                                         <constraint firstAttribute="trailing" secondItem="kT1-LY-gEH" secondAttribute="trailing" constant="8" id="6Ia-vl-7WV"/>
-                                                        <constraint firstItem="Jzn-r8-8tV" firstAttribute="leading" secondItem="KOf-lR-EA3" secondAttribute="trailing" constant="10" id="Flq-dW-a9q"/>
+                                                        <constraint firstItem="Jzn-r8-8tV" firstAttribute="leading" secondItem="KOf-lR-EA3" secondAttribute="trailing" constant="9" id="Flq-dW-a9q"/>
                                                         <constraint firstAttribute="trailing" secondItem="Cmn-aT-dnA" secondAttribute="trailing" id="JVQ-Kp-3Xr"/>
                                                         <constraint firstItem="KOf-lR-EA3" firstAttribute="leading" secondItem="J4l-mJ-bof" secondAttribute="leading" constant="12" id="Oom-zr-PM4"/>
                                                         <constraint firstAttribute="trailing" secondItem="Jzn-r8-8tV" secondAttribute="trailing" constant="8" id="S0a-ol-xnf"/>
-                                                        <constraint firstItem="Jzn-r8-8tV" firstAttribute="top" secondItem="kT1-LY-gEH" secondAttribute="bottom" constant="5" id="Zdk-Tp-23h"/>
+                                                        <constraint firstItem="Jzn-r8-8tV" firstAttribute="top" secondItem="kT1-LY-gEH" secondAttribute="bottom" constant="1" id="Zdk-Tp-23h"/>
                                                         <constraint firstItem="KOf-lR-EA3" firstAttribute="top" secondItem="Cmn-aT-dnA" secondAttribute="bottom" constant="10" id="Zkh-oN-gP0"/>
                                                         <constraint firstItem="Cmn-aT-dnA" firstAttribute="top" secondItem="J4l-mJ-bof" secondAttribute="top" id="cax-qC-yGa"/>
                                                         <constraint firstAttribute="trailing" secondItem="tuM-BD-o7T" secondAttribute="trailing" constant="12" id="ePG-wA-9r2"/>
                                                         <constraint firstItem="Cmn-aT-dnA" firstAttribute="leading" secondItem="J4l-mJ-bof" secondAttribute="leading" id="hTD-OS-gVl"/>
-                                                        <constraint firstItem="kT1-LY-gEH" firstAttribute="leading" secondItem="KOf-lR-EA3" secondAttribute="trailing" constant="10" id="yCN-8e-bNK"/>
+                                                        <constraint firstItem="kT1-LY-gEH" firstAttribute="leading" secondItem="KOf-lR-EA3" secondAttribute="trailing" constant="9" id="yCN-8e-bNK"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -980,7 +980,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face and Body Bleach Services" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEW-lm-v6U" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="118" y="89.333333333333329" width="239" height="19.666666666666671"/>
+                                                            <rect key="frame" x="118" y="85.333333333333329" width="239" height="19.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                             <color key="textColor" red="0.26274509800000001" green="0.23137254900000001" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -993,7 +993,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                     <constraints>
-                                                        <constraint firstItem="VEW-lm-v6U" firstAttribute="top" secondItem="xB5-HD-Ecd" secondAttribute="bottom" constant="5" id="350-MN-dOI"/>
+                                                        <constraint firstItem="VEW-lm-v6U" firstAttribute="top" secondItem="xB5-HD-Ecd" secondAttribute="bottom" constant="1" id="350-MN-dOI"/>
                                                         <constraint firstAttribute="trailing" secondItem="xB5-HD-Ecd" secondAttribute="trailing" constant="8" id="BKb-8V-v9Z"/>
                                                         <constraint firstItem="oTZ-ep-qGb" firstAttribute="leading" secondItem="7NE-sg-vA8" secondAttribute="leading" id="BxU-ms-RTN"/>
                                                         <constraint firstItem="Nm2-y9-rWb" firstAttribute="top" secondItem="oTZ-ep-qGb" secondAttribute="bottom" constant="10" id="MXj-QV-dqc"/>
@@ -6019,7 +6019,7 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXJ-Ff-I2E">
-                                                            <rect key="frame" x="54" y="53" width="16" height="16"/>
+                                                            <rect key="frame" x="56" y="55" width="16" height="16"/>
                                                             <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="16" id="jlq-X0-78H"/>
@@ -6032,9 +6032,9 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="AXJ-Ff-I2E" firstAttribute="trailing" secondItem="bcR-UQ-3BY" secondAttribute="trailing" constant="-3" id="0wL-ss-LOa"/>
+                                                        <constraint firstItem="AXJ-Ff-I2E" firstAttribute="trailing" secondItem="bcR-UQ-3BY" secondAttribute="trailing" constant="-1" id="0wL-ss-LOa"/>
                                                         <constraint firstAttribute="trailing" secondItem="N0p-OS-oxs" secondAttribute="trailing" constant="5" id="4Cx-0O-Fkp"/>
-                                                        <constraint firstItem="AXJ-Ff-I2E" firstAttribute="bottom" secondItem="bcR-UQ-3BY" secondAttribute="bottom" constant="-3" id="ovU-6A-AdV"/>
+                                                        <constraint firstItem="AXJ-Ff-I2E" firstAttribute="bottom" secondItem="bcR-UQ-3BY" secondAttribute="bottom" constant="-1" id="ovU-6A-AdV"/>
                                                         <constraint firstItem="N0p-OS-oxs" firstAttribute="centerY" secondItem="WmK-iH-2o2" secondAttribute="centerY" id="rKU-FL-sL5"/>
                                                         <constraint firstItem="bcR-UQ-3BY" firstAttribute="leading" secondItem="WmK-iH-2o2" secondAttribute="leading" constant="8" id="vNs-jh-s20"/>
                                                         <constraint firstItem="N0p-OS-oxs" firstAttribute="leading" secondItem="bcR-UQ-3BY" secondAttribute="trailing" constant="10" id="wap-yV-Nqb"/>

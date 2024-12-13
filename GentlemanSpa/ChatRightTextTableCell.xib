@@ -6,9 +6,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Montserrat-Medium.otf">
-            <string>Montserrat-Medium</string>
-        </array>
         <array key="Poppins-Medium.ttf">
             <string>Poppins-Medium</string>
         </array>
@@ -24,34 +21,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRC-PK-bVD">
-                        <rect key="frame" x="230" y="8" width="76" height="54"/>
+                        <rect key="frame" x="246" y="8" width="60" height="54"/>
                         <color key="backgroundColor" red="0.71764705882352942" green="0.53725490196078429" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="350" id="WBN-vw-xlY"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPq-o2-hhJ" customClass="UILabelFontClass" customModule="GentlemanSpa" customModuleProvider="target">
-                        <rect key="frame" x="298" y="56" width="0.0" height="0.0"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" id="Qw0-5j-LDV"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="11.5"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
-                                <real key="value" value="10"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgu-47-5dE" customClass="UILabelFontClass" customModule="GentlemanSpa" customModuleProvider="target">
-                        <rect key="frame" x="240" y="16" width="56" height="38"/>
+                        <rect key="frame" x="256" y="16" width="40" height="38"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="56" id="AQB-Fj-uKM"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="AQB-Fj-uKM"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
+                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
@@ -76,7 +58,6 @@
                     <constraint firstItem="Wgu-47-5dE" firstAttribute="top" secondItem="kRC-PK-bVD" secondAttribute="top" constant="8" id="Esw-xp-Tpa"/>
                     <constraint firstItem="Wgu-47-5dE" firstAttribute="bottom" secondItem="kRC-PK-bVD" secondAttribute="bottom" constant="-8" id="I6X-yM-sQg"/>
                     <constraint firstAttribute="trailing" secondItem="Wgu-47-5dE" secondAttribute="trailing" constant="24" id="KDn-Oq-ahD"/>
-                    <constraint firstAttribute="trailing" secondItem="IPq-o2-hhJ" secondAttribute="trailing" constant="22" id="Qzf-Zn-RnD"/>
                     <constraint firstItem="b0R-M8-uBU" firstAttribute="top" secondItem="kRC-PK-bVD" secondAttribute="bottom" constant="3" id="Ujo-Cm-P28"/>
                     <constraint firstItem="Wgu-47-5dE" firstAttribute="trailing" secondItem="kRC-PK-bVD" secondAttribute="trailing" constant="-10" id="WCB-g9-quJ"/>
                     <constraint firstItem="Wgu-47-5dE" firstAttribute="leading" secondItem="kRC-PK-bVD" secondAttribute="leading" constant="10" id="cyM-0D-rLk"/>

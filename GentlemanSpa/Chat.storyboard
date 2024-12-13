@@ -128,7 +128,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20K-CA-HcN">
-                                                            <rect key="frame" x="54" y="53" width="16" height="16"/>
+                                                            <rect key="frame" x="56" y="55" width="16" height="16"/>
                                                             <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="16" id="1xU-eH-LDz"/>
@@ -178,8 +178,8 @@
                                                     <constraints>
                                                         <constraint firstItem="BfV-QM-qgb" firstAttribute="leading" secondItem="qnw-E0-mDf" secondAttribute="trailing" constant="10" id="8mb-1K-0gd"/>
                                                         <constraint firstItem="qnw-E0-mDf" firstAttribute="top" secondItem="iSi-Az-xYD" secondAttribute="top" constant="7" id="QOk-M3-z4d"/>
-                                                        <constraint firstItem="20K-CA-HcN" firstAttribute="bottom" secondItem="qnw-E0-mDf" secondAttribute="bottom" constant="-3" id="WnC-Bu-NiZ"/>
-                                                        <constraint firstItem="20K-CA-HcN" firstAttribute="trailing" secondItem="qnw-E0-mDf" secondAttribute="trailing" constant="-3" id="bjH-eZ-5T3"/>
+                                                        <constraint firstItem="20K-CA-HcN" firstAttribute="bottom" secondItem="qnw-E0-mDf" secondAttribute="bottom" constant="-1" id="WnC-Bu-NiZ"/>
+                                                        <constraint firstItem="20K-CA-HcN" firstAttribute="trailing" secondItem="qnw-E0-mDf" secondAttribute="trailing" constant="-1" id="bjH-eZ-5T3"/>
                                                         <constraint firstItem="qnw-E0-mDf" firstAttribute="leading" secondItem="iSi-Az-xYD" secondAttribute="leading" constant="8" id="f7o-oC-UzS"/>
                                                         <constraint firstAttribute="trailing" secondItem="BfV-QM-qgb" secondAttribute="trailing" constant="5" id="ida-zY-W2g"/>
                                                         <constraint firstItem="BfV-QM-qgb" firstAttribute="centerY" secondItem="iSi-Az-xYD" secondAttribute="centerY" id="kKt-gh-MeY"/>
@@ -515,7 +515,7 @@
                                     <blurEffect style="regular"/>
                                 </vibrancyEffect>
                             </visualEffectView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6m-mK-aPz">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6m-mK-aPz" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
                                 <rect key="frame" x="48" y="338.66666666666669" width="297" height="175.00000000000006"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete Message?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEy-Nc-zPl">
@@ -622,8 +622,16 @@
                                     <constraint firstAttribute="trailing" secondItem="qGj-xF-GLd" secondAttribute="trailing" constant="30" id="yjG-eF-yOi"/>
                                     <constraint firstItem="YtG-9N-L4y" firstAttribute="top" secondItem="sRS-QA-JGg" secondAttribute="bottom" constant="8" id="zCO-yS-5Yf"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusIpad">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOT-nr-J7X">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOT-nr-J7X" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
                                 <rect key="frame" x="48" y="356" width="297" height="140"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete Message?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gba-Tt-UUw">
@@ -687,6 +695,14 @@
                                     <constraint firstAttribute="trailing" secondItem="qzf-Nx-FZY" secondAttribute="trailing" constant="24" id="pId-WP-eKV"/>
                                     <constraint firstItem="Gba-Tt-UUw" firstAttribute="leading" secondItem="rOT-nr-J7X" secondAttribute="leading" constant="5" id="qeH-wB-w7l"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusIpad">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Cnw-Pc-AfP"/>

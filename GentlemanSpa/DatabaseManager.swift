@@ -23,6 +23,24 @@ class OnlineDatabaseManager{
 
 // MARK: -  Account Management
 extension DatabaseManager{
+    
+    func timeConversion12Database(time24: String) -> String {
+        let dateAsString = time24
+            let df = DateFormatter()
+            df.dateFormat = "HH:mm"
+
+        let date = df.date(from: dateAsString) ?? Date()
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en-US")
+        formatter.dateFormat = "hh:mm a"
+        formatter.amSymbol = "AM"
+        formatter.pmSymbol = "PM"
+        let time12 = formatter.string(from: date)
+    
+        return time12
+      
+     
+   }
    
     public func userExists(with userID:String,
                            completion: @escaping ((Bool) -> Void)){
@@ -43,17 +61,25 @@ extension DatabaseManager{
     /// Inserts new user to database
     public func insertUser(with user: ChatAppUser, _ logout:String, completion: @escaping (Bool) -> Void){
          
+        var time = ChatController.timeFormatter.string(from: Date())
+        if ChatController.timeFormatter.string(from: Date()).contains("AM") || ChatController.timeFormatter.string(from: Date()).contains("PM"){
+            
+        }
+        else {
+            time = self.timeConversion12Database(time24:time)
+        }
+
         var onlineData = [
             "date": ChatController.dateFormatter.string(from: Date()),
             "state": logout,
-            "time": ChatController.timeFormatter.string(from: Date())
+            "time": time
         ]
         
         if "Logout" == logout {
             onlineData = [
                 "date": ChatController.dateFormatter.string(from: Date()),
                 "state": "offline",
-                "time": ChatController.timeFormatter.string(from: Date())
+                "time": time
             ]
         }
         
@@ -61,7 +87,7 @@ extension DatabaseManager{
             onlineData = [
                 "date": ChatController.dateFormatter.string(from: Date()),
                 "state": "offline",
-                "time": ChatController.timeFormatter.string(from: Date())
+                "time": time
             ]
         }
         
@@ -172,11 +198,19 @@ extension DatabaseManager{
             otherMessage.setValue(collectionMessage)
             
             let timestamp = Date().currentTimeMillis()
+            
+            var time = ChatController.timeFormatter.string(from: Date())
+            if ChatController.timeFormatter.string(from: Date()).contains("AM") || ChatController.timeFormatter.string(from: Date()).contains("PM"){
+                
+            }
+            else {
+                time = self.timeConversion12Database(time24:time)
+            }
 
             let messageLast : [String:Any] =  [
                 "date": ChatController.dateFormatter.string(from: Date()),
                 "message": firstMessage.message,
-                "time": ChatController.timeFormatter.string(from: Date()),
+                "time": time,
                 "timeStamp": timestamp
             ]
             

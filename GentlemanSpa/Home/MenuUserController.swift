@@ -150,7 +150,9 @@ class MenuUserController: UIViewController,UITableViewDelegate,UITableViewDataSo
             alert.addAction(No)
         
         let Yes = UIAlertAction(title:"Yes", style: UIAlertAction.Style.destructive, handler: { action in
-            self.callLogOutApi()
+            
+            NotificationCenter.default.post(name: Notification.Name("Menu_Push_Action"), object: nil, userInfo: ["count":"Logout"])
+         
          
         })
         alert.addAction(Yes)
@@ -159,21 +161,7 @@ class MenuUserController: UIViewController,UITableViewDelegate,UITableViewDataSo
         })
     }
     
-    //MARK: - Call Logout API
-    func callLogOutApi(){
-        
-        UserDefaults.standard.removeObject(forKey: Constants.accessToken)
-        UserDefaults.standard.removeObject(forKey: Constants.userId)
-        UserDefaults.standard.removeObject(forKey: Constants.userImg)
-        UserDefaults.standard.removeObject(forKey: Constants.firstName)
-        UserDefaults.standard.removeObject(forKey: Constants.lastName)
-        UserDefaults.standard.removeObject(forKey: Constants.email)
-        UserDefaults.standard.removeObject(forKey: Constants.phone)
-        UserDefaults.standard.set(false, forKey: Constants.login)
-        UserDefaults.standard.synchronize()
-        RootControllerManager().SetRootViewController()
-
-    }
+  
 }
 
 

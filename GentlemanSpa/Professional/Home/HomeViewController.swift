@@ -49,9 +49,7 @@ class HomeViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.Menu_Push_Pro), name: NSNotification.Name(rawValue: "Menu_Push_Pro"), object: nil)
 
 
-        pageName = "Upcoming"
-        self.tableUp.reloadData()
-        MyAppointmentAPI(true)
+       
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.firebaseDataPro()
@@ -62,7 +60,9 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
-        
+        pageName = "Upcoming"
+        MyAppointmentAPI(true)
+        self.tableUp.reloadData()
 
     }
     
@@ -126,7 +126,7 @@ class HomeViewController: UIViewController {
              let latestMessage = dictionary["userState"] as? [String:Any]
                 let state = latestMessage?["state"] as? String
                 if state == "offline"{
-                    self.getUserDataAPI("Update")
+                   // self.getUserDataAPI("Update")
                 }
                 else{
                     if self.isOnline {
@@ -185,9 +185,9 @@ class HomeViewController: UIViewController {
             }
         }
         
-        func userAddPro(_ isCall:Bool, _ logout:String){
-            self.isOnline = false
-            
+    func userAddPro(_ isCall:Bool, _ logout:String){
+        self.isOnline = false
+        if UserDefaults.standard.bool(forKey: Constants.login) {
             if UserDefaults.standard.string(forKey: Constants.firstName) ?? "" == "" ||
                 UserDefaults.standard.string(forKey: Constants.firstName) ?? "" == nil {
                 return
@@ -208,12 +208,12 @@ class HomeViewController: UIViewController {
             DatabaseManager.shared.insertUser(with: chatUser, logout, completion: {success in
                 if success{
                     if isCall {
-                      //  DatabaseManager.shared.observeOnline()
+                        
                     }
                 }
             })
         }
-        
+    }
     
     @objc func RefreshScreenUp() {
       

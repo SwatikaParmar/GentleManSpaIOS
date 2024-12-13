@@ -303,10 +303,7 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
     func open_ChatView(_ int:Int){
         
         if arrSortedService.count > int{
-            
-            
-            
-            
+         
             Indicator.shared.startAnimating(withMessage:"", colorType: AppColor.TabSelectColor, colorText: UIColor.cyan)
             
             DatabaseManager.shared.userExists(with: self.arrSortedService[int].ProfessionalUserId ?? "", completion: {exists in

@@ -79,9 +79,28 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
         formatter.dateFormat = "hh:mm a"
         formatter.amSymbol = "AM"
         formatter.pmSymbol = "PM"
+        
         return formatter
     }()
     
+    
+     func timeConversion12(time24: String) -> String {
+         let dateAsString = time24
+             let df = DateFormatter()
+             df.dateFormat = "HH:mm"
+
+         let date = df.date(from: dateAsString) ?? Date()
+         let formatter = DateFormatter()
+         formatter.locale = Locale(identifier: "en-US")
+         formatter.dateFormat = "hh:mm a"
+         formatter.amSymbol = "AM"
+         formatter.pmSymbol = "PM"
+         let time12 = formatter.string(from: date)
+     
+         return time12
+       
+      
+    }
     
     
     func topViewLayout(){
@@ -455,20 +474,10 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
         
         if message.count > 0
         {
-            
-            
-            //            self.viewChat.frame.size.height = 82.5
-            //            self.textMessage.contentSize.height = 35.5
-            //         //   self.textMessage.frame.size.height = 35.5
-            //            self.viewChat.layoutIfNeeded()
-            
-            //   self.viewHeightConstraint.constant = 82.5
             self.view.layoutIfNeeded()
-            
             self.textMessage.isScrollEnabled = false
             self.textMessage.text = ""
             self.textMessage.text = nil
-            
             sendMessage(message )
         }
         
@@ -537,8 +546,15 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
     {
         
         if isNewConversation{
+            var time = ChatController.timeFormatter.string(from: Date())
+            if ChatController.timeFormatter.string(from: Date()).contains("AM") || ChatController.timeFormatter.string(from: Date()).contains("PM"){
+                
+            }
+            else {
+                time = timeConversion12(time24:time)
+            }
             
-            let message = Message(from: userId(), to: otherUserID, messageId: "", sentDate: ChatController.dateFormatter.string(from: Date()), sentTime:ChatController.timeFormatter.string(from: Date()), type: "text", message:text)
+            let message = Message(from: userId(), to: otherUserID, messageId: "", sentDate: ChatController.dateFormatter.string(from: Date()), sentTime:time, type: "text", message:text)
             
             
             DatabaseManager.shared.createNewConversation(with: otherUserID,
@@ -555,9 +571,16 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
             })
         }
         else{
+            var time = ChatController.timeFormatter.string(from: Date())
+            if ChatController.timeFormatter.string(from: Date()).contains("AM") || ChatController.timeFormatter.string(from: Date()).contains("PM"){
+                
+            }
+            else {
+                time = timeConversion12(time24:time)
+            }
             
             
-            let message = Message(from: userId(), to: otherUserID, messageId: "", sentDate: ChatController.dateFormatter.string(from: Date()), sentTime:ChatController.timeFormatter.string(from: Date()), type: "text", message:text)
+            let message = Message(from: userId(), to: otherUserID, messageId: "", sentDate: ChatController.dateFormatter.string(from: Date()), sentTime:time, type: "text", message:text)
             
             
             DatabaseManager.shared.userExists(with: userId(), completion: {exists in

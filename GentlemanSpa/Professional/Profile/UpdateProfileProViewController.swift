@@ -21,7 +21,9 @@ class UpdateProfileProViewController: UIViewController {
     @IBOutlet weak var txt_Client : CocoaTextField!
 
     @IBOutlet weak var view_NavConst: NSLayoutConstraint!
-    @IBOutlet weak var countryPicker: CountryPickerView!
+    @IBOutlet weak var countryPicker: UIView!
+    @IBOutlet weak var lbeDialCode: UILabel!
+
     @IBOutlet weak var lbeSpe : UILabel!
     @IBOutlet weak var imgUserProfile : UIImageView!
 
@@ -51,11 +53,11 @@ class UpdateProfileProViewController: UIViewController {
         super.viewDidLoad()
         
         setupDropDowns()
-        self.countryPicker.font = UIFont(name: FontName.Inter.Regular, size: 14)!
-        self.countryPicker.delegate = self
-        self.phoneCode = "+91"
-        countryPicker.setCountryByCode("IN")
-        countryPicker.showCountryCodeInView = false
+        self.lbeDialCode.font = UIFont(name: FontName.Inter.Regular, size: 16)!
+       // self.countryPicker.delegate = self
+       // self.phoneCode = "+91"
+      //  countryPicker.setCountryByCode("IN")
+      //  countryPicker.showCountryCodeInView = false
         
         applyStyle(to: txt_First)
         txt_First.placeholder = "First Name"
@@ -227,6 +229,8 @@ class UpdateProfileProViewController: UIViewController {
                                 UserDefaults.standard.set(user?.phone, forKey: Constants.phone)
                                 UserDefaults.standard.synchronize()
                         
+                        self.lbeDialCode.text = user?.dialCode
+                        self.phoneCode = user?.dialCode ?? "+1"
                                 self.showDataOnProfile()
                         
                                 self.genderStr = user?.gender ?? "Male"
@@ -438,7 +442,7 @@ extension UpdateProfileProViewController: CountryPickerViewDelegate {
     func countryPickerView(_ countryPickerView: CountryPickerView, didSelectCountry country: Country) {
         // Only countryPickerInternal has it's delegate set
         let message = "Name: \(country.name) \nCode: \(country.code) \nPhone: \(country.phoneCode)"
-        phoneCode = country.phoneCode
+     //   phoneCode = country.phoneCode
         print(message)
     }
 }
@@ -509,6 +513,7 @@ class ProfileProUpdateData: NSObject {
     var countryName = ""
     var profilePic = ""
     var phone = ""
+    var dialCode = ""
     var distributorCode = ""
     var objectPro:ProfessionalDetail?
 
@@ -524,7 +529,8 @@ class ProfileProUpdateData: NSObject {
         profilePic = dictionary["profilepic"] as? String ?? ""
         phone = dictionary["phoneNumber"] as? String ?? ""
         distributorCode = dictionary["distributorCode"] as? String ?? ""
-        
+        dialCode = dictionary["dialCode"] as? String ?? ""
+
         let dict : ProfessionalDetail = ProfessionalDetail.init(fromDictionary: dictionary["professionalDetail"] as! [String : Any] )
         objectPro = dict
     }

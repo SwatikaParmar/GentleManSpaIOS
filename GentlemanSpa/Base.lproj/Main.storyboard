@@ -40,8 +40,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJf-Tw-Ola">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="872"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Back !" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkk-km-GfN" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="90.333333333333329" y="327.66666666666669" width="212.33333333333337" height="36.666666666666686"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Back!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkk-km-GfN" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
+                                                <rect key="frame" x="93.666666666666686" y="327.66666666666669" width="206" height="36.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="26"/>
                                                 <color key="textColor" red="0.71764705882352942" green="0.53725490196078429" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>

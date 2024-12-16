@@ -22,8 +22,8 @@ class ProfileUserViewController: UIViewController,UITableViewDelegate,UITableVie
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.isHidden = true
-        titleArray = ["My Profile","Messages","Event","Refer","Support","Product","Service"]
-        imagesArray = ["profileEdit","M","E","R","S","P","SE"]
+        titleArray = ["My Profile","Messages","Event","Refer","Support"]
+        imagesArray = ["profileEdit","M","E","R","S"]
         tableview.contentInsetAdjustmentBehavior = .never
     }
     

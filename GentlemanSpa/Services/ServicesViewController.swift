@@ -10,6 +10,8 @@ import UIKit
 class ServicesViewController: UIViewController {
     @IBOutlet weak var tableViewMale: UITableView!
     @IBOutlet var cvHeader: UICollectionView!
+    @IBOutlet var collectionVSubCategory: UICollectionView!
+
     @IBOutlet weak var searchTxtField: UITextField!
     @IBOutlet weak var totalView: UIView!
     @IBOutlet weak var view_H_Const: NSLayoutConstraint!
@@ -17,9 +19,12 @@ class ServicesViewController: UIViewController {
 
     @IBOutlet weak var amountLbe: UILabel!
     @IBOutlet weak var countLbe: UILabel!
-    
-    var arrSortedCategory = [dashboardCategoryObject]()
+    @IBOutlet weak var collSub_H_Const: NSLayoutConstraint!
+    @IBOutlet weak var viewCategory  : UIView!
+
     var indexInt = 0
+    var indexIntSubCategory = 0
+
     var categoryId = 0
     var genderPreferences = "Male"
     var searchQuery = ""
@@ -28,11 +33,19 @@ class ServicesViewController: UIViewController {
     var arrSortedService = [ServiceListModel]()
     var arrSortedPackage = [ServiceListModel]()
     var arrSortedTopService = [ServiceListModel]()
-    
+    var arrSortedCategory = [dashboardCategoryObject]()
+    var arrSortedSubCategory = [SpaSubCategoriesObject]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         searchTxtField.delegate = self
         viewNoData.isHidden = true
+        self.collSub_H_Const.constant = 0
+        totalView.isHidden = true
+        viewCategory.isHidden = true
+
+        
+        view_H_Const.constant = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,9 +79,12 @@ class ServicesViewController: UIViewController {
                  
                     
                     if self.arrSortedCategory.count > self.indexInt {
+                        self.viewCategory.isHidden = false
+
                         self.cvHeader.reloadData()
-                        
-                        self.serviceAPI(false, true, "",self.arrSortedCategory[self.indexInt].mainCategoryId,self.genderPreferences, 0)
+                        self.categoryId = self.arrSortedCategory[self.indexInt].mainCategoryId
+                        self.subCategoryAPI(true, true, self.arrSortedCategory[self.indexInt].mainCategoryId)
+                      
                         if self.arrSortedCategory.count > self.indexInt{
                             self.cvHeader.scrollToItem(at: IndexPath(row: self.indexInt, section: 0), at: .centeredHorizontally, animated: true)
                         }
@@ -78,14 +94,74 @@ class ServicesViewController: UIViewController {
                 else{
                     self.arrSortedCategory.removeAll()
                     self.cvHeader.reloadData()
+                    self.viewCategory.isHidden = true
+
                 }
             }
             else{
                 self.arrSortedCategory.removeAll()
                 self.cvHeader.reloadData()
+                self.viewCategory.isHidden = true
+
             }
         }
     }
+    
+    //MARK: - subCategory API
+    func subCategoryAPI(_ isLoader:Bool, _ isAppend: Bool, _ categoryId:Int){
+        
+        let params = [ "spaDetailId": 21,
+                       "categoryId": categoryId,
+        ] as [String : Any]
+        
+        GetSpaSubCategoriesRequest.shared.GetSpaSubCategoriesAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
+            if isStatus {
+                if arrayData != nil{
+                    self.arrSortedSubCategory = arrayData ?? self.arrSortedSubCategory
+                 
+                    
+                    if self.arrSortedSubCategory.count > 0 {
+                        self.collSub_H_Const.constant = 55
+                        self.cvHeader.reloadData()
+                        self.collectionVSubCategory.reloadData()
+                        
+                        let arrSorted = SpaSubCategoriesObject(fromDictionary: ["categoryName" : "All",
+                                                                              "mainCategoryId": 0])
+                        self.arrSortedSubCategory = [arrSorted] + self.arrSortedSubCategory
+    
+                        self.serviceAPI(false, true, "",categoryId,self.genderPreferences,self.arrSortedSubCategory[0].mainCategoryId )
+                    
+                        self.cvHeader.reloadData()
+                        self.collectionVSubCategory.reloadData()
+                    }
+                    else{
+                        self.serviceAPI(false, true, "",self.arrSortedCategory[self.indexInt].mainCategoryId,self.genderPreferences, 0)
+                        self.collSub_H_Const.constant = 0
+                        self.cvHeader.reloadData()
+                        self.collectionVSubCategory.reloadData()
+
+                    }
+                }
+                else{
+                    self.arrSortedSubCategory.removeAll()
+                    self.cvHeader.reloadData()
+                    self.collectionVSubCategory.reloadData()
+                    self.serviceAPI(false, true, "",self.arrSortedCategory[self.indexInt].mainCategoryId,self.genderPreferences, 0)
+                    self.collSub_H_Const.constant = 0
+
+                }
+            }
+            else{
+                self.arrSortedSubCategory.removeAll()
+                self.cvHeader.reloadData()
+                self.collectionVSubCategory.reloadData()
+                self.serviceAPI(false, true, "",self.arrSortedCategory[self.indexInt].mainCategoryId,self.genderPreferences, 0)
+                self.collSub_H_Const.constant = 0
+
+            }
+        }
+    }
+    
     
     
     

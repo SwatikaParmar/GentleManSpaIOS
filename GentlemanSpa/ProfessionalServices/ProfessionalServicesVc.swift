@@ -46,7 +46,7 @@ class ProfessionalServicesVc: UIViewController {
         
         imgView?.sd_setImage(with: URL.init(string:(imgUser ?? ""))) { (image, error, cache, urls) in
             if (error != nil) {
-                self.imgView.image = UIImage(named: "userProic")
+                self.imgView.image = UIImage(named: "placeholder_Male")
             } else {
                 self.imgView.image = image
                 

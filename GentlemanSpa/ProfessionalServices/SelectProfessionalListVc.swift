@@ -105,7 +105,7 @@ extension SelectProfessionalListVc: UITableViewDataSource,UITableViewDelegate {
                let urlString = imagePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
                cell.imageV?.sd_setImage(with: URL.init(string:(urlString))) { (image, error, cache, urls) in
                    if (error != nil) {
-                       cell.imageV.image = UIImage(named: "userProic")
+                       cell.imageV.image = UIImage(named: "placeholder_Male")
                    } else {
                        cell.imageV.image = image
                       
@@ -113,7 +113,7 @@ extension SelectProfessionalListVc: UITableViewDataSource,UITableViewDelegate {
                }
                
            } else {
-                   cell.imageV.image = UIImage(named: "userProic")
+                   cell.imageV.image = UIImage(named: "placeholder_Male")
            }
         
         for i in 0 ..< (arrGetProfessionalList[indexPath.row].object?.arrayData.count ?? 0) {

@@ -53,7 +53,7 @@ extension CategoryHomeTvCell:UICollectionViewDelegate,UICollectionViewDataSource
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
             let cell: DashCategoryHomeCollCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DashCategoryHomeCollCell", for: indexPath) as! DashCategoryHomeCollCell
-        
+            if arrSortedCategory.count > 0 {
                 if let imgUrl = arrSortedCategory[indexPath.row].categoryImage,!imgUrl.isEmpty {
                     
                     let imagePath = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
@@ -63,40 +63,40 @@ extension CategoryHomeTvCell:UICollectionViewDelegate,UICollectionViewDataSource
                             cell.imageV.image = UIImage(named: "shopPlace")
                         } else {
                             cell.imageV.image = image
-                           
+                            
                         }
                     }
                     
                 } else {
-                   
-                        cell.imageV.image = UIImage(named: "shopPlace")
+                    
+                    cell.imageV.image = UIImage(named: "shopPlace")
                 }
-            
-            if indexPath.row == unitsIndex {
                 
-                let actionTitleFont = UIFont(name: FontName.Inter.Medium, size: CGFloat("".dynamicFontSize(13.5))) ?? UIFont.systemFont(ofSize: CGFloat(16), weight: .medium)
-                cell.titleLabel.font = actionTitleFont
+                if indexPath.row == unitsIndex {
+                    
+                    let actionTitleFont = UIFont(name: FontName.Inter.Medium, size: CGFloat("".dynamicFontSize(13.5))) ?? UIFont.systemFont(ofSize: CGFloat(16), weight: .medium)
+                    cell.titleLabel.font = actionTitleFont
+                    
+                }
+                else{
+                    
+                    let actionTitleFont = UIFont(name: FontName.Inter.Medium, size: CGFloat("".dynamicFontSize(13.5))) ?? UIFont.systemFont(ofSize: CGFloat(16), weight: .medium)
+                    cell.titleLabel.font = actionTitleFont
+                    
+                }
+                cell.titleLabel.text = arrSortedCategory[indexPath.row].categoryName
                 
-            }
-            else{
+                let width = (UIScreen.main.bounds.size.width/3)
                 
-                let actionTitleFont = UIFont(name: FontName.Inter.Medium, size: CGFloat("".dynamicFontSize(13.5))) ?? UIFont.systemFont(ofSize: CGFloat(16), weight: .medium)
-                cell.titleLabel.font = actionTitleFont
-                
+                if Utility.shared.DivceTypeString() == "IPad" {
+                    cell.widthImage.constant = width - 50
+                    cell.heightImage.constant = width - 50
+                }
+                else{
+                    cell.widthImage.constant = width - 35
+                    cell.heightImage.constant = width - 35
+                }
             }
-            cell.titleLabel.text = arrSortedCategory[indexPath.row].categoryName
-            
-            let width = (UIScreen.main.bounds.size.width/3)
-            
-            if Utility.shared.DivceTypeString() == "IPad" {
-                cell.widthImage.constant = width - 50
-                cell.heightImage.constant = width - 50
-            }
-            else{
-                cell.widthImage.constant = width - 35
-                cell.heightImage.constant = width - 35
-            }
-              
             
            return cell
 }

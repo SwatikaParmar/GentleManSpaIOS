@@ -48,8 +48,9 @@ class HomeViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.Menu_Push_Pro), name: NSNotification.Name(rawValue: "Menu_Push_Pro"), object: nil)
 
-
-       
+        pageName = "Upcoming"
+        self.tableUp.reloadData()
+        self.getUserDataAPI("Profile")
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.firebaseDataPro()
@@ -60,9 +61,9 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
-        pageName = "Upcoming"
-        MyAppointmentAPI(true)
-        self.tableUp.reloadData()
+    
+      
+       
 
     }
     
@@ -159,15 +160,17 @@ class HomeViewController: UIViewController {
                             UserDefaults.standard.set(user?.email, forKey: Constants.email)
                             UserDefaults.standard.set(user?.profilePic, forKey: Constants.userImg)
                             UserDefaults.standard.set(user?.phone, forKey: Constants.phone)
+                            UserDefaults.standard.set(user?.objectPro?.professionalDetailId ?? 0, forKey: Constants.professionalDetailId)
                             UserDefaults.standard.synchronize()
                             
                             if text == "Update"{
-                                
+                               
+                       
                                 self.userAddPro(self.isOnline, "online")
                             }
                             
                             if text == "Profile"{
-                                NotificationCenter.default.post(name: Notification.Name("SideMenuUpdate"), object: nil, userInfo: ["count":String(0)])
+                                self.MyAppointmentAPI(true)
                             }
                         }
                         

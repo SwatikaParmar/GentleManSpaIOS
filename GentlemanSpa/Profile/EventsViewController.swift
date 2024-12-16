@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 class EventsViewController: UIViewController {
 
@@ -40,18 +41,44 @@ extension EventsViewController: UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewEvents.dequeueReusableCell(withIdentifier: "EventsTvCell") as! EventsTvCell
-
+        cell.btnLocation.tag = indexPath.row
+        cell.btnLocation.addTarget(self, action: #selector(showLocationOn(sender:)), for: .touchUpInside)
+        
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 180
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
+    
+    //MARK:- Add Button Tap
+    @objc func showLocationOn(sender:UIButton){
+        
+        openAppleMap()
+    }
+    
+    func openAppleMap() {
+        
+         let  tlatitude = Double(19.185720222330172)
+         let  tlongitude = Double(72.95156730489465)
+         let center = CLLocationCoordinate2D(latitude:tlatitude, longitude:tlongitude)
+         openMapsAppWithDirections(to: center, destinationName: "SWY THAI SPA")
+    
+}
+
+    func openMapsAppWithDirections(to coordinate: CLLocationCoordinate2D, destinationName name: String) {
+      let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+      let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: nil)
+      let mapItem = MKMapItem(placemark: placemark)
+      mapItem.name = name
+      mapItem.openInMaps(launchOptions: options)
+    }
+
     
 }
     
@@ -70,7 +97,7 @@ class EventsTvCell: UITableViewCell {
     @IBOutlet weak var lbeCount: UILabel!
     
     @IBOutlet weak var increaseButton: UIButton!
-    @IBOutlet weak var decreaseButton: UIButton!
+    @IBOutlet weak var btnLocation: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

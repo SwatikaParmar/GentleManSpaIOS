@@ -93,7 +93,7 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
         
         imgUser?.sd_setImage(with: URL.init(string:(imgUserStr ?? ""))) { (image, error, cache, urls) in
             if (error != nil) {
-                self.imgUser.image = UIImage(named: "userProic")
+                self.imgUser.image = UIImage(named: "placeholder_Male")
             } else {
                 self.imgUser.image = image
                 

@@ -21,10 +21,10 @@ class UpdateProfileUserViewController: UIViewController {
     @IBOutlet weak var txt_Client : CocoaTextField!
 
     @IBOutlet weak var view_NavConst: NSLayoutConstraint!
-    @IBOutlet weak var countryPicker: CountryPickerView!
     @IBOutlet weak var lbeSpe : UILabel!
     @IBOutlet weak var imgUserProfile : UIImageView!
     @IBOutlet weak var specialityConst: NSLayoutConstraint!
+    @IBOutlet weak var lbeDialCode : UILabel!
 
     let dropGender = DropDown()
     var genderStr = "Male"
@@ -45,11 +45,7 @@ class UpdateProfileUserViewController: UIViewController {
         super.viewDidLoad()
         
         setupDropDowns()
-        self.countryPicker.font = UIFont(name: FontName.Inter.Regular, size: 14)!
-        self.countryPicker.delegate = self
-        self.phoneCode = "+91"
-        countryPicker.setCountryByCode("IN")
-        countryPicker.showCountryCodeInView = false
+        self.lbeDialCode.font = UIFont(name: FontName.Inter.Regular, size: 16)!
         
         applyStyle(to: txt_First)
         txt_First.placeholder = "First Name"
@@ -202,21 +198,17 @@ class UpdateProfileUserViewController: UIViewController {
                                 UserDefaults.standard.set(user?.email, forKey: Constants.email)
                                 UserDefaults.standard.set(user?.profilePic, forKey: Constants.userImg)
                                 UserDefaults.standard.set(user?.phone, forKey: Constants.phone)
-                                UserDefaults.standard.set(user?.gender, forKey: Constants.gender)
+                              
 
                                 UserDefaults.standard.synchronize()
-                        
-                                self.showDataOnProfile()
+                        self.lbeDialCode.text = user?.dialCode
+                        self.phoneCode = user?.dialCode ?? "+1"
+                        self.showDataOnProfile()
                         
                                 self.genderStr = user?.gender ?? "Male"
                                // self.countryId = user?.countryId ?? 101
                              //   self.stateId = user?.stateId ?? 1630
-                              
-                              
-                           
-                                
-                      
-
+                  
                     }
                 }
             }
@@ -287,27 +279,27 @@ class UpdateProfileUserViewController: UIViewController {
             return
         }
         
-        if (trimmedEmailName.isEmpty){
-            MessageAlert(title:"Alert",message: "Please enter email")
-            return
-        }
+//        if (trimmedEmailName.isEmpty){
+//            MessageAlert(title:"Alert",message: "Please enter email")
+//            return
+//        }
         
-        if trimmedEmailName.isValidEmail() {
-        }
-        else{
-            MessageAlert(title:"Alert",message: "Please enter valid email address")
-            return
-        }
-        
-        if (trimmedPhone.isEmpty){
-            MessageAlert(title:"Alert",message: "Please enter phone no")
-            return
-        }
-        
-        if trimmedPhone.count < 9 {
-            MessageAlert(title:"Alert",message: "Please Enter valid phone number")
-            return
-        }
+//        if trimmedEmailName.isValidEmail() {
+//        }
+//        else{
+//            MessageAlert(title:"Alert",message: "Please enter valid email address")
+//            return
+//        }
+//        
+//        if (trimmedPhone.isEmpty){
+//            MessageAlert(title:"Alert",message: "Please enter phone no")
+//            return
+//        }
+//        
+//        if trimmedPhone.count < 9 {
+//            MessageAlert(title:"Alert",message: "Please Enter valid phone number")
+//            return
+//        }
         
         
         let params = ["email": trimmedEmailName,
@@ -325,6 +317,9 @@ class UpdateProfileUserViewController: UIViewController {
             if success == true {
                 
                 self.popMessageAlert(title: "Alert", message: msg!)
+                UserDefaults.standard.set(self.trimmedName, forKey: Constants.firstName)
+                UserDefaults.standard.set(self.trimmedlast, forKey: Constants.lastName)
+                UserDefaults.standard.set(self.genderStr, forKey: Constants.gender)
                 
             }
             else
@@ -370,7 +365,7 @@ extension UpdateProfileUserViewController: CountryPickerViewDelegate {
     func countryPickerView(_ countryPickerView: CountryPickerView, didSelectCountry country: Country) {
         // Only countryPickerInternal has it's delegate set
         let message = "Name: \(country.name) \nCode: \(country.code) \nPhone: \(country.phoneCode)"
-        phoneCode = country.phoneCode
+     //   phoneCode = country.phoneCode
         print(message)
     }
 }
@@ -440,6 +435,8 @@ class ProfileUpdateData: NSObject {
     var countryName = ""
     var profilePic = ""
     var phone = ""
+    var dialCode = ""
+
     var distributorCode = ""
 
     init(fromDictionary dictionary: [String:Any]){
@@ -454,7 +451,8 @@ class ProfileUpdateData: NSObject {
         profilePic = dictionary["profilepic"] as? String ?? ""
         phone = dictionary["phoneNumber"] as? String ?? ""
         distributorCode = dictionary["distributorCode"] as? String ?? ""
-        
+        dialCode = dictionary["dialCode"] as? String ?? ""
+
       
 
     }

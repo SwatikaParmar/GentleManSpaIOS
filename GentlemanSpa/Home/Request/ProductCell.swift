@@ -79,7 +79,7 @@ extension ProductCell:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
                 let urlString = imagePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
                 cell.imageV?.sd_setImage(with: URL.init(string:(urlString))) { (image, error, cache, urls) in
                     if (error != nil) {
-                        cell.imageV.image = UIImage(named: "userProic")
+                        cell.imageV.image = UIImage(named: "placeholder_Male")
                     } else {
                         cell.imageV.image = image
                        
@@ -87,7 +87,7 @@ extension ProductCell:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
                 }
                 
             } else {
-                    cell.imageV.image = UIImage(named: "userProic")
+                    cell.imageV.image = UIImage(named: "placeholder_Male")
             }
         
             

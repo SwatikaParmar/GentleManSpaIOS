@@ -416,7 +416,6 @@
 		3460D6E72C9D32780076C4C2 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				34C5E2EE2C5B7AFF00F97C0C /* MoreCollection.swift */,
 				34F559BA2C5A569B0017F732 /* CategoryHomeTvCell.swift */,
 				34F559B82C5A52250017F732 /* HomeList.swift */,
 				343813BF2C69D928003B4B30 /* ProductCategories.swift */,
@@ -472,6 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				34D338102C5A7142003C6B13 /* ServicesViewController.swift */,
+				34C5E2EE2C5B7AFF00F97C0C /* MoreCollection.swift */,
 				34C5A6BE2C5CD153007A79FD /* ServiceDetailImageCollection.swift */,
 				34C5E2F22C5BA9A200F97C0C /* ServiceDetailViewController.swift */,
 				3460D6ED2C9D33C60076C4C2 /* Request */,
@@ -1087,7 +1087,7 @@
 				CODE_SIGN_ENTITLEMENTS = GentlemanSpa/GentlemanSpa.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = U4CMW5Y2G6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1130,7 +1130,7 @@
 				CODE_SIGN_ENTITLEMENTS = GentlemanSpa/GentlemanSpa.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = U4CMW5Y2G6;
 				GENERATE_INFOPLIST_FILE = YES;

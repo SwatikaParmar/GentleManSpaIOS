@@ -20,6 +20,7 @@ class HomeUserViewController: UIViewController {
     private var userExit: DatabaseHandle?
     let UsersRef = DatabaseManager.database.child("Users").child(userId())
     var isOnline = true
+    let refreshControlUp = UIRefreshControl()
 
     func topViewLayout(){
         if !CreateAccountController.hasSafeArea{
@@ -33,6 +34,12 @@ class HomeUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        refreshControlUp.addTarget(self, action:  #selector(RefreshScreenUp), for: .valueChanged)
+        refreshControlUp.tintColor = UIColor.white
+        tableViewHome.refreshControl = refreshControlUp
+        
+        
         self.navigationController?.navigationBar.isHidden = true
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Banner_Timer_Stop"), object: nil)
 
@@ -45,7 +52,14 @@ class HomeUserViewController: UIViewController {
             self.firebaseData()
         }
     }
-    
+    @objc func RefreshScreenUp() {
+        BannerAPI()
+        categoryAPI(false, true, 1)
+        ProductCategoriesAPI(false, true, 1)
+        GetProfessionalListAPI(false, true, 1)
+        refreshControlUp.endRefreshing()
+            
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
@@ -235,7 +249,7 @@ func firebaseData(){
     
     //MARK: - Banner
     func BannerAPI(){
-        BannerRequest.shared.getBannerListAPI(requestParams:[:], true) { (arrayData,message,isStatus) in
+        BannerRequest.shared.getBannerListAPI(requestParams:[:], false) { (arrayData,message,isStatus) in
             if isStatus {
                 if arrayData != nil{
                     self.arrayHomeBannerModel.removeAll()

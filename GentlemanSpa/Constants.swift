@@ -59,7 +59,7 @@ public func professionalDetailId() -> Int
 class AppColor: NSObject {
     
     static let AppThemeColorCG : CGColor = UIColor(red: 183.0 / 255.0, green: 137.0 / 255.0, blue: 69.0 / 255.0, alpha: 1.0).cgColor
-    static let AppThemeColor : UIColor =  UIColor(red: 0 / 255.0, green: 166.0 / 255.0, blue: 234.0 / 255.0, alpha: 1.0)
+    static let AppThemeColor : UIColor =  UIColor(red: 131 / 255.0, green: 118.0 / 255.0, blue: 76.0 / 255.0, alpha: 1.0)
     static let BrownColor : UIColor =  UIColor(red: 183.0 / 255.0, green: 137.0 / 255.0, blue: 69.0 / 255.0, alpha: 1.0)
     static let BlackColor : UIColor =  UIColor(red: 38.0 / 255.0, green: 50.0 / 255.0, blue: 56.0 / 255.0, alpha: 1.0)
     static let AppTealishRGB : UIColor =  UIColor(red: 197.0 / 255.0, green: 154.0 / 255.0, blue: 86.0 / 255.0, alpha: 1.0)
@@ -67,6 +67,7 @@ class AppColor: NSObject {
     static let YellowColor : UIColor = UIColor( red: CGFloat(197/255.0), green: CGFloat(154/255.0), blue: CGFloat(86/255.0), alpha: CGFloat(1.0) )
     static let AppThemeColorPro : UIColor =  UIColor(red: 183 / 255.0, green: 137.0 / 255.0, blue: 69.0 / 255.0, alpha: 1.0)
     static let TabSelectColor : UIColor =  UIColor(red: 223.0 / 255.0, green: 186.0 / 255.0, blue: 98.0 / 255.0, alpha: 1.0)
+    static let AppTextColor : UIColor =  UIColor(red: 255.0 / 255.0, green: 210.0 / 255.0, blue: 95.0 / 255.0, alpha: 1.0)
 
 }
 

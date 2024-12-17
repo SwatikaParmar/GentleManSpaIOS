@@ -26,6 +26,8 @@ class ServicesViewController: UIViewController {
     var indexIntSubCategory = 0
 
     var categoryId = 0
+    var SubCategoryId = 0
+
     var genderPreferences = "Male"
     var searchQuery = ""
     var itemCount = 0
@@ -130,11 +132,12 @@ class ServicesViewController: UIViewController {
                         self.arrSortedSubCategory = [arrSorted] + self.arrSortedSubCategory
     
                         self.serviceAPI(false, true, "",categoryId,self.genderPreferences,self.arrSortedSubCategory[0].mainCategoryId )
-                    
+                        self.SubCategoryId = 0
                         self.cvHeader.reloadData()
                         self.collectionVSubCategory.reloadData()
                     }
                     else{
+                        self.SubCategoryId = 0
                         self.serviceAPI(false, true, "",self.arrSortedCategory[self.indexInt].mainCategoryId,self.genderPreferences, 0)
                         self.collSub_H_Const.constant = 0
                         self.cvHeader.reloadData()
@@ -146,6 +149,7 @@ class ServicesViewController: UIViewController {
                     self.arrSortedSubCategory.removeAll()
                     self.cvHeader.reloadData()
                     self.collectionVSubCategory.reloadData()
+                    self.SubCategoryId = 0
                     self.serviceAPI(false, true, "",self.arrSortedCategory[self.indexInt].mainCategoryId,self.genderPreferences, 0)
                     self.collSub_H_Const.constant = 0
 
@@ -155,6 +159,7 @@ class ServicesViewController: UIViewController {
                 self.arrSortedSubCategory.removeAll()
                 self.cvHeader.reloadData()
                 self.collectionVSubCategory.reloadData()
+                self.SubCategoryId = 0
                 self.serviceAPI(false, true, "",self.arrSortedCategory[self.indexInt].mainCategoryId,self.genderPreferences, 0)
                 self.collSub_H_Const.constant = 0
 
@@ -167,7 +172,7 @@ class ServicesViewController: UIViewController {
     
     //MARK: - Service API
     func serviceAPI(_ isLoader:Bool, _ isAppend: Bool, _ type:String, _ categoryId:Int, _ genderPreferences: String, _ subCategoryId:Int){
-        
+        self.SubCategoryId = subCategoryId
         let params = [ "salonId": 21,
                        "mainCategoryId": categoryId,
                        "subCategoryId": subCategoryId,
@@ -410,14 +415,14 @@ extension ServicesViewController : UITextFieldDelegate {
         {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
 
-                self.serviceAPI(false, true, "",self.arrSortedCategory[self.indexInt].mainCategoryId,self.genderPreferences, 0)
+                self.serviceAPI(false, true, "",self.arrSortedCategory[self.indexInt].mainCategoryId,self.genderPreferences, self.SubCategoryId)
 
             }
         }
         else {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
                 searchQuery = ""
-                self.serviceAPI(false, true, "",self.arrSortedCategory[self.indexInt].mainCategoryId,self.genderPreferences, 0)
+                self.serviceAPI(false, true, "",self.arrSortedCategory[self.indexInt].mainCategoryId,self.genderPreferences, self.SubCategoryId)
 
             }
         }

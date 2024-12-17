@@ -10,8 +10,19 @@ import UIKit
 class SelectProfessionalVc: UIViewController {
     @IBOutlet weak var tableViewSelectProfessional : UITableView!
     @IBOutlet weak var navigationViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var lbeTitle: UILabel!
+
+    
     var arrObjectServices : cartServicesDataModel?
     var arrSortedService = [AllCartServices]()
+
+    var isProfessionalSelectes : Bool = false
+    var professionalId : Int = 0
+    var professionalName : String = ""
+    var professionalImage : String?
+    var intArrayId: [Int] = []
+    var arrayDataSpeciality = NSArray()
+
     func topViewLayout(){
         if !HomeViewController.hasSafeArea{
             if navigationViewConstraint != nil {
@@ -22,6 +33,13 @@ class SelectProfessionalVc: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
+        if isProfessionalSelectes {
+            lbeTitle.text = professionalName
+        }
+        else {
+            lbeTitle.text = "Select Professional"
+
+        }
         topViewLayout()
         
        
@@ -50,6 +68,17 @@ class SelectProfessionalVc: UIViewController {
                     if arrayService?.allServicesArray.count ?? 0 > 0 {
                         arrObjectServices = arrayService ?? arrObjectServices
                         arrSortedService = arrayService?.allServicesArray ?? arrSortedService
+                       
+                        if isProfessionalSelectes {
+                            let array1 = arrSortedService
+            
+                            let array2IDs = Set(intArrayId)
+                            let matchingUsers = array1.filter { array2IDs.contains($0.serviceId) }
+                            
+                            print("Has Match: \(matchingUsers)")
+                            arrSortedService = matchingUsers
+                           
+                        }
                         tableViewSelectProfessional.reloadData()
                     }
                     else{
@@ -92,20 +121,19 @@ extension SelectProfessionalVc: UITableViewDataSource,UITableViewDelegate {
             
             cell.lbeTime.text = dateStr
         }
-        
-        if arrSortedService[indexPath.row].professionalName == "" {
-            cell.lbeProName.text = "Any professional"
-            cell.imgPro?.isHidden = true
-
-        }
-        else{
-            cell.imgPro?.isHidden = false
-            cell.lbeProName.text = arrSortedService[indexPath.row].professionalName
-            
-            
-            if let imgUrl = arrSortedService[indexPath.row].professionalImage,!imgUrl.isEmpty {
-                let img  = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
-                let urlString = img.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        if isProfessionalSelectes {
+            if arrSortedService[indexPath.row].professionalName == "" {
+                cell.lbeProName.text = "Select date and time"
+                cell.imgPro?.isHidden = false
+            }
+            else{
+                cell.imgPro?.isHidden = false
+                cell.lbeProName.text = arrSortedService[indexPath.row].professionalName
+            }
+    
+            if let imgUrl = self.professionalImage,!imgUrl.isEmpty {
+                
+                let urlString = imgUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
                 cell.imgPro?.sd_setImage(with: URL.init(string:(urlString)),
                                          placeholderImage: UIImage(named: "shopPlace"),
                                          options: .refreshCached,
@@ -113,6 +141,31 @@ extension SelectProfessionalVc: UITableViewDataSource,UITableViewDelegate {
             }
             else{
                 cell.imgPro?.image = UIImage(named: "shopPlace")
+            }
+
+        }
+        else{
+            if arrSortedService[indexPath.row].professionalName == "" {
+                cell.lbeProName.text = "Any professional"
+                cell.imgPro?.isHidden = true
+                
+            }
+            else{
+                cell.imgPro?.isHidden = false
+                cell.lbeProName.text = arrSortedService[indexPath.row].professionalName
+                
+                
+                if let imgUrl = arrSortedService[indexPath.row].professionalImage,!imgUrl.isEmpty {
+                    let img  = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
+                    let urlString = img.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                    cell.imgPro?.sd_setImage(with: URL.init(string:(urlString)),
+                                             placeholderImage: UIImage(named: "shopPlace"),
+                                             options: .refreshCached,
+                                             completed: nil)
+                }
+                else{
+                    cell.imgPro?.image = UIImage(named: "shopPlace")
+                }
             }
         }
         return cell
@@ -125,28 +178,65 @@ extension SelectProfessionalVc: UITableViewDataSource,UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller:SelectProfessionalListVc =  UIStoryboard(storyboard: .Services).initVC()
-        controller.spaServiceId = arrSortedService[indexPath.row].spaServiceId
-        controller.serviceName = arrSortedService[indexPath.row].serviceName
-        if arrSortedService[indexPath.row].professionalName != ""{
-            controller.isReschedule = true
-            controller.isMyCart = false
+        
+        if isProfessionalSelectes {
+            let controller:BookingDoctorViewController =  UIStoryboard(storyboard: .User).initVC()
+            
+            controller.name = self.professionalName
+            controller.imgUserStr = professionalImage
+            controller.arrayData  = arrayDataSpeciality
+            controller.professionalId  = professionalId
+            controller.spaServiceId = arrSortedService[indexPath.row].spaServiceId
+            if arrSortedService[indexPath.row].professionalName != ""{
+                controller.isReschedule = true
+                controller.isMyCart = false
+            }
+            
+            self.navigationController?.pushViewController(controller, animated: true)
         }
-        self.navigationController?.pushViewController(controller, animated: true)
+        else{
+            
+            let controller:SelectProfessionalListVc =  UIStoryboard(storyboard: .Services).initVC()
+            controller.spaServiceId = arrSortedService[indexPath.row].spaServiceId
+            controller.serviceName = arrSortedService[indexPath.row].serviceName
+            if arrSortedService[indexPath.row].professionalName != ""{
+                controller.isReschedule = true
+                controller.isMyCart = false
+            }
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+        
+ 
 
     }
     
     
     @objc func btnAddTap(sender:UIButton){
-        
-        let controller:SelectProfessionalListVc =  UIStoryboard(storyboard: .Services).initVC()
-        controller.spaServiceId = arrSortedService[sender.tag].spaServiceId
-        controller.serviceName = arrSortedService[sender.tag].serviceName
-        if arrSortedService[sender.tag].professionalName != ""{
-            controller.isReschedule = true
-            controller.isMyCart = false
-
+        if isProfessionalSelectes {
+            let controller:BookingDoctorViewController =  UIStoryboard(storyboard: .User).initVC()
+            
+            controller.name = self.professionalName
+            controller.imgUserStr = professionalImage
+            controller.arrayData  = arrayDataSpeciality
+            controller.professionalId  = professionalId
+            controller.spaServiceId = arrSortedService[sender.tag].spaServiceId
+            if arrSortedService[sender.tag].professionalName != ""{
+                controller.isReschedule = true
+                controller.isMyCart = false
+                
+            }
+            self.navigationController?.pushViewController(controller, animated: true)
         }
-        self.navigationController?.pushViewController(controller, animated: true)
+        else{
+            let controller:SelectProfessionalListVc =  UIStoryboard(storyboard: .Services).initVC()
+            controller.spaServiceId = arrSortedService[sender.tag].spaServiceId
+            controller.serviceName = arrSortedService[sender.tag].serviceName
+            if arrSortedService[sender.tag].professionalName != ""{
+                controller.isReschedule = true
+                controller.isMyCart = false
+                
+            }
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
 }

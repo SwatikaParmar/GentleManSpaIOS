@@ -205,6 +205,8 @@ class GetProfessionalServicesRequest: NSObject {
         
         AlamofireRequest.shared.GetBodyFrom(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
                 
+            print("data---->> ",data)
+
                      if error == nil{
                          var messageString : String = ""
                          if let status = data?["isSuccess"] as? Bool{

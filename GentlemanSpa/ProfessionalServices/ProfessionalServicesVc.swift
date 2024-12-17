@@ -69,14 +69,25 @@ class ProfessionalServicesVc: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func btnPreessed(_ sender: Any){
+        var intArrayId: [Int] = []
+
+        for i in 0 ..< self.arrSortedService.count {
+            if self.arrSortedService[i].serviceCountInCart == 1 {
+               
+                intArrayId.append(self.arrSortedService[i].serviceId)
+            }
+            
+        }
         
-        let controller:BookingDoctorViewController =  UIStoryboard(storyboard: .User).initVC()
         
-        controller.name = self.name
-        controller.imgUserStr = imgUser
-        controller.arrayData  = arrayData
-        controller.professionalId  = professionalDetailId
-        controller.spaServiceId = spaServiceId
+        let controller:SelectProfessionalVc =  UIStoryboard(storyboard: .Services).initVC()
+        controller.professionalName = self.name
+        controller.professionalId = self.professionalDetailId
+        controller.professionalImage = self.imgUser ?? ""
+        controller.intArrayId = intArrayId
+        controller.arrayDataSpeciality = arrayData
+
+        controller.isProfessionalSelectes = true
         
         self.navigationController?.pushViewController(controller, animated: true)
     }

@@ -33,7 +33,7 @@ class MenuProController: UIViewController,UITableViewDelegate,UITableViewDataSou
         
         tableview.contentInsetAdjustmentBehavior = .never
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.SideMenuUpdate), name: NSNotification.Name(rawValue: "SideMenuUpdate"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.SideMenuUpdate), name: NSNotification.Name(rawValue: "SideMenuUpdatePro"), object: nil)
         
 
     }

@@ -312,7 +312,7 @@ extension ServicesListTableViewCell: UITableViewDataSource,UITableViewDelegate {
         
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let lineCount = arrSortedService[indexPath.row].serviceName.lineCount(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(17)) ?? UIFont.systemFont(ofSize: 15.0), width: tableView.frame.width - 174)
+        let lineCount = arrSortedService[indexPath.row].serviceName.lineCount(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(17)) ?? UIFont.systemFont(ofSize: 15.0), width: tableView.frame.width - 160)
         
         if lineCount > 1 {
             if self.arrSortedService[indexPath.row].fromTime == "" {

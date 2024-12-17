@@ -144,14 +144,15 @@ extension MyCartViewController : UITableViewDataSource,UITableViewDelegate{
 
             for i in 0 ..< arrSortedService.count {
                 
-                lineCount = CGFloat(arrSortedService[i].serviceName.lineCount(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(17)) ?? UIFont.systemFont(ofSize: 15.0), width: tableView.frame.width - 185))
+                lineCount = CGFloat(arrSortedService[i].serviceName.lineCount(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(17)) ?? UIFont.systemFont(ofSize: 15.0), width: tableView.frame.width - 184))
+                print(arrSortedService[i].serviceName)
                 
                 if lineCount > 1 {
                     if self.arrSortedService[i].fromTime == "" {
                         totalCount =  totalCount + 190
                     }
                     else{
-                        totalCount =  totalCount +   210
+                        totalCount =  totalCount + 210
                     }
                 }
                 else{
@@ -164,7 +165,7 @@ extension MyCartViewController : UITableViewDataSource,UITableViewDelegate{
                     }
                 }
             }
-            return 170 + totalCount
+            return 170 + totalCount + CGFloat(arrSortedService.count * 1)
         }
         else{
             var sizeFonts = CGFloat()

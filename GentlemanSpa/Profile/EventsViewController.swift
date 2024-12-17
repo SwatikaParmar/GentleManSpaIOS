@@ -11,7 +11,7 @@ import MapKit
 class EventsViewController: UIViewController {
 
     @IBOutlet weak var tableViewEvents: UITableView!
-
+    var intIndex : Int = -1
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,6 +43,26 @@ extension EventsViewController: UITableViewDataSource,UITableViewDelegate {
         let cell = tableViewEvents.dequeueReusableCell(withIdentifier: "EventsTvCell") as! EventsTvCell
         cell.btnLocation.tag = indexPath.row
         cell.btnLocation.addTarget(self, action: #selector(showLocationOn(sender:)), for: .touchUpInside)
+        
+        cell.btnBooking.tag = indexPath.row
+        cell.btnBooking.addTarget(self, action: #selector(bookingEvent(sender:)), for: .touchUpInside)
+        
+        if intIndex == indexPath.row {
+            cell.viewRegistration.backgroundColor = AppColor.AppThemeColor
+            cell.viewRegistration.layer.borderColor = UIColor.white.cgColor
+            cell.viewRegistration.layer.borderWidth = 1
+            cell.lbeRegistration.textColor = AppColor.AppTextColor
+            cell.lbeRegistration.text = "Registered"
+        }
+        else{
+            cell.viewRegistration.backgroundColor = UIColor.clear
+            cell.viewRegistration.layer.borderColor = UIColor.darkGray.cgColor
+            cell.viewRegistration.layer.borderWidth = 1
+
+            cell.lbeRegistration.textColor = UIColor.darkGray
+            cell.lbeRegistration.text = "Register"
+
+        }
         
         return cell
     }
@@ -79,24 +99,38 @@ extension EventsViewController: UITableViewDataSource,UITableViewDelegate {
       mapItem.openInMaps(launchOptions: options)
     }
 
-    
+    @objc func bookingEvent(sender:UIButton){
+        
+        if intIndex == sender.tag {
+            return
+        }
+        let alertController = UIAlertController(title: "Success!", message: "You have successfully registered for the event.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+            UIAlertAction in
+            self.intIndex = sender.tag
+            self.tableViewEvents.reloadData()
+        }
+        
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
     
   
 
 class EventsTvCell: UITableViewCell {
     
-    @IBOutlet weak var addView: UIView!
+    @IBOutlet weak var viewRegistration: UIView!
     @IBOutlet weak var addToCart: UIButton!
     
     @IBOutlet weak var imgService: UIImageView!
     @IBOutlet weak var lbeName: UILabel!
     @IBOutlet weak var lbeAmount: UILabel!
     
-    @IBOutlet weak var lbeBasePrice: UILabel!
+    @IBOutlet weak var lbeRegistration: UILabel!
     @IBOutlet weak var lbeCount: UILabel!
     
-    @IBOutlet weak var increaseButton: UIButton!
+    @IBOutlet weak var btnBooking: UIButton!
     @IBOutlet weak var btnLocation: UIButton!
     
     override func awakeFromNib() {

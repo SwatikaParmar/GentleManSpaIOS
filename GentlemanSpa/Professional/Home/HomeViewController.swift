@@ -50,7 +50,7 @@ class HomeViewController: UIViewController {
 
         pageName = "Upcoming"
         self.tableUp.reloadData()
-        self.getUserDataAPI("Profile")
+        self.getUserDataAPI("Profile",true)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.firebaseDataPro()
@@ -120,7 +120,7 @@ class HomeViewController: UIViewController {
         userExitPro = UsersRefPro.observe(.value, with: { (snapshot) in
             guard snapshot.key as? String != nil else{
                 print("user doesnt exist")
-                self.getUserDataAPI("Update")
+                self.getUserDataAPI("Update",false)
                 return
             }
             if let dictionary = snapshot.value as? [String: Any] {
@@ -131,7 +131,7 @@ class HomeViewController: UIViewController {
                 }
                 else{
                     if self.isOnline {
-                        self.getUserDataAPI("Update")
+                        self.getUserDataAPI("Update",false)
                     }
                     else{
                       //  self.getUserDataAPI("Profile")
@@ -140,14 +140,14 @@ class HomeViewController: UIViewController {
             }
             else{
                 if self.isOnline {
-                    self.getUserDataAPI("Update")
+                    self.getUserDataAPI("Update",false)
                 }
             }
         }
         )
     }
         
-        func getUserDataAPI(_ text:String){
+    func getUserDataAPI(_ text:String, _ isLoding:Bool){
             
             if UserDefaults.standard.bool(forKey: Constants.login) {
                 
@@ -170,7 +170,7 @@ class HomeViewController: UIViewController {
                             }
                             
                             if text == "Profile"{
-                                self.MyAppointmentAPI(true)
+                                self.MyAppointmentAPI(isLoding)
                             }
                         }
                         
@@ -219,7 +219,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func RefreshScreenUp() {
-      
+        self.getUserDataAPI("Profile",true)
         refreshControlUp.endRefreshing()
             
     }
@@ -236,14 +236,12 @@ class HomeViewController: UIViewController {
         
        
         
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SideMenuUpdate"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SideMenuUpdatePro"), object: nil)
         sideMenuController?.showLeftView(animated: true)
     }
 
     @IBAction func PendingAction(_ sender: Any) {
-        
-      
- 
+     
         lbeTitlePending.textColor = UIColor.white
         lbeLinePending.backgroundColor = UIColor.white
         

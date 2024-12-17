@@ -26,7 +26,7 @@ class MyServiceViewController: UIViewController {
     
 
     @IBAction func sideMenu(_ sender: Any) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SideMenuUpdate"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SideMenuUpdatePro"), object: nil)
         sideMenuController?.showLeftView(animated: true)
     }
     //MARK: - Service API

@@ -901,7 +901,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X269+PR De Soto, Kansas, USA" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fB6-X5-UQ4" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X269+PR De Soto, Kansas, Mexico" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fB6-X5-UQ4" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                                             <rect key="frame" x="141" y="63.333333333333329" width="220" height="17"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -912,6 +912,48 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L5w-bu-NRn" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
+                                                            <rect key="frame" x="182.33333333333334" y="80" width="125.00000000000003" height="32"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRU-gq-TAE" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
+                                                                    <rect key="frame" x="5" y="5" width="115" height="22"/>
+                                                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
+                                                                    <color key="textColor" red="1" green="0.82352941180000006" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
+                                                                            <real key="value" value="15"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVV-p2-UTg">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="125" height="32"/>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" title="  "/>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="0.51372549020000002" green="0.46274509800000002" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="PRU-gq-TAE" secondAttribute="bottom" constant="5" id="5Hr-Gi-bhI"/>
+                                                                <constraint firstItem="KVV-p2-UTg" firstAttribute="top" secondItem="L5w-bu-NRn" secondAttribute="top" id="Cu9-Od-6cP"/>
+                                                                <constraint firstAttribute="trailing" secondItem="PRU-gq-TAE" secondAttribute="trailing" constant="5" id="OLu-Yk-rz0"/>
+                                                                <constraint firstItem="PRU-gq-TAE" firstAttribute="leading" secondItem="L5w-bu-NRn" secondAttribute="leading" constant="5" id="RLZ-xe-PFo"/>
+                                                                <constraint firstAttribute="width" constant="125" id="XPl-PG-BYM"/>
+                                                                <constraint firstAttribute="height" constant="32" id="YGy-8U-6B1"/>
+                                                                <constraint firstAttribute="bottom" secondItem="KVV-p2-UTg" secondAttribute="bottom" id="Zs8-K1-H5C"/>
+                                                                <constraint firstItem="PRU-gq-TAE" firstAttribute="top" secondItem="L5w-bu-NRn" secondAttribute="top" constant="5" id="gE1-99-m9q"/>
+                                                                <constraint firstItem="KVV-p2-UTg" firstAttribute="leading" secondItem="L5w-bu-NRn" secondAttribute="leading" id="jUb-Rc-T2s"/>
+                                                                <constraint firstAttribute="trailing" secondItem="KVV-p2-UTg" secondAttribute="trailing" id="r6X-Al-rZr"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <integer key="value" value="16"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusIpad">
+                                                                    <integer key="value" value="16"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Mm-nX-GCo" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
                                                             <rect key="frame" x="318.33333333333331" y="76.333333333333329" width="36.666666666666686" height="36.666666666666671"/>
                                                             <subviews>
@@ -1002,10 +1044,12 @@
                                                         <constraint firstItem="fB6-X5-UQ4" firstAttribute="top" secondItem="Ktc-15-uUQ" secondAttribute="bottom" constant="7" id="8fs-Ih-aK1"/>
                                                         <constraint firstItem="fB6-X5-UQ4" firstAttribute="leading" secondItem="6rK-nG-9F9" secondAttribute="trailing" constant="29" id="9rC-f8-eUl"/>
                                                         <constraint firstItem="uOM-Zc-Zpw" firstAttribute="top" secondItem="R85-NZ-tme" secondAttribute="top" constant="12" id="Bs8-64-DlA"/>
+                                                        <constraint firstAttribute="bottom" secondItem="L5w-bu-NRn" secondAttribute="bottom" constant="11" id="CRr-cF-lFN"/>
                                                         <constraint firstItem="Ktc-15-uUQ" firstAttribute="top" secondItem="uOM-Zc-Zpw" secondAttribute="bottom" constant="5" id="DMR-vk-Ev8"/>
                                                         <constraint firstItem="fB6-X5-UQ4" firstAttribute="centerY" secondItem="cQa-1f-0B4" secondAttribute="centerY" id="EDT-oD-kHZ"/>
                                                         <constraint firstItem="6rK-nG-9F9" firstAttribute="leading" secondItem="R85-NZ-tme" secondAttribute="leading" constant="10" id="LgW-ay-rqE"/>
                                                         <constraint firstItem="uOM-Zc-Zpw" firstAttribute="leading" secondItem="6rK-nG-9F9" secondAttribute="trailing" constant="10" id="MRi-Mg-rZ4"/>
+                                                        <constraint firstItem="1Mm-nX-GCo" firstAttribute="leading" secondItem="L5w-bu-NRn" secondAttribute="trailing" constant="11" id="MaY-I3-aZZ"/>
                                                         <constraint firstAttribute="bottom" secondItem="1Mm-nX-GCo" secondAttribute="bottom" constant="10" id="OLX-4X-jmY"/>
                                                         <constraint firstItem="Ktc-15-uUQ" firstAttribute="centerY" secondItem="4h0-la-4se" secondAttribute="centerY" id="Ok1-iC-JFn"/>
                                                         <constraint firstItem="Ktc-15-uUQ" firstAttribute="leading" secondItem="6rK-nG-9F9" secondAttribute="trailing" constant="29" id="PHa-w2-8vv"/>
@@ -1039,9 +1083,12 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="btnBooking" destination="KVV-p2-UTg" id="m3x-1O-5Le"/>
                                             <outlet property="btnLocation" destination="fZt-X9-q1D" id="eYn-Lk-JzQ"/>
                                             <outlet property="imgService" destination="JqH-pG-vZR" id="Fk3-Qi-aAh"/>
                                             <outlet property="lbeName" destination="uOM-Zc-Zpw" id="tXv-zW-X95"/>
+                                            <outlet property="lbeRegistration" destination="PRU-gq-TAE" id="ImF-OO-6XE"/>
+                                            <outlet property="viewRegistration" destination="L5w-bu-NRn" id="2cb-yp-8hW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1069,7 +1116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XvZ-Hh-zPQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4813" y="1005"/>
+            <point key="canvasLocation" x="4812.9770992366412" y="1004.9295774647887"/>
         </scene>
     </scenes>
     <resources>

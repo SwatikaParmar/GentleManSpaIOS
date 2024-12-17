@@ -30,8 +30,6 @@ class FindPViewController: UIViewController {
     
     @IBAction func SelectProPreessed(_ sender: Any){
         let controller:SelectProfessionalVc =  UIStoryboard(storyboard: .Services).initVC()
-    
-        
         self.navigationController?.pushViewController(controller, animated: true)
         
     }

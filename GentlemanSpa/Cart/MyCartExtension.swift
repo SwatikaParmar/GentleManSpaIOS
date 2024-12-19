@@ -144,15 +144,14 @@ extension MyCartViewController : UITableViewDataSource,UITableViewDelegate{
 
             for i in 0 ..< arrSortedService.count {
                 
-                lineCount = CGFloat(arrSortedService[i].serviceName.lineCount(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(17)) ?? UIFont.systemFont(ofSize: 15.0), width: tableView.frame.width - 184))
-                print(arrSortedService[i].serviceName)
+                lineCount = CGFloat(arrSortedService[i].serviceName.heightForView(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(17)) ?? UIFont.systemFont(ofSize: 15.0), width: tableView.frame.width - 174))
                 
-                if lineCount > 1 {
+                if lineCount > 47{
                     if self.arrSortedService[i].fromTime == "" {
-                        totalCount =  totalCount + 190
+                        totalCount =  totalCount + 180
                     }
                     else{
-                        totalCount =  totalCount + 210
+                        totalCount =  totalCount + 196
                     }
                 }
                 else{
@@ -160,21 +159,19 @@ extension MyCartViewController : UITableViewDataSource,UITableViewDelegate{
                         totalCount =  totalCount  +   160
                     }
                     else{
-                        totalCount =  totalCount  +   180
+                        totalCount =  totalCount  +   177
                         
                     }
                 }
             }
-            return 170 + totalCount + CGFloat(arrSortedService.count * 1)
+            return 171 + totalCount 
         }
         else{
-            var sizeFonts = CGFloat()
+        
             var lineCount = CGFloat()
             var totalCount = CGFloat()
             
-            if strAddress != "" {
-                sizeFonts  = strAddress.heightForView(text: "", font: UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(13)) ?? UIFont.systemFont(ofSize: 15.0), width: self.view.frame.width - 65)
-            }
+         
             
             for i in 0 ..< arrSortedProduct.count {
                 
@@ -191,15 +188,15 @@ extension MyCartViewController : UITableViewDataSource,UITableViewDelegate{
             }
             
             if self.isAddressSelected == "Venue" {
-                return 170 + totalCount + 55
+                return 165 + totalCount + 55
 
             }
             else if self.isAddressSelected == "Home" {
-                return 170 + totalCount + 120
+                return 165 + totalCount + 120
 
             }
             else{
-                return 170 + totalCount + 10
+                return 165 + totalCount + 10
 
                 }
         }

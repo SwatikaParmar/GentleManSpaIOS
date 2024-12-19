@@ -280,4 +280,8 @@ extension String{
     var GetOrderDetail: String{
         return "Path".path + "Order/GetOrderDetail"
     }
+    
+    var GetEventList: String{
+        return "Path".path + "Event/GetEventList"
+    }
 }

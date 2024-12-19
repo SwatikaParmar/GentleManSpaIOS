@@ -879,7 +879,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expo Beauty Show – Mexico" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOM-Zc-Zpw" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expo Beauty Show – Mexico" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOM-Zc-Zpw" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                                             <rect key="frame" x="122" y="12" width="238" height="21"/>
                                                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="15"/>
                                                             <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -901,7 +901,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X269+PR De Soto, Kansas, Mexico" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fB6-X5-UQ4" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X269+PR De Soto, Kansas, Mexico" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fB6-X5-UQ4" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
                                                             <rect key="frame" x="141" y="63.333333333333329" width="220" height="17"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1085,8 +1085,10 @@
                                         <connections>
                                             <outlet property="btnBooking" destination="KVV-p2-UTg" id="m3x-1O-5Le"/>
                                             <outlet property="btnLocation" destination="fZt-X9-q1D" id="eYn-Lk-JzQ"/>
-                                            <outlet property="imgService" destination="JqH-pG-vZR" id="Fk3-Qi-aAh"/>
-                                            <outlet property="lbeName" destination="uOM-Zc-Zpw" id="tXv-zW-X95"/>
+                                            <outlet property="imgEvent" destination="JqH-pG-vZR" id="mrf-Ou-d3R"/>
+                                            <outlet property="lbeAddress" destination="fB6-X5-UQ4" id="rMb-AB-9wp"/>
+                                            <outlet property="lbeDate" destination="Ktc-15-uUQ" id="qYT-hj-5VC"/>
+                                            <outlet property="lbeName" destination="uOM-Zc-Zpw" id="oy1-6P-AsX"/>
                                             <outlet property="lbeRegistration" destination="PRU-gq-TAE" id="ImF-OO-6XE"/>
                                             <outlet property="viewRegistration" destination="L5w-bu-NRn" id="2cb-yp-8hW"/>
                                         </connections>
@@ -1134,10 +1136,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

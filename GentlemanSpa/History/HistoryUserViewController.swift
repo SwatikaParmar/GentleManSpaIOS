@@ -155,7 +155,6 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
                 }
                 cell.lbeName.text = arrSortedService[indexPath.row].serviceName
                 
-                
                 var listingPrice = ""
                 if arrSortedService[indexPath.row].price.truncatingRemainder(dividingBy: 1) == 0 {
                     listingPrice = String(format: "%.2f", arrSortedService[indexPath.row].price )
@@ -276,11 +275,11 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
     
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             if  pageName == "Upcoming" {
-                return 255
+                return 257
 
             }
             else if pageName == "Completed" {
-                return 255
+                return 257
             }
             
             return 210

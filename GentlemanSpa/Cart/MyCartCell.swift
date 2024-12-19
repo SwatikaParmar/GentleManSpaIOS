@@ -122,7 +122,6 @@ class BillDetailsTvCell: UITableViewCell {
 
        
     }
-
 }
 
 
@@ -312,20 +311,23 @@ extension ServicesListTableViewCell: UITableViewDataSource,UITableViewDelegate {
         
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let lineCount = arrSortedService[indexPath.row].serviceName.lineCount(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(17)) ?? UIFont.systemFont(ofSize: 15.0), width: tableView.frame.width - 160)
+        let lineCount = arrSortedService[indexPath.row].serviceName.heightForView(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(17)) ?? UIFont.systemFont(ofSize: 15.0), width: tableView.frame.width - 150)
         
-        if lineCount > 1 {
+        print(lineCount)
+        print(arrSortedService[indexPath.row].serviceName)
+
+        if lineCount > 47 {
             if self.arrSortedService[indexPath.row].fromTime == "" {
-                return  190
+                return  180
             }
-            return  210
+            return  196
 
         }
         if self.arrSortedService[indexPath.row].fromTime == "" {
             return  160
 
         }
-        return  180
+        return  177
         
     }
     
@@ -530,7 +532,7 @@ extension ProductListTableViewCell: UITableViewDataSource,UITableViewDelegate {
         let lineCount = arrSortedProduct[indexPath.row].serviceName.lineCount(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(17)) ?? UIFont.systemFont(ofSize: 15.0), width: tableView.frame.width - 174)
         
         if lineCount > 1 {
-            return  170
+            return  165
 
         }
         return  150

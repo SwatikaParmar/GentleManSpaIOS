@@ -12,11 +12,28 @@ class EventsViewController: UIViewController {
 
     @IBOutlet weak var tableViewEvents: UITableView!
     var intIndex : Int = -1
+    var arrAllEvents = [EventData]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        MyEventsAPI(true)
     }
+    
+    func MyEventsAPI(_ isLoader:Bool){
+        arrAllEvents.removeAll()
+        let params = [ "Type": 0
+        ] as [String : Any]
+        GetEventsListRequest.shared.GetEventRequest(requestParams:params, isLoader) { [self] (arrayData,message,isStatus) in
+            if isStatus {
+                arrAllEvents = arrayData ?? arrAllEvents
+                self.tableViewEvents.reloadData()
+            }
+        }
+    }
+    
+    
+    
     @IBAction func Close(_ sender: Any) {
          self.navigationController?.popViewController(animated: true)
      }
@@ -35,7 +52,7 @@ extension EventsViewController: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
-        return 3
+        return arrAllEvents.count
         
     }
     
@@ -64,12 +81,24 @@ extension EventsViewController: UITableViewDataSource,UITableViewDelegate {
 
         }
         
+        cell.lbeName.text = arrAllEvents[indexPath.row].title
+        cell.lbeAddress.text = arrAllEvents[indexPath.row].location
+        cell.lbeDate.text = "".formatDateStringMMM(arrAllEvents[indexPath.row].startDate)
+        
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+        
+        let heightSizeLine   = arrAllEvents[indexPath.row].title.heightForView(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: 15.0) ?? UIFont.systemFont(ofSize: 15.0), width: self.view.frame.width - 155)
+        
+        let heightSizeAddress   = arrAllEvents[indexPath.row].location.heightForView(text: "", font: UIFont(name:FontName.Inter.Regular, size: 12.0) ?? UIFont.systemFont(ofSize: 15.0), width: self.view.frame.width - 155)
+        
+        if heightSizeLine  > 42 {
+            return heightSizeLine + 90 + heightSizeAddress
+        }
+        return 122 + heightSizeAddress
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -121,14 +150,12 @@ extension EventsViewController: UITableViewDataSource,UITableViewDelegate {
 class EventsTvCell: UITableViewCell {
     
     @IBOutlet weak var viewRegistration: UIView!
-    @IBOutlet weak var addToCart: UIButton!
     
-    @IBOutlet weak var imgService: UIImageView!
+    @IBOutlet weak var imgEvent: UIImageView!
     @IBOutlet weak var lbeName: UILabel!
-    @IBOutlet weak var lbeAmount: UILabel!
-    
+    @IBOutlet weak var lbeDate: UILabel!
+    @IBOutlet weak var lbeAddress: UILabel!
     @IBOutlet weak var lbeRegistration: UILabel!
-    @IBOutlet weak var lbeCount: UILabel!
     
     @IBOutlet weak var btnBooking: UIButton!
     @IBOutlet weak var btnLocation: UIButton!

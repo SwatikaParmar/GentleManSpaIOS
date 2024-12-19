@@ -406,9 +406,6 @@ extension HomeViewController: UITableViewDataSource,UITableViewDelegate {
                 dateStr =  String(format: "%@, %@ at %@", "".getTodayWeekDay("".dateFromString(self.arrSortedService[indexPath.row].slotDate)),"".convertToDDMMYYYY("".dateFromString(arrSortedService[indexPath.row].slotDate)), self.arrSortedService[indexPath.row].fromTime)
                 
                 cell.lbeTime.text = dateStr
-                
-                
-              
                 return cell
             }
 
@@ -416,14 +413,14 @@ extension HomeViewController: UITableViewDataSource,UITableViewDelegate {
         }
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             if  pageName == "Upcoming" {
-                return 205
+                return 210
 
             }
             else if pageName == "Completed" {
-                return 205
+                return 210
             }
             
-            return 205
+            return 210
 
         
         }

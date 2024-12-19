@@ -198,14 +198,11 @@ class UpdateProfileUserViewController: UIViewController {
                                 UserDefaults.standard.set(user?.email, forKey: Constants.email)
                                 UserDefaults.standard.set(user?.profilePic, forKey: Constants.userImg)
                                 UserDefaults.standard.set(user?.phone, forKey: Constants.phone)
-                              
-
                                 UserDefaults.standard.synchronize()
                         self.lbeDialCode.text = user?.dialCode
                         self.phoneCode = user?.dialCode ?? "+1"
                         self.showDataOnProfile()
-                        
-                                self.genderStr = user?.gender ?? "Male"
+                        self.genderStr = user?.gender ?? "Male"
                                // self.countryId = user?.countryId ?? 101
                              //   self.stateId = user?.stateId ?? 1630
                   
@@ -301,7 +298,7 @@ class UpdateProfileUserViewController: UIViewController {
 //            return
 //        }
         
-        
+       
         let params = ["email": trimmedEmailName,
                       "firstName":trimmedName ,
                       "lastName": trimmedlast,

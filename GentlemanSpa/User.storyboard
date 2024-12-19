@@ -2703,7 +2703,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face and Body Bleach Services" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Dg-RA-dMd" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="118.00000000000001" y="66" width="204.33333333333337" height="18.333333333333329"/>
+                                                            <rect key="frame" x="118" y="64" width="246" height="18.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="13"/>
                                                             <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -2714,7 +2714,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 mins" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHt-cO-OJW" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="118" y="87.333333333333329" width="55" height="19.666666666666671"/>
+                                                            <rect key="frame" x="118" y="85.333333333333329" width="55" height="19.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                             <color key="textColor" red="0.26274509800000001" green="0.23137254900000001" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -2725,7 +2725,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$70.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yj6-BP-ndU" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="118" y="109" width="58" height="24"/>
+                                                            <rect key="frame" x="118" y="107" width="58" height="24"/>
                                                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -2736,7 +2736,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assigned:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgl-3L-epl" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="118.00000000000001" y="136" width="57.666666666666671" height="17"/>
+                                                            <rect key="frame" x="118.00000000000001" y="134" width="57.666666666666671" height="17"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                             <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -2747,7 +2747,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brandon Lebsack" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHO-VO-oMj" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="177.66666666666666" y="135.33333333333334" width="112.99999999999997" height="18.333333333333343"/>
+                                                            <rect key="frame" x="177.66666666666666" y="133.33333333333334" width="112.99999999999997" height="18.333333333333343"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
                                                             <color key="textColor" systemColor="systemGreenColor"/>
                                                             <nil key="highlightedColor"/>
@@ -2813,7 +2813,8 @@
                                                         <constraint firstItem="8Dg-RA-dMd" firstAttribute="leading" secondItem="VjG-4d-pgP" secondAttribute="trailing" constant="9" id="95w-VA-2K6"/>
                                                         <constraint firstAttribute="trailing" secondItem="Ln9-Sg-AXm" secondAttribute="trailing" constant="12" id="KUQ-3s-XEq"/>
                                                         <constraint firstItem="Bgl-3L-epl" firstAttribute="leading" secondItem="VjG-4d-pgP" secondAttribute="trailing" constant="9" id="LMZ-bd-5bc"/>
-                                                        <constraint firstItem="8Dg-RA-dMd" firstAttribute="top" secondItem="IUI-mI-AJx" secondAttribute="bottom" constant="12" id="QsT-0D-VER"/>
+                                                        <constraint firstAttribute="trailing" secondItem="8Dg-RA-dMd" secondAttribute="trailing" constant="1" id="Nzi-D0-8Hl"/>
+                                                        <constraint firstItem="8Dg-RA-dMd" firstAttribute="top" secondItem="IUI-mI-AJx" secondAttribute="bottom" constant="10" id="QsT-0D-VER"/>
                                                         <constraint firstAttribute="trailing" secondItem="IUI-mI-AJx" secondAttribute="trailing" id="S13-Zd-A84"/>
                                                         <constraint firstItem="VjG-4d-pgP" firstAttribute="leading" secondItem="vRw-jE-UOU" secondAttribute="leading" constant="12" id="SlJ-zL-Kzn"/>
                                                         <constraint firstItem="PHO-VO-oMj" firstAttribute="centerY" secondItem="Bgl-3L-epl" secondAttribute="centerY" id="Svw-qJ-EC1"/>
@@ -2979,7 +2980,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face and Body Bleach Services" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aG-dp-S9a" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="119.00000000000001" y="66" width="204.33333333333337" height="18.333333333333329"/>
+                                                            <rect key="frame" x="119" y="64" width="245" height="18.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="13"/>
                                                             <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -2990,7 +2991,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 mins" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhX-qy-n1N" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="119" y="87.333333333333329" width="55" height="19.666666666666671"/>
+                                                            <rect key="frame" x="119" y="85.333333333333329" width="55" height="19.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                             <color key="textColor" red="0.26274509800000001" green="0.23137254900000001" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -3001,7 +3002,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$70.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxd-OL-g7I" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="119" y="109" width="58" height="24"/>
+                                                            <rect key="frame" x="119" y="107" width="58" height="24"/>
                                                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -3012,7 +3013,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assigned:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgg-kn-Vrq" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="118.00000000000001" y="136" width="57.666666666666671" height="17"/>
+                                                            <rect key="frame" x="118.00000000000001" y="134" width="57.666666666666671" height="17"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                             <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -3023,7 +3024,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brandon Lebsack" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tT-Ay-VZN" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="177.66666666666666" y="135.33333333333334" width="112.99999999999997" height="18.333333333333343"/>
+                                                            <rect key="frame" x="177.66666666666666" y="133.33333333333334" width="112.99999999999997" height="18.333333333333343"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
                                                             <color key="textColor" systemColor="systemGreenColor"/>
                                                             <nil key="highlightedColor"/>
@@ -3157,6 +3158,7 @@
                                                         <constraint firstItem="lgg-kn-Vrq" firstAttribute="top" secondItem="rxd-OL-g7I" secondAttribute="bottom" constant="3" id="776-Li-Sh5"/>
                                                         <constraint firstItem="Xqy-62-r3w" firstAttribute="centerY" secondItem="gqf-3t-7sk" secondAttribute="centerY" id="8bs-DP-wkd"/>
                                                         <constraint firstItem="lgg-kn-Vrq" firstAttribute="leading" secondItem="rPr-bb-EKQ" secondAttribute="trailing" constant="9" id="D9P-Wm-KVO"/>
+                                                        <constraint firstAttribute="trailing" secondItem="5aG-dp-S9a" secondAttribute="trailing" constant="1" id="DDm-Pi-ow5"/>
                                                         <constraint firstAttribute="bottom" secondItem="x9R-ph-7xF" secondAttribute="bottom" constant="11" id="Dpf-f4-Pib"/>
                                                         <constraint firstAttribute="trailing" secondItem="gqf-3t-7sk" secondAttribute="trailing" constant="12" id="EmA-Rg-5B4"/>
                                                         <constraint firstAttribute="trailing" secondItem="wC0-1o-UYP" secondAttribute="trailing" id="L9f-Fc-QRN"/>
@@ -3170,7 +3172,7 @@
                                                         <constraint firstItem="3tT-Ay-VZN" firstAttribute="centerY" secondItem="lgg-kn-Vrq" secondAttribute="centerY" id="dQI-PP-T87"/>
                                                         <constraint firstItem="wC0-1o-UYP" firstAttribute="leading" secondItem="xlD-Kw-3Mo" secondAttribute="leading" id="eCx-5q-6Jp"/>
                                                         <constraint firstItem="3tT-Ay-VZN" firstAttribute="leading" secondItem="lgg-kn-Vrq" secondAttribute="trailing" constant="2" id="hz1-s2-QiB"/>
-                                                        <constraint firstItem="5aG-dp-S9a" firstAttribute="top" secondItem="wC0-1o-UYP" secondAttribute="bottom" constant="12" id="keS-MC-Qpg"/>
+                                                        <constraint firstItem="5aG-dp-S9a" firstAttribute="top" secondItem="wC0-1o-UYP" secondAttribute="bottom" constant="10" id="keS-MC-Qpg"/>
                                                         <constraint firstItem="Xqy-62-r3w" firstAttribute="leading" secondItem="tEz-7B-WfP" secondAttribute="trailing" constant="11" id="lM5-8Q-vbe"/>
                                                         <constraint firstAttribute="bottom" secondItem="Xqy-62-r3w" secondAttribute="bottom" constant="11" id="pHm-Y5-ySj"/>
                                                         <constraint firstItem="rPr-bb-EKQ" firstAttribute="top" secondItem="wC0-1o-UYP" secondAttribute="bottom" constant="10" id="vTB-Pk-fdZ"/>
@@ -3371,7 +3373,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face and Body Bleach Services" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeA-sC-oil" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="118.00000000000001" y="66" width="204.33333333333337" height="18.333333333333329"/>
+                                                            <rect key="frame" x="118" y="64" width="246" height="18.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="13"/>
                                                             <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -3382,7 +3384,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 mins" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYN-l9-RFd" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="118" y="87.333333333333329" width="55" height="19.666666666666671"/>
+                                                            <rect key="frame" x="118" y="85.333333333333329" width="55" height="19.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                             <color key="textColor" red="0.26274509800000001" green="0.23137254900000001" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -3393,7 +3395,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$70.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loY-24-Ack" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                            <rect key="frame" x="118" y="110" width="58" height="24"/>
+                                                            <rect key="frame" x="118" y="108" width="58" height="24"/>
                                                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -3411,9 +3413,10 @@
                                                         <constraint firstItem="gYN-l9-RFd" firstAttribute="leading" secondItem="zT3-hT-lT9" secondAttribute="trailing" constant="9" id="DXl-Mi-lLl"/>
                                                         <constraint firstItem="3Lt-nc-ajb" firstAttribute="leading" secondItem="61M-6d-LZu" secondAttribute="leading" id="NbW-8x-gUd"/>
                                                         <constraint firstItem="3Lt-nc-ajb" firstAttribute="top" secondItem="61M-6d-LZu" secondAttribute="top" id="Nbh-tT-K2W"/>
-                                                        <constraint firstItem="zeA-sC-oil" firstAttribute="top" secondItem="3Lt-nc-ajb" secondAttribute="bottom" constant="12" id="UIc-fc-8G0"/>
+                                                        <constraint firstItem="zeA-sC-oil" firstAttribute="top" secondItem="3Lt-nc-ajb" secondAttribute="bottom" constant="10" id="UIc-fc-8G0"/>
                                                         <constraint firstAttribute="trailing" secondItem="3Lt-nc-ajb" secondAttribute="trailing" id="XoD-GW-WuM"/>
                                                         <constraint firstItem="zeA-sC-oil" firstAttribute="leading" secondItem="zT3-hT-lT9" secondAttribute="trailing" constant="9" id="dEF-rs-8kx"/>
+                                                        <constraint firstAttribute="trailing" secondItem="zeA-sC-oil" secondAttribute="trailing" constant="1" id="eVF-Jz-IEJ"/>
                                                         <constraint firstItem="zT3-hT-lT9" firstAttribute="leading" secondItem="61M-6d-LZu" secondAttribute="leading" constant="12" id="fZF-zR-mKE"/>
                                                         <constraint firstItem="loY-24-Ack" firstAttribute="leading" secondItem="zT3-hT-lT9" secondAttribute="trailing" constant="9" id="iiP-d6-3fd"/>
                                                         <constraint firstItem="gYN-l9-RFd" firstAttribute="top" secondItem="zeA-sC-oil" secondAttribute="bottom" constant="3" id="xnh-9n-rwy"/>
@@ -4221,8 +4224,14 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Qx-ch-Zt9" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
                                                 <rect key="frame" x="21" y="443" width="351" height="48"/>
                                                 <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCV-lz-EGP">
+                                                        <rect key="frame" x="2" y="2" width="18" height="44"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EW8-gB-7vh" customClass="CocoaTextField" customModule="CocoaTextField">
-                                                        <rect key="frame" x="42" y="2" width="307" height="44"/>
+                                                        <rect key="frame" x="18" y="2" width="331" height="44"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" red="0.51372549020000002" green="0.46274509800000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -4240,19 +4249,10 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCV-lz-EGP">
-                                                        <rect key="frame" x="0.0" y="2" width="44" height="44"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="44" id="xtd-C0-1GW"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="cCV-lz-EGP" firstAttribute="leading" secondItem="1Qx-ch-Zt9" secondAttribute="leading" id="0Oo-FO-qyv"/>
+                                                    <constraint firstItem="cCV-lz-EGP" firstAttribute="leading" secondItem="1Qx-ch-Zt9" secondAttribute="leading" constant="2" id="0Oo-FO-qyv"/>
                                                     <constraint firstAttribute="height" constant="48" id="DUL-aL-o97"/>
                                                     <constraint firstItem="EW8-gB-7vh" firstAttribute="top" secondItem="1Qx-ch-Zt9" secondAttribute="top" constant="2" id="UoP-M6-uIF"/>
                                                     <constraint firstAttribute="bottom" secondItem="cCV-lz-EGP" secondAttribute="bottom" constant="2" id="aqb-64-5i9"/>
@@ -5159,7 +5159,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="d2j-0H-i9J">
-                                <rect key="frame" x="0.0" y="243" width="393" height="538"/>
+                                <rect key="frame" x="0.0" y="241" width="393" height="540"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ServicesTvCell" rowHeight="162" id="DKw-cC-nDN" customClass="ServicesTvCell" customModule="GentlemanSpa" customModuleProvider="target">
@@ -5729,7 +5729,7 @@
                             <constraint firstItem="QuA-CF-WZX" firstAttribute="top" secondItem="WCs-Fz-5Ud" secondAttribute="top" id="fMt-EI-Xl9"/>
                             <constraint firstAttribute="trailing" secondItem="Gka-Wx-GDT" secondAttribute="trailing" constant="4" id="gaH-Sz-HR2"/>
                             <constraint firstItem="cdX-Xt-r9o" firstAttribute="leading" secondItem="zyx-qb-Lgy" secondAttribute="leading" id="iNo-SJ-PeF"/>
-                            <constraint firstItem="d2j-0H-i9J" firstAttribute="top" secondItem="ENw-qB-ns4" secondAttribute="bottom" constant="2" id="kby-U9-ksx"/>
+                            <constraint firstItem="d2j-0H-i9J" firstAttribute="top" secondItem="ENw-qB-ns4" secondAttribute="bottom" id="kby-U9-ksx"/>
                             <constraint firstItem="Gka-Wx-GDT" firstAttribute="leading" secondItem="vOo-aS-iI4" secondAttribute="leading" constant="4" id="pRX-ig-VUR"/>
                             <constraint firstItem="cdX-Xt-r9o" firstAttribute="top" secondItem="d2j-0H-i9J" secondAttribute="bottom" constant="1" id="qhq-gG-YVk"/>
                             <constraint firstItem="0FU-YZ-ncg" firstAttribute="leading" secondItem="zyx-qb-Lgy" secondAttribute="leading" id="s78-sR-kbQ"/>
@@ -9481,16 +9481,16 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

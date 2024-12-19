@@ -330,6 +330,24 @@ extension String {
         }
     }
     
+    func formatDateStringMMM(_ dateString: String) -> String? {
+        // Define the input and output date formatters
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        inputFormatter.timeZone = TimeZone(identifier: "UTC") // Adjust if the input time is not UTC
+        
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = "dd MMMM yyyy"
+        outputFormatter.timeZone = TimeZone.current // Adjust to local timezone if needed
+        
+        // Convert the string to a date and then back to the desired string format
+        if let date = inputFormatter.date(from: dateString) {
+            return outputFormatter.string(from: date)
+        } else {
+            return "" // Handle invalid date string
+        }
+    }
+    
     func convertToDDMMYYYY(_ date:Date)->String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat =  "dd-MM-yyyy"
@@ -421,22 +439,14 @@ extension String {
         label.font = font
         label.text = self
         label.sizeToFit()
-        
-        let style = NSMutableParagraphStyle()
-            style.lineSpacing = 0
-            style.alignment = .center
-            label.attributedText = NSAttributedString(string: self, attributes: [NSAttributedString.Key.paragraphStyle: style])
-           
-           label.sizeToFit()
-        
         let maxSize = CGSize(width:width, height: CGFloat(Float.infinity))
         let charSize = font.lineHeight
         let textSize = self.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         let linesRoundedUp = Int(ceil(textSize.height/charSize))
         
-      //  print("LineNo-",linesRoundedUp)
-     //   print("textsize-",Int(charSize))
-     //   print("LINE-",CGFloat(linesRoundedUp * Int(charSize) + 20))
+        print("LineNo-",linesRoundedUp)
+        print("textsize-",Int(charSize))
+        print("LINE-",CGFloat(linesRoundedUp * Int(charSize) + 20))
         return CGFloat(linesRoundedUp * Int(charSize) + 20)
     }
     

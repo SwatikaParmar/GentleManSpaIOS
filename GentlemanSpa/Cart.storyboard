@@ -284,7 +284,7 @@
                                                                     </constraints>
                                                                 </view>
                                                             </subviews>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstItem="eHa-s8-AH0" firstAttribute="leading" secondItem="cve-ke-imU" secondAttribute="leading" constant="12" id="5mO-HD-4PN"/>
                                                                 <constraint firstItem="14R-nO-hDE" firstAttribute="leading" secondItem="cve-ke-imU" secondAttribute="leading" constant="12" id="6w6-Tr-uHS"/>
@@ -322,24 +322,24 @@
                                                             <rect key="frame" x="2" y="6" width="365" height="330"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <prototypes>
-                                                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CartServicesTvCell" rowHeight="200" id="RnH-R1-QkG" customClass="CartServicesTvCell" customModule="GentlemanSpa" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="55.333332061767578" width="365" height="200"/>
+                                                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CartServicesTvCell" rowHeight="160" id="RnH-R1-QkG" customClass="CartServicesTvCell" customModule="GentlemanSpa" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="55.333332061767578" width="365" height="160"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RnH-R1-QkG" id="O73-Bx-Fef">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="365" height="200"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="365" height="160"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAH-6J-bVQ" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                                                <rect key="frame" x="10" y="6" width="345" height="189"/>
+                                                                                <rect key="frame" x="10" y="6" width="345" height="149"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uAW-Hh-KLa" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                                                        <rect key="frame" x="12" y="13" width="107" height="110"/>
+                                                                                        <rect key="frame" x="8" y="8" width="102" height="102"/>
                                                                                         <subviews>
                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="isjpg" translatesAutoresizingMaskIntoConstraints="NO" id="nLT-BL-mZc" customClass="UIImageViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                                                                <rect key="frame" x="1" y="1" width="105" height="108"/>
+                                                                                                <rect key="frame" x="1" y="1" width="100" height="100"/>
                                                                                                 <constraints>
-                                                                                                    <constraint firstAttribute="height" constant="108" id="7yI-e1-b70"/>
-                                                                                                    <constraint firstAttribute="width" constant="105" id="TrI-bH-p6a"/>
+                                                                                                    <constraint firstAttribute="height" constant="100" id="7yI-e1-b70"/>
+                                                                                                    <constraint firstAttribute="width" constant="100" id="TrI-bH-p6a"/>
                                                                                                 </constraints>
                                                                                                 <userDefinedRuntimeAttributes>
                                                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -391,8 +391,9 @@
                                                                                             </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </view>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face and Body Bleach Services" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u44-Zt-GnB" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                                                        <rect key="frame" x="131" y="11.999999999999996" width="206" height="47.666666666666657"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face and Body" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u44-Zt-GnB" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
+                                                                                        <rect key="frame" x="122" y="8" width="215" height="24"/>
+                                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
                                                                                         <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <nil key="highlightedColor"/>
@@ -403,7 +404,7 @@
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 mins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9iC-Uu-fZb" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                                                        <rect key="frame" x="131" y="61.666666666666679" width="52" height="18.333333333333336"/>
+                                                                                        <rect key="frame" x="122" y="34" width="52" height="18.333333333333329"/>
                                                                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -414,10 +415,10 @@
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xd2-sY-qRh" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                                                        <rect key="frame" x="116.33333333333333" y="145.33333333333334" width="168.33333333333337" height="30"/>
+                                                                                        <rect key="frame" x="119.33333333333333" y="108.33333333333333" width="168.33333333333337" height="29.999999999999986"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select date and time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hH-VZ-6lL" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                                                                <rect key="frame" x="11.000000000000014" y="5.3333333333333144" width="146.33333333333337" height="19.666666666666668"/>
+                                                                                                <rect key="frame" x="11" y="5.3333333333333428" width="146.33333333333334" height="19.666666666666668"/>
                                                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -468,7 +469,7 @@
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </view>
                                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfQ-iG-RfE" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                                                        <rect key="frame" x="289.66666666666669" y="136.66666666666666" width="47.333333333333314" height="47.333333333333343"/>
+                                                                                        <rect key="frame" x="292.66666666666669" y="99.666666666666671" width="47.333333333333314" height="47.333333333333329"/>
                                                                                         <subviews>
                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkSer" translatesAutoresizingMaskIntoConstraints="NO" id="9nn-5T-Wbx">
                                                                                                 <rect key="frame" x="7.9999999999999982" y="7.9999999999999982" width="31.333333333333329" height="31.333333333333329"/>
@@ -509,7 +510,7 @@
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </view>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$70.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qG6-NF-ZL4" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                                                        <rect key="frame" x="131" y="81" width="58" height="24"/>
+                                                                                        <rect key="frame" x="122" y="53.333333333333343" width="58" height="24"/>
                                                                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -520,7 +521,7 @@
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$70.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ip-qu-afE" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                                                        <rect key="frame" x="201.66666666666666" y="82.666666666666671" width="49" height="21"/>
+                                                                                        <rect key="frame" x="192.66666666666666" y="55" width="49" height="21"/>
                                                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                                                         <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="0.64740513392857146" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                         <nil key="highlightedColor"/>
@@ -531,7 +532,7 @@
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gU-hQ-KIx">
-                                                                                        <rect key="frame" x="199.66666666666666" y="92.333333333333329" width="53" height="1.3333333333333286"/>
+                                                                                        <rect key="frame" x="190.66666666666666" y="64.666666666666671" width="53" height="1.3333333333333286"/>
                                                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="1.2" id="QOO-yU-Jmm"/>
@@ -541,7 +542,7 @@
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sat, 14-08-2023 at 10:00PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jd4-Ke-5WD" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                                                        <rect key="frame" x="131.33333333333334" y="106" width="185.00000000000003" height="19.666666666666671"/>
+                                                                                        <rect key="frame" x="122.33333333333334" y="78.333333333333329" width="185.00000000000003" height="19.666666666666671"/>
                                                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -560,19 +561,19 @@
                                                                                     <constraint firstItem="u44-Zt-GnB" firstAttribute="leading" secondItem="uAW-Hh-KLa" secondAttribute="trailing" constant="12" id="ARP-DB-veI"/>
                                                                                     <constraint firstItem="9gU-hQ-KIx" firstAttribute="leading" secondItem="7ip-qu-afE" secondAttribute="leading" constant="-2" id="BTt-Zq-5wt"/>
                                                                                     <constraint firstItem="hfQ-iG-RfE" firstAttribute="centerY" secondItem="Xd2-sY-qRh" secondAttribute="centerY" id="DVf-MF-vaY"/>
-                                                                                    <constraint firstItem="uAW-Hh-KLa" firstAttribute="top" secondItem="mAH-6J-bVQ" secondAttribute="top" constant="13" id="EDy-8o-Bbf"/>
+                                                                                    <constraint firstItem="uAW-Hh-KLa" firstAttribute="top" secondItem="mAH-6J-bVQ" secondAttribute="top" constant="8" id="EDy-8o-Bbf"/>
                                                                                     <constraint firstItem="7ip-qu-afE" firstAttribute="leading" secondItem="qG6-NF-ZL4" secondAttribute="trailing" constant="12.67" id="G02-sI-7i3"/>
                                                                                     <constraint firstItem="9gU-hQ-KIx" firstAttribute="trailing" secondItem="7ip-qu-afE" secondAttribute="trailing" constant="2" id="HKg-7f-1jT"/>
                                                                                     <constraint firstItem="7ip-qu-afE" firstAttribute="centerY" secondItem="qG6-NF-ZL4" secondAttribute="centerY" id="Ndu-sq-smx"/>
                                                                                     <constraint firstItem="hfQ-iG-RfE" firstAttribute="leading" secondItem="Xd2-sY-qRh" secondAttribute="trailing" constant="5" id="NlX-FB-mG5"/>
-                                                                                    <constraint firstAttribute="trailing" secondItem="hfQ-iG-RfE" secondAttribute="trailing" constant="8" id="Pur-G8-Yfs"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="hfQ-iG-RfE" secondAttribute="trailing" constant="5" id="Pur-G8-Yfs"/>
                                                                                     <constraint firstItem="jd4-Ke-5WD" firstAttribute="leading" secondItem="uAW-Hh-KLa" secondAttribute="trailing" constant="12.329999923706055" id="SzM-sc-Gzg"/>
-                                                                                    <constraint firstAttribute="bottom" secondItem="hfQ-iG-RfE" secondAttribute="bottom" constant="5" id="bfu-ha-9Z2"/>
-                                                                                    <constraint firstItem="u44-Zt-GnB" firstAttribute="top" secondItem="mAH-6J-bVQ" secondAttribute="top" constant="12" id="cRQ-EW-NWs"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="hfQ-iG-RfE" secondAttribute="bottom" constant="2" id="bfu-ha-9Z2"/>
+                                                                                    <constraint firstItem="u44-Zt-GnB" firstAttribute="top" secondItem="mAH-6J-bVQ" secondAttribute="top" constant="8" id="cRQ-EW-NWs"/>
                                                                                     <constraint firstItem="qG6-NF-ZL4" firstAttribute="leading" secondItem="uAW-Hh-KLa" secondAttribute="trailing" constant="12" id="ftc-LW-lFa"/>
                                                                                     <constraint firstItem="jd4-Ke-5WD" firstAttribute="top" secondItem="qG6-NF-ZL4" secondAttribute="bottom" constant="1" id="shC-xN-5Rh"/>
                                                                                     <constraint firstItem="qG6-NF-ZL4" firstAttribute="top" secondItem="9iC-Uu-fZb" secondAttribute="bottom" constant="1" id="syQ-uR-1xP"/>
-                                                                                    <constraint firstItem="uAW-Hh-KLa" firstAttribute="leading" secondItem="mAH-6J-bVQ" secondAttribute="leading" constant="12" id="w7g-2G-Zyi"/>
+                                                                                    <constraint firstItem="uAW-Hh-KLa" firstAttribute="leading" secondItem="mAH-6J-bVQ" secondAttribute="leading" constant="8" id="w7g-2G-Zyi"/>
                                                                                     <constraint firstItem="9iC-Uu-fZb" firstAttribute="top" secondItem="u44-Zt-GnB" secondAttribute="bottom" constant="2" id="wqd-Qa-BDP"/>
                                                                                 </constraints>
                                                                                 <userDefinedRuntimeAttributes>
@@ -678,13 +679,13 @@
                                                                                 <rect key="frame" x="10" y="6" width="339" height="151"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndL-Rz-nWP" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                                                        <rect key="frame" x="12" y="13" width="107" height="110"/>
+                                                                                        <rect key="frame" x="8" y="8" width="102" height="102"/>
                                                                                         <subviews>
                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="isjpg" translatesAutoresizingMaskIntoConstraints="NO" id="iIk-wy-pyf" customClass="UIImageViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                                                                <rect key="frame" x="1" y="1" width="105" height="108"/>
+                                                                                                <rect key="frame" x="1" y="1" width="100" height="100"/>
                                                                                                 <constraints>
-                                                                                                    <constraint firstAttribute="height" constant="108" id="bhU-OG-Agy"/>
-                                                                                                    <constraint firstAttribute="width" constant="105" id="h7w-Eg-dpn"/>
+                                                                                                    <constraint firstAttribute="height" constant="100" id="bhU-OG-Agy"/>
+                                                                                                    <constraint firstAttribute="width" constant="100" id="h7w-Eg-dpn"/>
                                                                                                 </constraints>
                                                                                                 <userDefinedRuntimeAttributes>
                                                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -736,8 +737,8 @@
                                                                                             </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </view>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face and Body Bleach Services" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMc-jS-BA3" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                                                        <rect key="frame" x="131" y="11.999999999999996" width="200" height="47.666666666666657"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face and Body Bleach Services" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMc-jS-BA3" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
+                                                                                        <rect key="frame" x="122" y="8" width="209" height="47.666666666666664"/>
                                                                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
                                                                                         <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <nil key="highlightedColor"/>
@@ -748,7 +749,7 @@
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zy7-5c-eTy" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                                                        <rect key="frame" x="131" y="61.666666666666671" width="0.0" height="0.0"/>
+                                                                                        <rect key="frame" x="122" y="57.666666666666664" width="0.0" height="0.0"/>
                                                                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -872,7 +873,7 @@
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </view>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$70.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvx-d0-A7W" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                                                        <rect key="frame" x="131" y="62.666666666666671" width="58" height="24"/>
+                                                                                        <rect key="frame" x="122" y="58.666666666666671" width="58" height="24"/>
                                                                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -883,7 +884,7 @@
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$70.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bga-7M-Vfk" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                                                        <rect key="frame" x="201.66666666666666" y="64.333333333333329" width="49" height="21"/>
+                                                                                        <rect key="frame" x="192.66666666666666" y="60.333333333333329" width="49" height="21"/>
                                                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                                                         <color key="textColor" white="0.33333333329999998" alpha="0.65017073680000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -894,7 +895,7 @@
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1j7-GF-cpw">
-                                                                                        <rect key="frame" x="199.66666666666666" y="74" width="53" height="1.3333333333333286"/>
+                                                                                        <rect key="frame" x="190.66666666666666" y="70" width="53" height="1.3333333333333286"/>
                                                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="1.2" id="szY-3G-0S7"/>
@@ -910,15 +911,15 @@
                                                                                     <constraint firstAttribute="trailing" secondItem="NMc-jS-BA3" secondAttribute="trailing" constant="8" id="4fy-lu-9YR"/>
                                                                                     <constraint firstItem="yvx-d0-A7W" firstAttribute="leading" secondItem="ndL-Rz-nWP" secondAttribute="trailing" constant="12" id="Fgr-yN-tdm"/>
                                                                                     <constraint firstItem="bga-7M-Vfk" firstAttribute="leading" secondItem="yvx-d0-A7W" secondAttribute="trailing" constant="12.67" id="Nxw-2v-DYB"/>
-                                                                                    <constraint firstItem="ndL-Rz-nWP" firstAttribute="leading" secondItem="eL7-b5-lfo" secondAttribute="leading" constant="12" id="QgR-0J-B3c"/>
+                                                                                    <constraint firstItem="ndL-Rz-nWP" firstAttribute="leading" secondItem="eL7-b5-lfo" secondAttribute="leading" constant="8" id="QgR-0J-B3c"/>
                                                                                     <constraint firstItem="1j7-GF-cpw" firstAttribute="trailing" secondItem="bga-7M-Vfk" secondAttribute="trailing" constant="2" id="Qtq-hh-s0l"/>
                                                                                     <constraint firstItem="zy7-5c-eTy" firstAttribute="leading" secondItem="ndL-Rz-nWP" secondAttribute="trailing" constant="12" id="RsS-sf-6sB"/>
                                                                                     <constraint firstItem="4WG-1g-eCP" firstAttribute="centerX" secondItem="MBP-8X-i3y" secondAttribute="centerX" id="XO1-YI-bNZ"/>
-                                                                                    <constraint firstItem="ndL-Rz-nWP" firstAttribute="top" secondItem="eL7-b5-lfo" secondAttribute="top" constant="13" id="Xyh-xb-VFC"/>
+                                                                                    <constraint firstItem="ndL-Rz-nWP" firstAttribute="top" secondItem="eL7-b5-lfo" secondAttribute="top" constant="8" id="Xyh-xb-VFC"/>
                                                                                     <constraint firstItem="zy7-5c-eTy" firstAttribute="top" secondItem="NMc-jS-BA3" secondAttribute="bottom" constant="2" id="Y6R-Ws-Chs"/>
                                                                                     <constraint firstItem="bga-7M-Vfk" firstAttribute="centerY" secondItem="yvx-d0-A7W" secondAttribute="centerY" id="aq2-gv-zR0"/>
                                                                                     <constraint firstItem="NMc-jS-BA3" firstAttribute="leading" secondItem="ndL-Rz-nWP" secondAttribute="trailing" constant="12" id="e07-eE-HB5"/>
-                                                                                    <constraint firstItem="NMc-jS-BA3" firstAttribute="top" secondItem="eL7-b5-lfo" secondAttribute="top" constant="12" id="kek-rK-G9r"/>
+                                                                                    <constraint firstItem="NMc-jS-BA3" firstAttribute="top" secondItem="eL7-b5-lfo" secondAttribute="top" constant="8" id="kek-rK-G9r"/>
                                                                                     <constraint firstAttribute="trailing" secondItem="MBP-8X-i3y" secondAttribute="trailing" constant="7" id="ocP-8d-5FW"/>
                                                                                     <constraint firstAttribute="bottom" secondItem="MBP-8X-i3y" secondAttribute="bottom" constant="11" id="vo0-cb-H3r"/>
                                                                                     <constraint firstItem="1j7-GF-cpw" firstAttribute="centerY" secondItem="bga-7M-Vfk" secondAttribute="centerY" id="xw2-LB-N9I"/>
@@ -3737,10 +3738,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

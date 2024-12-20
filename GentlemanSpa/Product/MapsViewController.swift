@@ -60,22 +60,22 @@ class MapsViewController: UIViewController{
     }()
     
     
-    @IBOutlet weak var navigationViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
     func topViewLayout(){
-        if !CreateAccountController.hasSafeArea{
-            if navigationViewConstraint != nil {
-                navigationViewConstraint.constant = 77
+        if !HomeUserViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
             }
         }
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
         if Utility.shared.DivceTypeString() == "IPad" {
           
         }
-        topViewLayout()
+     
         tableviewSearch.delegate = self
         tableviewSearch.dataSource = self
         textfieldAddress.font = UIFont(name:FontName.Inter.Regular, size:  "".dynamicFontSize(13))

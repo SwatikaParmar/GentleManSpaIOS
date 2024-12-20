@@ -179,7 +179,6 @@ class AllCartProducts: NSObject {
         mainCategoryName = dictionary["mainCategoryName"] as? String ?? ""
         mainCategoryId = dictionary["categoryId"] as? Int ?? 0
         subCategoryName = dictionary["subCategoryName"] as? String ?? ""
-        serviceName = dictionary["name"] as? String ?? ""
         serviceDescription = dictionary["description"] as? String ?? ""
         listingPrice = dictionary["listingPrice"] as? Double ?? 0.00
         basePrice = dictionary["basePrice"] as? Double ?? 0.00
@@ -190,6 +189,7 @@ class AllCartProducts: NSObject {
         isSlotAvailable = dictionary["isSlotAvailable"] as? Int ?? 0
         serviceType = dictionary["serviceType"] as? String ?? ""
         productCountInCart = dictionary["countInCart"] as? Int ?? 0
+        serviceName = dictionary["name"] as? String ?? ""
 
     }
     

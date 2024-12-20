@@ -59,17 +59,18 @@ class EditAddressVc: UIViewController {
     var customerAddressId_Primary = 0
     
     
-    @IBOutlet weak var navigationViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
     func topViewLayout(){
-        if !CreateAccountController.hasSafeArea{
-            if navigationViewConstraint != nil {
-                navigationViewConstraint.constant = 77
+        if !HomeUserViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
         
         if Utility.shared.DivceTypeString() == "IPad" {
             l_TConstraints.constant = 100
@@ -77,7 +78,7 @@ class EditAddressVc: UIViewController {
         }
         btnAdd.backgroundColor = AppColor.BrownColor
         
-        topViewLayout()
+     
         OnKeyboard()
         setDataForType()
         GetAddressAPI(true)

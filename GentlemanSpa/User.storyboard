@@ -971,6 +971,7 @@
                     <size key="freeformSize" width="393" height="1111"/>
                     <connections>
                         <outlet property="tableViewHome" destination="MeV-o1-9qP" id="Psw-BY-9df"/>
+                        <outlet property="view_NavConst" destination="Ple-IW-TYY" id="0s6-1S-cfl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3476,6 +3477,7 @@
                         <outlet property="lbePAST" destination="0nB-Lq-Red" id="uZg-Oc-3Y2"/>
                         <outlet property="lbeUPCOMING" destination="dAa-Ij-MTa" id="L3C-dz-SkM"/>
                         <outlet property="tableUp" destination="aiP-kz-k2V" id="dK1-00-00W"/>
+                        <outlet property="view_NavConst" destination="Z7L-S8-Fkz" id="j7X-VS-0SL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0KX-Tl-Hhe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -5238,7 +5240,7 @@
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
-                                                                    <real key="value" value="17"/>
+                                                                    <real key="value" value="16"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
@@ -5749,6 +5751,7 @@
                         <outlet property="viewCategory" destination="Gka-Wx-GDT" id="iU3-Jb-hSE"/>
                         <outlet property="viewNoData" destination="ZLt-xp-PR9" id="dXe-gV-dWI"/>
                         <outlet property="view_H_Const" destination="MEV-zA-zaR" id="TRw-pU-AmV"/>
+                        <outlet property="view_NavConst" destination="GNT-PD-EoR" id="ikQ-BZ-ton"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsP-HS-oUD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -6173,6 +6176,7 @@
                         <outlet property="imgService" destination="zZJ-LD-QIA" id="JeC-fJ-Vn3"/>
                         <outlet property="myPageCntrl" destination="Dyq-K1-qMU" id="aaR-nz-cFN"/>
                         <outlet property="tableViewDetail" destination="wnt-Bo-Kt8" id="Y2O-fq-nmg"/>
+                        <outlet property="view_NavConst" destination="oUK-OA-585" id="4h5-rS-edl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mbM-aQ-Kyn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -6619,6 +6623,7 @@
                     </view>
                     <connections>
                         <outlet property="tableViewDoctor" destination="Dwp-6M-P1T" id="ZtG-eX-mwo"/>
+                        <outlet property="view_NavConst" destination="PPD-kg-HiW" id="tgs-MD-BjW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rxj-FQ-Qdc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -7214,6 +7219,7 @@
                         <outlet property="timeViewH" destination="CQg-wf-MmA" id="1SO-Gq-GMo"/>
                         <outlet property="viewNoData" destination="35A-GU-few" id="0M4-k3-3ua"/>
                         <outlet property="viewScroll" destination="bty-LR-kg9" id="O5d-iC-2Mm"/>
+                        <outlet property="view_NavConst" destination="sOH-ed-HjD" id="ZW3-wx-K4e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mn-my-x0m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -7455,7 +7461,7 @@
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
-                                                                    <real key="value" value="17"/>
+                                                                    <real key="value" value="16"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
@@ -7900,6 +7906,7 @@
                         <outlet property="totalView" destination="PSG-1I-049" id="99O-FS-b0S"/>
                         <outlet property="viewNoData" destination="UV1-16-sCJ" id="4X6-Vc-dcO"/>
                         <outlet property="view_H_Const" destination="sgV-o7-pc1" id="QxN-V3-Mgx"/>
+                        <outlet property="view_NavConst" destination="11g-Aq-rkG" id="rqe-fY-8Pl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hH-nx-DiQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -8367,6 +8374,7 @@
                         <outlet property="imgService" destination="Gl9-mB-MZ8" id="s09-la-xGC"/>
                         <outlet property="myPageCntrl" destination="tSb-wu-9pe" id="fRd-cw-tYQ"/>
                         <outlet property="tableViewDetail" destination="F2n-rj-8ND" id="Doh-yl-ZdE"/>
+                        <outlet property="view_NavConst" destination="Z6D-y8-OuR" id="c1Y-gH-Iiu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gty-8A-Ioi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -8530,7 +8538,7 @@
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
-                                                                    <real key="value" value="17"/>
+                                                                    <real key="value" value="16"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
@@ -8952,6 +8960,7 @@
                         <outlet property="totalView" destination="twN-ls-Sg8" id="rpB-KE-tkb"/>
                         <outlet property="viewNoData" destination="EQx-fJ-lAW" id="SNc-NL-y33"/>
                         <outlet property="view_H_Const" destination="A5a-Qy-MY6" id="Z63-Yx-lt7"/>
+                        <outlet property="view_NavConst" destination="BxH-Jd-FTh" id="mzD-rg-DEh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d86-qW-qc0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -9157,6 +9166,7 @@
                     </view>
                     <connections>
                         <outlet property="tableViewNotification" destination="fWI-RE-ICp" id="873-Mf-tq7"/>
+                        <outlet property="view_NavConst" destination="C2V-8Z-ikm" id="f3h-cS-7fv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XqT-Sl-LIU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

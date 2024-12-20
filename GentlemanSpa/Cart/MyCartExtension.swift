@@ -144,26 +144,21 @@ extension MyCartViewController : UITableViewDataSource,UITableViewDelegate{
 
             for i in 0 ..< arrSortedService.count {
                 
-                lineCount = CGFloat(arrSortedService[i].serviceName.heightForView(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(17)) ?? UIFont.systemFont(ofSize: 15.0), width: tableView.frame.width - 174))
+                lineCount = CGFloat(arrSortedService[i].serviceName.heightForView(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(16)) ?? UIFont.systemFont(ofSize: 15.0), width: tableView.frame.width - 174))
                 
-                if lineCount > 47{
-                    if self.arrSortedService[i].fromTime == "" {
-                        totalCount =  totalCount + 180
-                    }
-                    else{
-                        totalCount =  totalCount + 196
-                    }
+                
+                
+                if lineCount < 50 {
+                    totalCount =  122 + lineCount + totalCount
+                }
+                else if lineCount < 70 {
+                    totalCount  = 115 + lineCount + totalCount
                 }
                 else{
-                    if self.arrSortedService[i].fromTime == "" {
-                        totalCount =  totalCount  +   160
-                    }
-                    else{
-                        totalCount =  totalCount  +   177
-                        
-                    }
+                    totalCount  = 121 + lineCount + totalCount
                 }
             }
+
             return 171 + totalCount 
         }
         else{
@@ -175,15 +170,16 @@ extension MyCartViewController : UITableViewDataSource,UITableViewDelegate{
             
             for i in 0 ..< arrSortedProduct.count {
                 
-                lineCount = CGFloat(arrSortedProduct[i].serviceName.lineCount(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(17)) ?? UIFont.systemFont(ofSize: 15.0), width: tableView.frame.width - 185))
+                lineCount = CGFloat(arrSortedProduct[i].serviceName.heightForView(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(16)) ?? UIFont.systemFont(ofSize: 15.0), width: tableView.frame.width - 174))
                 
-                if lineCount > 1 {
-                    totalCount = totalCount +  170
-                    
+                if lineCount < 50 {
+                    totalCount =  90 + lineCount + totalCount
+                }
+                else if lineCount < 70 {
+                    totalCount  = 100 + lineCount + totalCount
                 }
                 else{
-                    totalCount = totalCount +  150
-                    
+                    totalCount  = 100 + lineCount + totalCount
                 }
             }
             

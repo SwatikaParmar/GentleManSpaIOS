@@ -17,8 +17,18 @@ class ProductDetailsViewController: UIViewController {
     var arrSortedService:ProductDetailModel?
     var productId = 0
     var itemCount = 0
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeUserViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
 
         // Do any additional setup after loading the view.
     }

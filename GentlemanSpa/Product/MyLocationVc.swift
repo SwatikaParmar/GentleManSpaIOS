@@ -14,8 +14,18 @@ class MyLocationVc: UIViewController {
     var arrayAddressData = [AddressListModel]()
 
     
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeUserViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
         selectedTableView.delegate = self
         selectedTableView.dataSource = self
     }

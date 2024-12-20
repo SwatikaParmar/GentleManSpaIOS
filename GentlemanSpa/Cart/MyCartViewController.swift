@@ -9,7 +9,7 @@ import UIKit
 
 class MyCartViewController: UIViewController {
     @IBOutlet weak var tableViewMyCart : UITableView!
-    @IBOutlet weak var navigationViewConstraint: NSLayoutConstraint!
+   
 
     @IBOutlet weak var viewPayNow : UIView!
     @IBOutlet weak var imgViewEmpty : UIImageView!
@@ -26,8 +26,18 @@ class MyCartViewController: UIViewController {
     var arrSortedService = [AllCartServices]()
     var arrayAddressData = [AddressListModel]()
     
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeUserViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
 
         viewPayNow.isHidden = true
         imgViewEmpty.isHidden = true

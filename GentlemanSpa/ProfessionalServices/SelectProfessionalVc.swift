@@ -9,7 +9,6 @@ import UIKit
 
 class SelectProfessionalVc: UIViewController {
     @IBOutlet weak var tableViewSelectProfessional : UITableView!
-    @IBOutlet weak var navigationViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var lbeTitle: UILabel!
 
     
@@ -23,15 +22,18 @@ class SelectProfessionalVc: UIViewController {
     var intArrayId: [Int] = []
     var arrayDataSpeciality = NSArray()
 
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
     func topViewLayout(){
-        if !HomeViewController.hasSafeArea{
-            if navigationViewConstraint != nil {
-               // navigationViewConstraint.constant = 70
+        if !HomeUserViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
             }
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
         self.navigationController?.navigationBar.isHidden = true
         if isProfessionalSelectes {
             lbeTitle.text = professionalName
@@ -40,7 +42,7 @@ class SelectProfessionalVc: UIViewController {
             lbeTitle.text = "Select Professional"
 
         }
-        topViewLayout()
+        
         
        
     }

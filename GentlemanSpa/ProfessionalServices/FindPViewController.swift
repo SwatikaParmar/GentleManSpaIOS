@@ -12,8 +12,18 @@ class FindPViewController: UIViewController {
     var arrGetProfessionalList = [GetProfessionalObject]()
     var serviceId = 0
 
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeUserViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
         GetProfessionalListAPI(true, true, 1)
 
     }

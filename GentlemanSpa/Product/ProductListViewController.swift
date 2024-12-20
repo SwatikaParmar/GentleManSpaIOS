@@ -32,8 +32,18 @@ class ProductListViewController:  UIViewController {
     var arrSortedPackage = [ProductListModel]()
     var arrSortedTopService = [ProductListModel]()
     
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeUserViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
         totalView.isHidden = true
         view_H_Const.constant = 0
         searchTxtField.delegate = self

@@ -16,8 +16,18 @@ class MyOrderVc: UIViewController {
     var pageName = "Upcoming"
     var arrOrder = [OrderItem]()
 
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeUserViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
         lbeUPCOMING.textColor = AppColor.BlackColor
         lbePAST.textColor = AppColor.BlackColor
         lbeCONFIRMED.textColor = AppColor.BlackColor

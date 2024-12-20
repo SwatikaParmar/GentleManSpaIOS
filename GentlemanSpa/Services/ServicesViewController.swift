@@ -38,8 +38,18 @@ class ServicesViewController: UIViewController {
     var arrSortedCategory = [dashboardCategoryObject]()
     var arrSortedSubCategory = [SpaSubCategoriesObject]()
 
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeUserViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
         searchTxtField.delegate = self
         viewNoData.isHidden = true
         self.collSub_H_Const.constant = 0

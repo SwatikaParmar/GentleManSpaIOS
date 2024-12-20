@@ -311,25 +311,21 @@ extension ServicesListTableViewCell: UITableViewDataSource,UITableViewDelegate {
         
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let lineCount = arrSortedService[indexPath.row].serviceName.heightForView(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(17)) ?? UIFont.systemFont(ofSize: 15.0), width: tableView.frame.width - 150)
+        let lineCount = arrSortedService[indexPath.row].serviceName.heightForView(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(16)) ?? UIFont.systemFont(ofSize: 15.0), width: tableView.frame.width - 150)
         
-        print(lineCount)
         print(arrSortedService[indexPath.row].serviceName)
 
-        if lineCount > 47 {
-            if self.arrSortedService[indexPath.row].fromTime == "" {
-                return  180
+     
+            if lineCount < 50 {
+                    return  122 + lineCount
+                }
+            if lineCount < 70 {
+                return  115 + lineCount
             }
-            return  196
-
-        }
-        if self.arrSortedService[indexPath.row].fromTime == "" {
-            return  160
-
-        }
-        return  177
-        
-    }
+                return  121 + lineCount
+            }
+      
+    
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return  0.1
@@ -529,13 +525,19 @@ extension ProductListTableViewCell: UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let lineCount = arrSortedProduct[indexPath.row].serviceName.lineCount(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(17)) ?? UIFont.systemFont(ofSize: 15.0), width: tableView.frame.width - 174)
+        let lineCount = arrSortedProduct[indexPath.row].serviceName.heightForView(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: "".dynamicFontSize(16)) ?? UIFont.systemFont(ofSize: 15.0), width: tableView.frame.width - 150)
         
-        if lineCount > 1 {
-            return  165
-
+      
+        
+        if lineCount < 50 {
+            return  90 + lineCount
         }
-        return  150
+        else if lineCount < 70 {
+            return  100 + lineCount
+        }
+        else{
+            return  100 + lineCount
+        }
 
         
     }

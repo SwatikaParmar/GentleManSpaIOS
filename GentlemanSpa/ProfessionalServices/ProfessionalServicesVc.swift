@@ -28,8 +28,18 @@ class ProfessionalServicesVc: UIViewController {
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var lbeSpe: UILabel!
 
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeUserViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
         totalView.isHidden = true
         view_H_Const.constant = 0
         lbeName.text = name

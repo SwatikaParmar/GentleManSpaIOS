@@ -19,9 +19,18 @@ class OrderDetailsViewController: UIViewController {
     
     @IBOutlet weak var tableViewOrderDetails : UITableView!
 
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeUserViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
         tableViewOrderDetails.isHidden = true
         viewPayNow.isHidden = true
         imgViewEmpty.isHidden = true

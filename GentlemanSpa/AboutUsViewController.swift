@@ -14,9 +14,18 @@ class AboutUsViewController: UIViewController,WKNavigationDelegate, WKUIDelegate
     
     @IBOutlet weak var specialityConst: NSLayoutConstraint!
 
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeUserViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        topViewLayout()
         webAbout.navigationDelegate = self
         webAbout.uiDelegate = self
         var NSAttributedString = NSAttributedString()

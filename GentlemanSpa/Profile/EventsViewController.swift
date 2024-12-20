@@ -14,8 +14,18 @@ class EventsViewController: UIViewController {
     var intIndex : Int = -1
     var arrAllEvents = [EventData]()
 
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeUserViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
 
         MyEventsAPI(true)
     }

@@ -41,8 +41,17 @@ class UpdateProfileUserViewController: UIViewController {
     var stringEmail = ""
     
     
+    func topViewLayout(){
+        if !HomeUserViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
         
         setupDropDowns()
         self.lbeDialCode.font = UIFont(name: FontName.Inter.Regular, size: 16)!
@@ -105,18 +114,7 @@ class UpdateProfileUserViewController: UIViewController {
         controller!.selectArray = ["4","6"]
         self.present(controller!, animated: true, completion: nil)
     }
-    
-    
-    func topViewLayout(){
-        if !CreateAccountController.hasSafeArea{
-            if view_NavConst != nil {
-                view_NavConst.constant = 77
-            }
-        }
-    }
-    
-    
-    
+
     //Hide KeyBoard When touche on View
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         

@@ -21,20 +21,20 @@ class HomeUserViewController: UIViewController {
     let UsersRef = DatabaseManager.database.child("Users").child(userId())
     var isOnline = true
     let refreshControlUp = UIRefreshControl()
-
+    
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
     func topViewLayout(){
-        if !CreateAccountController.hasSafeArea{
-           print("YES")
-        }
-        else{
-      
-            
+        if !HomeUserViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        topViewLayout()
+
         refreshControlUp.addTarget(self, action:  #selector(RefreshScreenUp), for: .valueChanged)
         refreshControlUp.tintColor = UIColor.white
         tableViewHome.refreshControl = refreshControlUp
@@ -43,7 +43,6 @@ class HomeUserViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Banner_Timer_Stop"), object: nil)
 
-        topViewLayout()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.Menu_Push_Action), name: NSNotification.Name(rawValue: "Menu_Push_Action"), object: nil)
 

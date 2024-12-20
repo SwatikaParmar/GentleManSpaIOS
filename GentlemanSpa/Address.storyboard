@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -250,6 +250,7 @@
                     <connections>
                         <outlet property="btnAddress" destination="HYF-iy-o6m" id="HIF-0A-t1g"/>
                         <outlet property="selectedTableView" destination="enb-ve-Awc" id="6fv-R5-c8D"/>
+                        <outlet property="view_NavConst" destination="8T0-WV-WGv" id="the-th-hUa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="afD-Ik-MYX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1239,7 +1240,6 @@
                         <outlet property="addressLabel" destination="kil-uU-sfn" id="gOu-LH-DVL"/>
                         <outlet property="btnAddress" destination="p00-xe-hX3" id="PBN-GT-urW"/>
                         <outlet property="mapView" destination="uP9-bm-L0u" id="xaD-DZ-0jN"/>
-                        <outlet property="navigationViewConstraint" destination="uy8-OJ-Foe" id="BzV-57-qlf"/>
                         <outlet property="searchCancelBtn" destination="vIT-r7-3n0" id="pSt-EL-SAc"/>
                         <outlet property="searchView" destination="M7g-gF-SxX" id="8b2-Pe-1ar"/>
                         <outlet property="searchView_HConst" destination="RDA-In-FqA" id="8zx-sZ-PSF"/>
@@ -1247,6 +1247,7 @@
                         <outlet property="textfieldAddress" destination="aUy-ZK-33g" id="xgc-1j-W3N"/>
                         <outlet property="titleLabel" destination="gV3-6h-QSl" id="ED2-1C-VKh"/>
                         <outlet property="viewSearch" destination="VMu-G3-waQ" id="ZU8-6o-b6t"/>
+                        <outlet property="view_NavConst" destination="uy8-OJ-Foe" id="Nai-rA-NPi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9bk-BH-nc6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1834,7 +1835,6 @@
                         <outlet property="lbeTitle" destination="KuI-gJ-y4G" id="RP7-1h-hII"/>
                         <outlet property="lbeWork" destination="ldy-wu-oK5" id="RW5-xi-RXb"/>
                         <outlet property="navigationView" destination="w21-h1-t3I" id="3LC-pI-2VX"/>
-                        <outlet property="navigationViewConstraint" destination="fC0-tk-SzY" id="ujl-Nn-sAQ"/>
                         <outlet property="nearbyTF" destination="CT1-j2-EmD" id="0GL-Jn-iry"/>
                         <outlet property="phoneNoTF" destination="A71-Rs-3C8" id="enT-6a-fEw"/>
                         <outlet property="pincodeTF" destination="pfN-hV-uRi" id="GQo-zb-2th"/>
@@ -1843,6 +1843,7 @@
                         <outlet property="viewHome" destination="77h-1S-scP" id="H6u-rn-Hwe"/>
                         <outlet property="viewOther" destination="LWn-5M-JtC" id="BA5-Lm-4bh"/>
                         <outlet property="viewWork" destination="1N0-Lz-8dD" id="qiS-HZ-eqg"/>
+                        <outlet property="view_NavConst" destination="fC0-tk-SzY" id="uit-xv-xR8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3m-ra-Qfm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

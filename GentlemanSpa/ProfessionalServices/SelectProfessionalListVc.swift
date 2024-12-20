@@ -17,8 +17,18 @@ class SelectProfessionalListVc: UIViewController {
     var isReschedule = false
     var isMyCart = false
 
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeUserViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
         lbeServiceName.text = serviceName
        
 

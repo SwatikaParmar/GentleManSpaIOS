@@ -11,7 +11,6 @@ import IQKeyboardManagerSwift
 import FirebaseDatabase
 class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegate, UITextViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     
-    @IBOutlet weak var navigationViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var navigationView: UIView!
     @IBOutlet weak var imgViewUser: UIImageView!
     @IBOutlet weak var lbeUserName: UILabel!
@@ -103,9 +102,7 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
     }
     
     
-    func topViewLayout(){
-        
-    }
+   
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
     }
@@ -162,6 +159,15 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
         
         
     }
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeUserViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         topViewLayout()

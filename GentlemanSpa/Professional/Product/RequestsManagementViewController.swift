@@ -20,8 +20,18 @@ class RequestsManagementViewController: UIViewController {
     @IBOutlet weak var btn_Type : UIButton!
 
     var typeStr = ""
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
 
         setupDropDowns()
         

@@ -20,7 +20,6 @@ class UpdateProfileProViewController: UIViewController {
     @IBOutlet weak var btn_Gender : UIButton!
     @IBOutlet weak var txt_Client : CocoaTextField!
 
-    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
     @IBOutlet weak var countryPicker: UIView!
     @IBOutlet weak var lbeDialCode: UILabel!
 
@@ -49,8 +48,18 @@ class UpdateProfileProViewController: UIViewController {
     var selectArray = NSMutableArray()
 
     
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
         
         setupDropDowns()
         self.lbeDialCode.font = UIFont(name: FontName.Inter.Regular, size: 16)!
@@ -135,13 +144,6 @@ class UpdateProfileProViewController: UIViewController {
         controller!.modalPresentationStyle = .overFullScreen
         controller!.selectArray.addObjects(from: self.selectArray as! [Any])
         self.present(controller!, animated: true, completion: nil)
-    }
-    func topViewLayout(){
-        if !CreateAccountController.hasSafeArea{
-            if view_NavConst != nil {
-                view_NavConst.constant = 77
-            }
-        }
     }
     
     

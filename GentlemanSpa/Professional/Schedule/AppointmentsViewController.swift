@@ -15,9 +15,18 @@ class AppointmentsViewController: UIViewController, UITableViewDataSource,UITabl
     
     var arrSchedulesModel = [SchedulesModel]()
 
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
        
     }
     @IBAction func MyProfile(_ sender: Any) {

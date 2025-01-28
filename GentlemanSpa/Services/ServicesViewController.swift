@@ -55,8 +55,6 @@ class ServicesViewController: UIViewController {
         self.collSub_H_Const.constant = 0
         totalView.isHidden = true
         viewCategory.isHidden = true
-
-        
         view_H_Const.constant = 0
     }
     

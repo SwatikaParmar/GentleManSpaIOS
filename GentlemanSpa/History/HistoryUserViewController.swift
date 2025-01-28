@@ -284,11 +284,11 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
     
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             if  pageName == "Upcoming" {
-                return 257
+                return 260
 
             }
             else if pageName == "Completed" {
-                return 257
+                return 260
             }
             
             return 210
@@ -406,6 +406,9 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
                 if isStatus {
                     NotificationAlert().NotificationAlert(titles: message ?? GlobalConstants.successMessage)
                     self.MyAppointmentAPI(false)
+                    
+                    NotificationCenter.default.post(name: Notification.Name("Menu_Push_Action"), object: nil, userInfo: ["count":"CancelService"])
+
                 }
             }
             else{

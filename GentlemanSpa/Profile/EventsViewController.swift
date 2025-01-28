@@ -139,20 +139,37 @@ extension EventsViewController: UITableViewDataSource,UITableViewDelegate {
     }
 
     @objc func bookingEvent(sender:UIButton){
-        
-        if intIndex == sender.tag {
-            return
-        }
-        let alertController = UIAlertController(title: "Success!", message: "You have successfully registered for the event.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
-            UIAlertAction in
-            self.intIndex = sender.tag
-            self.tableViewEvents.reloadData()
-        }
-        
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
+
+        var param = [String : AnyObject]()
+        param["registrationId"] = 0 as AnyObject
+        param["registrationStatus"] = "" as AnyObject
+        param["userId"] = userId() as AnyObject
+        param["eventId"] = arrAllEvents[sender.tag].eventId as AnyObject
+        param["registeredAt"] = 0 as AnyObject
+
+        self.addEvent(Model: param, index:0)
     }
+    
+    func addEvent(Model: [String : AnyObject], index:Int){
+        AddUpdateCartServiceRequest.shared.AddUpdateCartServiceAPI(requestParams: Model) { (user,message,isStatus) in
+            if isStatus {
+                if isStatus {
+                    let alertController = UIAlertController(title: "Success!", message: "You have successfully registered for the event.", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+                        UIAlertAction in
+                        self.tableViewEvents.reloadData()
+                       
+                    }
+                    
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
+        }
+        
+    }
+    
+    
 }
     
   

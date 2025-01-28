@@ -68,29 +68,22 @@ class CreateTimeSlotsController:UIViewController,UIPickerViewDataSource,UIPicker
     }()
 
     
+  
     func topViewLayout(){
-           if !CreateTimeSlotsController.hasSafeArea{
-               if view_NavConst != nil {
-                   view_NavConst.constant = 77
-               }
-           }
+        if !HomeViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
     }
-    
-    func colorForDropDown(){
-
-       
-    }
-    
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
         
         self.navigationController?.isNavigationBarHidden = true
 
-        topViewLayout()
-        colorForDropDown()
+    
 
         lbeDateTitle.text = selectDate_Title
         

@@ -14,9 +14,18 @@ class ProProductListVc: UIViewController {
     @IBOutlet weak var searchTxtField: UITextField!
     var searchQuery = ""
 
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
 
         searchTxtField.delegate = self
     }

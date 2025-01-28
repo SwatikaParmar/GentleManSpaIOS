@@ -226,6 +226,11 @@ extension String{
         return "Path".path + "Customer/AddUpdateCartService"
     }
     
+    var AddEvent: String{
+        return "Path".path + "Event/AddOrUpdateEventRegistration"
+    }
+    
+    
     var getAvailableDates: String{
         return "Path".path + "Service/GetAvailableDates"
     }

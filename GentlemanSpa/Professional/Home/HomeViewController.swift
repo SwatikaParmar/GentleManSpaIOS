@@ -10,6 +10,7 @@ import Reachability
 import FirebaseAuth
 import Firebase
 import FirebaseDatabase
+import EventKit
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var tableUp: UITableView!
@@ -25,13 +26,29 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var lbeLinePast: UIView!
     @IBOutlet weak var imgProfile: UIImageView!
     private var userExitPro: DatabaseHandle?
+    
+    let appleEventStore = EKEventStore()
+    var calendars: [EKCalendar]?
+    
+    
     let UsersRefPro = DatabaseManager.database.child("Users").child(userId())
     var isOnline = true
     var arrSortedService = [ServiceBooking]()
+    var arrSortedServiceEvents = [ServiceBooking]()
 
 
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
 
         refreshControlUp.addTarget(self, action:  #selector(RefreshScreenUp), for: .valueChanged)
         refreshControlUp.tintColor = UIColor.white
@@ -47,7 +64,7 @@ class HomeViewController: UIViewController {
         lbeLineConfirmed.backgroundColor = UIColor.clear
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.Menu_Push_Pro), name: NSNotification.Name(rawValue: "Menu_Push_Pro"), object: nil)
-
+        generateEvent()
         pageName = "Upcoming"
         self.tableUp.reloadData()
         self.getUserDataAPI("Profile",true)
@@ -73,6 +90,7 @@ class HomeViewController: UIViewController {
             
             if count == "Logout"{
                 //  DatabaseManager.myConnectionsRef.cancelDisconnectOperations()
+                deleteAllEvents()
                 if let refHandle = userExitPro{
                     UsersRefPro.removeObserver(withHandle: refHandle)
                 }
@@ -111,6 +129,178 @@ class HomeViewController: UIViewController {
             if isStatus {
                 arrSortedService = arrayData ?? arrSortedService
                 self.tableUp.reloadData()
+                
+                
+            }
+        }
+    }
+    
+    
+    func MyAppointmentAPIEvents(_ isLoader:Bool){
+        var params = [ "Type": "Upcoming"
+        ] as [String : Any]
+        GetServiceAppointmentsPro.shared.GetSerProAPIRequest(requestParams:params, false) { [self] (arrayData,arrayService,message,isStatus) in
+            
+          
+            let calendars = self.appleEventStore.calendars(for: .event)
+            if calendars.count > 0 {
+                for calendar in calendars {
+                    if calendar.title == "Calendar" {
+                        let oneMonthAgo = Date(timeIntervalSinceNow: -30*24*3600)
+                        let oneMonthAfter = Date(timeIntervalSinceNow: 30*24*3600)
+                        let predicate =  self.appleEventStore.predicateForEvents(withStart: oneMonthAgo, end: oneMonthAfter, calendars: [calendar])
+                        
+                        let events = self.appleEventStore.events(matching: predicate)
+                        if events.count > 0 {
+                            for event in events {
+                                
+                                print(event.title)
+                                print(event.eventIdentifier)
+                                print(event.startDate)
+                                
+                                let currentDate = event.startDate
+                                let dateFormatter = DateFormatter()
+                                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                                dateFormatter.dateFormat = "yyyy-MM-dd"
+                                
+                                let formattedDateString = dateFormatter.string(from: currentDate ?? Date())
+                                
+                                print(formattedDateString)
+                                
+                                let dateFormatterTime = DateFormatter()
+                                dateFormatter.dateFormat = "HH:mm"
+                                let timeString = dateFormatter.string(from: currentDate ?? Date())
+                                
+                                if let matchingPerson = arrayData?.first(where: { person in
+                                    
+                                    let person = person as? ServiceBooking
+                                    return person?.serviceName == event.title &&
+                                    person?.slotDate == formattedDateString &&
+                                    person?.fromTime == timeString
+                                }) as? ServiceBooking {
+                                    print("Found person: \(matchingPerson.serviceName), Age: \(matchingPerson.slotDate)")
+                                } else {
+                                    print("No matching person found.")
+                                    
+                                    if let eventToDelete = self.appleEventStore.event(withIdentifier: event.eventIdentifier){
+                                        do {
+                                            try self.appleEventStore.remove(eventToDelete, span: .thisEvent)
+                                        } catch let error as NSError {
+                                            print("failed to save event with error : \(error)")
+                                        }
+                                        print("removed Event")
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
+
+            var isNotMatch = false
+            for i in 0..<(arrayData?.count ?? 0)
+            {
+                isNotMatch = false
+                let calendars = self.appleEventStore.calendars(for: .event)
+                if calendars.count > 0 {
+                    for calendar in calendars {
+                        if calendar.title == "Calendar" {
+                            let oneMonthAgo = Date(timeIntervalSinceNow: -30*24*3600)
+                            let oneMonthAfter = Date(timeIntervalSinceNow: 30*24*3600)
+                            let predicate =  self.appleEventStore.predicateForEvents(withStart: oneMonthAgo, end: oneMonthAfter, calendars: [calendar])
+                            
+                            let events = self.appleEventStore.events(matching: predicate)
+                            if events.count > 0 {
+                                for event in events {
+                                    
+                                    print(event.title)
+                                    print(event.eventIdentifier)
+                                    print(event.startDate)
+                                    
+                                    let currentDate = event.startDate
+                                    let dateFormatter = DateFormatter()
+                                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                                    dateFormatter.dateFormat = "yyyy-MM-dd"
+                                    
+                                    let formattedDateString = dateFormatter.string(from: currentDate ?? Date())
+                                    
+                                    print(formattedDateString)
+                                    
+                                    let dateFormatterTime = DateFormatter()
+                                    dateFormatter.dateFormat = "HH:mm"
+                                    let timeString = dateFormatter.string(from: currentDate ?? Date())
+                                    
+                                    if arrayData?[i].serviceName == event.title && arrayData?[i].slotDate == formattedDateString && arrayData?[i].fromTime == timeString{
+                                        isNotMatch = true
+                                    }
+                                    
+                                    if let matchingPerson = arrayData?.first(where: { person in
+                                        
+                                        let person = person as? ServiceBooking
+                                        return person?.serviceName == event.title &&
+                                        person?.slotDate == formattedDateString
+                                    }) as? ServiceBooking {
+                                        print("Found person: \(matchingPerson.serviceName), Age: \(matchingPerson.slotDate)")
+                                    } else {
+                                        print("No matching person found.")
+                                        
+                                        if let eventToDelete = self.appleEventStore.event(withIdentifier: event.eventIdentifier){
+                                            do {
+                                                try self.appleEventStore.remove(eventToDelete, span: .thisEvent)
+                                            } catch let error as NSError {
+                                                print("failed to save event with error : \(error)")
+                                            }
+                                            print("removed Event")
+                                        }
+                                    }
+                                }
+                            }
+                            else{
+                                if arrayData?.count ?? 0 > 0 {
+                                    arrSortedServiceEvents = arrayData ?? arrSortedServiceEvents
+                                    isNotMatch = true
+
+                                    let dateString = String(format: "%@ %@", arrSortedServiceEvents[i].slotDate, arrSortedServiceEvents[i].fromTime)
+                                    let dateEndString = String(format: "%@ %@", arrSortedServiceEvents[i].slotDate, arrSortedServiceEvents[i].toTime)
+                                    
+                                    let notes = String(format: "Service: %@ for %@", arrSortedServiceEvents[i].serviceName, arrSortedServiceEvents[i].userName ?? "")
+                                    
+                                    self.addAppleEvents(dateString, endDate: dateEndString, serviceName: arrSortedServiceEvents[i].serviceName, notes: notes)
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                else{
+                    if arrayData?.count ?? 0 > 0 {
+                        arrSortedServiceEvents = arrayData ?? arrSortedServiceEvents
+                        isNotMatch = true
+
+                        let dateString = String(format: "%@ %@", arrSortedServiceEvents[i].slotDate, arrSortedServiceEvents[i].fromTime)
+                        let dateEndString = String(format: "%@ %@", arrSortedServiceEvents[i].slotDate, arrSortedServiceEvents[i].toTime)
+                        
+                        let notes = String(format: "Service: %@ for %@", arrSortedServiceEvents[i].serviceName, arrSortedServiceEvents[i].userName ?? "")
+                        
+                        self.addAppleEvents(dateString, endDate: dateEndString, serviceName: arrSortedServiceEvents[i].serviceName, notes: notes)
+                        
+
+                    }
+                }
+                
+                if isNotMatch == false {
+                    if arrayData?.count ?? 0 > 0 {
+                        arrSortedServiceEvents = arrayData ?? arrSortedServiceEvents
+                        
+                        let dateString = String(format: "%@ %@", arrSortedServiceEvents[i].slotDate, arrSortedServiceEvents[i].fromTime)
+                        let dateEndString = String(format: "%@ %@", arrSortedServiceEvents[i].slotDate, arrSortedServiceEvents[i].toTime)
+                        
+                        let notes = String(format: "Service: %@ for %@", arrSortedServiceEvents[i].serviceName, arrSortedServiceEvents[i].userName ?? "")
+                        
+                        self.addAppleEvents(dateString, endDate: dateEndString, serviceName: arrSortedServiceEvents[i].serviceName, notes: notes)
+                    }
+                }
             }
         }
     }
@@ -253,6 +443,10 @@ class HomeViewController: UIViewController {
 
         pageName = "Upcoming"
         MyAppointmentAPI(true)
+        
+        if pageName == "Upcoming" {
+            generateEvent()
+        }
 
         self.tableUp.reloadData()
     }
@@ -479,7 +673,128 @@ extension HomeViewController: UITableViewDataSource,UITableViewDelegate {
             })
         }
     }
+    
+    func generateEvent() {
+        let status = EKEventStore.authorizationStatus(for: EKEntityType.event)
+        
+        switch (status)
+        {
+        case EKAuthorizationStatus.notDetermined:
+            // This happens on first-run
+            requestAccessToCalendar()
+        case EKAuthorizationStatus.authorized:
+            // User has access
+            print("User has access to calendar")
+            self.MyAppointmentAPIEvents(false)
+        case EKAuthorizationStatus.restricted, EKAuthorizationStatus.denied:
+            // We need to help them give us permission
+            noPermission()
+        case .fullAccess: break
+            
+        case .writeOnly: break
+            
+        @unknown default:
+            print("default")
+        }
+    }
+    func noPermission()
+    {
+        print("User has to change settings...goto settings to view access")
+    }
+    func requestAccessToCalendar() {
+        appleEventStore.requestAccess(to: .event, completion: { (granted, error) in
+            if (granted) && (error == nil) {
+                DispatchQueue.main.async {
+                    print("User has access to calendar")
+                    self.MyAppointmentAPIEvents(false)
+                }
+            } else {
+                DispatchQueue.main.async{
+                    self.noPermission()
+                }
+            }
+        })
+    }
+    
+    func addAppleEvents(_ startDate: String, endDate: String,serviceName: String , notes : String)
+    {
+        if startDate.count > 0 {
+            let event:EKEvent = EKEvent(eventStore: appleEventStore)
+            event.title = serviceName
+            
+           
+            
+            let dateFormatter = DateFormatter()
+            
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+            
+            if let startDate = dateFormatter.date(from: startDate) {
+                print("The date is: \(startDate)")
+                event.startDate = startDate
+                if let endDate = dateFormatter.date(from: endDate) {
+                    event.endDate = endDate
+                }
+            } else {
+                print("Failed to parse date")
+                return
+            }
+            
+            event.notes = notes
+            
+            event.calendar = appleEventStore.defaultCalendarForNewEvents
+            
+            let aInterval: TimeInterval = -30 * 60
+            let alaram = EKAlarm(relativeOffset: aInterval)
+            event.alarms = [alaram]
+            
+            do {
+                try appleEventStore.save(event, span: .thisEvent)
+                print("events added with dates:")
+            } catch let e as NSError {
+                print(e.description)
+                return
+            }
+            print("Saved Event")
+        }
+    }
+    
+    func deleteAllEvents(){
+        let calendars = self.appleEventStore.calendars(for: .event)
+        if calendars.count > 0 {
+            for calendar in calendars {
+                if calendar.title == "Calendar" {
+                    let oneMonthAgo = Date(timeIntervalSinceNow: -30*24*3600)
+                    let oneMonthAfter = Date(timeIntervalSinceNow: 30*24*3600)
+                    let predicate =  self.appleEventStore.predicateForEvents(withStart: oneMonthAgo, end: oneMonthAfter, calendars: [calendar])
+                    
+                    let events = self.appleEventStore.events(matching: predicate)
+                    if events.count > 0 {
+                        for event in events {
+                            
+                            print(event.title)
+                            print(event.eventIdentifier)
+                            print(event.startDate)
+                            
+                            if let eventToDelete = self.appleEventStore.event(withIdentifier: event.eventIdentifier){
+                                do {
+                                    try self.appleEventStore.remove(eventToDelete, span: .thisEvent)
+                                } catch let error as NSError {
+                                    print("failed to save event with error : \(error)")
+                                }
+                                print("removed Event")
+                            }
+                            
+                          
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
 }
+
+
     
     
     

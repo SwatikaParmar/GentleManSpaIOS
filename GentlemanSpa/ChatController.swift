@@ -163,7 +163,7 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
     func topViewLayout(){
         if !HomeUserViewController.hasSafeArea{
             if view_NavConst != nil {
-                view_NavConst.constant = 70
+                view_NavConst.constant = 75
             }
         }
     }

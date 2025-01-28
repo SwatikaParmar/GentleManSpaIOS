@@ -55,7 +55,7 @@ class ProfileUserViewController: UIViewController,UITableViewDelegate,UITableVie
     @IBAction func notification(_ sender: Any) {
         
           let controller:UpdateProfileUserViewController =  UIStoryboard(storyboard: .User).initVC()
-         self.navigationController?.pushViewController(controller, animated: true)
+          self.navigationController?.pushViewController(controller, animated: true)
     }
     
    
@@ -112,8 +112,6 @@ class ProfileUserViewController: UIViewController,UITableViewDelegate,UITableVie
             let image : UIImage = UIImage(named: "login_ic") ?? UIImage()
             let activityViewController : UIActivityViewController = UIActivityViewController(
                 activityItems: [firstActivityItem, secondActivityItem, image], applicationActivities: nil)
-            
-         
             
             activityViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.down
             activityViewController.popoverPresentationController?.sourceRect = CGRect(x: 150, y: 150, width: 0, height: 0)

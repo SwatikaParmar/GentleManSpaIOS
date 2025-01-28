@@ -36,9 +36,18 @@ class ProAddProductVc: UIViewController , UITextViewDelegate{
     var trimmedListing = ""
     var trimmedStock = ""
     var arrSortedProduct:ProductDetailModel?
-
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewLayout()
         
         txt_View.font = UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(14)) ?? UIFont.systemFont(ofSize: 15.0)
         applyStyle(to: txt_Name)

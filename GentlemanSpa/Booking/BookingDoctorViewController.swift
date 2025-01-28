@@ -195,6 +195,8 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
                         }
                         if !isPop {
                             self.navigationController?.popViewController(animated: true)
+                            NotificationCenter.default.post(name: Notification.Name("Menu_Push_Action"), object: nil, userInfo: ["count":"RescheduleService"])
+
                         }
                     }
                 }
@@ -284,7 +286,7 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
     }
 
     
-    
+
     
     func appendThreeMonthName()
     {

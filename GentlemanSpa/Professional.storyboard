@@ -1065,6 +1065,7 @@
                         <outlet property="lbeTitlePast" destination="1ds-iD-tNW" id="vA6-YQ-1Te"/>
                         <outlet property="lbeTitlePending" destination="6Rh-xH-EsN" id="VKn-C6-wiw"/>
                         <outlet property="tableUp" destination="Wj4-ha-kgC" id="dni-2g-nnW"/>
+                        <outlet property="view_NavConst" destination="8MS-Mf-fqX" id="9S8-JG-7Wx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1517,6 +1518,7 @@
                     </view>
                     <connections>
                         <outlet property="tblCate" destination="byf-Dx-CIE" id="Wgm-Rx-8Q8"/>
+                        <outlet property="view_NavConst" destination="gmY-3R-Epo" id="aZ1-r6-xob"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZHY-4x-Jwz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2187,7 +2189,7 @@
                         <outlet property="txt_Gender" destination="ZuY-Gm-m8Y" id="JHN-v8-k4f"/>
                         <outlet property="txt_Last" destination="ZaX-jy-JW8" id="fNF-fb-XTN"/>
                         <outlet property="txt_Phone" destination="Nhr-OV-ROu" id="gQa-Gr-9Zw"/>
-                        <outlet property="view_NavConst" destination="hQ6-mh-KnU" id="dn4-9H-caU"/>
+                        <outlet property="view_NavConst" destination="hQ6-mh-KnU" id="csv-b6-8gb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YM2-5Q-Dey" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3526,6 +3528,7 @@
                     </view>
                     <connections>
                         <outlet property="tableViewMale" destination="6qp-tR-wOD" id="7ND-ww-c1N"/>
+                        <outlet property="view_NavConst" destination="kLv-H2-BZK" id="ma4-iV-MIf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R0r-Zd-5fH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4187,6 +4190,7 @@
                         <outlet property="txt_basePrice" destination="gtv-kp-Op0" id="heW-lw-BXT"/>
                         <outlet property="txt_listingPrice" destination="LW1-SE-hkp" id="wrq-CB-Eax"/>
                         <outlet property="txt_stock" destination="ZpT-KK-aik" id="TRX-v9-CDV"/>
+                        <outlet property="view_NavConst" destination="NDt-Tr-bVs" id="IBJ-vZ-bYe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pjC-4e-O1d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4669,13 +4673,13 @@
                         <constraints>
                             <constraint firstItem="asR-eb-AKz" firstAttribute="centerY" secondItem="zKr-VU-mon" secondAttribute="centerY" id="5CI-Is-4cr"/>
                             <constraint firstAttribute="bottom" secondItem="b9O-nQ-O31" secondAttribute="bottom" id="7SN-e1-bBe"/>
-                            <constraint firstItem="OvW-Mi-mLv" firstAttribute="bottom" secondItem="azy-uz-Mb5" secondAttribute="bottom" constant="1" id="DGH-rs-riD"/>
                             <constraint firstItem="asR-eb-AKz" firstAttribute="leading" secondItem="zKr-VU-mon" secondAttribute="trailing" constant="8" id="JPy-o8-ARK"/>
                             <constraint firstAttribute="trailing" secondItem="JYJ-1U-LQo" secondAttribute="trailing" id="RSl-0Q-ZpY"/>
                             <constraint firstItem="OvW-Mi-mLv" firstAttribute="trailing" secondItem="asR-eb-AKz" secondAttribute="trailing" constant="12" id="VLr-3N-CJB"/>
                             <constraint firstItem="JYJ-1U-LQo" firstAttribute="leading" secondItem="OvW-Mi-mLv" secondAttribute="leading" id="Y2e-7y-nH8"/>
                             <constraint firstItem="zKr-VU-mon" firstAttribute="leading" secondItem="OvW-Mi-mLv" secondAttribute="leading" constant="13" id="a4G-6P-2WM"/>
                             <constraint firstItem="asR-eb-AKz" firstAttribute="top" secondItem="zKr-VU-mon" secondAttribute="top" id="b2W-HT-42w"/>
+                            <constraint firstAttribute="bottom" secondItem="azy-uz-Mb5" secondAttribute="bottom" constant="35" id="bKu-fw-MuP"/>
                             <constraint firstItem="asR-eb-AKz" firstAttribute="bottom" secondItem="zKr-VU-mon" secondAttribute="bottom" id="cVY-nU-GAR"/>
                             <constraint firstItem="OvW-Mi-mLv" firstAttribute="trailing" secondItem="azy-uz-Mb5" secondAttribute="trailing" constant="19" id="gGX-Yy-0Y0"/>
                             <constraint firstItem="b9O-nQ-O31" firstAttribute="leading" secondItem="OvW-Mi-mLv" secondAttribute="leading" id="hhH-rI-Tqe"/>
@@ -4688,6 +4692,7 @@
                     <connections>
                         <outlet property="searchTxtField" destination="XT5-0s-vRC" id="hQl-fb-TGC"/>
                         <outlet property="tableViewProduct" destination="b9O-nQ-O31" id="hmU-0m-8jY"/>
+                        <outlet property="view_NavConst" destination="Bab-Ec-qkF" id="42D-dA-Ud1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pDg-kB-uFk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -5226,6 +5231,7 @@
                     </view>
                     <connections>
                         <outlet property="tableViewNotification" destination="sFa-49-9C0" id="isY-2a-vkA"/>
+                        <outlet property="view_NavConst" destination="8fU-nX-HUy" id="eTa-dv-6fV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lK8-nY-6Qb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -5547,7 +5553,6 @@
                         <outlet property="lbeName" destination="qwH-CP-YFo" id="UPP-hs-i9u"/>
                         <outlet property="lbeSpe" destination="avv-d8-Kxg" id="bas-rT-3cx"/>
                         <outlet property="specialityConst" destination="3hA-gC-pdp" id="bxD-jm-UsA"/>
-                        <outlet property="view_NavConst" destination="vNI-NV-yVg" id="htP-To-Zcy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7wY-7b-OjI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -5566,7 +5571,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="95"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request to Management" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJc-Cg-qpx" customClass="UILabelX" customModule="GentlemanSpa">
-                                        <rect key="frame" x="113.66666666666667" y="66.333333333333329" width="165.66666666666663" height="17.666666666666671"/>
+                                        <rect key="frame" x="103.00000000000001" y="64.666666666666671" width="187.33333333333337" height="21"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -5888,6 +5893,7 @@
                         <outlet property="txt_Name" destination="QdT-Nk-MKZ" id="goO-Wb-J9w"/>
                         <outlet property="txt_Type" destination="XSL-Ej-A9Z" id="Ewp-1q-tsX"/>
                         <outlet property="txt_View" destination="KWP-yr-GeA" id="qiv-DJ-KGQ"/>
+                        <outlet property="view_NavConst" destination="fL6-vF-028" id="RkQ-t5-JgI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Am-VT-daK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -5906,7 +5912,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLr-60-dkM" customClass="UILabelX" customModule="GentlemanSpa">
-                                        <rect key="frame" x="164" y="63.666666666666664" width="65" height="18.666666666666664"/>
+                                        <rect key="frame" x="160.33333333333334" y="61.666666666666664" width="72.666666666666657" height="22.666666666666664"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -5994,10 +6000,10 @@
                                                             </constraints>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N0p-OS-oxs">
-                                                            <rect key="frame" x="83" y="31" width="267" height="20.333333333333329"/>
+                                                            <rect key="frame" x="83" y="29.333333333333336" width="267" height="23.333333333333336"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnH-W2-Qaf">
-                                                                    <rect key="frame" x="225.33333333333331" y="2.9999999999999991" width="40.666666666666686" height="13.666666666666664"/>
+                                                                    <rect key="frame" x="223.66666666666669" y="3" width="42.333333333333314" height="16.333333333333332"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="11.5"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -6009,7 +6015,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ndm-KE-GgQ">
-                                                                    <rect key="frame" x="2" y="3.0000000000000009" width="263" height="15.333333333333336"/>
+                                                                    <rect key="frame" x="2" y="3" width="263" height="18.333333333333332"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -6128,6 +6134,7 @@
                     <connections>
                         <outlet property="noUserView" destination="Hpf-SL-TgX" id="N4t-k7-bht"/>
                         <outlet property="tableView" destination="Ic5-Bi-KRo" id="Fcg-an-BH9"/>
+                        <outlet property="view_NavConst" destination="ajD-9w-sKo" id="adp-ov-sRg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KvR-WO-91u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -6168,13 +6175,13 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

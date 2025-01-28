@@ -11,7 +11,6 @@ import Firebase
 import FirebaseDatabase
 class MessageProViewController:UIViewController,UITableViewDataSource,UITableViewDelegate {
     
-    @IBOutlet weak var navigationViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var navigationView: UIView!
     @IBOutlet weak var noUserView: UIView!
 
@@ -31,10 +30,6 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
     private var userRefHandle: DatabaseHandle?
     let UsersRef = DatabaseManager.database.child("Users")
 
-    func topViewLayout(){
-    
-    }
-    
     @objc func ChatUserList_ObserverRemove(_ notification: NSNotification) {
         if let count = notification.userInfo?["count"] as? String {
             if count == "DeleteAccount" {
@@ -54,6 +49,15 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
                 
                 NotificationCenter.default.removeObserver(self, name:NSNotification.Name(rawValue: "ChatUserList_ObserverRemove"), object: nil)
 
+            }
+        }
+    }
+    
+    @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    func topViewLayout(){
+        if !HomeViewController.hasSafeArea{
+            if view_NavConst != nil {
+                view_NavConst.constant = 70
             }
         }
     }

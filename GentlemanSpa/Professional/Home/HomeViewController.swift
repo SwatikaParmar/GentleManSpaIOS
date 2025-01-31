@@ -31,7 +31,6 @@ class HomeViewController: UIViewController {
     var calendars: [EKCalendar]?
     
     
-    let UsersRefPro = DatabaseManager.database.child("Users").child(userId())
     var isOnline = true
     var arrSortedService = [ServiceBooking]()
     var arrSortedServiceEvents = [ServiceBooking]()
@@ -69,9 +68,7 @@ class HomeViewController: UIViewController {
         self.tableUp.reloadData()
         self.getUserDataAPI("Profile",true)
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.firebaseDataPro()
-        }
+       
     }
     
 
@@ -91,10 +88,7 @@ class HomeViewController: UIViewController {
             if count == "Logout"{
                 //  DatabaseManager.myConnectionsRef.cancelDisconnectOperations()
                 deleteAllEvents()
-                if let refHandle = userExitPro{
-                    UsersRefPro.removeObserver(withHandle: refHandle)
-                }
-                self.userAddPro(false, "Logout")
+               
                 
                 let FCSToken = UserDefaults.standard.value(forKey:Constants.deviceToken)
                 UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
@@ -107,17 +101,10 @@ class HomeViewController: UIViewController {
             }
             
             if count == "DeleteAccount"{
-                if let refHandle = userExitPro{
-                    UsersRefPro.removeObserver(withHandle: refHandle)
-                }
+               
             }
-            
-            if count == "FirebaseDataUpdate"{
-                self.userAddPro(false, "online")
-            }
-            
+    
             if count == "offline"{
-                self.userAddPro(false, "offline")
             }
         }
     }
@@ -306,36 +293,6 @@ class HomeViewController: UIViewController {
     }
     
     
-    func firebaseDataPro(){
-        userExitPro = UsersRefPro.observe(.value, with: { (snapshot) in
-            guard snapshot.key as? String != nil else{
-                print("user doesnt exist")
-                self.getUserDataAPI("Update",false)
-                return
-            }
-            if let dictionary = snapshot.value as? [String: Any] {
-             let latestMessage = dictionary["userState"] as? [String:Any]
-                let state = latestMessage?["state"] as? String
-                if state == "offline"{
-                   // self.getUserDataAPI("Update")
-                }
-                else{
-                    if self.isOnline {
-                        self.getUserDataAPI("Update",false)
-                    }
-                    else{
-                      //  self.getUserDataAPI("Profile")
-                    }
-                }
-            }
-            else{
-                if self.isOnline {
-                    self.getUserDataAPI("Update",false)
-                }
-            }
-        }
-        )
-    }
         
     func getUserDataAPI(_ text:String, _ isLoding:Bool){
             
@@ -356,7 +313,6 @@ class HomeViewController: UIViewController {
                             if text == "Update"{
                                
                        
-                                self.userAddPro(self.isOnline, "online")
                             }
                             
                             if text == "Profile"{
@@ -365,48 +321,16 @@ class HomeViewController: UIViewController {
                         }
                         
                         else{
-                            self.userAddPro(self.isOnline, "online")
                         }
                         
                     }
                 }
             }
             else {
-                if let refHandle = userExitPro{
-                    UsersRefPro.removeObserver(withHandle: refHandle)
-                }
+                
             }
         }
         
-    func userAddPro(_ isCall:Bool, _ logout:String){
-        self.isOnline = false
-        if UserDefaults.standard.bool(forKey: Constants.login) {
-            if UserDefaults.standard.string(forKey: Constants.firstName) ?? "" == "" ||
-                UserDefaults.standard.string(forKey: Constants.firstName) ?? "" == nil {
-                return
-            }
-            
-            var firstName = ""
-            firstName = UserDefaults.standard.string(forKey: Constants.firstName) ?? ""
-            
-            var lastName = ""
-            lastName = UserDefaults.standard.string(forKey: Constants.lastName) ?? ""
-            
-            let name = firstName + " " + lastName
-            
-            let chatUser = ChatAppUser(firstName: name.capitalized,
-                                       lastName: UserDefaults.standard.string(forKey: Constants.lastName) ?? "",
-                                       emailAddress: UserDefaults.standard.string(forKey: Constants.email) ?? "", profilePictureFileName: UserDefaults.standard.string(forKey: Constants.userImg) ?? "",userID: userId())
-            
-            DatabaseManager.shared.insertUser(with: chatUser, logout, completion: {success in
-                if success{
-                    if isCall {
-                        
-                    }
-                }
-            })
-        }
-    }
     
     @objc func RefreshScreenUp() {
         self.getUserDataAPI("Profile",true)
@@ -635,43 +559,20 @@ extension HomeViewController: UITableViewDataSource,UITableViewDelegate {
     func open_ChatView(_ int:Int){
         
         if arrSortedService.count > int{
-            Indicator.shared.startAnimating(withMessage:"", colorType: AppColor.TabSelectColor, colorText: UIColor.cyan)
-            
-            DatabaseManager.shared.userExists(with: self.arrSortedService[int].userId ?? "", completion: {exists in
-                if exists{
-                    DatabaseManager.shared.conversationExists(with: "", completion: {[weak self] result in
-                        Indicator.shared.stopAnimating()
-                        guard let strongSelf = self else{
-                            return
-                        }
-                        switch result {
-                        case .success(let conversationId):
-                            let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
-                            controller.isNewConversation = false
-                            controller.otherUserEmail = "Email"
-                            controller.userName =      self?.arrSortedService[int].userName ?? ""
-                            controller.imgString =  self?.arrSortedService[int].userImage ?? "No"
-                            controller.otherUserID =  self?.arrSortedService[int].userId ?? ""
-                            self?.parent?.navigationController?.pushViewController(controller, animated: true)
-                        case .failure(_):
-                            let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
-                            controller.otherUserEmail = "Email"
-                            controller.userName =              self?.arrSortedService[int].userName ?? ""
-                            controller.imgString =  self?.arrSortedService[int].userImage ?? "No"
-                            controller.otherUserID =  self?.arrSortedService[int].userId ?? ""
-                            controller.isNewConversation = true
-
-                            self?.parent?.navigationController?.pushViewController(controller, animated: true)
-                        }
-                    })
+            let Model = ["currentUserName": userId(),
+                             "targetUserName" :  self.arrSortedService[int].userId] as [String : AnyObject]
+            AddUserToChatRequest.shared.AddUserToChatAPI(requestParams: Model) { (user,message,isStatus) in
+                let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
+                controller.isNewConversation = false
+                controller.otherUserEmail = ""
+                controller.userName =   self.arrSortedService[int].userName ?? ""
+                controller.imgString =  self.arrSortedService[int].userImage ?? "No"
+                controller.otherUserID =  self.arrSortedService[int].userId ?? ""
+                self.parent?.navigationController?.pushViewController(controller, animated: true)
+                
+                
                 }
-                else{
-                    Indicator.shared.stopAnimating()
-                    NotificationAlert().NotificationAlert(titles:GlobalConstants.fbUserError)
-
-                }
-            })
-        }
+            }
     }
     
     func generateEvent() {

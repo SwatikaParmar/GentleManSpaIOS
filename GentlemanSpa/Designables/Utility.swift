@@ -255,6 +255,22 @@ extension String {
                 return  NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: self)
     }
     
+    
+    func ReplyWithString(_ dateString : String) -> String {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.S"
+        inputFormatter.timeZone = TimeZone(abbreviation: "UTC")
+
+        if let date = inputFormatter.date(from: dateString) {
+            let outputFormatter = DateFormatter()
+            outputFormatter.dateFormat = "hh:mm a"
+            outputFormatter.timeZone = TimeZone.current
+            let formattedDateString = outputFormatter.string(from: date)
+            return formattedDateString
+        }
+        return dateString
+    }
+    
     func dateFromString(_ dateString : String) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"

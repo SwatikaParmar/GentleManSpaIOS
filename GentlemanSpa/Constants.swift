@@ -92,16 +92,46 @@ struct GlobalConstants {
     static let OtherPlaceHolding: String = "placeholder_Male"
     static let GoogleWebAPIKey = "AIzaSyBgLMQ8wvy5yda0qP1_8y1e_aJJ_HrTdZw"
     
-    static let BASE_IMAGE_URL = "https://gentlemanspa-file.s3.ap-south-1.amazonaws.com/FileToSave/"
-    static let LiveBaseURL = "https://s1jpw3b88a.execute-api.ap-south-1.amazonaws.com/api/"
+    static let BASE_IMAGE_URL = "https://gentleman-spa.s3.us-east-2.amazonaws.com/FileToSave/"
+    static let LiveBaseURL = "http://gentlemanspa-dev.us-east-2.elasticbeanstalk.com/api/"
+
 
 }
 extension String{
     
+   
+    var addusertochat: String{
+        return "Path".path + "Chat/addusertochat"
+    }
+    
+    var messagesGet: String{
+        return "Path".path + "Chat/messages/history"
+    }
+    
+    var messagesSend: String{
+        return "Path".path + "Chat/sendMessage"
+    }
+    
+    var chatUsers: String{
+        return "Path".path + "Chat/chatUsers"
+    }
+    var updateOnlineStatusManually: String{
+        return "Path".path + "Chat/updateOnlineStatusManually"
+    }
+    var deleteMessages: String{
+        return "Path".path + "Chat/messages"
+    }
+    
+    
+    
+    
+    //#######################################################################
     
     var path: String{
         return GlobalConstants.LiveBaseURL
     }
+    
+    
     
     var LoginURL: String{
         return "Path".path + "Auth/Login"

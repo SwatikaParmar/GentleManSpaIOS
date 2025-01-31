@@ -301,54 +301,26 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
     
     
     @objc func Message_Connected(sender: UIButton){
-        
-
         open_ChatView(sender.tag)
-        
-     
     }
     
     func open_ChatView(_ int:Int){
         
         if arrSortedService.count > int{
-         
-            Indicator.shared.startAnimating(withMessage:"", colorType: AppColor.TabSelectColor, colorText: UIColor.cyan)
-            
-            DatabaseManager.shared.userExists(with: self.arrSortedService[int].ProfessionalUserId ?? "", completion: {exists in
-                if exists{
-                    DatabaseManager.shared.conversationExists(with: "", completion: {[weak self] result in
-                        Indicator.shared.stopAnimating()
-                        guard let strongSelf = self else{
-                            return
-                        }
-                        switch result {
-                        case .success(let conversationId):
-                            let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
-                            controller.isNewConversation = false
-                            controller.otherUserEmail = "Email"
-                            controller.userName =      self?.arrSortedService[int].professionalName ?? ""
-                            controller.imgString =  self?.arrSortedService[int].professionalImage ?? "No"
-                            controller.otherUserID =  self?.arrSortedService[int].ProfessionalUserId ?? ""
-                            self?.parent?.navigationController?.pushViewController(controller, animated: true)
-                        case .failure(_):
-                            let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
-                            controller.otherUserEmail = "Email"
-                            controller.userName =              self?.arrSortedService[int].professionalName ?? ""
-                            controller.imgString =  self?.arrSortedService[int].professionalImage ?? "No"
-                            controller.otherUserID =  self?.arrSortedService[int].ProfessionalUserId ?? ""
-                            controller.isNewConversation = true
-
-                            self?.parent?.navigationController?.pushViewController(controller, animated: true)
-                        }
-                    })
+            let Model = ["currentUserName": userId(),
+                             "targetUserName" :  self.arrSortedService[int].ProfessionalUserId] as [String : AnyObject]
+            AddUserToChatRequest.shared.AddUserToChatAPI(requestParams: Model) { (user,message,isStatus) in
+                let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
+                controller.isNewConversation = false
+                controller.otherUserEmail = "Email"
+                controller.userName =   self.arrSortedService[int].professionalName
+                controller.imgString =  self.arrSortedService[int].professionalImage ?? "No"
+                controller.otherUserID =  self.arrSortedService[int].ProfessionalUserId ?? ""
+                self.parent?.navigationController?.pushViewController(controller, animated: true)
+                
+                
                 }
-                else{
-                    Indicator.shared.stopAnimating()
-                    NotificationAlert().NotificationAlert(titles:GlobalConstants.fbUserError)
-
-                }
-            })
-        }
+            }
     }
     
     //MARK:- Add Button Tap

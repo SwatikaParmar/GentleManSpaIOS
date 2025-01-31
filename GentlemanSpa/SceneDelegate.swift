@@ -12,7 +12,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -31,14 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
         
-        if UserDefaults.standard.bool(forKey: Constants.login){
-            
-            if UserDefaults.standard.string(forKey: Constants.userType) == "Professional" {
-            }
-            else{
-             //   DatabaseManager.shared.observeOnline()
-            }
-        }
+     
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
@@ -48,11 +40,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if UserDefaults.standard.bool(forKey: Constants.login){
             if UserDefaults.standard.string(forKey: Constants.userType) == "Professional" {
                 NotificationCenter.default.post(name: Notification.Name("Menu_Push_Pro"), object: nil, userInfo: ["count":"FirebaseDataUpdate"])
+                callApiWhenBackgrounded(true)
 
             }
             else{
                 NotificationCenter.default.post(name: Notification.Name("Menu_Push_Action"), object: nil, userInfo: ["count":"FirebaseDataUpdate"])
-                
+                callApiWhenBackgrounded(true)
+
             }
         }
     }
@@ -66,6 +60,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
     }
+    
+ 
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         // Called as the scene transitions from the foreground to the background.
@@ -76,16 +72,64 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if UserDefaults.standard.bool(forKey: Constants.login){
             if UserDefaults.standard.string(forKey: Constants.userType) == "Professional" {
                 NotificationCenter.default.post(name: Notification.Name("Menu_Push_Pro"), object: nil, userInfo: ["count":"offline"])
-
+                callApiWhenBackgrounded(false)
             }
             else{
                 NotificationCenter.default.post(name: Notification.Name("Menu_Push_Action"), object: nil, userInfo: ["count":"offline"])
+                callApiWhenBackgrounded(false)
             }
         }
     }
 
+    
+    // Your custom function to call the API
+    private func callApiWhenBackgrounded(_ isOff: Bool) {
+        
+        var apiURL = "BaseURL".updateOnlineStatusManually
 
-}
+        let url = URL(string: apiURL)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        if accessToken() != ""{
+            let bearer : String = "Bearer \(accessToken())"
+            print(bearer)
+            request.addValue(bearer, forHTTPHeaderField: "Authorization")
+        }
+        else{
+            return
+        }
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        // Sample JSON payload
+        let jsonPayload = ["userName": userId(),
+                           "onlineStatus": isOff] as [String : Any]
+        
+        if let data = try? JSONSerialization.data(withJSONObject: jsonPayload, options: .prettyPrinted),
+           let jsonString = String(data: data, encoding: .utf8) {
+            request.httpBody = jsonString.data(using: .utf8)
+
+        }
+    
+
+     //    request.httpBody = try? JSONSerialization.data(withJSONObject: jsonPayload, options: [])
+
+         let task = URLSession.shared.dataTask(with: request) { data, response, error in
+             if let error = error {
+                 print("Error during API call: \(error)")
+                 return
+             }
+             if let data = data {
+                 print("API Response: \(String(data: data, encoding: .utf8) ?? "")")
+                 print(isOff)
+
+             }
+         }
+        task.resume()
+     }
+ }
+
+
 
 class RootControllerManager: NSObject {
     

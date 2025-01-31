@@ -1,15 +1,14 @@
 //
-//  MessageProViewController.swift
+//  MessagesController.swift
 //  GentlemanSpa
 //
-//  Created by AbsolveTech on 27/11/24.
+//  Created by AbsolveTech on 10/10/24.
 //
 
 import UIKit
-import UIKit
 import Firebase
 import FirebaseDatabase
-class MessageProViewController:UIViewController,UITableViewDataSource,UITableViewDelegate {
+class MessagesController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var navigationView: UIView!
     @IBOutlet weak var noUserView: UIView!
@@ -19,21 +18,23 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
     private var conversationsSort = [UserMessagingList]()
 
    
+    
     @objc func ChatUserList_ObserverRemove(_ notification: NSNotification) {
         if let count = notification.userInfo?["count"] as? String {
             if count == "DeleteAccount" {
-             
+               
             }
             else{
                 
-                
+            
+
             }
         }
     }
     
     @IBOutlet weak var view_NavConst: NSLayoutConstraint!
     func topViewLayout(){
-        if !HomeViewController.hasSafeArea{
+        if !HomeUserViewController.hasSafeArea{
             if view_NavConst != nil {
                 view_NavConst.constant = 70
             }
@@ -56,7 +57,6 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
     @IBAction func Back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
     
     public func getAllConversations(_ isLoader:Bool){
         
@@ -84,9 +84,6 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
         }
     }
 
-    
-    
-
 
     
 
@@ -110,9 +107,6 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
             cell.lbeName.text =   self.conversationsSort[indexPath.row].name.capitalized
             cell.lbeLastMessage.text =    self.conversationsSort[indexPath.row].lastMessage
             cell.lbeTime.text =   ""
-
-            
-            
             let imagePath = String("\(GlobalConstants.BASE_IMAGE_URL)\( self.conversationsSort[indexPath.row].imageUser)")
             let urlString = imagePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
             cell.imgView.sd_setImage(with:URL(string: urlString), placeholderImage: UIImage(named: GlobalConstants.MalePlaceHolding))
@@ -141,7 +135,7 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
 
         let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
         controller.isNewConversation = false
-        controller.otherUserEmail =  ""
+        controller.otherUserEmail =  self.conversationsSort[indexPath.row].id
         controller.userName =  self.conversationsSort[indexPath.row].name.capitalized
         controller.imgString =  self.conversationsSort[indexPath.row].imageUser
         controller.otherUserID =  self.conversationsSort[indexPath.row].id
@@ -183,6 +177,28 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
     public func deleteConversation(conversationId:String, index:Int){
         
     }
+}
+
+
+class MessagesCell: UITableViewCell {
+
+    @IBOutlet weak var imgView : UIImageView!
+    @IBOutlet weak var lbeName : UILabel!
+    @IBOutlet weak var lbeLastMessage : UILabel!
+    @IBOutlet weak var lbeTime : UILabel!
+    @IBOutlet weak var lbeOnline : UILabel!
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
 }
 
 

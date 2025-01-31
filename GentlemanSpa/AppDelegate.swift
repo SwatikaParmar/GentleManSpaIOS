@@ -23,6 +23,7 @@ import FirebaseAuth
 class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate, UNUserNotificationCenterDelegate {
 
     let notificationCenter = UNUserNotificationCenter.current()
+    var bgTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0);
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -110,6 +111,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate, UNUserN
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+  
 }
 

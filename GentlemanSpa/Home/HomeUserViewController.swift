@@ -20,8 +20,6 @@ class HomeUserViewController: UIViewController {
     var arrGetProfessionalList = [GetProfessionalObject]()
     var arrSortedService = [ServiceBooking]()
     
-    private var userExit: DatabaseHandle?
-    let UsersRef = DatabaseManager.database.child("Users").child(userId())
     var isOnline = true
     let refreshControlUp = UIRefreshControl()
     let appleEventStore = EKEventStore()
@@ -52,9 +50,7 @@ class HomeUserViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.Menu_Push_Action), name: NSNotification.Name(rawValue: "Menu_Push_Action"), object: nil)
         
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.firebaseData()
-        }
+       
     }
     @objc func RefreshScreenUp() {
         BannerAPI()
@@ -78,13 +74,9 @@ class HomeUserViewController: UIViewController {
             
             
             if count == "Logout"{
-                //  DatabaseManager.myConnectionsRef.cancelDisconnectOperations()
                 
                 deleteAllEvents()
-                if let refHandle = userExit{
-                    UsersRef.removeObserver(withHandle: refHandle)
-                }
-                self.userAdd(false, "Logout")
+                
                 
                 let FCSToken = UserDefaults.standard.value(forKey:Constants.deviceToken)
                 UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
@@ -98,17 +90,12 @@ class HomeUserViewController: UIViewController {
             }
             
             if count == "DeleteAccount"{
-                if let refHandle = userExit{
-                    UsersRef.removeObserver(withHandle: refHandle)
-                }
+               
             }
             
-            if count == "FirebaseDataUpdate"{
-                self.userAdd(false, "online")
-            }
+            
             
             if count == "offline"{
-                self.userAdd(false, "offline")
             }
             if count == "CancelService"{
                 generateEvent()
@@ -120,36 +107,6 @@ class HomeUserViewController: UIViewController {
         }
     }
     
-    func firebaseData(){
-        userExit = UsersRef.observe(.value, with: { (snapshot) in
-            guard snapshot.key as? String != nil else{
-                print("user doesnt exist")
-                self.getUserDataAPI("Update")
-                return
-            }
-            if let dictionary = snapshot.value as? [String: Any] {
-                let latestMessage = dictionary["userState"] as? [String:Any]
-                let state = latestMessage?["state"] as? String
-                if state == "offline"{
-                    // self.getUserDataAPI("Update")
-                }
-                else{
-                    if self.isOnline {
-                        self.getUserDataAPI("Update")
-                    }
-                    else{
-                        //  self.getUserDataAPI("Profile")
-                    }
-                }
-            }
-            else{
-                if self.isOnline {
-                    self.getUserDataAPI("Update")
-                }
-            }
-        }
-        )
-    }
     
     func getUserDataAPI(_ text:String){
         
@@ -168,8 +125,6 @@ class HomeUserViewController: UIViewController {
                         
                         if text == "Update"{
                             NotificationCenter.default.post(name: Notification.Name("SideMenuUpdate"), object: nil, userInfo: ["count":String(0)])
-                            
-                            self.userAdd(self.isOnline, "online")
                         }
                         
                         if text == "Profile"{
@@ -177,49 +132,13 @@ class HomeUserViewController: UIViewController {
                         }
                     }
                     
-                    else{
-                        self.userAdd(self.isOnline, "online")
-                    }
-                    
+                   
                 }
             }
         }
-        else {
-            if let refHandle = userExit{
-                UsersRef.removeObserver(withHandle: refHandle)
-            }
-        }
+       
     }
     
-    func userAdd(_ isCall:Bool, _ logout:String){
-        
-        if UserDefaults.standard.string(forKey: Constants.firstName) ?? "" == "" ||
-            UserDefaults.standard.string(forKey: Constants.firstName) ?? "" == nil {
-            return
-        }
-        
-        var firstName = ""
-        firstName = UserDefaults.standard.string(forKey: Constants.firstName) ?? ""
-        
-        var lastName = ""
-        lastName = UserDefaults.standard.string(forKey: Constants.lastName) ?? ""
-        
-        let name = firstName + " " + lastName
-        
-        
-        self.isOnline = false
-        let chatUser = ChatAppUser(firstName: name.capitalized,
-                                   lastName: UserDefaults.standard.string(forKey: Constants.lastName) ?? "",
-                                   emailAddress: UserDefaults.standard.string(forKey: Constants.email) ?? "", profilePictureFileName: UserDefaults.standard.string(forKey: Constants.userImg) ?? "",userID: userId())
-        
-        DatabaseManager.shared.insertUser(with: chatUser, logout, completion: {success in
-            if success{
-                if isCall {
-                    //  DatabaseManager.shared.observeOnline()
-                }
-            }
-        })
-    }
     
     @IBAction func sideMenu(_ sender: Any) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SideMenuUpdate"), object: nil)

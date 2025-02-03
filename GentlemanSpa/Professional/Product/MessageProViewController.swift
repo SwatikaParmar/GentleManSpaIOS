@@ -44,13 +44,13 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
         super.viewDidLoad()
         topViewLayout()
         self.noUserView.isHidden = true
-        getAllConversations(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
-        
+        getAllConversations(false)
+
 
     }
     @IBAction func Back(_ sender: Any) {
@@ -70,13 +70,24 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
                     if dictionary?.count ?? 0 > 0 {
                         self.conversationsSort = dictionary ?? self.conversationsSort
                         self.noUserView.isHidden = true
-
+                        
                     }
                     else{
                         self.noUserView.isHidden = false
-
+                        
                     }
                 }
+                else{
+                    self.conversationsSort.removeAll()
+                    self.noUserView.isHidden = false
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+            else{
+                self.conversationsSort.removeAll()
+                self.noUserView.isHidden = false
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }

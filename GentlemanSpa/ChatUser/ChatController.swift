@@ -104,6 +104,7 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         topViewLayout()
+        self.lbeOnline.text = ""
         unBlockView.isHidden = true
         btnUnBlock.isHidden = true
         lbeBlock.isHidden = true
@@ -111,7 +112,7 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
         
         imgViewUser.layer.masksToBounds = true
         imgViewUser.layer.cornerRadius = 25
-        imgViewUser.layer.borderWidth = 2
+        imgViewUser.layer.borderWidth = 1.5
         imgViewUser.layer.borderColor = UIColor.white.cgColor
         myMessageDelete.isHidden = true
         otherMessageDelete.isHidden = true
@@ -144,7 +145,7 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
     }
     func startApiCallEveryMinute() {
         apiTimer?.invalidate()
-        apiTimer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(callApi), userInfo: nil, repeats: true)
+        apiTimer = Timer.scheduledTimer(timeInterval: 8.0, target: self, selector: #selector(callApi), userInfo: nil, repeats: true)
     }
     
     @objc func callApi() {
@@ -330,7 +331,20 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
                 if dictionary != nil{
                     if dictionary?.count ?? 0 > 0 {
                         self.messages = dictionary?[0].replies ?? self.messages
+                        
+                        
+                        if dictionary?[0].receiverOnlineStatus == 1 {
+                            self.lbeOnline.text = "Online"
+                            self.lbeOnline.textColor = .green
+                         }
+                        else {
+                            self.lbeOnline.text = ""
+                        }
                     }
+                    
+                   
+                    
+                    
                 }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

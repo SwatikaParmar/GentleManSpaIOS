@@ -36,7 +36,7 @@ class AddUserToChatRequest: NSObject {
                             if !(error?.localizedDescription.contains(GlobalConstants.timedOutError) ?? true) {
                                 NotificationAlert().NotificationAlert(titles: GlobalConstants.serverError)
                             }
-                            completion(nil,"",false)
+                            completion(nil,GlobalConstants.serverError,false)
                     }
                 }
             }

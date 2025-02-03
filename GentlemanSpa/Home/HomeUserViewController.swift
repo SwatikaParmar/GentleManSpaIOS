@@ -49,7 +49,7 @@ class HomeUserViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.Menu_Push_Action), name: NSNotification.Name(rawValue: "Menu_Push_Action"), object: nil)
         
-        
+        getUserDataAPI()
        
     }
     @objc func RefreshScreenUp() {
@@ -63,10 +63,7 @@ class HomeUserViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        BannerAPI()
-        categoryAPI(true, true, 1)
-        ProductCategoriesAPI(true, true, 1)
-        GetProfessionalListAPI(true, true, 1)
+        
     }
     
     @objc func Menu_Push_Action(_ notification: NSNotification) {
@@ -74,7 +71,8 @@ class HomeUserViewController: UIViewController {
             
             
             if count == "Logout"{
-                
+                callApiWhenBackgrounded(false)
+
                 deleteAllEvents()
                 
                 
@@ -92,10 +90,11 @@ class HomeUserViewController: UIViewController {
             if count == "DeleteAccount"{
                
             }
-            
-            
-            
+            if count == "online"{
+                callApiWhenBackgrounded(true)
+            }
             if count == "offline"{
+                callApiWhenBackgrounded(false)
             }
             if count == "CancelService"{
                 generateEvent()
@@ -108,10 +107,9 @@ class HomeUserViewController: UIViewController {
     }
     
     
-    func getUserDataAPI(_ text:String){
+    func getUserDataAPI(){
         
         if UserDefaults.standard.bool(forKey: Constants.login) {
-            
             GetProfileRequest.shared.getProfileAPI(requestParams:[:], false) { (user,message,isStatus) in
                 if isStatus {
                     if user != nil{
@@ -122,21 +120,16 @@ class HomeUserViewController: UIViewController {
                         UserDefaults.standard.set(user?.profilePic, forKey: Constants.userImg)
                         UserDefaults.standard.set(user?.phone, forKey: Constants.phone)
                         UserDefaults.standard.synchronize()
-                        
-                        if text == "Update"{
-                            NotificationCenter.default.post(name: Notification.Name("SideMenuUpdate"), object: nil, userInfo: ["count":String(0)])
-                        }
-                        
-                        if text == "Profile"{
-                            NotificationCenter.default.post(name: Notification.Name("SideMenuUpdate"), object: nil, userInfo: ["count":String(0)])
-                        }
+                        NotificationCenter.default.post(name: Notification.Name("SideMenuUpdate"), object: nil, userInfo: ["count":String(0)])
+                        self.callApiWhenBackgrounded(true)
+                        self.BannerAPI()
+                        self.categoryAPI(true, true, 1)
+                        self.ProductCategoriesAPI(true, true, 1)
+                        self.GetProfessionalListAPI(true, true, 1)
                     }
-                    
-                   
                 }
             }
         }
-       
     }
     
     
@@ -151,6 +144,53 @@ class HomeUserViewController: UIViewController {
         self.parent?.navigationController?.pushViewController(controller, animated: true)
     }
     
+    //MARK: - Online API
+
+    private func callApiWhenBackgrounded(_ isOff: Bool) {
+        
+        var apiURL = "BaseURL".updateOnlineStatusManually
+
+        let url = URL(string: apiURL)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        if accessToken() != ""{
+            let bearer : String = "Bearer \(accessToken())"
+            print(bearer)
+            request.addValue(bearer, forHTTPHeaderField: "Authorization")
+        }
+        else{
+            return
+        }
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        // Sample JSON payload
+        let jsonPayload = ["userName": userId(),
+                           "onlineStatus": isOff] as [String : Any]
+        
+        if let data = try? JSONSerialization.data(withJSONObject: jsonPayload, options: .prettyPrinted),
+           let jsonString = String(data: data, encoding: .utf8) {
+            request.httpBody = jsonString.data(using: .utf8)
+
+        }
+    
+
+     //    request.httpBody = try? JSONSerialization.data(withJSONObject: jsonPayload, options: [])
+
+         let task = URLSession.shared.dataTask(with: request) { data, response, error in
+             if let error = error {
+                 print("Error during API call: \(error)")
+                 return
+             }
+             if let data = data {
+                 print("API Response: \(String(data: data, encoding: .utf8) ?? "")")
+                 print(isOff)
+
+             }
+         }
+        task.resume()
+     }
+    
     //MARK: - Category API
     func categoryAPI(_ isLoader:Bool, _ isAppend: Bool, _ type:Int){
         
@@ -162,10 +202,9 @@ class HomeUserViewController: UIViewController {
         HomeListRequest.shared.homeListAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
             if isStatus {
                 if arrayData != nil{
-                    self.arrSortedCategory = arrayData ?? self.arrSortedCategory
-                    if self.arrSortedCategory.count > 0 {
+                        self.arrSortedCategory = arrayData ?? self.arrSortedCategory
                         self.tableViewHome.reloadData()
-                    }
+                    
                 }
                 else{
                     self.arrSortedCategory.removeAll()
@@ -205,9 +244,8 @@ class HomeUserViewController: UIViewController {
             if isStatus {
                 if arrayData != nil{
                     self.arrSortedProductCategories = arrayData ?? self.arrSortedProductCategories
-                    if self.arrSortedProductCategories.count > 0 {
-                        self.tableViewHome.reloadData()
-                    }
+                    self.tableViewHome.reloadData()
+                    
                 }
                 else{
                     self.arrSortedProductCategories.removeAll()
@@ -233,9 +271,8 @@ class HomeUserViewController: UIViewController {
             if isStatus {
                 if arrayData != nil{
                     self.arrGetProfessionalList = arrayData ?? self.arrGetProfessionalList
-                    if self.arrGetProfessionalList.count > 0 {
-                        self.tableViewHome.reloadData()
-                    }
+                    self.tableViewHome.reloadData()
+                    
                 }
                 else{
                     self.arrGetProfessionalList.removeAll()
@@ -244,7 +281,6 @@ class HomeUserViewController: UIViewController {
             }
             else{
                 self.arrGetProfessionalList.removeAll()
-                
                 self.tableViewHome.reloadData()
             }
         }
@@ -299,17 +335,16 @@ class HomeUserViewController: UIViewController {
         if startDate.count > 0 {
             let event:EKEvent = EKEvent(eventStore: appleEventStore)
             event.title = serviceName
-            
-           
-            
             let dateFormatter = DateFormatter()
             
-            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+            dateFormatter.dateFormat = "yyyy-MM-dd hh:mm a"
             
             if let startDate = dateFormatter.date(from: startDate) {
                 print("The date is: \(startDate)")
                 event.startDate = startDate
                 if let endDate = dateFormatter.date(from: endDate) {
+                    print("The date is: \(endDate)")
+
                     event.endDate = endDate
                 }
             } else {
@@ -354,9 +389,7 @@ class HomeUserViewController: UIViewController {
                         if events.count > 0 {
                             for event in events {
                                 
-                                print(event.title)
-                                print(event.eventIdentifier)
-                                print(event.startDate)
+                             
                                 
                                 let currentDate = event.startDate
                                 let dateFormatter = DateFormatter()
@@ -368,7 +401,7 @@ class HomeUserViewController: UIViewController {
                                 print(formattedDateString)
                                 
                                 let dateFormatterTime = DateFormatter()
-                                dateFormatter.dateFormat = "HH:mm"
+                                dateFormatter.dateFormat = "hh:mm a"
                                 let timeString = dateFormatter.string(from: currentDate ?? Date())
                                 
                                 if let matchingPerson = arrayData?.first(where: { person in
@@ -414,10 +447,6 @@ class HomeUserViewController: UIViewController {
                             if events.count > 0 {
                                 for event in events {
                                     
-                                    print(event.title)
-                                    print(event.eventIdentifier)
-                                    print(event.startDate)
-                                    
                                     let currentDate = event.startDate
                                     let dateFormatter = DateFormatter()
                                     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -428,7 +457,7 @@ class HomeUserViewController: UIViewController {
                                     print(formattedDateString)
                                     
                                     let dateFormatterTime = DateFormatter()
-                                    dateFormatter.dateFormat = "HH:mm"
+                                    dateFormatter.dateFormat = "hh:mm a"
                                     let timeString = dateFormatter.string(from: currentDate ?? Date())
                                     
                                     if arrayData?[i].serviceName == event.title && arrayData?[i].slotDate == formattedDateString && arrayData?[i].fromTime == timeString{
@@ -441,7 +470,7 @@ class HomeUserViewController: UIViewController {
                                         return person?.serviceName == event.title &&
                                         person?.slotDate == formattedDateString
                                     }) as? ServiceBooking {
-                                        print("Found person: \(matchingPerson.serviceName), Age: \(matchingPerson.slotDate)")
+                                        print("Found person: \(matchingPerson.serviceName), date: \(matchingPerson.slotDate)")
                                     } else {
                                         print("No matching person found.")
                                         

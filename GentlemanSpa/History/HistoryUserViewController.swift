@@ -305,32 +305,33 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
     }
     
     func open_ChatView(_ int:Int){
-        
         if arrSortedService.count > int{
             let Model = ["currentUserName": userId(),
                              "targetUserName" :  self.arrSortedService[int].ProfessionalUserId] as [String : AnyObject]
             AddUserToChatRequest.shared.AddUserToChatAPI(requestParams: Model) { (user,message,isStatus) in
-                let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
-                controller.isNewConversation = false
-                controller.otherUserEmail = "Email"
-                controller.userName =   self.arrSortedService[int].professionalName
-                controller.imgString =  self.arrSortedService[int].professionalImage ?? "No"
-                controller.otherUserID =  self.arrSortedService[int].ProfessionalUserId ?? ""
-                self.parent?.navigationController?.pushViewController(controller, animated: true)
                 
-                
+                if isStatus {
+                    let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
+                    controller.isNewConversation = false
+                    controller.otherUserEmail = "Email"
+                    controller.userName =   self.arrSortedService[int].professionalName
+                    controller.imgString =  self.arrSortedService[int].professionalImage ?? "No"
+                    controller.otherUserID =  self.arrSortedService[int].ProfessionalUserId ?? ""
+                    self.parent?.navigationController?.pushViewController(controller, animated: true)
+                }
+                else{
+                    NotificationAlert().NotificationAlert(titles: message ??  GlobalConstants.serverError)
                 }
             }
+        }
     }
     
     //MARK:- Add Button Tap
     @objc func reschedule_Tap(sender:UIButton){
         
-        
         let controller:BookingDoctorViewController =  UIStoryboard(storyboard: .User).initVC()
         controller.name = self.arrSortedService[sender.tag].professionalName
         if let imgUrl = self.arrSortedService[sender.tag].professionalImage,!imgUrl.isEmpty {
-            
             let imagePath = "\(GlobalConstants.BASE_IMAGE_URL)\(imgUrl)"
             let urlString = imagePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
             controller.imgUserStr = urlString

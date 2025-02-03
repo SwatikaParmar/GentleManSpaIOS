@@ -73,7 +73,7 @@ class CartUserViewController: UIViewController {
     }
     
     @IBAction func PlaceOrder(_ sender: Any) {
-        bookingAPI()
+       
     }
     @IBAction func Home(_ sender: Any) {
         
@@ -108,10 +108,13 @@ class CartUserViewController: UIViewController {
     }
     
     
+    
+    
     func bookingAPI() {
 
        let Model = [
            "customerAddressId": 0,
+           "paymentId": 0,
            "deliveryType": "AtVenue",
            "paymentType":  "Cash"] as [String : Any]
  

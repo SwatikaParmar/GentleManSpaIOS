@@ -43,6 +43,7 @@
 		344B965B2CABF93C0022F502 /* AvailableDatesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344B965A2CABF93C0022F502 /* AvailableDatesRequest.swift */; };
 		344E0C6C2CA12A0000D32AB6 /* Cart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 344E0C6B2CA12A0000D32AB6 /* Cart.storyboard */; };
 		344E0C702CA1341500D32AB6 /* MyOrderVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344E0C6F2CA1341500D32AB6 /* MyOrderVc.swift */; };
+		344E5AD32D50DF780021FB9F /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344E5AD22D50DF780021FB9F /* PaymentViewController.swift */; };
 		345001FB2C776DF2001A2A0D /* ProGetProductAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345001FA2C776DF2001A2A0D /* ProGetProductAPI.swift */; };
 		3460D6FC2C9D43800076C4C2 /* MyCartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3460D6FB2C9D43800076C4C2 /* MyCartCell.swift */; };
 		3460D7002C9D9B3F0076C4C2 /* UserNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3460D6FF2C9D9B3F0076C4C2 /* UserNotificationViewController.swift */; };
@@ -169,6 +170,7 @@
 		344B965A2CABF93C0022F502 /* AvailableDatesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableDatesRequest.swift; sourceTree = "<group>"; };
 		344E0C6B2CA12A0000D32AB6 /* Cart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cart.storyboard; sourceTree = "<group>"; };
 		344E0C6F2CA1341500D32AB6 /* MyOrderVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderVc.swift; sourceTree = "<group>"; };
+		344E5AD22D50DF780021FB9F /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		345001FA2C776DF2001A2A0D /* ProGetProductAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProGetProductAPI.swift; sourceTree = "<group>"; };
 		3460D6FB2C9D43800076C4C2 /* MyCartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartCell.swift; sourceTree = "<group>"; };
 		3460D6FF2C9D9B3F0076C4C2 /* UserNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationViewController.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				34D404462C4F67200063AEF7 /* HomeBannerTvCell.swift */,
 				34D404442C4F66550063AEF7 /* HomeUTableView.swift */,
 				34B4CD992C48D855006B9F1F /* MenuUserController.swift */,
+				344E5AD22D50DF780021FB9F /* PaymentViewController.swift */,
 				343813C12C69E420003B4B30 /* HomeCell.swift */,
 				3460D6E72C9D32780076C4C2 /* Request */,
 			);
@@ -850,6 +853,7 @@
 				34CE92702C41097C0007E086 /* SetPasswordVc.swift in Sources */,
 				344B96552CABD53F0022F502 /* SelectProTableViewCell.swift in Sources */,
 				34186AC62CB3A58300717E47 /* GoogleApiHelper+Nearby.swift in Sources */,
+				344E5AD32D50DF780021FB9F /* PaymentViewController.swift in Sources */,
 				34186AC72CB3A58300717E47 /* NearByEnum.swift in Sources */,
 				34186AC82CB3A58300717E47 /* GoogleApiHelper.swift in Sources */,
 				34C5E2F12C5B97F700F97C0C /* GetServiceListRequest.swift in Sources */,

@@ -63,7 +63,7 @@ class MyCartViewController: UIViewController {
     }
     
     @IBAction func PlaceOrder(_ sender: Any) {
-        bookingAPI()
+        OnlinePayments()
     }
     
     
@@ -89,24 +89,28 @@ class MyCartViewController: UIViewController {
     }
     
     
-    func bookingAPI() {
+    func OnlinePayments() {
 
        let Model = [
-           "customerAddressId": 0,
-           "deliveryType": "AtVenue",
-           "paymentType":  "Cash"] as [String : Any]
+        "currentUserId": userId()] as [String : Any]
  
-        BookAppointmentRequest.shared.bookingAPI(requestParams: Model) { (user,message,isStatus) in
+        PayByStripeRequest.shared.PayByStripeAmountAPI(requestParams: Model) { (url,id,message,isStatus) in
                if isStatus {
-                   let controller:OrderPlaceViewController =  UIStoryboard(storyboard: .User).initVC()
-                   controller.providesPresentationContextTransitionStyle = true
-                   controller.definesPresentationContext = true
-                   controller.modalPresentationStyle=UIModalPresentationStyle.overCurrentContext
-                   self.present(controller, animated: true, completion: nil)
                    
+                   
+                   let controller:PaymentViewController =  UIStoryboard(storyboard: .Cart).initVC()
+                   controller.paymentUrl = url ?? ""
+                   controller.paymentId = id ?? 0
+
+                   self.navigationController?.pushViewController(controller, animated: true)
+
                }
            }
        }
+    
+    
+    
+
     
     
     func myCartAPI(_ isLoader:Bool){

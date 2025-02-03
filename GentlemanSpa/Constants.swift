@@ -297,6 +297,14 @@ extension String{
         return "Path".path + "Customer/PlaceOrder"
     }
     
+    var PayByStripe: String{
+        return "Path".path + "Order/PayByStripe"
+    }
+    
+    var OrderConfirmation: String{
+        return "Path".path + "Order/OrderConfirmation"
+    }
+    
     var GetServiceAppointmentsAPI: String{
         return "Path".path + "Order/GetServiceAppointments"
     }

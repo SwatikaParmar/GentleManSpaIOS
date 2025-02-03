@@ -45,13 +45,13 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
         super.viewDidLoad()
         topViewLayout()
         self.noUserView.isHidden = true
-        getAllConversations(true)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
-        
+        getAllConversations(false)
 
     }
     @IBAction func Back(_ sender: Any) {
@@ -77,6 +77,17 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
 
                     }
                 }
+                else{
+                    self.conversationsSort.removeAll()
+                    self.noUserView.isHidden = false
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+            else{
+                self.conversationsSort.removeAll()
+                self.noUserView.isHidden = false
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }

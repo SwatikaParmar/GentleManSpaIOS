@@ -16,7 +16,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableUp: UITableView!
     var pageName = "Upcoming"
     let refreshControlUp = UIRefreshControl()
-    
+    @IBOutlet weak var viewNoData: UIView!
+
     @IBOutlet weak var lbeTitlePending: UILabel!
     @IBOutlet weak var lbeLinePending: UIView!
     
@@ -48,6 +49,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         topViewLayout()
+        self.viewNoData.isHidden = true
 
         refreshControlUp.addTarget(self, action:  #selector(RefreshScreenUp), for: .valueChanged)
         refreshControlUp.tintColor = UIColor.white
@@ -75,10 +77,6 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
-    
-      
-       
-
     }
     
     @objc func Menu_Push_Pro(_ notification: NSNotification) {
@@ -86,10 +84,8 @@ class HomeViewController: UIViewController {
             
             
             if count == "Logout"{
-                //  DatabaseManager.myConnectionsRef.cancelDisconnectOperations()
+                callApiWhenBackgroundedPro(false)
                 deleteAllEvents()
-               
-                
                 let FCSToken = UserDefaults.standard.value(forKey:Constants.deviceToken)
                 UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
                 UserDefaults.standard.synchronize()
@@ -104,10 +100,54 @@ class HomeViewController: UIViewController {
                
             }
     
+            if count == "online"{
+                callApiWhenBackgroundedPro(true)
+            }
             if count == "offline"{
+                callApiWhenBackgroundedPro(false)
             }
         }
     }
+    private func callApiWhenBackgroundedPro(_ isOff: Bool) {
+        
+        var apiURL = "BaseURL".updateOnlineStatusManually
+
+        let url = URL(string: apiURL)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        if accessToken() != ""{
+            let bearer : String = "Bearer \(accessToken())"
+            print(bearer)
+            request.addValue(bearer, forHTTPHeaderField: "Authorization")
+        }
+        else{
+            return
+        }
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        // Sample JSON payload
+        let jsonPayload = ["userName": userId(),
+                           "onlineStatus": isOff] as [String : Any]
+        
+        if let data = try? JSONSerialization.data(withJSONObject: jsonPayload, options: .prettyPrinted),
+           let jsonString = String(data: data, encoding: .utf8) {
+            request.httpBody = jsonString.data(using: .utf8)
+
+        }
+         let task = URLSession.shared.dataTask(with: request) { data, response, error in
+             if let error = error {
+                 print("Error during API call: \(error)")
+                 return
+             }
+             if let data = data {
+                 print("API Response: \(String(data: data, encoding: .utf8) ?? "")")
+                 print(isOff)
+
+             }
+         }
+        task.resume()
+     }
     
     func MyAppointmentAPI(_ isLoader:Bool){
         var params = [ "Type": pageName
@@ -116,8 +156,16 @@ class HomeViewController: UIViewController {
             if isStatus {
                 arrSortedService = arrayData ?? arrSortedService
                 self.tableUp.reloadData()
+                self.viewNoData.isHidden = true
+                if arrSortedService.count == 0 {
+                    self.viewNoData.isHidden = false
+                }
                 
-                
+            }
+            else{
+                arrSortedService.removeAll()
+                self.tableUp.reloadData()
+                self.viewNoData.isHidden = false
             }
         }
     }
@@ -141,13 +189,8 @@ class HomeViewController: UIViewController {
                         if events.count > 0 {
                             for event in events {
                                 
-                                print(event.title)
-                                print(event.eventIdentifier)
-                                print(event.startDate)
-                                
                                 let currentDate = event.startDate
                                 let dateFormatter = DateFormatter()
-                                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                                 dateFormatter.dateFormat = "yyyy-MM-dd"
                                 
                                 let formattedDateString = dateFormatter.string(from: currentDate ?? Date())
@@ -155,7 +198,7 @@ class HomeViewController: UIViewController {
                                 print(formattedDateString)
                                 
                                 let dateFormatterTime = DateFormatter()
-                                dateFormatter.dateFormat = "HH:mm"
+                                dateFormatter.dateFormat = "hh:mm a"
                                 let timeString = dateFormatter.string(from: currentDate ?? Date())
                                 
                                 if let matchingPerson = arrayData?.first(where: { person in
@@ -201,10 +244,7 @@ class HomeViewController: UIViewController {
                             if events.count > 0 {
                                 for event in events {
                                     
-                                    print(event.title)
-                                    print(event.eventIdentifier)
-                                    print(event.startDate)
-                                    
+                              
                                     let currentDate = event.startDate
                                     let dateFormatter = DateFormatter()
                                     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -215,7 +255,7 @@ class HomeViewController: UIViewController {
                                     print(formattedDateString)
                                     
                                     let dateFormatterTime = DateFormatter()
-                                    dateFormatter.dateFormat = "HH:mm"
+                                    dateFormatter.dateFormat = "hh:mm a"
                                     let timeString = dateFormatter.string(from: currentDate ?? Date())
                                     
                                     if arrayData?[i].serviceName == event.title && arrayData?[i].slotDate == formattedDateString && arrayData?[i].fromTime == timeString{
@@ -309,25 +349,15 @@ class HomeViewController: UIViewController {
                             UserDefaults.standard.set(user?.phone, forKey: Constants.phone)
                             UserDefaults.standard.set(user?.objectPro?.professionalDetailId ?? 0, forKey: Constants.professionalDetailId)
                             UserDefaults.standard.synchronize()
-                            
-                            if text == "Update"{
-                               
                        
-                            }
-                            
                             if text == "Profile"{
                                 self.MyAppointmentAPI(isLoding)
+                                self.callApiWhenBackgroundedPro(true)
+
                             }
                         }
-                        
-                        else{
-                        }
-                        
                     }
                 }
-            }
-            else {
-                
             }
         }
         
@@ -562,14 +592,19 @@ extension HomeViewController: UITableViewDataSource,UITableViewDelegate {
             let Model = ["currentUserName": userId(),
                              "targetUserName" :  self.arrSortedService[int].userId] as [String : AnyObject]
             AddUserToChatRequest.shared.AddUserToChatAPI(requestParams: Model) { (user,message,isStatus) in
-                let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
-                controller.isNewConversation = false
-                controller.otherUserEmail = ""
-                controller.userName =   self.arrSortedService[int].userName ?? ""
-                controller.imgString =  self.arrSortedService[int].userImage ?? "No"
-                controller.otherUserID =  self.arrSortedService[int].userId ?? ""
-                self.parent?.navigationController?.pushViewController(controller, animated: true)
-                
+                if isStatus {
+                    let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
+                    controller.isNewConversation = false
+                    controller.otherUserEmail = ""
+                    controller.userName =   self.arrSortedService[int].userName ?? ""
+                    controller.imgString =  self.arrSortedService[int].userImage ?? "No"
+                    controller.otherUserID =  self.arrSortedService[int].userId ?? ""
+                    self.parent?.navigationController?.pushViewController(controller, animated: true)
+                    
+                }
+                else{
+                    NotificationAlert().NotificationAlert(titles: message ??  GlobalConstants.serverError)
+                }
                 
                 }
             }
@@ -627,7 +662,7 @@ extension HomeViewController: UITableViewDataSource,UITableViewDelegate {
             
             let dateFormatter = DateFormatter()
             
-            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+            dateFormatter.dateFormat = "yyyy-MM-dd hh:mm a"
             
             if let startDate = dateFormatter.date(from: startDate) {
                 print("The date is: \(startDate)")
@@ -672,9 +707,7 @@ extension HomeViewController: UITableViewDataSource,UITableViewDelegate {
                     if events.count > 0 {
                         for event in events {
                             
-                            print(event.title)
-                            print(event.eventIdentifier)
-                            print(event.startDate)
+                          
                             
                             if let eventToDelete = self.appleEventStore.event(withIdentifier: event.eventIdentifier){
                                 do {

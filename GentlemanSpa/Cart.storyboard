@@ -28,6 +28,86 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Payment View Controller-->
+        <scene sceneID="pwT-IY-kZX">
+            <objects>
+                <viewController storyboardIdentifier="PaymentViewController" id="oG5-4E-BM8" customClass="PaymentViewController" customModule="GentlemanSpa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sfN-c2-aAo">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1Y-T6-gom">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7W-ag-hIg" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
+                                        <rect key="frame" x="162.66666666666666" y="62.666666666666657" width="68" height="21"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backimg" translatesAutoresizingMaskIntoConstraints="NO" id="94x-j9-Ooh">
+                                        <rect key="frame" x="14" y="58" width="30" height="30"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgu-mK-Emp">
+                                        <rect key="frame" x="0.0" y="0.0" width="55" height="94"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="mOC-fs-3RQ"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=" "/>
+                                        <connections>
+                                            <action selector="btnBackPreessed:" destination="oG5-4E-BM8" eventType="touchUpInside" id="pWH-9m-IcG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="94x-j9-Ooh" firstAttribute="leading" secondItem="e1Y-T6-gom" secondAttribute="leading" constant="14" id="3s6-XR-r4K"/>
+                                    <constraint firstAttribute="height" constant="94" id="Dtk-GQ-HLV"/>
+                                    <constraint firstAttribute="bottom" secondItem="qgu-mK-Emp" secondAttribute="bottom" id="FrW-nr-hcQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="94x-j9-Ooh" secondAttribute="bottom" constant="6" id="NV2-5z-7GZ"/>
+                                    <constraint firstItem="94x-j9-Ooh" firstAttribute="centerY" secondItem="j7W-ag-hIg" secondAttribute="centerY" id="QrR-2E-m8L"/>
+                                    <constraint firstItem="qgu-mK-Emp" firstAttribute="top" secondItem="e1Y-T6-gom" secondAttribute="top" id="bbE-Ko-nZa"/>
+                                    <constraint firstItem="j7W-ag-hIg" firstAttribute="centerX" secondItem="e1Y-T6-gom" secondAttribute="centerX" id="o1D-hM-g26"/>
+                                    <constraint firstItem="qgu-mK-Emp" firstAttribute="leading" secondItem="e1Y-T6-gom" secondAttribute="leading" id="rom-VA-YxM"/>
+                                </constraints>
+                            </view>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxe-7X-atU">
+                                <rect key="frame" x="1" y="95" width="391" height="756"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="S4c-FY-gbp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="e1Y-T6-gom" firstAttribute="leading" secondItem="sfN-c2-aAo" secondAttribute="leading" id="0zt-yi-Mfj"/>
+                            <constraint firstItem="cxe-7X-atU" firstAttribute="leading" secondItem="S4c-FY-gbp" secondAttribute="leading" constant="1" id="2ql-ho-YKK"/>
+                            <constraint firstItem="S4c-FY-gbp" firstAttribute="trailing" secondItem="e1Y-T6-gom" secondAttribute="trailing" id="E80-Uk-48Y"/>
+                            <constraint firstItem="e1Y-T6-gom" firstAttribute="top" secondItem="sfN-c2-aAo" secondAttribute="top" id="OO2-Bl-utY"/>
+                            <constraint firstItem="cxe-7X-atU" firstAttribute="top" secondItem="e1Y-T6-gom" secondAttribute="bottom" constant="1" id="Qau-HU-LBm"/>
+                            <constraint firstItem="S4c-FY-gbp" firstAttribute="trailing" secondItem="cxe-7X-atU" secondAttribute="trailing" constant="1" id="cGO-hK-YkM"/>
+                            <constraint firstAttribute="bottom" secondItem="cxe-7X-atU" secondAttribute="bottom" constant="1" id="mCV-LM-88w"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="view_NavConst" destination="Dtk-GQ-HLV" id="Duh-KK-u8B"/>
+                        <outlet property="webAbout" destination="cxe-7X-atU" id="tCX-r7-3w2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aRm-BY-p32" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-845" y="32"/>
+        </scene>
         <!--My Cart View Controller-->
         <scene sceneID="so3-1C-y6D">
             <objects>
@@ -3741,10 +3821,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

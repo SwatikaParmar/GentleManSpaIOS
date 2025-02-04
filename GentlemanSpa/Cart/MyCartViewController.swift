@@ -14,11 +14,18 @@ class MyCartViewController: UIViewController {
     @IBOutlet weak var viewPayNow : UIView!
     @IBOutlet weak var imgViewEmpty : UIImageView!
     @IBOutlet weak var lbePayNow: UILabel!
+    @IBOutlet weak var viewPaymentMode: UIView!
+    @IBOutlet weak var effectPaymentMode: UIVisualEffectView!
+    
+    @IBOutlet weak var imgOnline : UIImageView!
+    @IBOutlet weak var imgAtVenue : UIImageView!
+
 
     var itemCount = 0
     var isAddressSelected = "Home"
     var strAddress = ""
     var strAddressType = ""
+    var isOnlinePaymentSelected = true
 
     var arrObject : CartDataModel?
     var arrSortedProduct = [AllCartProducts]()
@@ -38,7 +45,11 @@ class MyCartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         topViewLayout()
+        
+        viewPaymentMode.isHidden = true
+        effectPaymentMode.isHidden = true
 
+        
         viewPayNow.isHidden = true
         imgViewEmpty.isHidden = true
         tableViewMyCart.isHidden = true
@@ -63,8 +74,47 @@ class MyCartViewController: UIViewController {
     }
     
     @IBAction func PlaceOrder(_ sender: Any) {
-        OnlinePayments()
+        imgOnline.image = UIImage(named: "paymentRadioS")
+        imgAtVenue.image = UIImage(named: "paymentRadioUn")
+        isOnlinePaymentSelected = true
+
+        viewPaymentMode.isHidden = false
+        effectPaymentMode.isHidden = false
     }
+    
+    @IBAction func OnlinePlaceOrder(_ sender: Any) {
+        imgOnline.image = UIImage(named: "paymentRadioS")
+        imgAtVenue.image = UIImage(named: "paymentRadioUn")
+        isOnlinePaymentSelected = true
+        
+    }
+    
+    @IBAction func AtVPlaceOrder(_ sender: Any) {
+        imgOnline.image = UIImage(named: "paymentRadioUn")
+        imgAtVenue.image = UIImage(named: "paymentRadioS")
+        isOnlinePaymentSelected = false
+        
+    }
+    
+    @IBAction func PayBy(_ sender: Any) {
+        
+        viewPaymentMode.isHidden = true
+        effectPaymentMode.isHidden = true
+        
+        if isOnlinePaymentSelected {
+            OnlinePayments()
+        }
+        else{
+            CashBookingAPI()
+        }
+        
+    }
+    @IBAction func PayByCancel(_ sender: Any) {
+        viewPaymentMode.isHidden = true
+        effectPaymentMode.isHidden = true
+        
+    }
+    
     
     
     @IBAction func Home(_ sender: Any) {
@@ -96,12 +146,9 @@ class MyCartViewController: UIViewController {
  
         PayByStripeRequest.shared.PayByStripeAmountAPI(requestParams: Model) { (url,id,message,isStatus) in
                if isStatus {
-                   
-                   
                    let controller:PaymentViewController =  UIStoryboard(storyboard: .Cart).initVC()
                    controller.paymentUrl = url ?? ""
                    controller.paymentId = id ?? 0
-
                    self.navigationController?.pushViewController(controller, animated: true)
 
                }
@@ -109,6 +156,25 @@ class MyCartViewController: UIViewController {
        }
     
     
+    func CashBookingAPI() {
+
+       let Model = [
+           "customerAddressId": 0,
+           "deliveryType": "AtVenue",
+           "paymentId": 0,
+           "paymentType":  "Cash"] as [String : Any]
+ 
+        BookAppointmentRequest.shared.bookingAPI(requestParams: Model) { (user,message,isStatus) in
+               if isStatus {
+                   let controller:OrderPlaceViewController =  UIStoryboard(storyboard: .User).initVC()
+                   controller.providesPresentationContextTransitionStyle = true
+                   controller.definesPresentationContext = true
+                   controller.modalPresentationStyle=UIModalPresentationStyle.overCurrentContext
+                   self.present(controller, animated: true, completion: nil)
+                   
+               }
+           }
+       }
     
 
     

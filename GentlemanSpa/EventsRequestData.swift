@@ -102,7 +102,7 @@ class EventData: NSObject {
 }
 class AddOrUpdateEventRegistrationRequest: NSObject {
 
-    static let shared = AddUpdateCartServiceRequest()
+    static let shared = AddOrUpdateEventRegistrationRequest()
     
     func AddOrUpdateEventRegistrationAPI(requestParams : [String:Any], completion: @escaping (_ objectData: LoginObject?,_ message : String?, _ isStatus : Bool) -> Void) {
 

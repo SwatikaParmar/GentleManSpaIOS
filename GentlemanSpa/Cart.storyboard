@@ -14,6 +14,9 @@
         <array key="Inter-Regular.ttf">
             <string>Inter-Regular</string>
         </array>
+        <array key="Montserrat-Medium.otf">
+            <string>Montserrat-Medium</string>
+        </array>
         <array key="NunitoSans-Regular.ttf">
             <string>NunitoSans-Regular</string>
         </array>
@@ -1548,16 +1551,231 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <visualEffectView opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uah-Q7-WkW">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="1244"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="oN1-bw-Diy">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="1244"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <vibrancyEffect>
+                                    <blurEffect style="regular"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m2O-px-8AA" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
+                                <rect key="frame" x="25" y="509.66666666666674" width="343" height="225"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Mode" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeG-kC-Zm7" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="8.9999999999999414" width="333" height="25.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
+                                                <real key="value" value="18"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xvb-z1-dnZ">
+                                        <rect key="frame" x="0.0" y="169.99999999999994" width="343" height="1"/>
+                                        <color key="backgroundColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="0.69999999999999996" id="J3I-k5-e0i"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7W-YF-XuT" customClass="UIButtonX" customModule="GentlemanSpa" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="181.99999999999994" width="134" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="I3s-lv-9E1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="20"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Proceed">
+                                            <color key="titleColor" systemColor="systemGreenColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="PayBy:" destination="Zov-zi-Bxd" eventType="touchUpInside" id="ac3-JU-50f"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJn-5g-ap0" customClass="UIButtonX" customModule="GentlemanSpa" customModuleProvider="target">
+                                        <rect key="frame" x="184" y="181.99999999999994" width="134" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="HV5-MI-EpN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" systemColor="systemPinkColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
+                                                <real key="value" value="18"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="PayByCancel:" destination="Zov-zi-Bxd" eventType="touchUpInside" id="LQu-7I-vm2"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paymentRadioS" translatesAutoresizingMaskIntoConstraints="NO" id="lT5-iU-wXl">
+                                        <rect key="frame" x="27" y="111.99999999999994" width="29" height="29"/>
+                                        <color key="tintColor" red="0.51372549020000002" green="0.46274509800000002" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="29" id="Sma-Mg-fVJ"/>
+                                            <constraint firstAttribute="height" constant="29" id="a96-3f-7Kx"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="At Venue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZd-A4-GRC" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
+                                        <rect key="frame" x="61.000000000000007" y="115.99999999999994" width="67.666666666666686" height="21"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kf7-hx-saw">
+                                        <rect key="frame" x="8" y="103.99999999999994" width="327" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="mAB-oo-IKO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="AtVPlaceOrder:" destination="Zov-zi-Bxd" eventType="touchUpInside" id="MPr-hF-hCa"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paymentRadioS" translatesAutoresizingMaskIntoConstraints="NO" id="jUh-Sg-PBO">
+                                        <rect key="frame" x="27" y="58.333333333333314" width="29" height="29"/>
+                                        <color key="tintColor" red="0.51372549020000002" green="0.46274509800000002" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="29" id="30P-FF-Jjm"/>
+                                            <constraint firstAttribute="height" constant="29" id="Mpz-8F-Vza"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTR-0u-Hk8">
+                                        <rect key="frame" x="24" y="143.99999999999994" width="295" height="1"/>
+                                        <color key="backgroundColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="0.69999999999999996" id="EiU-73-pEc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Online" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wt3-ut-hez" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
+                                        <rect key="frame" x="61" y="62.333333333333314" width="48" height="21"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="DynamicFontSize">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0JB-0Z-3j8">
+                                        <rect key="frame" x="5" y="57.333333333333314" width="330" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="wMg-7n-1Cm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="OnlinePlaceOrder:" destination="Zov-zi-Bxd" eventType="touchUpInside" id="PPG-ZY-NEv"/>
+                                        </connections>
+                                    </button>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCb-Km-XSn">
+                                        <rect key="frame" x="24" y="95.333333333333314" width="295" height="0.6666666666666714"/>
+                                        <color key="backgroundColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="0.69999999999999996" id="h2Y-to-p6S"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="oJn-5g-ap0" firstAttribute="leading" secondItem="W7W-YF-XuT" secondAttribute="trailing" constant="25" id="0AF-GV-1z0"/>
+                                    <constraint firstAttribute="trailing" secondItem="oJn-5g-ap0" secondAttribute="trailing" constant="25" id="2K3-yL-v6t"/>
+                                    <constraint firstItem="lCb-Km-XSn" firstAttribute="top" secondItem="0JB-0Z-3j8" secondAttribute="bottom" constant="8" id="3eq-qI-VeT"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kf7-hx-saw" secondAttribute="trailing" constant="8" id="58Z-hO-QJV"/>
+                                    <constraint firstAttribute="bottom" secondItem="W7W-YF-XuT" secondAttribute="bottom" constant="13" id="7xg-FK-VFr"/>
+                                    <constraint firstItem="wt3-ut-hez" firstAttribute="leading" secondItem="jUh-Sg-PBO" secondAttribute="trailing" constant="5" id="FRN-oy-hdN"/>
+                                    <constraint firstItem="JeG-kC-Zm7" firstAttribute="leading" secondItem="m2O-px-8AA" secondAttribute="leading" constant="5" id="IFv-bO-xGS"/>
+                                    <constraint firstAttribute="trailing" secondItem="sTR-0u-Hk8" secondAttribute="trailing" constant="24" id="Ius-bY-MfF"/>
+                                    <constraint firstItem="YZd-A4-GRC" firstAttribute="centerY" secondItem="lT5-iU-wXl" secondAttribute="centerY" id="IwW-Pm-0Ic"/>
+                                    <constraint firstItem="sTR-0u-Hk8" firstAttribute="top" secondItem="YZd-A4-GRC" secondAttribute="bottom" constant="7" id="Izm-LU-R3v"/>
+                                    <constraint firstItem="wt3-ut-hez" firstAttribute="centerY" secondItem="jUh-Sg-PBO" secondAttribute="centerY" id="JFW-Mr-YeU"/>
+                                    <constraint firstAttribute="height" constant="225" id="NSC-8I-qfk"/>
+                                    <constraint firstItem="0JB-0Z-3j8" firstAttribute="leading" secondItem="m2O-px-8AA" secondAttribute="leading" constant="5" id="OQk-XV-3na"/>
+                                    <constraint firstItem="YZd-A4-GRC" firstAttribute="leading" secondItem="m2O-px-8AA" secondAttribute="leading" constant="61" id="TpT-h5-d5y"/>
+                                    <constraint firstItem="wt3-ut-hez" firstAttribute="leading" secondItem="m2O-px-8AA" secondAttribute="leading" constant="61" id="Ux5-YA-DPP"/>
+                                    <constraint firstItem="oJn-5g-ap0" firstAttribute="width" secondItem="W7W-YF-XuT" secondAttribute="width" id="Vfm-Cl-VNv"/>
+                                    <constraint firstItem="Kf7-hx-saw" firstAttribute="leading" secondItem="m2O-px-8AA" secondAttribute="leading" constant="8" id="Vpv-xN-bky"/>
+                                    <constraint firstItem="Xvb-z1-dnZ" firstAttribute="leading" secondItem="m2O-px-8AA" secondAttribute="leading" id="WYw-Kk-7Ma"/>
+                                    <constraint firstAttribute="bottom" secondItem="oJn-5g-ap0" secondAttribute="bottom" constant="13" id="XVe-Fg-5Z7"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xvb-z1-dnZ" secondAttribute="trailing" id="YKg-Ss-UXd"/>
+                                    <constraint firstItem="sTR-0u-Hk8" firstAttribute="leading" secondItem="m2O-px-8AA" secondAttribute="leading" constant="24" id="aSA-jR-iUC"/>
+                                    <constraint firstAttribute="trailing" secondItem="lCb-Km-XSn" secondAttribute="trailing" constant="24" id="beL-sA-tHs"/>
+                                    <constraint firstItem="lCb-Km-XSn" firstAttribute="leading" secondItem="m2O-px-8AA" secondAttribute="leading" constant="24" id="cKs-Yn-JoN"/>
+                                    <constraint firstItem="W7W-YF-XuT" firstAttribute="top" secondItem="Xvb-z1-dnZ" secondAttribute="bottom" constant="11" id="dj0-4B-xT0"/>
+                                    <constraint firstAttribute="trailing" secondItem="0JB-0Z-3j8" secondAttribute="trailing" constant="8" id="fPt-Is-5Tb"/>
+                                    <constraint firstItem="Kf7-hx-saw" firstAttribute="top" secondItem="lCb-Km-XSn" secondAttribute="bottom" constant="8" id="g5A-Dc-NuC"/>
+                                    <constraint firstItem="sTR-0u-Hk8" firstAttribute="top" secondItem="Kf7-hx-saw" secondAttribute="bottom" constant="5" id="ip9-Hc-1c6"/>
+                                    <constraint firstItem="YZd-A4-GRC" firstAttribute="leading" secondItem="lT5-iU-wXl" secondAttribute="trailing" constant="5" id="k6L-44-6Yt"/>
+                                    <constraint firstAttribute="bottom" secondItem="sTR-0u-Hk8" secondAttribute="bottom" constant="80" id="mCn-jk-xq5"/>
+                                    <constraint firstItem="oJn-5g-ap0" firstAttribute="height" secondItem="W7W-YF-XuT" secondAttribute="height" id="ni3-EB-fee"/>
+                                    <constraint firstItem="lCb-Km-XSn" firstAttribute="top" secondItem="wt3-ut-hez" secondAttribute="bottom" constant="12" id="s9v-xG-8sd"/>
+                                    <constraint firstItem="W7W-YF-XuT" firstAttribute="leading" secondItem="m2O-px-8AA" secondAttribute="leading" constant="25" id="tDE-nj-DZ4"/>
+                                    <constraint firstItem="JeG-kC-Zm7" firstAttribute="top" secondItem="m2O-px-8AA" secondAttribute="top" constant="9" id="tNQ-3x-3MW"/>
+                                    <constraint firstAttribute="trailing" secondItem="JeG-kC-Zm7" secondAttribute="trailing" constant="5" id="y3r-Pk-RJK"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusIpad">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0gp-Qb-sC1"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="1Oe-Mo-mYk" firstAttribute="centerY" secondItem="Aqn-Ds-3pk" secondAttribute="centerY" id="1Qy-yZ-2BM"/>
+                            <constraint firstItem="m2O-px-8AA" firstAttribute="centerX" secondItem="Aqn-Ds-3pk" secondAttribute="centerX" id="7H4-tH-AvF"/>
                             <constraint firstItem="0gp-Qb-sC1" firstAttribute="trailing" secondItem="7yu-6V-tO1" secondAttribute="trailing" constant="22" id="B2w-bT-6kV"/>
                             <constraint firstItem="0gp-Qb-sC1" firstAttribute="trailing" secondItem="kFf-Lf-xCs" secondAttribute="trailing" id="Fmd-cQ-M15"/>
+                            <constraint firstItem="m2O-px-8AA" firstAttribute="leading" secondItem="0gp-Qb-sC1" secondAttribute="leading" constant="25" id="K2k-UY-Ggc"/>
                             <constraint firstItem="1Oe-Mo-mYk" firstAttribute="centerX" secondItem="Aqn-Ds-3pk" secondAttribute="centerX" id="KSK-BC-8YD"/>
+                            <constraint firstItem="uah-Q7-WkW" firstAttribute="top" secondItem="Aqn-Ds-3pk" secondAttribute="top" id="MwM-vh-U36"/>
+                            <constraint firstItem="m2O-px-8AA" firstAttribute="centerY" secondItem="Aqn-Ds-3pk" secondAttribute="centerY" id="Sof-uZ-Cdq"/>
+                            <constraint firstItem="uah-Q7-WkW" firstAttribute="leading" secondItem="Aqn-Ds-3pk" secondAttribute="leading" id="TTI-0O-C7j"/>
+                            <constraint firstItem="0gp-Qb-sC1" firstAttribute="trailing" secondItem="m2O-px-8AA" secondAttribute="trailing" constant="25" id="Wna-Kb-Xef"/>
                             <constraint firstItem="7yu-6V-tO1" firstAttribute="leading" secondItem="0gp-Qb-sC1" secondAttribute="leading" constant="22" id="Z8S-iN-EOB"/>
+                            <constraint firstAttribute="bottom" secondItem="uah-Q7-WkW" secondAttribute="bottom" id="blY-mA-qaw"/>
                             <constraint firstAttribute="bottom" secondItem="kFf-Lf-xCs" secondAttribute="bottom" constant="80" id="ftf-db-ijW"/>
+                            <constraint firstAttribute="trailing" secondItem="uah-Q7-WkW" secondAttribute="trailing" id="hph-cT-GJe"/>
                             <constraint firstItem="0gp-Qb-sC1" firstAttribute="trailing" secondItem="Z6N-kd-vw1" secondAttribute="trailing" id="mZY-qP-o7f"/>
                             <constraint firstItem="kFf-Lf-xCs" firstAttribute="top" secondItem="Z6N-kd-vw1" secondAttribute="bottom" id="nlK-Hb-mKZ"/>
                             <constraint firstItem="Z6N-kd-vw1" firstAttribute="leading" secondItem="Aqn-Ds-3pk" secondAttribute="leading" id="pTU-jE-eff"/>
@@ -1568,16 +1786,20 @@
                     </view>
                     <size key="freeformSize" width="393" height="1244"/>
                     <connections>
+                        <outlet property="effectPaymentMode" destination="uah-Q7-WkW" id="dm3-tB-m3l"/>
+                        <outlet property="imgAtVenue" destination="lT5-iU-wXl" id="u8p-98-RGm"/>
+                        <outlet property="imgOnline" destination="jUh-Sg-PBO" id="FPS-jR-7Gq"/>
                         <outlet property="imgViewEmpty" destination="1Oe-Mo-mYk" id="U1S-Wx-rME"/>
                         <outlet property="lbePayNow" destination="5OR-xa-aCM" id="MgQ-ke-M9I"/>
                         <outlet property="tableViewMyCart" destination="kFf-Lf-xCs" id="LsY-Jg-dR6"/>
                         <outlet property="viewPayNow" destination="7yu-6V-tO1" id="JY2-1M-fiR"/>
+                        <outlet property="viewPaymentMode" destination="m2O-px-8AA" id="ItS-4f-Orp"/>
                         <outlet property="view_NavConst" destination="yYp-Mq-u1z" id="QJd-jC-voK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Be3-0t-QPC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.64122137404578" y="-85.211267605633807"/>
+            <point key="canvasLocation" x="135.1145038167939" y="-85.211267605633807"/>
         </scene>
         <!--My Order Vc-->
         <scene sceneID="uvQ-kO-rrO">
@@ -3816,12 +4038,19 @@
         <image name="menu" width="20.333333969116211" height="20"/>
         <image name="minus" width="42.666667938232422" height="42.666667938232422"/>
         <image name="next_black_ic" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="paymentRadioS" width="170.66667175292969" height="170.66667175292969"/>
         <image name="uncheck" width="85.333335876464844" height="85.333335876464844"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -74,7 +74,7 @@ extension EventsViewController: UITableViewDataSource,UITableViewDelegate {
         cell.btnBooking.tag = indexPath.row
         cell.btnBooking.addTarget(self, action: #selector(bookingEvent(sender:)), for: .touchUpInside)
         
-        if intIndex == indexPath.row {
+        if arrAllEvents[indexPath.row].isRegistered {
             cell.viewRegistration.backgroundColor = AppColor.AppThemeColor
             cell.viewRegistration.layer.borderColor = UIColor.white.cgColor
             cell.viewRegistration.layer.borderWidth = 1
@@ -101,14 +101,19 @@ extension EventsViewController: UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let heightSizeLine   = arrAllEvents[indexPath.row].title.heightForView(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: 15.0) ?? UIFont.systemFont(ofSize: 15.0), width: self.view.frame.width - 155)
+        let heightSizeLine   = arrAllEvents[indexPath.row].title.heightForView(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: 15.0) ?? UIFont.systemFont(ofSize: 15.0), width: self.view.frame.width - 157)
+        
+       print(arrAllEvents[indexPath.row].title)
+        print(heightSizeLine)
+
+        
         
         let heightSizeAddress   = arrAllEvents[indexPath.row].location.heightForView(text: "", font: UIFont(name:FontName.Inter.Regular, size: 12.0) ?? UIFont.systemFont(ofSize: 15.0), width: self.view.frame.width - 155)
         
-        if heightSizeLine  > 42 {
-            return heightSizeLine + 90 + heightSizeAddress
+        if  heightSizeLine  +  heightSizeAddress + 102 + 20 > 150 {
+            return heightSizeLine + 102 + heightSizeAddress
         }
-        return 122 + heightSizeAddress
+        return 102 + heightSizeAddress
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -139,32 +144,35 @@ extension EventsViewController: UITableViewDataSource,UITableViewDelegate {
     }
 
     @objc func bookingEvent(sender:UIButton){
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let currentDate = dateFormatter.string(from: Date())
 
         var param = [String : AnyObject]()
         param["registrationId"] = 0 as AnyObject
-        param["registrationStatus"] = "" as AnyObject
+        param["registrationStatus"] = "Upcoming" as AnyObject
         param["userId"] = userId() as AnyObject
         param["eventId"] = arrAllEvents[sender.tag].eventId as AnyObject
-        param["registeredAt"] = 0 as AnyObject
+        param["registeredAt"] = currentDate as AnyObject
 
         self.addEvent(Model: param, index:0)
     }
     
     func addEvent(Model: [String : AnyObject], index:Int){
-        AddUpdateCartServiceRequest.shared.AddUpdateCartServiceAPI(requestParams: Model) { (user,message,isStatus) in
-            if isStatus {
+        AddOrUpdateEventRegistrationRequest.shared.AddOrUpdateEventRegistrationAPI(requestParams: Model) { (user,message,isStatus) in
+         
                 if isStatus {
                     let alertController = UIAlertController(title: "Success!", message: "You have successfully registered for the event.", preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
                         UIAlertAction in
-                        self.tableViewEvents.reloadData()
-                       
+                        self.MyEventsAPI(false)
                     }
                     
                     alertController.addAction(okAction)
                     self.present(alertController, animated: true, completion: nil)
                 }
-            }
+            
         }
         
     }
@@ -196,3 +204,4 @@ class EventsTvCell: UITableViewCell {
         
     }
 }
+

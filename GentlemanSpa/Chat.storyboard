@@ -981,10 +981,10 @@
                                                                     <rect key="frame" x="8.0000000000000018" y="8.0000000000000018" width="20.666666666666671" height="20.666666666666671"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                            <real key="value" value="7"/>
+                                                                            <real key="value" value="0.0"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusIpad">
-                                                                            <real key="value" value="7"/>
+                                                                            <real key="value" value="0.0"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                                             <real key="value" value="0.0"/>
@@ -1002,23 +1002,21 @@
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
+                                                                <constraint firstItem="zVG-hp-IeW" firstAttribute="centerX" secondItem="1Mm-nX-GCo" secondAttribute="centerX" id="0PG-QG-O0h"/>
                                                                 <constraint firstItem="fZt-X9-q1D" firstAttribute="leading" secondItem="1Mm-nX-GCo" secondAttribute="leading" id="24H-QP-N04"/>
-                                                                <constraint firstItem="zVG-hp-IeW" firstAttribute="leading" secondItem="1Mm-nX-GCo" secondAttribute="leading" constant="8" id="7up-li-iaf"/>
                                                                 <constraint firstAttribute="bottom" secondItem="fZt-X9-q1D" secondAttribute="bottom" id="Dnj-Na-mBt"/>
-                                                                <constraint firstItem="zVG-hp-IeW" firstAttribute="centerX" secondItem="1Mm-nX-GCo" secondAttribute="centerX" id="NEx-sk-g11"/>
-                                                                <constraint firstItem="zVG-hp-IeW" firstAttribute="centerY" secondItem="1Mm-nX-GCo" secondAttribute="centerY" id="cKL-vX-Ijd"/>
+                                                                <constraint firstAttribute="width" constant="36.670000000000002" id="O9A-SL-t1g"/>
+                                                                <constraint firstAttribute="height" constant="36.670000000000002" id="OYL-rY-p3M"/>
                                                                 <constraint firstItem="fZt-X9-q1D" firstAttribute="top" secondItem="1Mm-nX-GCo" secondAttribute="top" id="ei8-UU-IR6"/>
                                                                 <constraint firstAttribute="trailing" secondItem="fZt-X9-q1D" secondAttribute="trailing" id="lw8-kk-sFP"/>
-                                                                <constraint firstItem="zVG-hp-IeW" firstAttribute="top" secondItem="1Mm-nX-GCo" secondAttribute="top" constant="8" id="pEu-kc-Vd7"/>
-                                                                <constraint firstAttribute="trailing" secondItem="zVG-hp-IeW" secondAttribute="trailing" constant="8" id="th8-xt-OuD"/>
-                                                                <constraint firstAttribute="bottom" secondItem="zVG-hp-IeW" secondAttribute="bottom" constant="8" id="uTA-L7-Zcy"/>
+                                                                <constraint firstItem="zVG-hp-IeW" firstAttribute="centerY" secondItem="1Mm-nX-GCo" secondAttribute="centerY" id="xES-pQ-VYm"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="7"/>
+                                                                    <real key="value" value="5"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusIpad">
-                                                                    <real key="value" value="7"/>
+                                                                    <real key="value" value="5"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
                                                                     <real key="value" value="0.40000000000000002"/>

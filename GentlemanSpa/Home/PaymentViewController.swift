@@ -46,11 +46,20 @@ class PaymentViewController: UIViewController,WKNavigationDelegate, WKUIDelegate
                 if url.absoluteString.contains("OrderConfirmation?paymentId") {
                     paymentIdAPI(true)
                     decisionHandler(.cancel)
-
+                }
+                else  if url.absoluteString.contains("cancelpay.com") {
+                    decisionHandler(.cancel)
+                }
+                else  if url.absoluteString.contains("legal") {
+                    decisionHandler(.cancel)
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+                else  if url.absoluteString.contains("privacy") {
+                    decisionHandler(.cancel)
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }
                 else{
                     decisionHandler(.allow)
-                    
                 }
             } else {
                 decisionHandler(.allow)

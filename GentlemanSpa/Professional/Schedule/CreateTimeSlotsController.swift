@@ -424,7 +424,14 @@ class CreateTimeSlotsController:UIViewController,UIPickerViewDataSource,UIPicker
         
         let startDateEnd = hhE + ":" + mmE + " " + aE
         print("12 hour formatted Date:",startDateEnd)
-      
+        
+        var timeSlotsDict = Dictionary<String, Any> ()
+        
+        timeSlotsDict.updateValue(startDateGet, forKey: "fromTime")
+        timeSlotsDict.updateValue(startDateEnd, forKey: "toTime")
+
+        timeArray.add(timeSlotsDict)
+
  
       
         
@@ -685,10 +692,7 @@ class CreateTimeSlotsController:UIViewController,UIPickerViewDataSource,UIPicker
             let params = ["professionalScheduleId": idUpdate,
                           "professionalDetailId":professionalDetailId() ,
                           "weekdaysId": id,
-                          "fromTime": startDateGet,
-                          "toTime": startDateEnd,
-                          "breakFromTime":"",
-                          "breakToTime" : ""
+                          "workingTime": timeArray
             ] as [String : Any]
 
 

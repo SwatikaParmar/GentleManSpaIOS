@@ -14,6 +14,7 @@ class AppointmentsViewController: UIViewController, UITableViewDataSource,UITabl
     var arrWeekdaysModel = [WeekdaysModel]()
     
     var arrSchedulesModel = [SchedulesModel]()
+    let timeArray = NSMutableArray()
 
     @IBOutlet weak var view_NavConst: NSLayoutConstraint!
     func topViewLayout(){
@@ -88,10 +89,7 @@ class AppointmentsViewController: UIViewController, UITableViewDataSource,UITabl
                             let params = [  "professionalScheduleId": 0,
                                             "professionalDetailId": 0,
                                             "weekdaysId": self.arrWeekdaysModel[i].weekdaysId,
-                                            "fromTime": "",
-                                            "toTime": "",
-                                            "breakFromTime": "",
-                                            "breakToTime": "",
+                                            
                             ]as [String : Any]
                             
                             
@@ -105,12 +103,9 @@ class AppointmentsViewController: UIViewController, UITableViewDataSource,UITabl
                             if index != nil {
                                 homeListObject[i].professionalScheduleId = self.arrSchedulesModel[index ?? 0].professionalScheduleId
                                 homeListObject[i].weekdaysId = self.arrSchedulesModel[index ?? 0].weekdaysId
-                                homeListObject[i].fromTime = self.arrSchedulesModel[index ?? 0].fromTime
-                                homeListObject[i].toTime = self.arrSchedulesModel[index ?? 0].toTime
-                                homeListObject[i].breakFromTime = self.arrSchedulesModel[index ?? 0].breakFromTime
-                                homeListObject[i].breakToTime = self.arrSchedulesModel[index ?? 0].breakToTime
+                                homeListObject[i].workingTime = self.arrSchedulesModel[index ?? 0].workingTime
+                                
                             }
-                            
                         }
                     }
                         self.arrSchedulesModel = homeListObject
@@ -122,7 +117,6 @@ class AppointmentsViewController: UIViewController, UITableViewDataSource,UITabl
                     self.tblCate.reloadData()
                 }
             }
-            
         }
     
     
@@ -142,69 +136,259 @@ class AppointmentsViewController: UIViewController, UITableViewDataSource,UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: "SchedulesCell") as! SchedulesCell
         
         cell.lbeName.text = arrWeekdaysModel[indexPath.row].weekName
-        
-        cell.lbeBreakLine.isHidden = true
-        cell.lbeBreak.text = ""
-        cell.lbeBreakTitle.isHidden = true
-        cell.lbeWorkingTitle.isHidden = true
-        cell.lbeWorking.text = ""
-        cell.lbeBreakTitle.isHidden = true
+        cell.viewOne.isHidden = true
+        cell.viewTwo.isHidden = true
+        cell.viewAdd.isHidden = false
 
         if arrSchedulesModel.count > indexPath.row {
-            if arrSchedulesModel[indexPath.row].fromTime == "" {
-                cell.lbeWorkingTitle.isHidden = true
-                cell.lbeWorking.text = ""
+            if arrSchedulesModel[indexPath.row].workingTime.count > 0 {
+                var dict = NSDictionary()
+                dict = arrSchedulesModel[indexPath.row].workingTime[0] as NSDictionary
+                cell.lbeWorking.text = String(format: "%@ - %@", dict["fromTime"] as? String ?? "",dict["toTime"] as? String ?? "")
+                
+                cell.viewOne.isHidden = false
+                cell.viewAdd.isHidden = false
+
             }
-            else{
-                cell.lbeWorkingTitle.isHidden = false
-                cell.lbeWorking.text = String(format: "%@ %@", arrSchedulesModel[indexPath.row].fromTime,arrSchedulesModel[indexPath.row].toTime)
+            if arrSchedulesModel[indexPath.row].workingTime.count > 1 {
+                var dict = NSDictionary()
+                dict = arrSchedulesModel[indexPath.row].workingTime[1] as NSDictionary
+                cell.lbeWorking1.text = String(format: "%@ - %@", dict["fromTime"] as? String ?? "",dict["toTime"] as? String ?? "")
+                
+                cell.viewTwo.isHidden = false
+                cell.viewAdd.isHidden = true
+
+
             }
             
-            if arrSchedulesModel[indexPath.row].breakFromTime == "" {
-                cell.lbeBreakLine.isHidden = true
-                cell.lbeBreak.text = ""
-                cell.lbeBreakTitle.isHidden = true
-                
-            }
-            else{
-                cell.lbeBreakLine.isHidden = false
-                cell.lbeBreak.text = String(format: "%@ %@", arrSchedulesModel[indexPath.row].breakFromTime,arrSchedulesModel[indexPath.row].breakToTime)
-                cell.lbeBreakTitle.isHidden = false
-                
-            }
         }
+        
+    
+        cell.btnEdit.tag = indexPath.row
+        cell.btnEdit1.tag = indexPath.row
+        cell.btnDelete.tag = indexPath.row
+        cell.btnDelete1.tag = indexPath.row
+
+        cell.btnEdit.addTarget(self, action: #selector(editAction(sender:)), for: .touchUpInside)
+        cell.btnEdit1.addTarget(self, action: #selector(editAction1(sender:)), for: .touchUpInside)
+        cell.btnDelete.addTarget(self, action: #selector(deleteAction(sender:)), for: .touchUpInside)
+        cell.btnDelete1.addTarget(self, action: #selector(deleteAction1(sender:)), for: .touchUpInside)
+
+
         return cell
     }
     
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-       
-        return 100
+        var height:CGFloat = 70
+        if arrSchedulesModel.count > indexPath.row {
+            if arrSchedulesModel[indexPath.row].workingTime.count > 0 {
+                height = 118
+            }
+            if arrSchedulesModel[indexPath.row].workingTime.count > 1 {
+                height = 165
+
+            }
+            
+        }
+        return height
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        var oldTo = ""
+        var oldFrom = ""
+        
+        
         if arrWeekdaysModel.count > indexPath.row {
-            
-            let controller:CreateTimeSlotsController =  UIStoryboard(storyboard: .Professional).initVC()
-            controller.selectDate_Title = self.arrWeekdaysModel[indexPath.row].weekName ?? ""
-            controller.id = self.arrWeekdaysModel[indexPath.row].weekdaysId
-            
             if arrSchedulesModel.count > indexPath.row {
-                controller.idUpdate = arrSchedulesModel[indexPath.row].professionalScheduleId
+                
+                if arrSchedulesModel[indexPath.row].workingTime.count > 0 {
+                    var dict = NSDictionary()
+                    dict = arrSchedulesModel[indexPath.row].workingTime[0] as NSDictionary
+                    oldFrom = dict["fromTime"]  as? String ?? ""
+                    oldTo = dict["toTime"]  as? String ?? ""
+                    
+                }
+                if arrSchedulesModel[indexPath.row].workingTime.count > 1 {
+                    
+                }
+                else if arrSchedulesModel[indexPath.row].workingTime.count > 2 {
+                }
+                else{
+                    let controller:CreateTimeSlotsController =  UIStoryboard(storyboard: .Professional).initVC()
+                    controller.selectDate_Title = self.arrWeekdaysModel[indexPath.row].weekName ?? ""
+                    controller.id = self.arrWeekdaysModel[indexPath.row].weekdaysId
+                    controller.oldToTime = oldTo
+                    controller.oldFromTime = oldFrom
+                    controller.isUpdate = false
+                    if arrSchedulesModel.count > indexPath.row {
+                        controller.idUpdate = arrSchedulesModel[indexPath.row].professionalScheduleId
+                    }
+                    self.parent?.navigationController?.pushViewController(controller, animated: true)
+                    
+                }
+            }
+            else{
+                let controller:CreateTimeSlotsController =  UIStoryboard(storyboard: .Professional).initVC()
+                controller.selectDate_Title = self.arrWeekdaysModel[indexPath.row].weekName ?? ""
+                controller.id = self.arrWeekdaysModel[indexPath.row].weekdaysId
+                controller.oldToTime = oldTo
+                controller.oldFromTime = oldFrom
+                controller.isUpdate = false
+                if arrSchedulesModel.count > indexPath.row {
+                    controller.idUpdate = arrSchedulesModel[indexPath.row].professionalScheduleId
+                }
+                self.parent?.navigationController?.pushViewController(controller, animated: true)
+            }
+        }
+    }
+
+
+    
+    @objc func editAction(sender: UIButton){
+        let buttonTag = sender.tag
+        var oldTo = ""
+        var oldFrom = ""
+    
+        if arrWeekdaysModel.count > buttonTag {
+            if arrSchedulesModel[buttonTag].workingTime.count > 1 {
+                var dict = NSDictionary()
+                dict = arrSchedulesModel[buttonTag].workingTime[1] as NSDictionary
+                oldFrom = dict["fromTime"]  as? String ?? ""
+                oldTo = dict["toTime"]  as? String ?? ""
+            }
+          
+                let controller:CreateTimeSlotsController =  UIStoryboard(storyboard: .Professional).initVC()
+                controller.selectDate_Title = self.arrWeekdaysModel[buttonTag].weekName ?? ""
+                controller.id = self.arrWeekdaysModel[buttonTag].weekdaysId
+                controller.oldToTime = oldTo
+                controller.oldFromTime = oldFrom
+                controller.isUpdate = true
+                if arrSchedulesModel.count > buttonTag {
+                    controller.idUpdate = arrSchedulesModel[buttonTag].professionalScheduleId
+                }
+                self.parent?.navigationController?.pushViewController(controller, animated: true)
+                
+            }
+    }
+    
+    @objc func editAction1(sender: UIButton){
+        let buttonTag = sender.tag
+        var oldTo = ""
+        var oldFrom = ""
+        if arrWeekdaysModel.count > buttonTag {
+            if arrSchedulesModel[buttonTag].workingTime.count > 0 {
+                var dict = NSDictionary()
+                dict = arrSchedulesModel[buttonTag].workingTime[0] as NSDictionary
+                oldFrom = dict["fromTime"]  as? String ?? ""
+                oldTo = dict["toTime"]  as? String ?? ""
 
             }
+                let controller:CreateTimeSlotsController =  UIStoryboard(storyboard: .Professional).initVC()
+                controller.selectDate_Title = self.arrWeekdaysModel[buttonTag].weekName ?? ""
+                controller.id = self.arrWeekdaysModel[buttonTag].weekdaysId
+                controller.oldToTime = oldTo
+                controller.oldFromTime = oldFrom
+                controller.isUpdate = true
+                if arrSchedulesModel.count > buttonTag {
+                    controller.idUpdate = arrSchedulesModel[buttonTag].professionalScheduleId
+                }
+                self.parent?.navigationController?.pushViewController(controller, animated: true)
+            }
+    }
+    
+    @objc func deleteAction(sender: UIButton){
+        let buttonTag = sender.tag
+        var oldTo = ""
+        var oldFrom = ""
+        var timeSlotsDict = Dictionary<String, Any> ()
+        timeArray.removeAllObjects()
+        
+        if arrWeekdaysModel.count > buttonTag {
+            if arrSchedulesModel[buttonTag].workingTime.count > 1 {
+                var dict = NSDictionary()
+                dict = arrSchedulesModel[buttonTag].workingTime[1] as NSDictionary
+                oldFrom = dict["fromTime"]  as? String ?? ""
+                oldTo = dict["toTime"]  as? String ?? ""
+                
+                timeSlotsDict.updateValue(oldFrom, forKey: "fromTime")
+                timeSlotsDict.updateValue(oldTo, forKey: "toTime")
+                timeArray.add(timeSlotsDict)
+                
+            }
             
-            self.parent?.navigationController?.pushViewController(controller, animated: true)
-            
-            
-            
+            if arrSchedulesModel.count > buttonTag {
+                deleteScheduleAPI(idUpdate:self.arrSchedulesModel[buttonTag].professionalScheduleId,id:self.arrWeekdaysModel[buttonTag].weekdaysId)
+            }
+
         }
     }
     
+    @objc func deleteAction1(sender: UIButton){
+        let buttonTag = sender.tag
+        var oldTo = ""
+        var oldFrom = ""
+        var timeSlotsDict = Dictionary<String, Any> ()
+        timeArray.removeAllObjects()
+        
+        if arrWeekdaysModel.count > buttonTag {
+            
+            if arrSchedulesModel[buttonTag].workingTime.count > 0 {
+                
+                var dict = NSDictionary()
+                dict = arrSchedulesModel[buttonTag].workingTime[0] as NSDictionary
+                oldFrom = dict["fromTime"]  as? String ?? ""
+                oldTo = dict["toTime"]  as? String ?? ""
+                
+                timeSlotsDict.updateValue(oldFrom, forKey: "fromTime")
+                timeSlotsDict.updateValue(oldTo, forKey: "toTime")
+                timeArray.add(timeSlotsDict)
+            }
+           
+            if arrSchedulesModel.count > buttonTag {
+                
+                deleteScheduleAPI(idUpdate:self.arrSchedulesModel[buttonTag].professionalScheduleId,id:self.arrWeekdaysModel[buttonTag].weekdaysId)
+            }
+        }
+       
+        
+    }
+    
+    func deleteScheduleAPI(idUpdate: Int, id: Int){
+        let params = ["professionalScheduleId": idUpdate,
+                      "professionalDetailId":professionalDetailId() ,
+                      "weekdaysId": id,
+                      "workingTime": timeArray
+        ] as [String : Any]
+        
+        print(params)
+        
+        CreateScheduleAPIRequest.shared.CreateSche(requestParams: params) { (obj, msg, success,Verification) in
+            
+            if success == false {
+                self.MessageAlert(title: "Alert", message: msg!)
+            }
+            else
+            {
+                self.successAlert(title: "Alert", message: msg!)
+            }
+        }
+    }
+    
+    func successAlert(title:String,message:String)
+    {
+        let alert = UIAlertController(title:"Alert", message:  message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title:"OK" , style: .cancel, handler:{ (UIAlertAction)in
+            self.GetWeekdaysAPI()
+        }))
+        self.present(alert, animated: true, completion: {
+            
+        })
+    }
 }
 
 
@@ -213,12 +397,16 @@ class SchedulesCell: UITableViewCell {
 
     @IBOutlet weak var lbeName : UILabel!
     @IBOutlet weak var lbeWorking : UILabel!
-    @IBOutlet weak var lbeBreak : UILabel!
-
-    @IBOutlet weak var lbeWorkingTitle : UILabel!
-    @IBOutlet weak var lbeBreakTitle : UILabel!
+    @IBOutlet weak var lbeWorking1 : UILabel!
     
-    @IBOutlet weak var lbeBreakLine : UILabel!
+    @IBOutlet weak var btnEdit : UIButton!
+    @IBOutlet weak var btnDelete : UIButton!
+    @IBOutlet weak var btnEdit1 : UIButton!
+    @IBOutlet weak var btnDelete1 : UIButton!
+
+    @IBOutlet weak var viewOne : UIView!
+    @IBOutlet weak var viewTwo : UIView!
+    @IBOutlet weak var viewAdd : UIView!
 
     
     override func awakeFromNib() {

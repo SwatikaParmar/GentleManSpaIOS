@@ -118,14 +118,8 @@ class GetWeekdaysRequest: NSObject {
 
         
         let apiURL = String(format: "%@","BaseURL".GetWeekdays)
-         
-
-        print("URL---->> ",apiURL)
-        print("Request---->> ",requestParams)
-        
         AlamofireRequest.shared.GetBodyFrom(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
                 
-                     print(data ?? "No data")
                      if error == nil{
                          var messageString : String = ""
                          if let status = data?["isSuccess"] as? Bool{
@@ -188,19 +182,16 @@ class SchedulesModel: NSObject {
     var weekName: String?
     var weekdaysId = 0
     var professionalScheduleId = 0
-    var fromTime = ""
-    var toTime = ""
-    var breakFromTime = ""
-    var breakToTime = ""
+    var workingTime: [[String: String]] = []
+
 
     init(fromDictionary dictionary: [String:Any]){
         weekName = dictionary["weekName"] as? String ?? ""
         weekdaysId = dictionary["weekdaysId"] as? Int ?? 0
-
-        breakToTime = dictionary["breakToTime"] as? String ?? ""
-        breakFromTime = dictionary["breakFromTime"] as? String ?? ""
-        toTime = dictionary["toTime"] as? String ?? ""
-        fromTime = dictionary["fromTime"] as? String ?? ""
+        if let workingTimeArray = dictionary["workingTime"] as? [[String: String]] {
+            self.workingTime = workingTimeArray
+        }
+       
 
         professionalScheduleId = dictionary["professionalScheduleId"] as? Int ?? 0
 

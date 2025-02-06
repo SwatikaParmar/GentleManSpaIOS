@@ -41,9 +41,6 @@ class RequestsManagementViewController: UIViewController {
         
         applyStyle(to: txt_Type)
         txt_Type.placeholder = "Type"
-
-        
-        
     }
     
     //Hide KeyBoard When touche on View

@@ -416,9 +416,9 @@ extension String {
         let textSize = self.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         let linesRoundedUp = Int(ceil(textSize.height/charSize))
         
-        print("LineNo-",linesRoundedUp)
-        print("TextSize-",Int(charSize))
-        print("Height-",CGFloat(linesRoundedUp * Int(charSize)))
+      //  print("LineNo-",linesRoundedUp)
+      //  print("TextSize-",Int(charSize))
+      //  print("Height-",CGFloat(linesRoundedUp * Int(charSize)))
         return CGFloat(linesRoundedUp * Int(charSize))
     }
 }
@@ -460,9 +460,9 @@ extension String {
         let textSize = self.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         let linesRoundedUp = Int(ceil(textSize.height/charSize))
         
-        print("LineNo-",linesRoundedUp)
-        print("textsize-",Int(charSize))
-        print("LINE-",CGFloat(linesRoundedUp * Int(charSize) + 20))
+       // print("LineNo-",linesRoundedUp)
+       // print("textsize-",Int(charSize))
+       // print("LINE-",CGFloat(linesRoundedUp * Int(charSize) + 20))
         return CGFloat(linesRoundedUp * Int(charSize) + 20)
     }
     

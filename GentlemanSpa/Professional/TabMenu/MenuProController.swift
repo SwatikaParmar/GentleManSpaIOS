@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EventKit
 
 class MenuProController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
@@ -17,6 +18,7 @@ class MenuProController: UIViewController,UITableViewDelegate,UITableViewDataSou
                         
     var titleArray = [String]()
     var imagesArray = [String]()
+    let appleEventStore = EKEventStore()
 
     @IBOutlet weak var viewFooter: UIView!
     
@@ -126,6 +128,7 @@ class MenuProController: UIViewController,UITableViewDelegate,UITableViewDataSou
            sideMenuController?.hideLeftView(animated: true)
     
         if titleArray.count == indexPath.row + 1 {
+        
             ActionSheet()
         }
         else{
@@ -220,7 +223,21 @@ class MenuProController: UIViewController,UITableViewDelegate,UITableViewDataSou
             alert.addAction(No)
         
         let Yes = UIAlertAction(title:"Yes", style: UIAlertAction.Style.destructive, handler: { action in
-            NotificationCenter.default.post(name: Notification.Name("Menu_Push_Pro"), object: nil, userInfo: ["count":"Logout"])
+        
+          //  NotificationCenter.default.post(name: Notification.Name("Menu_Push_Pro"), object: nil, userInfo: ["count":"Logout"])
+            
+            self.callApiWhenBackgroundedPro(false)
+            self.deleteAllEvents()
+            let FCSToken = UserDefaults.standard.value(forKey:Constants.deviceToken)
+            UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+            UserDefaults.standard.synchronize()
+            UserDefaults.standard.setValue(FCSToken, forKey:Constants.deviceToken)
+            UserDefaults.standard.synchronize()
+            UserDefaults.standard.set(false, forKey: Constants.login)
+            UserDefaults.standard.synchronize()
+            RootControllerManager().SetRootViewController()
+            
+        
          
         })
         alert.addAction(Yes)
@@ -229,7 +246,83 @@ class MenuProController: UIViewController,UITableViewDelegate,UITableViewDataSou
         })
     }
     
+    private func callApiWhenBackgroundedPro(_ isOff: Bool) {
+        
+        var apiURL = "BaseURL".updateOnlineStatusManually
 
+        let url = URL(string: apiURL)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        if accessToken() != ""{
+            let bearer : String = "Bearer \(accessToken())"
+            print(bearer)
+            request.addValue(bearer, forHTTPHeaderField: "Authorization")
+        }
+        else{
+            return
+        }
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        // Sample JSON payload
+        let jsonPayload = ["userName": userId(),
+                           "onlineStatus": isOff] as [String : Any]
+        
+        if let data = try? JSONSerialization.data(withJSONObject: jsonPayload, options: .prettyPrinted),
+           let jsonString = String(data: data, encoding: .utf8) {
+            request.httpBody = jsonString.data(using: .utf8)
+
+        }
+         let task = URLSession.shared.dataTask(with: request) { data, response, error in
+             if let error = error {
+                 print("Error during API call: \(error)")
+                 return
+             }
+             if let data = data {
+                 print("API Response: \(String(data: data, encoding: .utf8) ?? "")")
+                 print(isOff)
+
+             }
+         }
+        task.resume()
+     }
+    
+    
+    func deleteAllEvents(){
+        let calendars = self.appleEventStore.calendars(for: .event)
+        if calendars.count > 0 {
+            for calendar in calendars {
+                if calendar.title == "Calendar" {
+                    let oneMonthAgo = Date(timeIntervalSinceNow: -30*24*3600)
+                    let oneMonthAfter = Date(timeIntervalSinceNow: 30*24*3600)
+                    let predicate =  self.appleEventStore.predicateForEvents(withStart: oneMonthAgo, end: oneMonthAfter, calendars: [calendar])
+                    
+                    let events = self.appleEventStore.events(matching: predicate)
+                    if events.count > 0 {
+                        for event in events {
+                            
+                            print(event.title)
+                            print(event.eventIdentifier)
+                            print(event.startDate)
+                            
+                            if let eventToDelete = self.appleEventStore.event(withIdentifier: event.eventIdentifier){
+                                do {
+                                    try self.appleEventStore.remove(eventToDelete, span: .thisEvent)
+                                } catch let error as NSError {
+                                    print("failed to save event with error : \(error)")
+                                }
+                                print("removed Event")
+                            }
+                            
+                          
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    
 }
 
 

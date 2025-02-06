@@ -49,6 +49,8 @@ class PaymentViewController: UIViewController,WKNavigationDelegate, WKUIDelegate
                 }
                 else  if url.absoluteString.contains("cancelpay.com") {
                     decisionHandler(.cancel)
+                    self.view.endEditing(true)
+                    self.navigationController?.popViewController(animated: true)
                 }
                 else  if url.absoluteString.contains("legal") {
                     decisionHandler(.cancel)

@@ -14,6 +14,9 @@ class CreateTimeSlotsController:UIViewController,UIPickerViewDataSource,UIPicker
     var updateTimeTitle = ""
     var  id  = 0
     var  idUpdate  = 0
+    var oldFromTime = ""
+    var oldToTime = ""
+    var isUpdate = false
 
     @IBOutlet weak var lbeTitle: UILabel!
     @IBOutlet weak var lbeDateTitle: UILabel!
@@ -87,7 +90,7 @@ class CreateTimeSlotsController:UIViewController,UIPickerViewDataSource,UIPicker
 
         lbeDateTitle.text = selectDate_Title
         
-        if idUpdate != 0 {
+        if isUpdate {
             btnCreate.setTitle("Update", for: .normal)
         }
         shView.isHidden = true
@@ -99,7 +102,7 @@ class CreateTimeSlotsController:UIViewController,UIPickerViewDataSource,UIPicker
      
         var arraySlot: [String] = []
         let startDateString = "14-06-2021 08:00:00"
-        let endDateString = "14-06-2021 17:00:00"
+        let endDateString = "14-06-2021 22:00:00"
         
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
@@ -427,9 +430,17 @@ class CreateTimeSlotsController:UIViewController,UIPickerViewDataSource,UIPicker
         
         var timeSlotsDict = Dictionary<String, Any> ()
         
+        if oldToTime == "" {
+            
+        }
+        else{
+            timeSlotsDict.updateValue(oldFromTime, forKey: "fromTime")
+            timeSlotsDict.updateValue(oldToTime, forKey: "toTime")
+            timeArray.add(timeSlotsDict)
+
+        }
         timeSlotsDict.updateValue(startDateGet, forKey: "fromTime")
         timeSlotsDict.updateValue(startDateEnd, forKey: "toTime")
-
         timeArray.add(timeSlotsDict)
 
  
@@ -695,18 +706,15 @@ class CreateTimeSlotsController:UIViewController,UIPickerViewDataSource,UIPicker
                           "workingTime": timeArray
             ] as [String : Any]
 
-
+             print(params)
             CreateScheduleAPIRequest.shared.CreateSche(requestParams: params) { (obj, msg, success,Verification) in
                 
                 if success == false {
-                    
                     self.MessageAlert(title: "Alert", message: msg!)
-                    
                 }
                 else
                 {
                     self.popMessageAlert(title: "Alert", message: msg!)
-
                 }
             }
         }

@@ -65,7 +65,7 @@ class HomeViewController: UIViewController {
         lbeLineConfirmed.backgroundColor = UIColor.clear
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.Menu_Push_Pro), name: NSNotification.Name(rawValue: "Menu_Push_Pro"), object: nil)
-        generateEvent()
+        
         pageName = "Upcoming"
         self.tableUp.reloadData()
         self.getUserDataAPI("Profile",true)
@@ -354,6 +354,7 @@ class HomeViewController: UIViewController {
                             if text == "Profile"{
                                 self.MyAppointmentAPI(isLoding)
                                 self.callApiWhenBackgroundedPro(true)
+                                self.generateEvent()
 
                             }
                         }
@@ -399,9 +400,9 @@ class HomeViewController: UIViewController {
         pageName = "Upcoming"
         MyAppointmentAPI(true)
         
-        if pageName == "Upcoming" {
-            generateEvent()
-        }
+       
+        generateEvent()
+        
 
         self.tableUp.reloadData()
     }

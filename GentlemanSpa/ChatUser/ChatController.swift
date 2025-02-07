@@ -145,11 +145,16 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
     }
     func startApiCallEveryMinute() {
         apiTimer?.invalidate()
-        apiTimer = Timer.scheduledTimer(timeInterval: 8.0, target: self, selector: #selector(callApi), userInfo: nil, repeats: true)
+        apiTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(callApi), userInfo: nil, repeats: true)
     }
     
     @objc func callApi() {
-        
+        if !InterNetConnection()
+        {
+            InternetAlert()
+            stopApiCall()
+            return
+        }
         getReplyData(false)
         
     }
@@ -331,8 +336,6 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
                 if dictionary != nil{
                     if dictionary?.count ?? 0 > 0 {
                         self.messages = dictionary?[0].replies ?? self.messages
-                        
-                        
                         if dictionary?[0].receiverOnlineStatus == 1 {
                             self.lbeOnline.text = "Online"
                             self.lbeOnline.textColor = .green
@@ -341,10 +344,6 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
                             self.lbeOnline.text = ""
                         }
                     }
-                    
-                   
-                    
-                    
                 }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

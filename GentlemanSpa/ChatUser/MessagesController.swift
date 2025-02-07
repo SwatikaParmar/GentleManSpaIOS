@@ -70,11 +70,14 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
                     if dictionary?.count ?? 0 > 0 {
                         self.conversationsSort = dictionary ?? self.conversationsSort
                         self.noUserView.isHidden = true
+                        let sortedItemsLast = self.conversationsSort.sorted { $0.lastMessageTime > $1.lastMessageTime }
+                        if sortedItemsLast.count > 0 {
+                            self.conversationsSort = sortedItemsLast
+                        }
 
                     }
                     else{
                         self.noUserView.isHidden = false
-
                     }
                 }
                 else{

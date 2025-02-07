@@ -1499,7 +1499,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="372" height="50"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="90L-Ri-9je" customClass="CocoaTextField" customModule="CocoaTextField">
-                                                                <rect key="frame" x="10" y="5" width="352" height="40"/>
+                                                                <rect key="frame" x="0.0" y="5" width="362" height="40"/>
                                                                 <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartQuotesType="no"/>
                                                                 <connections>
@@ -1510,7 +1510,7 @@
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstItem="90L-Ri-9je" firstAttribute="top" secondItem="9cf-se-gtq" secondAttribute="top" constant="5" id="TYI-5W-Whk"/>
-                                                            <constraint firstItem="90L-Ri-9je" firstAttribute="leading" secondItem="9cf-se-gtq" secondAttribute="leading" constant="10" id="cdD-Hx-1do"/>
+                                                            <constraint firstItem="90L-Ri-9je" firstAttribute="leading" secondItem="9cf-se-gtq" secondAttribute="leading" id="cdD-Hx-1do"/>
                                                             <constraint firstAttribute="bottom" secondItem="90L-Ri-9je" secondAttribute="bottom" constant="5" id="no7-6v-a3z"/>
                                                             <constraint firstAttribute="trailing" secondItem="90L-Ri-9je" secondAttribute="trailing" constant="10" id="r4m-qk-DLP"/>
                                                         </constraints>
@@ -1524,7 +1524,7 @@
                                                         <rect key="frame" x="0.0" y="70" width="372" height="50"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A71-Rs-3C8" customClass="CocoaTextField" customModule="CocoaTextField">
-                                                                <rect key="frame" x="10" y="5" width="352" height="40"/>
+                                                                <rect key="frame" x="0.0" y="5" width="362" height="40"/>
                                                                 <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                                 <connections>
@@ -1536,7 +1536,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="A71-Rs-3C8" secondAttribute="bottom" constant="5" id="Llm-q2-OlH"/>
                                                             <constraint firstAttribute="trailing" secondItem="A71-Rs-3C8" secondAttribute="trailing" constant="10" id="cEm-tL-R62"/>
-                                                            <constraint firstItem="A71-Rs-3C8" firstAttribute="leading" secondItem="YRS-Rb-VVg" secondAttribute="leading" constant="10" id="pq0-0Y-sak"/>
+                                                            <constraint firstItem="A71-Rs-3C8" firstAttribute="leading" secondItem="YRS-Rb-VVg" secondAttribute="leading" id="pq0-0Y-sak"/>
                                                             <constraint firstItem="A71-Rs-3C8" firstAttribute="top" secondItem="YRS-Rb-VVg" secondAttribute="top" constant="5" id="tfn-S6-Lcv"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
@@ -1549,7 +1549,7 @@
                                                         <rect key="frame" x="0.0" y="140" width="372" height="50"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2lF-aq-rRC" customClass="CocoaTextField" customModule="CocoaTextField">
-                                                                <rect key="frame" x="10" y="5" width="352" height="40"/>
+                                                                <rect key="frame" x="0.0" y="5" width="362" height="40"/>
                                                                 <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                                 <connections>
@@ -1562,7 +1562,7 @@
                                                             <constraint firstItem="2lF-aq-rRC" firstAttribute="top" secondItem="VxT-rY-wHL" secondAttribute="top" constant="5" id="HN0-hX-NdG"/>
                                                             <constraint firstAttribute="bottom" secondItem="2lF-aq-rRC" secondAttribute="bottom" constant="5" id="JhR-q0-jQc"/>
                                                             <constraint firstAttribute="trailing" secondItem="2lF-aq-rRC" secondAttribute="trailing" constant="10" id="UHO-du-EeY"/>
-                                                            <constraint firstItem="2lF-aq-rRC" firstAttribute="leading" secondItem="VxT-rY-wHL" secondAttribute="leading" constant="10" id="nRH-su-KJT"/>
+                                                            <constraint firstItem="2lF-aq-rRC" firstAttribute="leading" secondItem="VxT-rY-wHL" secondAttribute="leading" id="nRH-su-KJT"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1574,7 +1574,7 @@
                                                         <rect key="frame" x="0.0" y="210" width="372" height="50"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4yr-ed-N29" customClass="CocoaTextField" customModule="CocoaTextField">
-                                                                <rect key="frame" x="10" y="5" width="352" height="40"/>
+                                                                <rect key="frame" x="0.0" y="5" width="362" height="40"/>
                                                                 <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                                 <connections>
@@ -1587,7 +1587,7 @@
                                                             <constraint firstItem="4yr-ed-N29" firstAttribute="top" secondItem="ADu-nx-ukO" secondAttribute="top" constant="5" id="Opn-SS-e6r"/>
                                                             <constraint firstAttribute="trailing" secondItem="4yr-ed-N29" secondAttribute="trailing" constant="10" id="euW-jY-a1K"/>
                                                             <constraint firstAttribute="bottom" secondItem="4yr-ed-N29" secondAttribute="bottom" constant="5" id="i1H-da-kqZ"/>
-                                                            <constraint firstItem="4yr-ed-N29" firstAttribute="leading" secondItem="ADu-nx-ukO" secondAttribute="leading" constant="10" id="lQJ-ew-VtT"/>
+                                                            <constraint firstItem="4yr-ed-N29" firstAttribute="leading" secondItem="ADu-nx-ukO" secondAttribute="leading" id="lQJ-ew-VtT"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1599,7 +1599,7 @@
                                                         <rect key="frame" x="0.0" y="280" width="372" height="50"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CT1-j2-EmD" customClass="CocoaTextField" customModule="CocoaTextField">
-                                                                <rect key="frame" x="10" y="5" width="352" height="40"/>
+                                                                <rect key="frame" x="0.0" y="5" width="362" height="40"/>
                                                                 <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                                 <connections>
@@ -1610,7 +1610,7 @@
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstItem="CT1-j2-EmD" firstAttribute="top" secondItem="TvN-GQ-wst" secondAttribute="top" constant="5" id="6Mz-5O-iuT"/>
-                                                            <constraint firstItem="CT1-j2-EmD" firstAttribute="leading" secondItem="TvN-GQ-wst" secondAttribute="leading" constant="10" id="D0q-6Q-D4g"/>
+                                                            <constraint firstItem="CT1-j2-EmD" firstAttribute="leading" secondItem="TvN-GQ-wst" secondAttribute="leading" id="D0q-6Q-D4g"/>
                                                             <constraint firstAttribute="bottom" secondItem="CT1-j2-EmD" secondAttribute="bottom" constant="5" id="N1n-0r-gfI"/>
                                                             <constraint firstAttribute="trailing" secondItem="CT1-j2-EmD" secondAttribute="trailing" constant="10" id="Rki-xr-CHp"/>
                                                         </constraints>
@@ -1624,7 +1624,7 @@
                                                         <rect key="frame" x="0.0" y="350" width="372" height="50"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pfN-hV-uRi" customClass="CocoaTextField" customModule="CocoaTextField">
-                                                                <rect key="frame" x="10" y="5" width="352" height="40"/>
+                                                                <rect key="frame" x="0.0" y="5" width="362" height="40"/>
                                                                 <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                                 <connections>
@@ -1634,7 +1634,7 @@
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstItem="pfN-hV-uRi" firstAttribute="leading" secondItem="a9x-WL-T48" secondAttribute="leading" constant="10" id="N68-z0-5MQ"/>
+                                                            <constraint firstItem="pfN-hV-uRi" firstAttribute="leading" secondItem="a9x-WL-T48" secondAttribute="leading" id="N68-z0-5MQ"/>
                                                             <constraint firstItem="pfN-hV-uRi" firstAttribute="top" secondItem="a9x-WL-T48" secondAttribute="top" constant="5" id="o3M-zk-i9E"/>
                                                             <constraint firstAttribute="trailing" secondItem="pfN-hV-uRi" secondAttribute="trailing" constant="10" id="w17-31-Mj1"/>
                                                             <constraint firstAttribute="bottom" secondItem="pfN-hV-uRi" secondAttribute="bottom" constant="5" id="wXz-We-DHX"/>
@@ -1649,7 +1649,7 @@
                                                         <rect key="frame" x="0.0" y="420" width="372" height="50"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mxg-j1-Rba" customClass="CocoaTextField" customModule="CocoaTextField">
-                                                                <rect key="frame" x="10" y="5" width="352" height="40"/>
+                                                                <rect key="frame" x="0.0" y="5" width="362" height="40"/>
                                                                 <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                                 <connections>
@@ -1660,7 +1660,7 @@
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="Mxg-j1-Rba" secondAttribute="bottom" constant="5" id="FKn-3S-E5K"/>
-                                                            <constraint firstItem="Mxg-j1-Rba" firstAttribute="leading" secondItem="bvY-49-cgZ" secondAttribute="leading" constant="10" id="aJd-co-pyb"/>
+                                                            <constraint firstItem="Mxg-j1-Rba" firstAttribute="leading" secondItem="bvY-49-cgZ" secondAttribute="leading" id="aJd-co-pyb"/>
                                                             <constraint firstItem="Mxg-j1-Rba" firstAttribute="top" secondItem="bvY-49-cgZ" secondAttribute="top" constant="5" id="rwK-Ca-DBJ"/>
                                                             <constraint firstAttribute="trailing" secondItem="Mxg-j1-Rba" secondAttribute="trailing" constant="10" id="vAs-6j-b75"/>
                                                         </constraints>
@@ -1870,7 +1870,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

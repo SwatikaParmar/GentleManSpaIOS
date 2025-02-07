@@ -148,6 +148,8 @@ class MenuProController: UIViewController,UITableViewDelegate,UITableViewDataSou
                  let navigationController = UINavigationController(rootViewController: controller)
                      navigationController.isNavigationBarHidden = true
                      sideMenuController?.rootViewController = navigationController
+              
+            
          }
             else if indexPath.row == 2{
                    

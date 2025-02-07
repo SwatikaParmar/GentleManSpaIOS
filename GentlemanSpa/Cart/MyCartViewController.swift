@@ -74,6 +74,14 @@ class MyCartViewController: UIViewController {
     }
     
     @IBAction func PlaceOrder(_ sender: Any) {
+        
+        if self.isAddressSelected == "Home" {
+            if self.strAddress == "" {
+                NotificationAlert().NotificationAlert(titles:"Please add your address")
+                return
+            }
+        }
+        
         imgOnline.image = UIImage(named: "paymentRadioS")
         imgAtVenue.image = UIImage(named: "paymentRadioUn")
         isOnlinePaymentSelected = true
@@ -324,7 +332,19 @@ class MyCartViewController: UIViewController {
                     }
                
                     }
+                else{
+                    self.strAddressType = "Add Address"
+                    self.strAddress = ""
+                    self.tableViewMyCart.reloadData()
+                    self.arrayAddressData.removeAll()
                 }
+                }
+            else{
+                self.strAddressType = "Add Address"
+                self.strAddress = ""
+                self.tableViewMyCart.reloadData()
+                self.arrayAddressData.removeAll()
+            }
             }
         }
    

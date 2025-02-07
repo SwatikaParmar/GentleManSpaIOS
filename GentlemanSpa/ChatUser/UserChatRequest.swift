@@ -71,7 +71,6 @@ class GetMessageReplysRequest: NSObject {
                             }
                         
                     }else{
-                        NotificationAlert().NotificationAlert(titles: GlobalConstants.serverError)
 
                     }
                 }
@@ -199,6 +198,7 @@ class UserMessagingList: NSObject {
     var firstName:String
     var lastName:String
     var lastMessage:String
+    var lastMessageTime:String
 
     var onlineData = 0
     
@@ -208,6 +208,7 @@ class UserMessagingList: NSObject {
         self.firstName = dict["firstName"] as? String ?? ""
         self.lastName = dict["lastName"] as? String ?? ""
         self.lastMessage = dict["lastMessage"] as? String ?? ""
+        self.lastMessageTime = dict["lastMessageTime"] as? String ?? ""
 
         self.onlineData = dict["onlineStatus"] as? Int ?? 0
         

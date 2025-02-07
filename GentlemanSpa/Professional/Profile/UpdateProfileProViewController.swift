@@ -233,9 +233,12 @@ class UpdateProfileProViewController: UIViewController {
                         
                         self.lbeDialCode.text = user?.dialCode
                         self.phoneCode = user?.dialCode ?? "+1"
-                                self.showDataOnProfile()
+                        if user?.dialCode == "" {
+                            self.phoneCode = "+1"
+                        }
+                        self.showDataOnProfile()
                         
-                                self.genderStr = user?.gender ?? "Male"
+                        self.genderStr = user?.gender ?? "Male"
                         self.lbeSpe.text = ""
                         if let array = user?.objectPro?.speciality as? NSMutableArray {
                             

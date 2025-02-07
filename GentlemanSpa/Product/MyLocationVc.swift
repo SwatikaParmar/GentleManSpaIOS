@@ -90,6 +90,17 @@ class MyLocationVc: UIViewController {
                         }
                     }
                 }
+                else{
+                    self.arrayAddressData.removeAll()
+                    self.selectedTableView.reloadData()
+                    self.btnAddress.isHidden = false
+                }
+            }
+            else{
+                self.arrayAddressData.removeAll()
+                self.selectedTableView.reloadData()
+                self.btnAddress.isHidden = false
+
             }
         }
     }
@@ -175,9 +186,9 @@ class MyLocationVc: UIViewController {
     func deleteAddress(addressId:Int){
         
         AddressDeleteRequest.shared.addressDelete(id:addressId) { (arrayData,message,isStatus) in
-            if isStatus {
+           
                 self.GetAddressAPI(false)
-            }
+            
         }
     }
 }

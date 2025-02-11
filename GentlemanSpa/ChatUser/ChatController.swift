@@ -423,7 +423,6 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
                 cell?.accessoryType = .none
                 
                 cell?.labelMessage.text = messages[indexPath.row].message
-                
                 cell?.labelTime.text = "".ReplyWithString(self.messages[indexPath.row].sentTime)
             }
             

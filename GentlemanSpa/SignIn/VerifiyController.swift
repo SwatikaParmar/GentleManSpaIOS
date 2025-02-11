@@ -207,10 +207,9 @@ class VerifiyController: UIViewController ,UITextFieldDelegate{
                             controller.modalPresentationStyle=UIModalPresentationStyle.overCurrentContext
                             self.present(controller, animated: true, completion: nil)
                         }
-                       
+                    }
+                }
             }
-        }
-    }
     
     func uploadProfileImageApi(){
         

@@ -9102,12 +9102,20 @@
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xL4-jf-JOv">
+                                                            <rect key="frame" x="350" y="113" width="4" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="KWY-kd-XYu" firstAttribute="top" secondItem="yd9-ha-Cby" secondAttribute="bottom" constant="2" id="1mg-nH-Uqa"/>
+                                                        <constraint firstAttribute="bottom" secondItem="xL4-jf-JOv" secondAttribute="bottom" constant="10" id="3tf-of-Gsc"/>
                                                         <constraint firstItem="yd9-ha-Cby" firstAttribute="leading" secondItem="dza-1H-VlT" secondAttribute="trailing" constant="12" id="5e7-4v-wF7"/>
                                                         <constraint firstAttribute="trailing" secondItem="yd9-ha-Cby" secondAttribute="trailing" constant="8" id="Jr8-2c-deZ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="xL4-jf-JOv" secondAttribute="trailing" constant="11" id="NU4-er-4eU"/>
                                                         <constraint firstItem="KWY-kd-XYu" firstAttribute="leading" secondItem="dza-1H-VlT" secondAttribute="trailing" constant="12" id="Uj8-jj-ino"/>
                                                         <constraint firstItem="dza-1H-VlT" firstAttribute="leading" secondItem="Eaa-rN-XGW" secondAttribute="leading" constant="12" id="W1D-Wb-utw"/>
                                                         <constraint firstItem="dza-1H-VlT" firstAttribute="top" secondItem="Eaa-rN-XGW" secondAttribute="top" constant="13" id="YiQ-fd-Tp9"/>
@@ -9144,6 +9152,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="notificationDate" destination="xL4-jf-JOv" id="zGX-lo-Zf2"/>
+                                            <outlet property="notificationDescription" destination="KWY-kd-XYu" id="VCi-l2-X4Q"/>
+                                            <outlet property="notificationTittle" destination="yd9-ha-Cby" id="b48-Ss-c8q"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

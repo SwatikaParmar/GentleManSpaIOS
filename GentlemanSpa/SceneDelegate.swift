@@ -128,8 +128,6 @@ class RootControllerManager: NSObject {
                                                     rightViewController: nil)
                 sideMenu.leftViewWidth = UIScreen.main.bounds.size.width - 110
                 sideMenu.navigationController?.isNavigationBarHidden = true
-                //   sideMenu.rootViewStatusBarStyle = .lightContent
-                //   sideMenu.leftViewStatusBarStyle = .lightContent
                 sideMenu.isLeftViewStatusBarHidden = true
                 sideMenu.panGestureForLeftView.isEnabled = false
                 UIApplication.shared.windows.first?.rootViewController = sideMenu

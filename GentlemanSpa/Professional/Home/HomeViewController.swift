@@ -87,10 +87,10 @@ class HomeViewController: UIViewController {
             if count == "Logout"{
                 callApiWhenBackgroundedPro(false)
                 deleteAllEvents()
-                let FCSToken = UserDefaults.standard.value(forKey:Constants.deviceToken)
+                let FCSToken = UserDefaults.standard.value(forKey:Constants.fcmToken)
                 UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
                 UserDefaults.standard.synchronize()
-                UserDefaults.standard.setValue(FCSToken, forKey:Constants.deviceToken)
+                UserDefaults.standard.setValue(FCSToken, forKey:Constants.fcmToken)
                 UserDefaults.standard.synchronize()
                 UserDefaults.standard.set(false, forKey: Constants.login)
                 UserDefaults.standard.synchronize()
@@ -111,7 +111,7 @@ class HomeViewController: UIViewController {
     }
     private func callApiWhenBackgroundedPro(_ isOff: Bool) {
         
-        var apiURL = "BaseURL".updateOnlineStatusManually
+        let apiURL = "BaseURL".updateOnlineStatusManually
 
         let url = URL(string: apiURL)!
         var request = URLRequest(url: url)
@@ -127,7 +127,6 @@ class HomeViewController: UIViewController {
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        // Sample JSON payload
         let jsonPayload = ["userName": userId(),
                            "onlineStatus": isOff] as [String : Any]
         
@@ -351,18 +350,26 @@ class HomeViewController: UIViewController {
                             UserDefaults.standard.set(user?.objectPro?.professionalDetailId ?? 0, forKey: Constants.professionalDetailId)
                             UserDefaults.standard.synchronize()
                        
-                            if text == "Profile"{
+                          
                                 self.MyAppointmentAPI(isLoding)
                                 self.callApiWhenBackgroundedPro(true)
                                 self.generateEvent()
-
-                            }
+                                self.notificationTokenData()
+                            
                         }
                     }
                 }
             }
         }
         
+    //MARK: - NotificationTokenApi
+    func notificationTokenData(){
+        
+            let param = ["fcmToken" : Constants.fcmTokenFirePuch]
+                    NotificationTokenAPIRequest.shared.tokenApi(requestParams: param) { (user,message,isStatus) in
+            }
+        
+    }
     
     @objc func RefreshScreenUp() {
         self.getUserDataAPI("Profile",true)

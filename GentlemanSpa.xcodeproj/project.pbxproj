@@ -45,6 +45,7 @@
 		344E0C702CA1341500D32AB6 /* MyOrderVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344E0C6F2CA1341500D32AB6 /* MyOrderVc.swift */; };
 		344E5AD32D50DF780021FB9F /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344E5AD22D50DF780021FB9F /* PaymentViewController.swift */; };
 		345001FB2C776DF2001A2A0D /* ProGetProductAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345001FA2C776DF2001A2A0D /* ProGetProductAPI.swift */; };
+		3451ED2D2D5B652100C6330B /* NotificationAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451ED2C2D5B652100C6330B /* NotificationAPIRequest.swift */; };
 		3460D6FC2C9D43800076C4C2 /* MyCartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3460D6FB2C9D43800076C4C2 /* MyCartCell.swift */; };
 		3460D7002C9D9B3F0076C4C2 /* UserNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3460D6FF2C9D9B3F0076C4C2 /* UserNotificationViewController.swift */; };
 		3470FAF02CBF931D00BF5C7A /* MyCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3470FAEF2CBF931D00BF5C7A /* MyCartViewController.swift */; };
@@ -172,6 +173,7 @@
 		344E0C6F2CA1341500D32AB6 /* MyOrderVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderVc.swift; sourceTree = "<group>"; };
 		344E5AD22D50DF780021FB9F /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		345001FA2C776DF2001A2A0D /* ProGetProductAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProGetProductAPI.swift; sourceTree = "<group>"; };
+		3451ED2C2D5B652100C6330B /* NotificationAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAPIRequest.swift; sourceTree = "<group>"; };
 		3460D6FB2C9D43800076C4C2 /* MyCartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartCell.swift; sourceTree = "<group>"; };
 		3460D6FF2C9D9B3F0076C4C2 /* UserNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationViewController.swift; sourceTree = "<group>"; };
 		3470FAEF2CBF931D00BF5C7A /* MyCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartViewController.swift; sourceTree = "<group>"; };
@@ -311,6 +313,8 @@
 				34D2B5B32CC78FDF0012C358 /* ProfessionalDetailViewController.swift */,
 				340E7C472CCFAAE900CA531F /* AboutUsViewController.swift */,
 				3433B6602D13FFFB006BDA7C /* EventsRequestData.swift */,
+				3460D6FF2C9D9B3F0076C4C2 /* UserNotificationViewController.swift */,
+				3451ED2C2D5B652100C6330B /* NotificationAPIRequest.swift */,
 				3460D6E82C9D32BB0076C4C2 /* Cart */,
 				3460D6EF2C9D34180076C4C2 /* ProfessionalServices */,
 				34DEF4832C5DFF8100F395A8 /* Professional */,
@@ -486,7 +490,6 @@
 		3460D6EF2C9D34180076C4C2 /* ProfessionalServices */ = {
 			isa = PBXGroup;
 			children = (
-				3460D6FF2C9D9B3F0076C4C2 /* UserNotificationViewController.swift */,
 				34D338122C5A718D003C6B13 /* FindPViewController.swift */,
 				34C093EB2C9AA37F001BBB40 /* ProfessionalServicesVc.swift */,
 				344B96522CABD2830022F502 /* SelectProfessionalVc.swift */,
@@ -829,6 +832,7 @@
 				34D338202C5A7A8E003C6B13 /* CalendarView+Extensions.swift in Sources */,
 				34CE926E2C40EAE60007E086 /* GradientView.swift in Sources */,
 				3438E90B2C609DE4005BFC03 /* CreateSchedule.swift in Sources */,
+				3451ED2D2D5B652100C6330B /* NotificationAPIRequest.swift in Sources */,
 				34F559BB2C5A569B0017F732 /* CategoryHomeTvCell.swift in Sources */,
 				34C5A6BF2C5CD153007A79FD /* ServiceDetailImageCollection.swift in Sources */,
 				34498CF32C463F1C00F541DB /* VerifiyController.swift in Sources */,

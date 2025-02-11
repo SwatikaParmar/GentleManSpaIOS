@@ -1,21 +1,21 @@
 //
-//  NotificationViewController.swift
+//  UserNotificationViewController.swift
 //  GentlemanSpa
 //
-//  Created by AbsolveTech on 03/08/24.
+//  Created by AbsolveTech on 20/09/24.
 //
-
 
 import UIKit
 
-class NotificationViewController: UIViewController {
+class UserNotificationViewController: UIViewController {
 
     @IBOutlet weak var tableViewNotification : UITableView!
     @IBOutlet weak var view_NavConst: NSLayoutConstraint!
     var notificationArr = [NotificationDataList]()
 
+    
     func topViewLayout(){
-        if !HomeViewController.hasSafeArea{
+        if !HomeUserViewController.hasSafeArea{
             if view_NavConst != nil {
                 view_NavConst.constant = 70
             }
@@ -25,7 +25,6 @@ class NotificationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         topViewLayout()
-       
         notificationAPI(true, true, "")
 
        
@@ -46,15 +45,17 @@ class NotificationViewController: UIViewController {
             }
         }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
     }
+    
     @IBAction func btnBackPreessed(_ sender: Any){
         self.navigationController?.popViewController(animated: true)
     }
 
 }
-extension NotificationViewController: UITableViewDataSource,UITableViewDelegate {
+extension UserNotificationViewController: UITableViewDataSource,UITableViewDelegate {
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -72,8 +73,8 @@ extension NotificationViewController: UITableViewDataSource,UITableViewDelegate 
    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-
         let cell = tableViewNotification.dequeueReusableCell(withIdentifier: "NotificationCell") as! NotificationCell
+        
         cell.notificationTittle.text = notificationArr[indexPath.row].title
         cell.notificationDescription.text = notificationArr[indexPath.row].descriptionStr
         let data = notificationArr[indexPath.row]
@@ -81,6 +82,8 @@ extension NotificationViewController: UITableViewDataSource,UITableViewDelegate 
        
         return cell
     }
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         var sizeFont = CGFloat()
@@ -100,11 +103,12 @@ extension NotificationViewController: UITableViewDataSource,UITableViewDelegate 
         }
         return 110
 
-        
+
     }
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             
-        }
+    }
     
     func timeGapBetweenDates(previousDate : String) -> String
     {
@@ -121,4 +125,18 @@ extension NotificationViewController: UITableViewDataSource,UITableViewDelegate 
     
     
     
+
+class NotificationCell: UITableViewCell {
+    @IBOutlet weak var notificationTittle: UILabel!
+    @IBOutlet weak var notificationDate: UILabel!
+    @IBOutlet weak var notificationDescription: UILabel!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
     
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+    }
+    
+}

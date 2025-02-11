@@ -5414,11 +5414,19 @@
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruo-Zt-r7O">
+                                                            <rect key="frame" x="354" y="129" width="0.0" height="0.0"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="lgE-Ek-KO8" firstAttribute="leading" secondItem="eMU-1Q-qnf" secondAttribute="leading" constant="12" id="XTd-Ih-k7Y"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Ruo-Zt-r7O" secondAttribute="bottom" constant="11" id="YYP-68-3z4"/>
                                                         <constraint firstItem="hEu-wI-ASh" firstAttribute="leading" secondItem="lgE-Ek-KO8" secondAttribute="trailing" constant="12" id="axY-QC-xNe"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Ruo-Zt-r7O" secondAttribute="trailing" constant="11" id="e3r-Fc-8rg"/>
                                                         <constraint firstAttribute="trailing" secondItem="LBl-WB-2fg" secondAttribute="trailing" constant="11" id="fLy-tB-dmJ"/>
                                                         <constraint firstItem="lgE-Ek-KO8" firstAttribute="top" secondItem="eMU-1Q-qnf" secondAttribute="top" constant="13" id="gGB-0J-4ZL"/>
                                                         <constraint firstItem="LBl-WB-2fg" firstAttribute="top" secondItem="hEu-wI-ASh" secondAttribute="bottom" constant="2" id="glE-rO-33N"/>
@@ -5456,6 +5464,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="notificationDate" destination="Ruo-Zt-r7O" id="Kb5-Nc-1aC"/>
+                                            <outlet property="notificationDescription" destination="LBl-WB-2fg" id="flj-bj-kgg"/>
+                                            <outlet property="notificationTittle" destination="hEu-wI-ASh" id="QdO-dt-ygN"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

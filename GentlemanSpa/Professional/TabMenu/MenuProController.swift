@@ -230,10 +230,10 @@ class MenuProController: UIViewController,UITableViewDelegate,UITableViewDataSou
             
             self.callApiWhenBackgroundedPro(false)
             self.deleteAllEvents()
-            let FCSToken = UserDefaults.standard.value(forKey:Constants.deviceToken)
+            let FCSToken = UserDefaults.standard.value(forKey:Constants.fcmToken)
             UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
             UserDefaults.standard.synchronize()
-            UserDefaults.standard.setValue(FCSToken, forKey:Constants.deviceToken)
+            UserDefaults.standard.setValue(FCSToken, forKey:Constants.fcmToken)
             UserDefaults.standard.synchronize()
             UserDefaults.standard.set(false, forKey: Constants.login)
             UserDefaults.standard.synchronize()

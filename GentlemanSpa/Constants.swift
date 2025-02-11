@@ -327,4 +327,13 @@ extension String{
     var GetEventList: String{
         return "Path".path + "Event/GetEventList"
     }
+    var updateFCMToken: String{
+        return "Path".path + "Notification/updateFCMToken"
+    }
+    
+    var getNotificationList: String{
+        return "Path".path + "Notification/getNotificationList"
+    }
+    
+
 }

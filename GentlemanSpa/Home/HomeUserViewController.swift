@@ -42,10 +42,8 @@ class HomeUserViewController: UIViewController {
         refreshControlUp.tintColor = UIColor.white
         tableViewHome.refreshControl = refreshControlUp
         
-        
         self.navigationController?.navigationBar.isHidden = true
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Banner_Timer_Stop"), object: nil)
-        
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.Menu_Push_Action), name: NSNotification.Name(rawValue: "Menu_Push_Action"), object: nil)
         
@@ -76,10 +74,10 @@ class HomeUserViewController: UIViewController {
                 deleteAllEvents()
                 
                 
-                let FCSToken = UserDefaults.standard.value(forKey:Constants.deviceToken)
+                let FCSToken = UserDefaults.standard.value(forKey:Constants.fcmToken)
                 UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
                 UserDefaults.standard.synchronize()
-                UserDefaults.standard.setValue(FCSToken, forKey:Constants.deviceToken)
+                UserDefaults.standard.setValue(FCSToken, forKey:Constants.fcmToken)
                 UserDefaults.standard.synchronize()
                 UserDefaults.standard.set(false, forKey: Constants.login)
                 UserDefaults.standard.synchronize()
@@ -126,6 +124,7 @@ class HomeUserViewController: UIViewController {
                         self.categoryAPI(true, true, 1)
                         self.ProductCategoriesAPI(true, true, 1)
                         self.GetProfessionalListAPI(true, true, 1)
+                        self.notificationTokenData()
                     }
                 }
             }
@@ -144,18 +143,24 @@ class HomeUserViewController: UIViewController {
         self.parent?.navigationController?.pushViewController(controller, animated: true)
     }
     
+    //MARK: - NotificationTokenApi
+    func notificationTokenData(){
+        
+            let param = ["fcmToken" : Constants.fcmTokenFirePuch]
+                    NotificationTokenAPIRequest.shared.tokenApi(requestParams: param) { (user,message,isStatus) in
+            }
+        
+    }
+    
     //MARK: - Online API
-
     private func callApiWhenBackgrounded(_ isOff: Bool) {
         
-        var apiURL = "BaseURL".updateOnlineStatusManually
-
+        let apiURL = "BaseURL".updateOnlineStatusManually
         let url = URL(string: apiURL)!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         if accessToken() != ""{
             let bearer : String = "Bearer \(accessToken())"
-            print(bearer)
             request.addValue(bearer, forHTTPHeaderField: "Authorization")
         }
         else{
@@ -164,7 +169,6 @@ class HomeUserViewController: UIViewController {
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        // Sample JSON payload
         let jsonPayload = ["userName": userId(),
                            "onlineStatus": isOff] as [String : Any]
         
@@ -173,10 +177,6 @@ class HomeUserViewController: UIViewController {
             request.httpBody = jsonString.data(using: .utf8)
 
         }
-    
-
-     //    request.httpBody = try? JSONSerialization.data(withJSONObject: jsonPayload, options: [])
-
          let task = URLSession.shared.dataTask(with: request) { data, response, error in
              if let error = error {
                  print("Error during API call: \(error)")
@@ -184,8 +184,6 @@ class HomeUserViewController: UIViewController {
              }
              if let data = data {
                  print("API Response: \(String(data: data, encoding: .utf8) ?? "")")
-                 print(isOff)
-
              }
          }
         task.resume()
@@ -226,7 +224,6 @@ class HomeUserViewController: UIViewController {
                     self.arrayHomeBannerModel.removeAll()
                     self.arrayHomeBannerModel = arrayData ?? self.arrayHomeBannerModel
                     self.tableViewHome.reloadData()
-                    
                 }
             }
         }
@@ -272,7 +269,6 @@ class HomeUserViewController: UIViewController {
                 if arrayData != nil{
                     self.arrGetProfessionalList = arrayData ?? self.arrGetProfessionalList
                     self.tableViewHome.reloadData()
-                    
                 }
                 else{
                     self.arrGetProfessionalList.removeAll()

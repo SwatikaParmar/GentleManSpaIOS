@@ -173,19 +173,21 @@ class MapsViewController: UIViewController{
                 switch(locationAuthorizationStatus) {
                 case .restricted, .denied:
                     print("No access")
-                    let accessAlert = UIAlertController(title: "Location Services Disabled", message: "You need to enable location services in settings.", preferredStyle: UIAlertController.Style.alert)
-                    
-                    accessAlert.addAction(UIAlertAction(title: "Okay!", style: .default, handler: { (action: UIAlertAction!) in UIApplication.shared.open(URL(string: "\(UIApplication.openSettingsURLString)")!)
-                    }))
-                    
-                    let keyWindow = UIApplication.shared.connectedScenes
-                        .filter({$0.activationState == .foregroundActive})
-                        .compactMap({$0 as? UIWindowScene})
-                        .first?.windows
-                        .filter({$0.isKeyWindow}).first
-                    
-                    keyWindow?.rootViewController?.present(accessAlert, animated: true, completion: nil)
-                    
+                    DispatchQueue.main.async {
+                        
+                        let accessAlert = UIAlertController(title: "Location Services Disabled", message: "You need to enable location services in settings.", preferredStyle: UIAlertController.Style.alert)
+                        
+                        accessAlert.addAction(UIAlertAction(title: "Okay!", style: .default, handler: { (action: UIAlertAction!) in UIApplication.shared.open(URL(string: "\(UIApplication.openSettingsURLString)")!)
+                        }))
+                        
+                        let keyWindow = UIApplication.shared.connectedScenes
+                            .filter({$0.activationState == .foregroundActive})
+                            .compactMap({$0 as? UIWindowScene})
+                            .first?.windows
+                            .filter({$0.isKeyWindow}).first
+                        
+                        keyWindow?.rootViewController?.present(accessAlert, animated: true, completion: nil)
+                    }
                     //check if services are allowed for this app
                 case .authorizedAlways, .authorizedWhenInUse:
                     print("Access! We're good to go!")
@@ -197,22 +199,24 @@ class MapsViewController: UIViewController{
                     
                 }
             } else {
-                let accessAlert = UIAlertController(title: "", message: "GPS access is restricted. In order to use Pay and Checking, Please enable GPS in the Settigs app under Privacy, Location Services.", preferredStyle: UIAlertController.Style.alert)
-                accessAlert.addAction(UIAlertAction(title: "Go to Settings now", style: UIAlertAction.Style.default, handler: { (alert: UIAlertAction!) in
-                    UIApplication.shared.open(URL(string: "\(UIApplication.openSettingsURLString)")!)
+                DispatchQueue.main.async {
                     
-                }))
-                
-                let keyWindow = UIApplication.shared.connectedScenes
-                    .filter({$0.activationState == .foregroundActive})
-                    .compactMap({$0 as? UIWindowScene})
-                    .first?.windows
-                    .filter({$0.isKeyWindow}).first
-                
-                keyWindow?.rootViewController?.present(accessAlert, animated: true, completion: nil)
+                    let accessAlert = UIAlertController(title: "", message: "GPS access is restricted. In order to use Pay and Checking, Please enable GPS in the Settigs app under Privacy, Location Services.", preferredStyle: UIAlertController.Style.alert)
+                    accessAlert.addAction(UIAlertAction(title: "Go to Settings now", style: UIAlertAction.Style.default, handler: { (alert: UIAlertAction!) in
+                        UIApplication.shared.open(URL(string: "\(UIApplication.openSettingsURLString)")!)
+                        
+                    }))
+                    
+                    let keyWindow = UIApplication.shared.connectedScenes
+                        .filter({$0.activationState == .foregroundActive})
+                        .compactMap({$0 as? UIWindowScene})
+                        .first?.windows
+                        .filter({$0.isKeyWindow}).first
+                    
+                    keyWindow?.rootViewController?.present(accessAlert, animated: true, completion: nil)
+                }
             }
         }
-        
     }
     
     

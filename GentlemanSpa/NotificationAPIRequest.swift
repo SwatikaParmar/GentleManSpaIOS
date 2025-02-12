@@ -177,3 +177,87 @@ class NotificationDataList : NSObject {
         createDate = dictionary["createDate"] as? String ?? ""
     }
 }
+
+class GetNotificationCountRequest: NSObject {
+    
+    static let shared = GetNotificationCountRequest()
+    func getNotificationCountData(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData: Int?,_ message : String?, _ isStatus : Bool) -> Void) {
+        
+        var apiURL = String("".getNotificationCount)
+        apiURL = String(format:"%@",apiURL)
+        
+        print("URL---->> ",apiURL)
+        print("Request---->> ",requestParams)
+        
+        AlamofireRequest.shared.GetBodyFrom(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
+            
+            print(data ?? "No data")
+            if error == nil{
+                var messageString : String = ""
+                if let status = data?["isSuccess"] as? Bool{
+                    if let msg = data?["messages"] as? String{
+                        messageString = msg
+                    }
+                    if status{
+                       
+                        if let result = data?["data"] as? [String: Any]{
+    
+                            completion(result["notificationCount"] as? Int ,messageString,true)
+                        } else{
+                            completion(0,messageString,true)
+                        }
+
+                    }else{
+                        completion(0,messageString,false)
+                    }
+                }
+                else
+                {
+                    completion(0,"",false)
+                }
+            }
+        }
+    }
+}
+
+class ReadNotificationRequest: NSObject {
+    
+    static let shared = ReadNotificationRequest()
+    func readNotificationRequestData(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData: Int?,_ message : String?, _ isStatus : Bool) -> Void) {
+        
+        var apiURL = String("".readNotification)
+        apiURL = String(format:"%@?notificationSentId=0",apiURL)
+        
+        print("URL---->> ",apiURL)
+        print("Request---->> ",requestParams)
+        
+        AlamofireRequest.shared.GetBodyFrom(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
+            
+            print(data ?? "No data")
+            if error == nil{
+                var messageString : String = ""
+                if let status = data?["isSuccess"] as? Bool{
+                    if let msg = data?["messages"] as? String{
+                        messageString = msg
+                    }
+                    if status{
+                       
+                        if let result = data?["data"] as? [String: Any]{
+    
+                            completion(result["notificationCount"] as? Int ,messageString,true)
+                        } else{
+                            completion(0,messageString,true)
+                        }
+
+                    }else{
+                        completion(0,messageString,false)
+                    }
+                }
+                else
+                {
+                    completion(0,"",false)
+                }
+            }
+        }
+    }
+}

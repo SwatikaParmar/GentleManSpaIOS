@@ -14,6 +14,8 @@ import EventKit
 
 class HomeUserViewController: UIViewController {
     @IBOutlet weak var tableViewHome : UITableView!
+    @IBOutlet weak var viewNotification : UIView!
+
     var arrayHomeBannerModel = [HomeBannerModel]()
     var arrSortedCategory = [dashboardCategoryObject]()
     var arrSortedProductCategories = [ProductCategoriesObject]()
@@ -48,6 +50,8 @@ class HomeUserViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.Menu_Push_Action), name: NSNotification.Name(rawValue: "Menu_Push_Action"), object: nil)
         
         getUserDataAPI()
+        
+
        
     }
     @objc func RefreshScreenUp() {
@@ -61,7 +65,7 @@ class HomeUserViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        
+        self.notificationCountAPI()
     }
     
     @objc func Menu_Push_Action(_ notification: NSNotification) {
@@ -100,11 +104,32 @@ class HomeUserViewController: UIViewController {
             if count == "RescheduleService"{
                 generateEvent()
             }
+         
+        }
+        else if  let senderId = notification.userInfo?["senderId"] as? String {
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(nil, forKey: "senderId")
+            self.chatViewOpen(senderId)
             
         }
     }
     
-    
+    func chatViewOpen(_ senderId: String) {
+        
+        let viewControllers: [UIViewController] = TabBarUserVc.sharedNavigationController.viewControllers
+        if viewControllers.count > 0 {
+            if viewControllers[0].parent?.navigationController?.viewControllers.last is ChatController {
+            }
+            else{
+                
+                let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
+                controller.otherUserID = senderId
+                viewControllers.last?.parent?.navigationController?.pushViewController(controller, animated: true)
+
+            }
+        }
+}
+                            
     func getUserDataAPI(){
         
         if UserDefaults.standard.bool(forKey: Constants.login) {
@@ -125,6 +150,14 @@ class HomeUserViewController: UIViewController {
                         self.ProductCategoriesAPI(true, true, 1)
                         self.GetProfessionalListAPI(true, true, 1)
                         self.notificationTokenData()
+                        self.notificationCountAPI()
+                        
+                            let userDefaults = UserDefaults.standard
+                            if let senderId = userDefaults.object(forKey: "senderId") as? String {
+                                self.chatViewOpen(senderId)
+                            }
+                            userDefaults.set(nil, forKey: "senderId")
+                        
                     }
                 }
             }
@@ -150,6 +183,22 @@ class HomeUserViewController: UIViewController {
                     NotificationTokenAPIRequest.shared.tokenApi(requestParams: param) { (user,message,isStatus) in
             }
         
+    }
+    
+    func notificationCountAPI(){
+        GetNotificationCountRequest.shared.getNotificationCountData(requestParams:[:], false) { (arrayData,message,isStatus) in
+            if isStatus {
+                if arrayData != 0{
+                    self.viewNotification.isHidden = false
+                }
+                else{
+                    self.viewNotification.isHidden = true
+                }
+            }
+            else{
+                self.viewNotification.isHidden = true
+            }
+        }
     }
     
     //MARK: - Online API

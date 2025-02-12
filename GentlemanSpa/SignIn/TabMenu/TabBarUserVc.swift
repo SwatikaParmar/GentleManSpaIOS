@@ -26,7 +26,7 @@ class TabBarUserVc: UIViewController {
         @IBOutlet weak var lbeProfile: UILabel!
         
         
-        
+        public static var sharedNavigationController = UINavigationController()
         var homeClass: HomeUserViewController?
         var className = "Home"
         var lastOpenClass = ""
@@ -108,6 +108,9 @@ class TabBarUserVc: UIViewController {
                         lastOpenClass = "MyCart"
                     }
                 }
+                
+                TabBarUserVc.sharedNavigationController = homeClassNav!
+
             }
             
             
@@ -128,7 +131,7 @@ class TabBarUserVc: UIViewController {
                 if Contentview.contains(notificationNav?.view ?? UIView()){
                     notificationNav?.view.removeFromSuperview()
                 }
-                
+
                 guard let home = self.storyboard?.instantiateViewController(identifier: "HistoryUserViewController") as? HistoryUserViewController else { return}
                 home.view.frame = Contentview.bounds
                 notificationNav = UINavigationController(rootViewController: home)
@@ -138,7 +141,8 @@ class TabBarUserVc: UIViewController {
                 notificationNav!.didMove(toParent: self)
                 
                 lastOpenClass = "Favourites"
-                
+                TabBarUserVc.sharedNavigationController = notificationNav!
+
             }
             else{
                 
@@ -150,7 +154,7 @@ class TabBarUserVc: UIViewController {
                 if Contentview.contains(profileNav?.view ?? UIView()){
                     profileNav?.view.removeFromSuperview()
                 }
-                
+
                 
                 guard let home = self.storyboard?.instantiateViewController(identifier: "ProfileUserViewController") as? ProfileUserViewController else { return}
                 home.view.frame = Contentview.bounds
@@ -161,7 +165,8 @@ class TabBarUserVc: UIViewController {
                 Contentview.addSubview((profileNav?.view)!)
                 profileNav!.didMove(toParent: self)
                 lastOpenClass = "Profile"
-                
+                TabBarUserVc.sharedNavigationController = profileNav!
+
             }
             
         }

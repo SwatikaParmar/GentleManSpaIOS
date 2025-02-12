@@ -26,8 +26,14 @@ class UserNotificationViewController: UIViewController {
         super.viewDidLoad()
         topViewLayout()
         notificationAPI(true, true, "")
+        notificationCountRemoveAPI()
 
        
+    }
+    
+    func notificationCountRemoveAPI(){
+        ReadNotificationRequest.shared.readNotificationRequestData(requestParams:[:], false) { (arrayData,message,isStatus) in
+        }
     }
     
     func notificationAPI(_ isLoader:Bool, _ isAppend: Bool, _ type:String){

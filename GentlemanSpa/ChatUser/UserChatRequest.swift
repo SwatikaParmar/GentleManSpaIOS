@@ -80,9 +80,14 @@ class GetMessageReplysRequest: NSObject {
 class ComplaintReply: NSObject {
     
         var receiverOnlineStatus: Int
+        var senderProfilePic: String?
+    var name: String
+
         var replies: [MessagingList] = []
     
     init(dict: [String: Any]) {
+        self.senderProfilePic = dict["senderProfilePic"] as? String ?? ""
+        self.name = dict["name"] as? String ?? ""
         self.receiverOnlineStatus = dict["receiverOnlineStatus"] as? Int ?? 0
 
         if let slotsArray = dict["messages"] as? [[String: Any]] {

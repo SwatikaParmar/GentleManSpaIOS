@@ -335,5 +335,12 @@ extension String{
         return "Path".path + "Notification/getNotificationList"
     }
     
+    var getNotificationCount: String{
+        return "Path".path + "Notification/getNotificationCount"
+    }
+    
+    var readNotification: String{
+        return "Path".path + "Notification/readNotification"
+    }
 
 }

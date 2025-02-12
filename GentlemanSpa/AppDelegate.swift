@@ -95,6 +95,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate, UNUserN
     }
     public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
+        if UserDefaults.standard.bool(forKey: Constants.login)
+        {
+            if let senderId = response.notification.request.content.userInfo["userId"] as? String {
+                if let type = response.notification.request.content.userInfo["type"] as? String {
+                    if type == "Chat" {
+                        if UserDefaults.standard.string(forKey: Constants.userType) == "Professional" {
+                        }
+                        else{
+                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Menu_Push_Action"), object: nil, userInfo: ["senderId":senderId])
+                        }
+                    }
+                }
+            }
+        }
     }
     
   

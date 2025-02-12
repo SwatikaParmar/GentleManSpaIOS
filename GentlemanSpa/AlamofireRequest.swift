@@ -111,7 +111,7 @@ class AlamofireRequest: NSObject {
                 
             if authToken != nil{
                 let bearer : String = "Bearer \(authToken!)"
-                print(bearer)
+             //   print(bearer)
                 urlRequest.addValue(bearer, forHTTPHeaderField: "Authorization")
                 urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
             }

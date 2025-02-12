@@ -132,7 +132,7 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
             let urlString = imagePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
             cell.imgView.sd_setImage(with:URL(string: urlString), placeholderImage: UIImage(named: GlobalConstants.MalePlaceHolding))
             
-            cell.lbeOnline.layer.cornerRadius = 8
+            cell.lbeOnline.layer.cornerRadius = 7
             cell.lbeOnline.clipsToBounds = true
             if self.conversationsSort[indexPath.row].onlineData == 1{
                 cell.lbeOnline.isHidden = false

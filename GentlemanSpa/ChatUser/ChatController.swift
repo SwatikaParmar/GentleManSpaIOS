@@ -330,7 +330,7 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
         
         var apiURL = "base".messagesGet
         apiURL = String(format: "%@?senderId=%@&receiverId=%@", apiURL, userId(),otherUserID)
-        
+        print(apiURL)
         GetMessageReplysRequest.shared.GetMessageReplysAPI(apiURL,isLoader) { (dictionary,message,status) in
             if status {
                 if dictionary != nil{
@@ -343,6 +343,16 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
                         else {
                             self.lbeOnline.text = ""
                         }
+                        
+                        self.imgString = dictionary?[0].senderProfilePic ?? ""
+                        
+                        let imagePath = String("\(GlobalConstants.BASE_IMAGE_URL)\(self.imgString)")
+                        
+                        let urlString = imagePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                        self.imgViewUser.sd_setImage(with:URL(string: urlString), placeholderImage: UIImage(named: GlobalConstants.MalePlaceHolding))
+                        
+                  
+                        self.lbeUserName.text = dictionary?[0].name
                     }
                 }
                 

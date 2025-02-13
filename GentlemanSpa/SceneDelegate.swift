@@ -42,9 +42,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //                UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
             }
         }
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Menu_Push_Action"), object: nil, userInfo: ["count":"Notification"])
-
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

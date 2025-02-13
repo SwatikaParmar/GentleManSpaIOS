@@ -128,7 +128,7 @@ class LocationListRequest: NSObject {
                 
                      print(data ?? "No data")
                      if error == nil{
-                         var messageString : String = ""
+                         var messageString : String = GlobalConstants.serverError
                          if let status = data?["isSuccess"] as? Bool{
                              if let msg = data?["messages"] as? String{
                                  messageString = msg

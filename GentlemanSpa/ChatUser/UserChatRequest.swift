@@ -17,7 +17,7 @@ class AddUserToChatRequest: NSObject {
         AlamofireRequest.shared.PostBodyForRawData(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: true, loaderMessage: "") { (data, error) in
                      print(data ?? "No data")
                      if error == nil{
-                         var messageString : String = ""
+                         var messageString : String = GlobalConstants.serverError
                          if let status = data?["isSuccess"] as? Bool{
                              if let msg = data?["messages"] as? String{
                                  messageString = msg
@@ -51,7 +51,7 @@ class GetMessageReplysRequest: NSObject {
             AlamofireRequest.shared.GetBodyFrom(urlString:url, parameters: [:], authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
                // print(data ?? "No data")
                 if error == nil{
-                    var messageString : String = ""
+                    var messageString : String = GlobalConstants.serverError 
                     if let status = data?["isSuccess"] as? Bool{
                         if let msg = data?["messages"] as? String{
                             messageString = msg
@@ -130,7 +130,7 @@ class SendReplyRequest: NSObject {
         AlamofireRequest.shared.PostBodyForRawData(urlString:urlString, parameters: requestParams, authToken:accessToken(), isLoader: false, loaderMessage: "") { (data, error) in
                  print(data ?? "No data")
                  if error == nil{
-                     var messageString : String = ""
+                     var messageString : String = GlobalConstants.serverError 
                      if let status = data?["isSuccess"] as? Bool{
                          if let msg = data?["messages"] as? String{
                              messageString = msg
@@ -164,7 +164,7 @@ class GetChatUserListRequest: NSObject {
             AlamofireRequest.shared.GetBodyFrom(urlString:url, parameters: [:], authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
                 print(data ?? "No data")
                 if error == nil{
-                    var messageString : String = ""
+                    var messageString : String = GlobalConstants.serverError
                     if let status = data?["isSuccess"] as? Bool{
                         if let msg = data?["messages"] as? String{
                             messageString = msg
@@ -237,7 +237,46 @@ class MessageDeleteRequest: NSObject {
                 
                      print(data ?? "No data")
                      if error == nil{
-                         var messageString : String = ""
+                         var messageString : String = GlobalConstants.serverError 
+                         if let status = data?["isSuccess"] as? Bool{
+                             if let msg = data?["messages"] as? String{
+                                 messageString = msg
+                             }
+                             if status {
+                                 let homeListObject : [AddressListModel] = []
+                                  completion(homeListObject,messageString,true)
+                                 
+                             }else{
+                                 completion(nil,messageString,false)
+                             }
+                         }
+                         else
+                         {
+                             completion(nil,"",false)
+                         }
+                        }
+                        else
+                        {
+                            completion(nil,"",false)
+                }
+            }
+        }
+}
+
+
+class RemoveUserFromPersonalChatRoomRequest: NSObject {
+
+    static let shared = RemoveUserFromPersonalChatRoomRequest()
+    func RemoveUserAPI(id : String, completion: @escaping (_ objectData: [AddressListModel]?,_ message : String?, _ isStatus : Bool) -> Void) {
+
+        var apiURL = String("\("Base".RemoveUserFromPersonalChatRoom)")
+        apiURL = String(format: "%@?currentUserName=%@&targetUserName=%@",apiURL,userId(),id)
+        print(apiURL)
+        AlamofireRequest.shared.DeleteBodyFrom(urlString:apiURL, parameters: [:], authToken:accessToken(), isLoader: true, loaderMessage: "") { (data, error) in
+                
+                     print(data ?? "No data")
+                     if error == nil{
+                         var messageString : String = GlobalConstants.serverError
                          if let status = data?["isSuccess"] as? Bool{
                              if let msg = data?["messages"] as? String{
                                  messageString = msg

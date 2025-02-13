@@ -21,7 +21,7 @@ class SetPasswordRequest: NSObject {
             if error == nil{
                 
                 if let status = data?["isSuccess"] as? Bool{
-                    var messageString : String = ""
+                    var messageString : String = GlobalConstants.serverError 
                     if let msg = data?["messages"] as? String{
                         messageString = msg
                     }
@@ -58,7 +58,7 @@ class IsPhoneUniqueAPIRequest: NSObject {
                 
                 if let status = data?["isSuccess"] as? Bool{
                     
-                    var messageString : String = ""
+                    var messageString : String = GlobalConstants.serverError 
                     var OTP = 0
                     
                     if let msg = data?["messages"] as? String{
@@ -108,7 +108,7 @@ class ResendEmailAPIRequest: NSObject {
                 
                 if let status = data?["isSuccess"] as? Bool{
                     
-                    var messageString : String = ""
+                    var messageString : String = GlobalConstants.serverError
                     var OTP = 0
                     
                     if let msg = data?["messages"] as? String{
@@ -159,7 +159,7 @@ class AccountAPIRequest: NSObject {
                 if let status = data?["isSuccess"] as? Bool
                 {
                     
-                    var messageString : String = ""
+                    var messageString : String = GlobalConstants.serverError 
                     var accessToken : String = ""
                     
                     if let msg = data?["messages"] as? String{

@@ -17,7 +17,7 @@ class AddOrUpdateProductInCartRequest: NSObject {
         AlamofireRequest.shared.PostBodyForRawData(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
                      print(data ?? "No data")
                      if error == nil{
-                         var messageString : String = ""
+                         var messageString : String = GlobalConstants.serverError 
                          if let status = data?["isSuccess"] as? Bool{
                              if let msg = data?["messages"] as? String{
                                  messageString = msg
@@ -61,7 +61,7 @@ class GetProductCartRequest: NSObject {
                 
                      print(data ?? "No data")
                      if error == nil{
-                         var messageString : String = ""
+                         var messageString : String = GlobalConstants.serverError 
                          if let status = data?["isSuccess"] as? Bool{
                              if let msg = data?["messages"] as? String{
                                  messageString = msg
@@ -301,7 +301,7 @@ class AddUpdateCartServiceRequest: NSObject {
         AlamofireRequest.shared.PostBodyForRawData(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: true, loaderMessage: "") { (data, error) in
                      print(data ?? "No data")
                      if error == nil{
-                         var messageString : String = ""
+                         var messageString : String = GlobalConstants.serverError 
                          if let status = data?["isSuccess"] as? Bool{
                              if let msg = data?["messages"] as? String{
                                  messageString = msg
@@ -341,7 +341,7 @@ class RescheduleServiceRequest: NSObject {
         AlamofireRequest.shared.PostBodyForRawData(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: true, loaderMessage: "") { (data, error) in
                      print(data ?? "No data")
                      if error == nil{
-                         var messageString : String = ""
+                         var messageString : String = GlobalConstants.serverError 
                          if let status = data?["isSuccess"] as? Bool{
                              if let msg = data?["messages"] as? String{
                                  messageString = msg

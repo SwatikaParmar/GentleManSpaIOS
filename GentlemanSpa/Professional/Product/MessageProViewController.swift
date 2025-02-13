@@ -197,6 +197,11 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
     
     public func deleteConversation(conversationId:String, index:Int){
         
+        if self.conversationsSort.count > index {
+                RemoveUserFromPersonalChatRoomRequest.shared.RemoveUserAPI(id:conversationId) { (arrayData,message,isStatus) in
+                    self.getAllConversations(false)
+            }
+        }
     }
 }
 

@@ -24,7 +24,7 @@ class GetProfessionalListRequest: NSObject {
                 
                      print(data ?? "No data")
                      if error == nil{
-                         var messageString : String = ""
+                         var messageString : String = GlobalConstants.serverError 
                          if let status = data?["isSuccess"] as? Bool{
                              if let msg = data?["messages"] as? String{
                                  messageString = msg
@@ -115,7 +115,7 @@ class TeamsProfessionalListRequest: NSObject {
                 
                      print(data ?? "No data")
                      if error == nil{
-                         var messageString : String = ""
+                         var messageString : String = GlobalConstants.serverError 
                          if let status = data?["isSuccess"] as? Bool{
                              if let msg = data?["messages"] as? String{
                                  messageString = msg

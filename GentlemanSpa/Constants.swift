@@ -121,7 +121,9 @@ extension String{
     var deleteMessages: String{
         return "Path".path + "Chat/messages"
     }
-    
+    var RemoveUserFromPersonalChatRoom: String{
+        return "Path".path + "Chat/RemoveUserFromPersonalChatRoom"
+    }
     
     
     
@@ -136,6 +138,11 @@ extension String{
     var LoginURL: String{
         return "Path".path + "Auth/Login"
     }
+    
+    var LogoutURL: String{
+        return "Path".path + "Auth/Logout"
+    }
+    
     var ChangePassword: String{
         return "Path".path + "Auth/ChangePassword"
     }

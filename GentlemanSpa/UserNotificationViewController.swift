@@ -97,9 +97,9 @@ extension UserNotificationViewController: UITableViewDataSource,UITableViewDeleg
         var sizeFontB = CGFloat()
         if notificationArr.count > indexPath.row {
     
-            sizeFont  = notificationArr[indexPath.row].title.lineCount(text: "", font: UIFont(name:FontName.Inter.Medium, size: "".dynamicFontSize(13)) ?? UIFont.systemFont(ofSize: 15.0), width:tableView.bounds.size.width - 111)
+            sizeFont  = notificationArr[indexPath.row].title.lineCount(text: "", font: UIFont(name:FontName.Inter.Medium, size: "".dynamicFontSize(13)) ?? UIFont.systemFont(ofSize: 15.0), width:tableView.bounds.size.width - 115)
     
-            sizeFontA  = notificationArr[indexPath.row].descriptionStr.lineCount(text: "", font: UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(13)) ?? UIFont.systemFont(ofSize: 15.0), width:tableView.bounds.size.width - 111)
+            sizeFontA  = notificationArr[indexPath.row].descriptionStr.lineCount(text: "", font: UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(13)) ?? UIFont.systemFont(ofSize: 15.0), width:tableView.bounds.size.width - 115)
     
         }
         sizeFontB = sizeFont * 20 + 60 + sizeFontA * 20

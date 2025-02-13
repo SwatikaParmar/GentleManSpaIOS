@@ -26,7 +26,8 @@ class TabBarProVc: UIViewController {
     @IBOutlet weak var lbeProfile: UILabel!
     
     
-    
+    public static var sharedNavigationControllerPro = UINavigationController()
+
     var homeClass: HomeViewController?
     var className = "Home"
     var lastOpenClass = ""
@@ -103,6 +104,8 @@ class TabBarProVc: UIViewController {
                 lastOpenClass = "Home"
                 
             }
+            TabBarProVc.sharedNavigationControllerPro = homeClassNav!
+
         }
         
         
@@ -126,7 +129,8 @@ class TabBarProVc: UIViewController {
             searchNav!.didMove(toParent: self)
             
             lastOpenClass = "Favourites"
-            
+            TabBarProVc.sharedNavigationControllerPro = searchNav!
+
         }
         
         else if className == "RewardsVc"{
@@ -149,7 +153,8 @@ class TabBarProVc: UIViewController {
             notificationNav!.didMove(toParent: self)
             
             lastOpenClass = "Favourites"
-            
+            TabBarProVc.sharedNavigationControllerPro = notificationNav!
+
         }
         else{
             
@@ -175,7 +180,8 @@ class TabBarProVc: UIViewController {
             Contentview.addSubview((profileNav?.view)!)
             profileNav!.didMove(toParent: self)
             lastOpenClass = "p"
-            
+            TabBarProVc.sharedNavigationControllerPro = profileNav!
+
         }
         
     }

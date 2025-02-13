@@ -101,9 +101,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate, UNUserN
                 if let type = response.notification.request.content.userInfo["type"] as? String {
                     if type == "Chat" {
                         if UserDefaults.standard.string(forKey: Constants.userType) == "Professional" {
+                            if UserDefaults.standard.bool(forKey: Constants.login){
+                                
+                                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Menu_Push_Pro"), object: nil, userInfo: ["senderId":senderId])
+                            }
                         }
                         else{
-                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Menu_Push_Action"), object: nil, userInfo: ["senderId":senderId])
+                            if UserDefaults.standard.bool(forKey: Constants.login){
+                                
+                                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Menu_Push_Action"), object: nil, userInfo: ["senderId":senderId])
+                            }
                         }
                     }
                 }

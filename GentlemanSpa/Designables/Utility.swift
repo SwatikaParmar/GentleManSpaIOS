@@ -268,7 +268,7 @@ extension String {
             let formattedDateString = outputFormatter.string(from: date)
             return formattedDateString
         }
-        return dateString
+        return ""
     }
     
     func dateFromString(_ dateString : String) -> Date {

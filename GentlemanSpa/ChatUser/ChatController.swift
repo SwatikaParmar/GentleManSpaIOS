@@ -302,6 +302,7 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
                 }
             } else if self.lastContentOffset > scrollView.contentOffset.y {
                 
+                print()
             }
         }
     }
@@ -329,17 +330,22 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
         
         
         var apiURL = "base".messagesGet
-        apiURL = String(format: "%@?senderId=%@&receiverId=%@", apiURL, userId(),otherUserID)
-        print(apiURL)
+        apiURL = String(format: "%@?senderId=%@&receiverId=%@&pageNumber=1&pageSize=1000", apiURL, userId(),otherUserID)
+       
         GetMessageReplysRequest.shared.GetMessageReplysAPI(apiURL,isLoader) { (dictionary,message,status) in
             if status {
                 if dictionary != nil{
                     if dictionary?.count ?? 0 > 0 {
+                        var isLastMessageCount = true
+                        if self.messages.count == dictionary?[0].replies.count {
+                            isLastMessageCount = false
+                        }
+                        
                         self.messages = dictionary?[0].replies ?? self.messages
                         if dictionary?[0].receiverOnlineStatus == 1 {
                             self.lbeOnline.text = "Online"
                             self.lbeOnline.textColor = .green
-                         }
+                        }
                         else {
                             self.lbeOnline.text = ""
                         }
@@ -351,16 +357,17 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
                         let urlString = imagePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
                         self.imgViewUser.sd_setImage(with:URL(string: urlString), placeholderImage: UIImage(named: GlobalConstants.MalePlaceHolding))
                         
-                  
                         self.lbeUserName.text = dictionary?[0].name
-                    }
-                }
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    if self.messages.count > 0 {
-                        let lastRow: Int = self.messages.count - 1
-                        let indexPath = IndexPath(row: lastRow, section: 0);
-                        self.tblView.scrollToRow(at: indexPath, at: .top, animated: false)
+    
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            if self.messages.count > 0 {
+                                if isLastMessageCount {
+                                    let lastRow: Int = self.messages.count - 1
+                                    let indexPath = IndexPath(row: lastRow, section: 0);
+                                    self.tblView.scrollToRow(at: indexPath, at: .top, animated: false)
+                                }
+                            }
+                        }
                     }
                 }
                 DispatchQueue.main.async {
@@ -435,16 +442,9 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
                 cell?.labelMessage.text = messages[indexPath.row].message
                 cell?.labelTime.text = "".ReplyWithString(self.messages[indexPath.row].sentTime)
             }
-            
-            
-            
-            
         }
         else
         {
-            
-            
-            
             let cellIdentifier = kReuseIdentifierChatLeftTextTableCell
             
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ChatLeftTextTableCell
@@ -465,8 +465,7 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
             cell?.viewLeft.addGestureRecognizer(lpgr)
             
         }
-        
-        
+    
         return usedCell
     }
     

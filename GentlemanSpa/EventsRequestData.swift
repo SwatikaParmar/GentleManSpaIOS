@@ -16,7 +16,7 @@ class GetEventsListRequest: NSObject{
         
         var apiURL = String("Base".GetEventList)
         
-        apiURL = String(format:"%@?pageNumber=1&pageSize=1000",apiURL)
+        apiURL = String(format:"%@?UserId=%@&pageNumber=1&pageSize=1000",apiURL,userId())
         
         
         print("URL---->> ",apiURL)
@@ -26,7 +26,7 @@ class GetEventsListRequest: NSObject{
             
             print(data ?? "No data")
             if error == nil{
-                var messageString : String = ""
+                var messageString : String = GlobalConstants.serverError 
                 if let status = data?["isSuccess"] as? Bool{
                     if let msg = data?["messages"] as? String{
                         messageString = msg
@@ -111,7 +111,7 @@ class AddOrUpdateEventRegistrationRequest: NSObject {
         AlamofireRequest.shared.PostBodyForRawData(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: true, loaderMessage: "") { (data, error) in
                      print(data ?? "No data")
                      if error == nil{
-                         var messageString : String = ""
+                         var messageString : String = GlobalConstants.serverError 
                          if let status = data?["isSuccess"] as? Bool{
                              if let msg = data?["messages"] as? String{
                                  messageString = msg

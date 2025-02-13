@@ -21,7 +21,7 @@ class LoginAPIRequest: NSObject {
             if error == nil{
                 
                 if let status = data?["isSuccess"] as? Bool{
-                    var messageString : String = ""
+                    var messageString : String = GlobalConstants.serverError
                     var accessToken : String = ""
                     var emailConfirmed : Bool = false
                     var lastScreenId : Int = 0
@@ -320,3 +320,46 @@ class LoginObject : NSObject, NSCoding {
     
 
 }
+class LogoutAPIRequest: NSObject {
+    
+    static let shared = LogoutAPIRequest()
+
+    func Logout(requestParams : [String:Any], completion: @escaping (_ message : String?, _ status : Bool) -> Void) {
+        
+        let apiURL = String("".LogoutURL)
+        
+        print("URL---->> ",apiURL)
+        print("Request---->> ",requestParams)
+
+        AlamofireRequest.shared.PostBodyForRawData(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: true, loaderMessage: "") { (data, error) in
+               
+                print("*************************************************")
+                print(data ?? "No data")
+
+            if error == nil{
+                var messageString : String = GlobalConstants.serverError 
+                if let status = data?["isSuccess"] as? Bool{
+                if let msg = data?["messages"] as? String{
+                     messageString = msg
+                }
+                if status == true{
+                completion(messageString,true)
+                }else{
+                completion(messageString, false)
+                }
+                }
+                else
+                {
+                completion("", false)
+                }
+                }
+                else
+                {
+                print(error ?? "No error")
+                completion("", false)
+            }
+        }
+    }
+}
+
+

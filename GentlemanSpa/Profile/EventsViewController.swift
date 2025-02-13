@@ -101,13 +101,11 @@ extension EventsViewController: UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let heightSizeLine   = arrAllEvents[indexPath.row].title.heightForView(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: 15.0) ?? UIFont.systemFont(ofSize: 15.0), width: self.view.frame.width - 157)
+        let heightSizeLine   = arrAllEvents[indexPath.row].title.heightForView(text: "", font: UIFont(name:FontName.Inter.SemiBold, size: 16.0) ?? UIFont.systemFont(ofSize: 15.0), width: self.view.frame.width - 157)
         
-       print(arrAllEvents[indexPath.row].title)
+        print(arrAllEvents[indexPath.row].title)
         print(heightSizeLine)
 
-        
-        
         let heightSizeAddress   = arrAllEvents[indexPath.row].location.heightForView(text: "", font: UIFont(name:FontName.Inter.Regular, size: 12.0) ?? UIFont.systemFont(ofSize: 15.0), width: self.view.frame.width - 155)
         
         if  heightSizeLine  +  heightSizeAddress + 102 + 20 > 150 {
@@ -148,36 +146,70 @@ extension EventsViewController: UITableViewDataSource,UITableViewDelegate {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         let currentDate = dateFormatter.string(from: Date())
+        
+        if arrAllEvents[sender.tag].isRegistered {
+            let alertController = UIAlertController(title: "Cancel Event?", message: "Are you sure you want to cancel your registration for this event?", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Yes", style: UIAlertAction.Style.default) {
+                UIAlertAction in
+                
+                var param = [String : AnyObject]()
+                param["userId"] = userId() as AnyObject
+                param["eventId"] = self.arrAllEvents[sender.tag].eventId as AnyObject
+                param["isRegistered"] = false as AnyObject
+                param["registeredAt"] = currentDate as AnyObject
+                
+                self.addEvent(Model: param, index:1)
+            }
+            let cancel = UIAlertAction(title: "No", style: UIAlertAction.Style.destructive) {
+                UIAlertAction in
+            }
+            alertController.addAction(okAction)
+            alertController.addAction(cancel)
 
-        var param = [String : AnyObject]()
-        param["registrationId"] = 0 as AnyObject
-        param["registrationStatus"] = "Upcoming" as AnyObject
-        param["userId"] = userId() as AnyObject
-        param["eventId"] = arrAllEvents[sender.tag].eventId as AnyObject
-        param["registeredAt"] = currentDate as AnyObject
-
-        self.addEvent(Model: param, index:0)
+            self.present(alertController, animated: true, completion: nil)
+        }
+        else
+        {
+           
+            
+            var param = [String : AnyObject]()
+            param["userId"] = userId() as AnyObject
+            param["eventId"] = arrAllEvents[sender.tag].eventId as AnyObject
+            param["isRegistered"] = true as AnyObject
+            param["registeredAt"] = currentDate as AnyObject
+            
+            self.addEvent(Model: param, index:0)
+        }
     }
     
     func addEvent(Model: [String : AnyObject], index:Int){
         AddOrUpdateEventRegistrationRequest.shared.AddOrUpdateEventRegistrationAPI(requestParams: Model) { (user,message,isStatus) in
          
                 if isStatus {
-                    let alertController = UIAlertController(title: "Success!", message: "You have successfully registered for the event.", preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
-                        UIAlertAction in
-                        self.MyEventsAPI(false)
+                    if index == 1 {
+                        let alertController = UIAlertController(title: "Success!", message: "Event successfully cancelled.", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+                            UIAlertAction in
+                            self.MyEventsAPI(false)
+                        }
+                        
+                        alertController.addAction(okAction)
+                        self.present(alertController, animated: true, completion: nil)
                     }
-                    
-                    alertController.addAction(okAction)
-                    self.present(alertController, animated: true, completion: nil)
+                    else{
+                        let alertController = UIAlertController(title: "Success!", message: "You have successfully registered for the event.", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+                            UIAlertAction in
+                            self.MyEventsAPI(false)
+                        }
+                        
+                        alertController.addAction(okAction)
+                        self.present(alertController, animated: true, completion: nil)
+                    }
                 }
             
         }
-        
     }
-    
-    
 }
     
   

@@ -22,7 +22,7 @@ class ProGetProductListRequest: NSObject {
                 
                      print(data ?? "No data")
                      if error == nil{
-                         var messageString : String = ""
+                         var messageString : String = GlobalConstants.serverError 
                          if let status = data?["isSuccess"] as? Bool{
                              if let msg = data?["messages"] as? String{
                                  messageString = msg
@@ -117,7 +117,7 @@ class ProAddProductRequest: NSObject {
                 if let status = data?["isSuccess"] as? Bool
                 {
                     
-                    var messageString : String = ""
+                    var messageString : String = GlobalConstants.serverError
                     
                     if let msg = data?["messages"] as? String{
                         messageString = msg
@@ -166,7 +166,7 @@ class ProductDetailRequest: NSObject {
                 
                      print(data ?? "No data")
                      if error == nil{
-                         var messageString : String = ""
+                         var messageString : String = GlobalConstants.serverError 
                          if let status = data?["isSuccess"] as? Bool{
                              if let msg = data?["messages"] as? String{
                                  messageString = msg
@@ -256,7 +256,7 @@ class ProUpdateProductRequest: NSObject {
                 if let status = data?["isSuccess"] as? Bool
                 {
                     
-                    var messageString : String = ""
+                    var messageString : String = GlobalConstants.serverError 
                     
                     if let msg = data?["messages"] as? String{
                         messageString = msg
@@ -307,7 +307,7 @@ class ProDeleteProductRequest: NSObject {
                 if let status = data?["isSuccess"] as? Bool
                 {
                     
-                    var messageString : String = ""
+                    var messageString : String = GlobalConstants.serverError 
                     
                     if let msg = data?["messages"] as? String{
                         messageString = msg

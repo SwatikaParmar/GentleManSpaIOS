@@ -74,19 +74,8 @@ class HomeUserViewController: UIViewController {
             
             if count == "Logout"{
                 callApiWhenBackgrounded(false)
-
                 deleteAllEvents()
-                
-                
-                let FCSToken = UserDefaults.standard.value(forKey:Constants.fcmToken)
-                UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
-                UserDefaults.standard.synchronize()
-                UserDefaults.standard.setValue(FCSToken, forKey:Constants.fcmToken)
-                UserDefaults.standard.synchronize()
-                UserDefaults.standard.set(false, forKey: Constants.login)
-                UserDefaults.standard.synchronize()
-                RootControllerManager().SetRootViewController()
-                
+                callLogOutApi()
             }
             
             if count == "DeleteAccount"{
@@ -114,6 +103,20 @@ class HomeUserViewController: UIViewController {
         }
     }
     
+    //MARK: - Call Logout API
+    func callLogOutApi(){
+        LogoutAPIRequest.shared.Logout(requestParams:[:]) { (message, status) in
+            let FCSToken = UserDefaults.standard.value(forKey:Constants.fcmToken)
+            UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+            UserDefaults.standard.synchronize()
+            UserDefaults.standard.setValue(FCSToken, forKey:Constants.fcmToken)
+            UserDefaults.standard.synchronize()
+            UserDefaults.standard.set(false, forKey: Constants.login)
+            UserDefaults.standard.synchronize()
+            RootControllerManager().SetRootViewController()
+        }
+    }
+    
     func chatViewOpen(_ senderId: String) {
         
         let viewControllers: [UIViewController] = TabBarUserVc.sharedNavigationController.viewControllers
@@ -128,7 +131,7 @@ class HomeUserViewController: UIViewController {
 
             }
         }
-}
+    }
                             
     func getUserDataAPI(){
         

@@ -22,7 +22,7 @@ class CreateScheduleAPIRequest: NSObject {
                 if let status = data?["isSuccess"] as? Bool
                 {
                     
-                    var messageString : String = ""
+                    var messageString : String = GlobalConstants.serverError 
                     
                     if let msg = data?["messages"] as? String{
                         messageString = msg
@@ -69,7 +69,7 @@ class GetProfessionalSchedulesRequest: NSObject {
                 
                      print(data ?? "No data")
                      if error == nil{
-                         var messageString : String = ""
+                         var messageString : String = GlobalConstants.serverError 
                          if let status = data?["isSuccess"] as? Bool{
                              if let msg = data?["messages"] as? String{
                                  messageString = msg
@@ -121,7 +121,7 @@ class GetWeekdaysRequest: NSObject {
         AlamofireRequest.shared.GetBodyFrom(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
                 
                      if error == nil{
-                         var messageString : String = ""
+                         var messageString : String = GlobalConstants.serverError 
                          if let status = data?["isSuccess"] as? Bool{
                              if let msg = data?["messages"] as? String{
                                  messageString = msg

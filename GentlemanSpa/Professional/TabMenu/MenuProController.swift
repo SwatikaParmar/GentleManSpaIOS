@@ -230,6 +230,21 @@ class MenuProController: UIViewController,UITableViewDelegate,UITableViewDataSou
             
             self.callApiWhenBackgroundedPro(false)
             self.deleteAllEvents()
+            self.callLogOutApi()
+            
+        
+         
+        })
+        alert.addAction(Yes)
+        DispatchQueue.main.async(execute: {
+            self.present(alert, animated: true)
+        })
+    }
+    
+    
+    func callLogOutApi(){
+        LogoutAPIRequest.shared.Logout(requestParams:[:]) { (message, status) in
+            
             let FCSToken = UserDefaults.standard.value(forKey:Constants.fcmToken)
             UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
             UserDefaults.standard.synchronize()
@@ -239,13 +254,7 @@ class MenuProController: UIViewController,UITableViewDelegate,UITableViewDataSou
             UserDefaults.standard.synchronize()
             RootControllerManager().SetRootViewController()
             
-        
-         
-        })
-        alert.addAction(Yes)
-        DispatchQueue.main.async(execute: {
-            self.present(alert, animated: true)
-        })
+        }
     }
     
     private func callApiWhenBackgroundedPro(_ isOff: Bool) {

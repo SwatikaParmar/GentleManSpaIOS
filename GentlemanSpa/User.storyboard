@@ -9110,20 +9110,20 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your appointment is booked successfully" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yd9-ha-Cby">
-                                                            <rect key="frame" x="74" y="14.999999999999998" width="283" height="18.333333333333329"/>
+                                                            <rect key="frame" x="74" y="13.999999999999998" width="283" height="18.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
                                                             <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet consectetur. Donec nisi nulla egestas eget ipsum senectus nulla eget aliquet. " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWY-kd-XYu">
-                                                            <rect key="frame" x="74" y="35.333333333333343" width="280" height="54.666666666666657"/>
+                                                            <rect key="frame" x="74" y="34.333333333333343" width="280" height="54.666666666666657"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xL4-jf-JOv">
-                                                            <rect key="frame" x="350" y="113" width="4" height="17"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <rect key="frame" x="350" y="116.33333333333333" width="4" height="15.666666666666671"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -9131,7 +9131,7 @@
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="KWY-kd-XYu" firstAttribute="top" secondItem="yd9-ha-Cby" secondAttribute="bottom" constant="2" id="1mg-nH-Uqa"/>
-                                                        <constraint firstAttribute="bottom" secondItem="xL4-jf-JOv" secondAttribute="bottom" constant="10" id="3tf-of-Gsc"/>
+                                                        <constraint firstAttribute="bottom" secondItem="xL4-jf-JOv" secondAttribute="bottom" constant="8" id="3tf-of-Gsc"/>
                                                         <constraint firstItem="yd9-ha-Cby" firstAttribute="leading" secondItem="dza-1H-VlT" secondAttribute="trailing" constant="12" id="5e7-4v-wF7"/>
                                                         <constraint firstAttribute="trailing" secondItem="yd9-ha-Cby" secondAttribute="trailing" constant="8" id="Jr8-2c-deZ"/>
                                                         <constraint firstAttribute="trailing" secondItem="xL4-jf-JOv" secondAttribute="trailing" constant="11" id="NU4-er-4eU"/>
@@ -9139,7 +9139,7 @@
                                                         <constraint firstItem="dza-1H-VlT" firstAttribute="leading" secondItem="Eaa-rN-XGW" secondAttribute="leading" constant="12" id="W1D-Wb-utw"/>
                                                         <constraint firstItem="dza-1H-VlT" firstAttribute="top" secondItem="Eaa-rN-XGW" secondAttribute="top" constant="13" id="YiQ-fd-Tp9"/>
                                                         <constraint firstAttribute="trailing" secondItem="KWY-kd-XYu" secondAttribute="trailing" constant="11" id="iPu-gp-c16"/>
-                                                        <constraint firstItem="yd9-ha-Cby" firstAttribute="top" secondItem="Eaa-rN-XGW" secondAttribute="top" constant="15" id="rDQ-fN-O9X"/>
+                                                        <constraint firstItem="yd9-ha-Cby" firstAttribute="top" secondItem="Eaa-rN-XGW" secondAttribute="top" constant="14" id="rDQ-fN-O9X"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

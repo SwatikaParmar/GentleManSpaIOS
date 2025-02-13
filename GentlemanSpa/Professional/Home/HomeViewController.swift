@@ -98,17 +98,40 @@ class HomeViewController: UIViewController {
             }
             
             if count == "DeleteAccount"{
-               
+                
             }
-    
+            
             if count == "online"{
                 callApiWhenBackgroundedPro(true)
             }
             if count == "offline"{
                 callApiWhenBackgroundedPro(false)
             }
+            
+        }else if  let senderId = notification.userInfo?["senderId"] as? String {
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(nil, forKey: "senderId")
+            self.chatViewOpen(senderId)
+            
         }
     }
+        
+        func chatViewOpen(_ senderId: String) {
+            
+            let viewControllers: [UIViewController] = TabBarProVc.sharedNavigationControllerPro.viewControllers
+            if viewControllers.count > 0 {
+                if viewControllers[0].parent?.navigationController?.viewControllers.last is ChatController {
+                }
+                else{
+                    
+                    let controller:ChatController =  UIStoryboard(storyboard: .Chat).initVC()
+                    controller.otherUserID = senderId
+                    viewControllers.last?.parent?.navigationController?.pushViewController(controller, animated: true)
+
+                }
+            }
+        }
+            
     private func callApiWhenBackgroundedPro(_ isOff: Bool) {
         
         let apiURL = "BaseURL".updateOnlineStatusManually
@@ -355,6 +378,11 @@ class HomeViewController: UIViewController {
                                 self.callApiWhenBackgroundedPro(true)
                                 self.generateEvent()
                                 self.notificationTokenData()
+                            let userDefaults = UserDefaults.standard
+                            if let senderId = userDefaults.object(forKey: "senderId") as? String {
+                                self.chatViewOpen(senderId)
+                            }
+                            userDefaults.set(nil, forKey: "senderId")
                             
                         }
                     }
@@ -818,7 +846,7 @@ class GetServiceAppointmentsPro: NSObject{
             
             print(data ?? "No data")
             if error == nil{
-                var messageString : String = ""
+                var messageString : String = GlobalConstants.serverError
                 if let status = data?["isSuccess"] as? Bool{
                     if let msg = data?["messages"] as? String{
                         messageString = msg

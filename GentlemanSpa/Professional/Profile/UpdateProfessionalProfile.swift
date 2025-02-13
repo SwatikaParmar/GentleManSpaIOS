@@ -22,7 +22,7 @@ class UpdateProfessionalProfile: NSObject {
                 if let status = data?["isSuccess"] as? Bool
                 {
                     
-                    var messageString : String = ""
+                    var messageString : String = GlobalConstants.serverError 
                     
                     if let msg = data?["messages"] as? String{
                         messageString = msg

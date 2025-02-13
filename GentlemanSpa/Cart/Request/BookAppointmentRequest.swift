@@ -17,7 +17,7 @@ class BookAppointmentRequest: NSObject {
         AlamofireRequest.shared.PostBodyForRawData(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: true, loaderMessage: "") { (data, error) in
                      print(data ?? "No data")
                      if error == nil{
-                         var messageString : String = ""
+                         var messageString : String = GlobalConstants.serverError 
                          if let status = data?["isSuccess"] as? Bool{
                              if let msg = data?["messages"] as? String{
                                  messageString = msg
@@ -104,7 +104,7 @@ class OrderConfirmationRequest: NSObject{
             
             print(data ?? "No data")
             if error == nil{
-                var messageString : String = ""
+                var messageString : String = GlobalConstants.serverError
                 if let status = data?["status"] as? Bool{
                     if let msg = data?["messages"] as? String{
                         messageString = msg

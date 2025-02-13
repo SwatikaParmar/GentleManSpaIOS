@@ -15,7 +15,7 @@ class GetServiceAppointmentsListRequest: NSObject{
         
         var apiURL = String("Base".GetServiceAppointmentsAPI)
         
-        apiURL = String(format:"%@?pageNumber=1&pageSize=1000&Type=%@",apiURL,requestParams["Type"] as? String ?? "Upcoming")
+        apiURL = String(format:"%@?pageNumber=1&pageSize=1000&Type=%@&UserId=%@",apiURL,requestParams["Type"] as? String ?? "Upcoming",userId())
         
         
         print("URL---->> ",apiURL)
@@ -25,7 +25,7 @@ class GetServiceAppointmentsListRequest: NSObject{
             
             print(data ?? "No data")
             if error == nil{
-                var messageString : String = ""
+                var messageString : String = GlobalConstants.serverError 
                 if let status = data?["isSuccess"] as? Bool{
                     if let msg = data?["messages"] as? String{
                         messageString = msg
@@ -137,7 +137,7 @@ class GetOrderedProductsListRequest: NSObject{
             
             print(data ?? "No data")
             if error == nil{
-                var messageString : String = ""
+                var messageString : String = GlobalConstants.serverError
                 if let status = data?["isSuccess"] as? Bool{
                     if let msg = data?["messages"] as? String{
                         messageString = msg
@@ -210,7 +210,7 @@ class CancelOrderServiceRequest: NSObject {
         AlamofireRequest.shared.PostBodyForRawData(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: true, loaderMessage: "") { (data, error) in
                      print(data ?? "No data")
                      if error == nil{
-                         var messageString : String = ""
+                         var messageString : String = GlobalConstants.serverError 
                          if let status = data?["isSuccess"] as? Bool{
                              if let msg = data?["messages"] as? String{
                                  messageString = msg
@@ -259,7 +259,7 @@ class GetOrderDetailRequest: NSObject{
             
             print(data ?? "No data")
             if error == nil{
-                var messageString : String = ""
+                var messageString : String = GlobalConstants.serverError 
                 if let status = data?["isSuccess"] as? Bool{
                     if let msg = data?["messages"] as? String{
                         messageString = msg

@@ -18,7 +18,7 @@ class NotificationTokenAPIRequest: NSObject {
         AlamofireRequest.shared.PostBodyForRawData(urlString:apiURL, parameters: requestParams, authToken:accessToken(), isLoader: false, loaderMessage: "") { (data, error) in
                      print(data ?? "No data")
                      if error == nil{
-                         var messageString : String = ""
+                         var messageString : String = GlobalConstants.serverError 
                          if let status = data?["isSuccess"] as? Bool{
                              if let msg = data?["messages"] as? String{
                                  messageString = msg
@@ -71,7 +71,7 @@ class NotifiactionListRequest: NSObject {
             
             print(data ?? "No data")
             if error == nil{
-                var messageString : String = ""
+                var messageString : String = GlobalConstants.serverError 
                 if let status = data?["isSuccess"] as? Bool{
                     if let msg = data?["messages"] as? String{
                         messageString = msg
@@ -193,7 +193,7 @@ class GetNotificationCountRequest: NSObject {
             
             print(data ?? "No data")
             if error == nil{
-                var messageString : String = ""
+                var messageString : String = GlobalConstants.serverError 
                 if let status = data?["isSuccess"] as? Bool{
                     if let msg = data?["messages"] as? String{
                         messageString = msg
@@ -235,7 +235,7 @@ class ReadNotificationRequest: NSObject {
             
             print(data ?? "No data")
             if error == nil{
-                var messageString : String = ""
+                var messageString : String = GlobalConstants.serverError 
                 if let status = data?["isSuccess"] as? Bool{
                     if let msg = data?["messages"] as? String{
                         messageString = msg

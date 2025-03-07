@@ -133,6 +133,20 @@ class MenuUserController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     navigationController.isNavigationBarHidden = true
                     sideMenuController?.rootViewController = navigationController
             }
+            else if indexPath.row == 2{
+                let storyBoard = UIStoryboard.init(name: "Services", bundle: nil)
+                let controller = storyBoard.instantiateViewController(withIdentifier: "PrivacyViewController")
+                let navigationController = UINavigationController(rootViewController: controller)
+                    navigationController.isNavigationBarHidden = true
+                    sideMenuController?.rootViewController = navigationController
+            }
+            else if indexPath.row == 3{
+                let storyBoard = UIStoryboard.init(name: "Services", bundle: nil)
+                let controller = storyBoard.instantiateViewController(withIdentifier: "AboutUsViewController")
+                let navigationController = UINavigationController(rootViewController: controller)
+                    navigationController.isNavigationBarHidden = true
+                    sideMenuController?.rootViewController = navigationController
+            }
             else{
                     NotificationCenter.default.post(name: Notification.Name("Menu_Push_Action"), object: nil, userInfo: ["count":String(indexPath.row)])
 

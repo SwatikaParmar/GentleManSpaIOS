@@ -100,21 +100,15 @@ extension MyServiceViewController: UITableViewDataSource,UITableViewDelegate {
             cell.imgService?.image = UIImage(named: "shopPlace")
         }
         cell.lbeName.text = arrSortedService[indexPath.row].serviceName
-        
-        
-  
+    
         if self.arrSortedService[indexPath.row].durationInMinutes > 0 {
             cell.lbeTime.text = String(format: "%d mins", self.arrSortedService[indexPath.row].durationInMinutes )
-            
         }
         else{
             cell.lbeTime.text = "30 mins"
         }
         
         cell.lbeDes.text = arrSortedService[indexPath.row].serviceDescription
-        
-        
-        
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

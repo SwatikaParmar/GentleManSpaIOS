@@ -21,13 +21,7 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
    
     @objc func ChatUserList_ObserverRemove(_ notification: NSNotification) {
         if let count = notification.userInfo?["count"] as? String {
-            if count == "DeleteAccount" {
-             
-            }
-            else{
-                
-                
-            }
+        
         }
     }
     
@@ -78,7 +72,8 @@ class MessageProViewController:UIViewController,UITableViewDataSource,UITableVie
                     }
                     else{
                         self.noUserView.isHidden = false
-                        
+                        self.conversationsSort.removeAll()
+
                     }
                 }
                 else{

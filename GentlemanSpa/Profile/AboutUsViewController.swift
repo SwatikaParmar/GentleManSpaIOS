@@ -30,41 +30,17 @@ class AboutUsViewController: UIViewController,WKNavigationDelegate, WKUIDelegate
         webAbout.uiDelegate = self
         var NSAttributedString = NSAttributedString()
         
+
         
-        // HTML content
-        let htmlString = """
-               <html>
-               <head>
-               <style>
-                   body {
-                       font-size: 35px; /* Set your desired font size */
-                       font-family: -apple-system, Helvetica, Arial, sans-serif;
-                   }
-               </style>
-               </head>
-               <body>
-              
-              </body>
-              </html>
- """
-        
-        webAbout.loadHTMLString(htmlString, baseURL: nil)
-        webAbout.evaluateJavaScript("document.getElementsByTagName('body')[0].style.fontSize='35px';") { (result, error) in
-            if let error = error {
-                print("Error adjusting font size: \(error)")
-            }
+       if let url = URL(string: "http://gentlemanspa-dev.us-east-2.elasticbeanstalk.com/api/Content/GetTermsHtml") {
+           webAbout.load(URLRequest(url: url))
         }
-        
-        
-//        if let url = URL(string: "https://www.buda.com.au/") {
-//            webAbout.load(URLRequest(url: url))
-//               }
         
         
     }
     @IBAction func btnBackPreessed(_ sender: Any){
         self.view.endEditing(true)
-        self.navigationController?.popViewController(animated: true)
+        sideMenuController?.showLeftView(animated: true)
     }
 //    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 //        

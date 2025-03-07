@@ -52,8 +52,8 @@ class CreateAccountController: UIViewController {
 
         self.countryPicker.font = UIFont(name: FontName.Inter.Regular, size: 14)!
         self.countryPicker.delegate = self
-        self.phoneCode = "+91"
-        countryPicker.setCountryByCode("IN")
+        self.phoneCode = "+1"
+        countryPicker.setCountryByCode("US")
         countryPicker.showCountryCodeInView = false
         
         applyStyle(to: txt_First)
@@ -435,8 +435,14 @@ extension CreateAccountController: UIImagePickerControllerDelegate,UINavigationC
         imgUserProfile.layer.cornerRadius = imgUserProfile.frame.size.width/2
         imgUserProfile.clipsToBounds = true
         imgIS = true
-        
-       // self.uploadProfileImageApi()
+        ImageCompressor.compress(image: originalImage, maxByte: 1000000) { image in
+            if let compressedImage = image {
+                self.imgProfile = compressedImage
+            } else {
+                print("error")
+            }
+        }
+       
 
         self.dismiss(animated: false, completion: { [weak self] in
         })
@@ -466,4 +472,45 @@ extension CreateAccountController: UITextFieldDelegate {
          return true
      }
     
+}
+struct ImageCompressor {
+    static func compress(image: UIImage, maxByte: Int,
+                         completion: @escaping (UIImage?) -> ()) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            guard let currentImageSize = image.jpegData(compressionQuality: 1.0)?.count else {
+                return completion(nil)
+            }
+        
+            var iterationImage: UIImage? = image
+            var iterationImageSize = currentImageSize
+            var iterationCompression: CGFloat = 1.0
+        
+            while iterationImageSize > maxByte && iterationCompression > 0.01 {
+                let percantageDecrease = getPercantageToDecreaseTo(forDataCount: iterationImageSize)
+            
+                let canvasSize = CGSize(width: image.size.width * iterationCompression,
+                                        height: image.size.height * iterationCompression)
+                UIGraphicsBeginImageContextWithOptions(canvasSize, false, image.scale)
+                defer { UIGraphicsEndImageContext() }
+                image.draw(in: CGRect(origin: .zero, size: canvasSize))
+                iterationImage = UIGraphicsGetImageFromCurrentImageContext()
+            
+                guard let newImageSize = iterationImage?.jpegData(compressionQuality: 1.0)?.count else {
+                    return completion(nil)
+                }
+                iterationImageSize = newImageSize
+                iterationCompression -= percantageDecrease
+                print(newImageSize)
+            }
+            completion(iterationImage)
+        }
+    }
+
+    private static func getPercantageToDecreaseTo(forDataCount dataCount: Int) -> CGFloat {
+        switch dataCount {
+        case 0..<3000000: return 0.05
+        case 3000000..<10000000: return 0.1
+        default: return 0.2
+        }
+    }
 }

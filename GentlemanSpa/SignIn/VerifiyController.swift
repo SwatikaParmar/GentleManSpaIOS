@@ -40,13 +40,7 @@ class VerifiyController: UIViewController ,UITextFieldDelegate{
         lbeTextTop.text = String(format: "Please Enter 5 Digit Code Sent To %@", stringEmail)
         configurePhonePinView()
         
-        let alert = UIAlertController(title:codeStr, message:  "Testing OTP", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title:"OK" , style: .cancel, handler:{ (UIAlertAction)in
-            
-        }))
-        self.present(alert, animated: true, completion: {
-            
-        })
+     
 
       
     }
@@ -270,15 +264,7 @@ class VerifiyController: UIViewController ,UITextFieldDelegate{
             
             if status == true{
                 self.codeStr = String(otp)
-                NotificationAlert().NotificationAlert(titles: message ?? "")
-
-                let alert = UIAlertController(title:self.codeStr, message:  "Testing OTP", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title:"OK" , style: .cancel, handler:{ (UIAlertAction)in
-                    
-                }))
-                self.present(alert, animated: true, completion: {
-                    
-                })
+                NotificationAlert().NotificationAlert(titles: "OTP Send Successfully")
             }
         }
     }

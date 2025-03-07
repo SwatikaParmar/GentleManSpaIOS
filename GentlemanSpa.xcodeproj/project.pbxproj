@@ -51,6 +51,9 @@
 		3470FAF02CBF931D00BF5C7A /* MyCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3470FAEF2CBF931D00BF5C7A /* MyCartViewController.swift */; };
 		3470FAF22CBF953700BF5C7A /* MyCartExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3470FAF12CBF953700BF5C7A /* MyCartExtension.swift */; };
 		3498173F2C7C860100219379 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3498173E2C7C860100219379 /* ProductDetailsViewController.swift */; };
+		34A3CA322D76C4B300868F00 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A3CA312D76C4B300868F00 /* PrivacyViewController.swift */; };
+		34A3CA342D76D03D00868F00 /* BlockDatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A3CA332D76D03D00868F00 /* BlockDatesViewController.swift */; };
+		34A3CA362D76D4B400868F00 /* BlockDatesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A3CA352D76D4B400868F00 /* BlockDatesTableViewCell.swift */; };
 		34ADB3112CB6419600523217 /* GetOrderListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ADB3102CB6419600523217 /* GetOrderListRequest.swift */; };
 		34ADB3132CB66E9600523217 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ADB3122CB66E9600523217 /* AlertViewController.swift */; };
 		34B4CD8E2C48D4C8006B9F1F /* TabBarUserVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B4CD8D2C48D4C8006B9F1F /* TabBarUserVc.swift */; };
@@ -123,6 +126,7 @@
 		34DEF4892C5E03E100F395A8 /* AppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DEF4882C5E03E100F395A8 /* AppointmentsViewController.swift */; };
 		34DEF48B2C5E03F400F395A8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DEF48A2C5E03F400F395A8 /* ProfileViewController.swift */; };
 		34DEF48D2C5E040700F395A8 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DEF48C2C5E040700F395A8 /* NotificationViewController.swift */; };
+		34EB6F622D78393C000F2384 /* UserAccountRequetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB6F612D78393C000F2384 /* UserAccountRequetData.swift */; };
 		34EC323C2CC22F74007067AD /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EC323B2CC22F74007067AD /* OrderDetailsViewController.swift */; };
 		34EC323E2CC2339E007067AD /* OrderDetailsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EC323D2CC2339E007067AD /* OrderDetailsExtension.swift */; };
 		34EC32402CC23417007067AD /* OrderDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EC323F2CC23417007067AD /* OrderDetailsTableViewCell.swift */; };
@@ -179,6 +183,9 @@
 		3470FAEF2CBF931D00BF5C7A /* MyCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartViewController.swift; sourceTree = "<group>"; };
 		3470FAF12CBF953700BF5C7A /* MyCartExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartExtension.swift; sourceTree = "<group>"; };
 		3498173E2C7C860100219379 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
+		34A3CA312D76C4B300868F00 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
+		34A3CA332D76D03D00868F00 /* BlockDatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockDatesViewController.swift; sourceTree = "<group>"; };
+		34A3CA352D76D4B400868F00 /* BlockDatesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockDatesTableViewCell.swift; sourceTree = "<group>"; };
 		34ADB3102CB6419600523217 /* GetOrderListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrderListRequest.swift; sourceTree = "<group>"; };
 		34ADB3122CB66E9600523217 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		34B4CD8D2C48D4C8006B9F1F /* TabBarUserVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarUserVc.swift; sourceTree = "<group>"; };
@@ -251,6 +258,7 @@
 		34DEF4882C5E03E100F395A8 /* AppointmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsViewController.swift; sourceTree = "<group>"; };
 		34DEF48A2C5E03F400F395A8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		34DEF48C2C5E040700F395A8 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		34EB6F612D78393C000F2384 /* UserAccountRequetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountRequetData.swift; sourceTree = "<group>"; };
 		34EC323B2CC22F74007067AD /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		34EC323D2CC2339E007067AD /* OrderDetailsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsExtension.swift; sourceTree = "<group>"; };
 		34EC323F2CC23417007067AD /* OrderDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsTableViewCell.swift; sourceTree = "<group>"; };
@@ -311,7 +319,6 @@
 				344E0C6D2CA133CC00D32AB6 /* MyOrder */,
 				346B67472D4B982000EB87C1 /* ChatUser */,
 				34D2B5B32CC78FDF0012C358 /* ProfessionalDetailViewController.swift */,
-				340E7C472CCFAAE900CA531F /* AboutUsViewController.swift */,
 				3433B6602D13FFFB006BDA7C /* EventsRequestData.swift */,
 				3460D6FF2C9D9B3F0076C4C2 /* UserNotificationViewController.swift */,
 				3451ED2C2D5B652100C6330B /* NotificationAPIRequest.swift */,
@@ -452,8 +459,11 @@
 			children = (
 				34B4CD952C48D5AE006B9F1F /* ProfileUserViewController.swift */,
 				34D372432C4E1CE6000DC680 /* UpdateProfileUserViewController.swift */,
+				34EB6F612D78393C000F2384 /* UserAccountRequetData.swift */,
 				3417482F2C58F9610015AF5E /* SpaLocationVc.swift */,
 				343F94282CD0CAB8008A1A23 /* EventsViewController.swift */,
+				34A3CA312D76C4B300868F00 /* PrivacyViewController.swift */,
+				340E7C472CCFAAE900CA531F /* AboutUsViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -568,6 +578,8 @@
 				34DA67AB2C7C3437002C0EE9 /* ProductCategoryViewController.swift */,
 				343F94242CD0ADA8008A1A23 /* RequestsManagementViewController.swift */,
 				343198AD2CF71D58008A0C8F /* MessageProViewController.swift */,
+				34A3CA332D76D03D00868F00 /* BlockDatesViewController.swift */,
+				34A3CA352D76D4B400868F00 /* BlockDatesTableViewCell.swift */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -820,9 +832,11 @@
 				34CE92722C410BBD0007E086 /* Constants.swift in Sources */,
 				3433B6612D13FFFB006BDA7C /* EventsRequestData.swift in Sources */,
 				3498173F2C7C860100219379 /* ProductDetailsViewController.swift in Sources */,
+				34A3CA322D76C4B300868F00 /* PrivacyViewController.swift in Sources */,
 				3470FAF02CBF931D00BF5C7A /* MyCartViewController.swift in Sources */,
 				34B905612C984FC000E81DFC /* AddProductCartAPI.swift in Sources */,
 				34C5E2EF2C5B7AFF00F97C0C /* MoreCollection.swift in Sources */,
+				34A3CA362D76D4B400868F00 /* BlockDatesTableViewCell.swift in Sources */,
 				34CE92642C40EAE60007E086 /* BaseViewController.swift in Sources */,
 				34D338242C5A7A8E003C6B13 /* EventsManager.swift in Sources */,
 				34D338262C5A7A8E003C6B13 /* CalendarView.swift in Sources */,
@@ -847,6 +861,7 @@
 				343F94252CD0ADA8008A1A23 /* RequestsManagementViewController.swift in Sources */,
 				34CE92682C40EAE60007E086 /* UIViewAnchorPoint.swift in Sources */,
 				34CE92662C40EAE60007E086 /* UIButtonX.swift in Sources */,
+				34EB6F622D78393C000F2384 /* UserAccountRequetData.swift in Sources */,
 				34D404452C4F66550063AEF7 /* HomeUTableView.swift in Sources */,
 				34B4CD942C48D596006B9F1F /* HistoryUserViewController.swift in Sources */,
 				34B6D7B12C44FAD30008FC81 /* SetPasswordRequest.swift in Sources */,
@@ -867,6 +882,7 @@
 				3460D7002C9D9B3F0076C4C2 /* UserNotificationViewController.swift in Sources */,
 				344B96532CABD2830022F502 /* SelectProfessionalVc.swift in Sources */,
 				34498CF12C463DB900F541DB /* CreateAccountController.swift in Sources */,
+				34A3CA342D76D03D00868F00 /* BlockDatesViewController.swift in Sources */,
 				34CE926B2C40EAE60007E086 /* UIViewX.swift in Sources */,
 				3470FAF22CBF953700BF5C7A /* MyCartExtension.swift in Sources */,
 				341748302C58F9610015AF5E /* SpaLocationVc.swift in Sources */,
@@ -1075,7 +1091,7 @@
 				CODE_SIGN_ENTITLEMENTS = GentlemanSpa/GentlemanSpa.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U4CMW5Y2G6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GentlemanSpa/Info.plist;
@@ -1096,12 +1112,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.GentlemanSpa.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1117,7 +1135,7 @@
 				CODE_SIGN_ENTITLEMENTS = GentlemanSpa/GentlemanSpa.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U4CMW5Y2G6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GentlemanSpa/Info.plist;
@@ -1138,12 +1156,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.GentlemanSpa.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

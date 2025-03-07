@@ -113,7 +113,7 @@ class GetServiceAppointmentsListRequest: NSObject{
             
             self.userName = (self.userFirstName ?? "") + " " + (self.userLastName ?? "")
             userName = userName?.capitalized
-
+           
 
         }
     }

@@ -125,6 +125,13 @@ extension String{
         return "Path".path + "Chat/RemoveUserFromPersonalChatRoom"
     }
     
+    var blockUser: String{
+        return "Path".path + "Chat/blockUser"
+    }
+    
+    var unblockUser: String{
+        return "Path".path + "Chat/unblockUser"
+    }
     
     
     //#######################################################################
@@ -300,6 +307,10 @@ extension String{
         return "Path".path + "Customer/DeleteCustomerAddress"
     }
     
+    var DeleteAccount: String{
+        return "Path".path + "Admin/DeleteAccount"
+    }
+    
     var PlaceOrder: String{
         return "Path".path + "Customer/PlaceOrder"
     }
@@ -348,6 +359,10 @@ extension String{
     
     var readNotification: String{
         return "Path".path + "Notification/readNotification"
+    }
+    
+    var SetSlotStatus: String{
+        return "Path".path + "Professional/SetSlotStatus"
     }
 
 }

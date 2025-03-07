@@ -448,13 +448,6 @@ extension String {
     
     func heightForView(text:String, font:UIFont, width:CGFloat) -> CGFloat{
         
-        let label = UILabel ()
-        label.frame = CGRect.init(x: 0, y: 0, width:width, height: CGFloat.greatestFiniteMagnitude)
-        label.numberOfLines = 0
-        label.lineBreakMode = NSLineBreakMode.byWordWrapping
-        label.font = font
-        label.text = self
-        label.sizeToFit()
         let maxSize = CGSize(width:width, height: CGFloat(Float.infinity))
         let charSize = font.lineHeight
         let textSize = self.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
@@ -467,15 +460,7 @@ extension String {
     }
     
     func lineCount(text:String, font:UIFont, width:CGFloat) -> CGFloat{
-        
-        let label = UILabel ()
-        label.frame = CGRect.init(x: 0, y: 0, width:width, height: CGFloat.greatestFiniteMagnitude)
-        label.numberOfLines = 0
-        label.lineBreakMode = NSLineBreakMode.byWordWrapping
-        label.font = font
-        label.text = self
-        label.sizeToFit()
-
+    
         let maxSize = CGSize(width:width, height: CGFloat(Float.infinity))
         let charSize = font.lineHeight
         let textSize = self.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
@@ -491,7 +476,7 @@ extension String {
         
         if Utility.shared.DivceTypeString() == "IPad" {
             calculatedFontSize = FontSize + 5
-        }
+        } 
       
            return calculatedFontSize
        }

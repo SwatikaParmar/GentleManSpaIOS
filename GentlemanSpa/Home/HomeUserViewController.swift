@@ -79,7 +79,16 @@ class HomeUserViewController: UIViewController {
             }
             
             if count == "DeleteAccount"{
-               
+                callApiWhenBackgrounded(false)
+                deleteAllEvents()
+                let FCSToken = UserDefaults.standard.value(forKey:Constants.fcmToken)
+                UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+                UserDefaults.standard.synchronize()
+                UserDefaults.standard.setValue(FCSToken, forKey:Constants.fcmToken)
+                UserDefaults.standard.synchronize()
+                UserDefaults.standard.set(false, forKey: Constants.login)
+                UserDefaults.standard.synchronize()
+                RootControllerManager().SetRootViewController()
             }
             if count == "online"{
                 callApiWhenBackgrounded(true)
@@ -93,7 +102,6 @@ class HomeUserViewController: UIViewController {
             if count == "RescheduleService"{
                 generateEvent()
             }
-         
         }
         else if  let senderId = notification.userInfo?["senderId"] as? String {
             let userDefaults = UserDefaults.standard
@@ -102,6 +110,8 @@ class HomeUserViewController: UIViewController {
             
         }
     }
+    
+
     
     //MARK: - Call Logout API
     func callLogOutApi(){

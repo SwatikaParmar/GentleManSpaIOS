@@ -22,8 +22,8 @@ class ProfileUserViewController: UIViewController,UITableViewDelegate,UITableVie
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.isHidden = true
-        titleArray = ["My Profile","Messages","Event","Refer","Support"]
-        imagesArray = ["profileEdit","M","E","R","S"]
+        titleArray = ["My Profile","Messages","Event","Refer"]
+        imagesArray = ["profileEdit","M","E","R"]
         tableview.contentInsetAdjustmentBehavior = .never
     }
     
@@ -105,13 +105,12 @@ class ProfileUserViewController: UIViewController,UITableViewDelegate,UITableVie
     
     
     func shareData(){
-            let firstActivityItem = "Description you want.."
 
-            let secondActivityItem : NSURL = NSURL(string: "http://your-url.com/")!
+            let secondActivityItem : NSURL = NSURL(string: "https://apps.apple.com/us/app/gentleman-spa/id6695744508")!
             
-            let image : UIImage = UIImage(named: "login_ic") ?? UIImage()
+            let image : UIImage = UIImage(named: "apps") ?? UIImage()
             let activityViewController : UIActivityViewController = UIActivityViewController(
-                activityItems: [firstActivityItem, secondActivityItem, image], applicationActivities: nil)
+                activityItems: [secondActivityItem, image], applicationActivities: nil)
             
             activityViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.down
             activityViewController.popoverPresentationController?.sourceRect = CGRect(x: 150, y: 150, width: 0, height: 0)

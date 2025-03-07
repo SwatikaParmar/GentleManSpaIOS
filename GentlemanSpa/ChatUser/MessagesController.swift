@@ -78,6 +78,8 @@ class MessagesController: UIViewController,UITableViewDataSource,UITableViewDele
                     }
                     else{
                         self.noUserView.isHidden = false
+                        self.conversationsSort.removeAll()
+
                     }
                 }
                 else{

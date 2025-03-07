@@ -62,7 +62,7 @@ class NotifiactionListRequest: NSObject {
     func notificationData(requestParams : [String:Any] ,_ isLoader:Bool, completion: @escaping (_ objectData: DataNotificationList?,_ message : String?, _ isStatus : Bool) -> Void) {
         
         var apiURL = String("".getNotificationList)
-        apiURL = String(format:"%@?pageNumber=%d&pageSize=1000",apiURL,requestParams["pageNumber"] as? Int ?? 1)
+        apiURL = String(format:"%@?pageNumber=%d&pageSize=200",apiURL,requestParams["pageNumber"] as? Int ?? 1)
         
         print("URL---->> ",apiURL)
         print("Request---->> ",requestParams)

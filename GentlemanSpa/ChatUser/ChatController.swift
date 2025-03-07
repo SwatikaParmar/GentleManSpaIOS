@@ -108,7 +108,7 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
         unBlockView.isHidden = true
         btnUnBlock.isHidden = true
         lbeBlock.isHidden = true
-        btnBlock.isHidden = true
+        btnBlock.isHidden = false
         
         imgViewUser.layer.masksToBounds = true
         imgViewUser.layer.cornerRadius = 25
@@ -320,7 +320,15 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
         
         
         SendReplyRequest.shared.AddReplyAPI(requestParams: patientFeedback) { (user,message,isStatus) in
-            self.getReplyData(false)
+            
+            if isStatus {
+                self.getReplyData(false)
+
+            }
+            else{
+                NotificationAlert().NotificationAlert(titles: message ?? GlobalConstants.serverError)
+
+            }
         }
         
     }
@@ -352,12 +360,31 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
                         
                         self.imgString = dictionary?[0].senderProfilePic ?? ""
                         
+                        if dictionary?[0].userBlock ?? 0 == 1 {
+                            self.unBlockView.isHidden = false
+                            self.btnUnBlock.isHidden = false
+                            self.textMessage.isHidden = true
+                            self.btnSend.isHidden = true
+                            self.imgDots.isHidden = true
+                            self.btnBlock.isHidden = true
+                        }
+                        else{
+                            self.unBlockView.isHidden = true
+                            self.btnUnBlock.isHidden = true
+                            self.textMessage.isHidden = false
+                            self.btnSend.isHidden = false
+                            self.imgDots.isHidden = false
+                            self.btnBlock.isHidden = false
+                        }
+                        
+                        
+                        
                         let imagePath = String("\(GlobalConstants.BASE_IMAGE_URL)\(self.imgString)")
                         
                         let urlString = imagePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
                         self.imgViewUser.sd_setImage(with:URL(string: urlString), placeholderImage: UIImage(named: GlobalConstants.MalePlaceHolding))
                         
-                        self.lbeUserName.text = dictionary?[0].name
+                        self.lbeUserName.text = dictionary?[0].recieverName
     
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             if self.messages.count > 0 {
@@ -546,18 +573,43 @@ class ChatController: UIViewController,UITableViewDataSource, UITableViewDelegat
         effectMessageDelete.isHidden = true
     }
     
-    @IBAction func ForMe(_ sender: Any)
+    @IBAction func CancelBlock(_ sender: Any)
     {
-        
+        otherMessageDelete.isHidden = true
+        myMessageDelete.isHidden = true
+        effectMessageDelete.isHidden = true
     }
     
-    @IBAction func EveryOne(_ sender: Any) {
-        
+    @IBAction func BlockYes(_ sender: Any) {
+        otherMessageDelete.isHidden = true
+        myMessageDelete.isHidden = true
+        effectMessageDelete.isHidden = true
+        let patientFeedback  = [
+            "currentUserName": userId(),
+            "targetUserName": otherUserID
+        ]as [String : AnyObject]
+        BlockUserRequest.shared.BlockUserRequestAPI(requestParams: patientFeedback) { (user,message,isStatus) in
+            self.getReplyData(true)
+
+        }
     }
     
     
     @IBAction func BlockUser(_ sender: Any) {
-        
+        myMessageDelete.isHidden = false
+        otherMessageDelete.isHidden = true
+        effectMessageDelete.isHidden = false
+    }
+    
+    @IBAction func unBlockUser(_ sender: Any) {
+        let patientFeedback  = [
+            "currentUserName": userId(),
+            "targetUserName": otherUserID
+        ]as [String : AnyObject]
+        unBlockUserRequest.shared.unBlockUserRequestAPI(requestParams: patientFeedback) { (user,message,isStatus) in
+            
+            self.getReplyData(true)
+        }
         
     }
     

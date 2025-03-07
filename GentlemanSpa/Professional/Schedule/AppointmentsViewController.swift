@@ -30,8 +30,9 @@ class AppointmentsViewController: UIViewController, UITableViewDataSource,UITabl
         topViewLayout()
        
     }
-    @IBAction func MyProfile(_ sender: Any) {
-       
+    @IBAction func unavailable(_ sender: Any) {
+        let controller:BlockDatesViewController =  UIStoryboard(storyboard: .Professional).initVC()
+        self.parent?.navigationController?.pushViewController(controller, animated: true)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)

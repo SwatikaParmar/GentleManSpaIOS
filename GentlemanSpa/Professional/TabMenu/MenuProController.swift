@@ -175,30 +175,19 @@ class MenuProController: UIViewController,UITableViewDelegate,UITableViewDataSou
         }
     
     func shareData(){
-        // Setting description
-            let firstActivityItem = ""
 
-            // Setting url
-            let secondActivityItem : NSURL = NSURL(string: "http://your-url.com/")!
-            
-            // If you want to use an image
-        let image : UIImage = UIImage(named: "login_ic") ?? UIImage()
+        let secondActivityItem : NSURL = NSURL(string: "https://apps.apple.com/us/app/gentleman-spa/id6695744508")!
+        
+        let image : UIImage = UIImage(named: "apps") ?? UIImage()
             let activityViewController : UIActivityViewController = UIActivityViewController(
-                activityItems: [firstActivityItem, secondActivityItem, image], applicationActivities: nil)
-            
-            // This lines is for the popover you need to show in iPad
-           // activityViewController.popoverPresentationController?.sourceView = (sender as! UIButton)
-            
-            // This line remove the arrow of the popover to show in iPad
+                activityItems: [secondActivityItem, image], applicationActivities: nil)
             activityViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.down
             activityViewController.popoverPresentationController?.sourceRect = CGRect(x: 150, y: 150, width: 0, height: 0)
             
-            // Pre-configuring activity items
             activityViewController.activityItemsConfiguration = [
             UIActivity.ActivityType.message
             ] as? UIActivityItemsConfigurationReading
             
-            // Anything you want to exclude
             activityViewController.excludedActivityTypes = [
                 UIActivity.ActivityType.postToWeibo,
                 UIActivity.ActivityType.print,

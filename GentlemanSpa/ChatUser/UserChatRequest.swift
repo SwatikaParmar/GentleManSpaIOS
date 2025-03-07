@@ -49,7 +49,7 @@ class GetMessageReplysRequest: NSObject {
         func GetMessageReplysAPI(_ url : String ,_ isLoader:Bool, completion: @escaping (_ objectData: [ComplaintReply]?,_ message : String?, _ isStatus : Bool) -> Void) {
             
             AlamofireRequest.shared.GetBodyFrom(urlString:url, parameters: [:], authToken:accessToken(), isLoader: isLoader, loaderMessage: "") { (data, error) in
-               // print(data ?? "No data")
+                print(data ?? "No data")
                 if error == nil{
                     var messageString : String = GlobalConstants.serverError 
                     if let status = data?["isSuccess"] as? Bool{
@@ -79,17 +79,21 @@ class GetMessageReplysRequest: NSObject {
     }
 class ComplaintReply: NSObject {
     
-        var receiverOnlineStatus: Int
-        var senderProfilePic: String?
+    var receiverOnlineStatus: Int
+    var senderProfilePic: String?
+    var recieverName : String?
     var name: String
+    var replies: [MessagingList] = []
+    var userBlock = 0
 
-        var replies: [MessagingList] = []
-    
     init(dict: [String: Any]) {
-        self.senderProfilePic = dict["senderProfilePic"] as? String ?? ""
+        self.senderProfilePic = dict["recieverProfilePic"] as? String ?? ""
         self.name = dict["name"] as? String ?? ""
         self.receiverOnlineStatus = dict["receiverOnlineStatus"] as? Int ?? 0
+        self.recieverName = dict["recieverName"] as? String ?? ""
+        self.userBlock = dict["isBlocked"] as? Int ?? 0
 
+        
         if let slotsArray = dict["messages"] as? [[String: Any]] {
             for slot in slotsArray {
                 self.replies.append(MessagingList(dict: slot))
@@ -301,3 +305,82 @@ class RemoveUserFromPersonalChatRoomRequest: NSObject {
             }
         }
 }
+
+
+class BlockUserRequest: NSObject {
+
+    static let shared = BlockUserRequest()
+
+    func BlockUserRequestAPI(requestParams : [String:Any], completion: @escaping (_ objectData: LoginObject?,_ message : String?, _ isStatus : Bool) -> Void) {
+
+        let apiURL = String("Base".blockUser)
+        let urlString = apiURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        print(urlString)
+        print(requestParams)
+
+        AlamofireRequest.shared.PostBodyForRawData(urlString:urlString, parameters: requestParams, authToken:accessToken(), isLoader: false, loaderMessage: "") { (data, error) in
+                 print(data ?? "No data")
+                 if error == nil{
+                     var messageString : String = GlobalConstants.serverError
+                     if let status = data?["isSuccess"] as? Bool{
+                         if let msg = data?["messages"] as? String{
+                             messageString = msg
+                         }
+                         if status {
+                             completion(nil,messageString,true)
+
+                         }else{
+                             completion(nil,messageString,false)
+                         }
+                     }else{
+                         completion(nil,"",false)
+                     }
+                 }else{
+                        print(error ?? "No error")
+                        if !(error?.localizedDescription.contains(GlobalConstants.timedOutError) ?? true) {
+                            NotificationAlert().NotificationAlert(titles: GlobalConstants.serverError)
+                        }
+                        completion(nil,"",false)
+                }
+            }
+        }
+    }
+
+class unBlockUserRequest: NSObject {
+
+    static let shared = unBlockUserRequest()
+
+    func unBlockUserRequestAPI(requestParams : [String:Any], completion: @escaping (_ objectData: LoginObject?,_ message : String?, _ isStatus : Bool) -> Void) {
+
+        let apiURL = String("Base".unblockUser)
+        let urlString = apiURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        print(urlString)
+        print(requestParams)
+
+        AlamofireRequest.shared.PostBodyForRawData(urlString:urlString, parameters: requestParams, authToken:accessToken(), isLoader: false, loaderMessage: "") { (data, error) in
+                 print(data ?? "No data")
+                 if error == nil{
+                     var messageString : String = GlobalConstants.serverError
+                     if let status = data?["isSuccess"] as? Bool{
+                         if let msg = data?["messages"] as? String{
+                             messageString = msg
+                         }
+                         if status {
+                             completion(nil,messageString,true)
+
+                         }else{
+                             completion(nil,messageString,false)
+                         }
+                     }else{
+                         completion(nil,"",false)
+                     }
+                 }else{
+                        print(error ?? "No error")
+                        if !(error?.localizedDescription.contains(GlobalConstants.timedOutError) ?? true) {
+                            NotificationAlert().NotificationAlert(titles: GlobalConstants.serverError)
+                        }
+                        completion(nil,"",false)
+                }
+            }
+        }
+    }

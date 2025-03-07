@@ -9,12 +9,12 @@ import UIKit
 
 class ProProductListVc: UIViewController {
     @IBOutlet weak var tableViewProduct: UITableView!
-    var arrSortedService = [ProProductListModel]()
-    
-    @IBOutlet weak var searchTxtField: UITextField!
-    var searchQuery = ""
-
     @IBOutlet weak var view_NavConst: NSLayoutConstraint!
+    @IBOutlet weak var searchTxtField: UITextField!
+    
+    var searchQuery = ""
+    var arrSortedService = [ProProductListModel]()
+
     func topViewLayout(){
         if !HomeViewController.hasSafeArea{
             if view_NavConst != nil {

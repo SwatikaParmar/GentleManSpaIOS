@@ -179,9 +179,31 @@ class UpdateProfileUserViewController: UIViewController {
     
     @IBAction func btnUserProfilePressed(_ sender: Any){
         self.view.endEditing(true)
-
         addImage(sender as! UIButton)
     }
+    
+    
+    @IBAction func deleteAccount(_ sender: Any) {
+        let alertController = UIAlertController(
+            title: "Delete Account",
+            message: "Are you sure you want to delete your account?",
+            preferredStyle: .alert
+        )
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+            self.deleteAccount()
+        }))
+        present(alertController, animated: true, completion: nil)
+    }
+        
+    func deleteAccount(){
+        DeleteUserRequest.shared.accountDelete(id:0) { (obj, msg, success) in
+            NotificationCenter.default.post(name: Notification.Name("Menu_Push_Action"), object: nil, userInfo: ["count":"DeleteAccount"])
+        }
+    }
+    
+    
+    
     
     
     // MARK: - get Profile API
@@ -597,8 +619,19 @@ extension UpdateProfileUserViewController: UIImagePickerControllerDelegate,UINav
         imgUserProfile.layer.cornerRadius = imgUserProfile.frame.size.width/2
         imgUserProfile.clipsToBounds = true
         
+        ImageCompressor.compress(image: originalImage, maxByte: 1000000) { image in
+            if let compressedImage = image {
+                self.imgProfile = compressedImage
+                DispatchQueue.main.async {self.uploadProfileImageApi()}
+                
+                
+            } else {
+                DispatchQueue.main.async {self.uploadProfileImageApi()}
+
+            }
+        }
         
-        self.uploadProfileImageApi()
+        
 
         self.dismiss(animated: false, completion: { [weak self] in
         })

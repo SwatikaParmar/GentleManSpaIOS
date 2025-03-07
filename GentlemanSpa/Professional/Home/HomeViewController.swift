@@ -98,7 +98,16 @@ class HomeViewController: UIViewController {
             }
             
             if count == "DeleteAccount"{
-                
+                callApiWhenBackgroundedPro(false)
+                deleteAllEvents()
+                let FCSToken = UserDefaults.standard.value(forKey:Constants.fcmToken)
+                UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+                UserDefaults.standard.synchronize()
+                UserDefaults.standard.setValue(FCSToken, forKey:Constants.fcmToken)
+                UserDefaults.standard.synchronize()
+                UserDefaults.standard.set(false, forKey: Constants.login)
+                UserDefaults.standard.synchronize()
+                RootControllerManager().SetRootViewController()
             }
             
             if count == "online"{
@@ -584,7 +593,8 @@ extension HomeViewController: UITableViewDataSource,UITableViewDelegate {
                 cell.lbeName.text = arrSortedService[indexPath.row].userName
                 cell.lbeDuration.text = arrSortedService[indexPath.row].serviceName
 
-        
+                cell.lbeBookingID.text = String(format: "BOOKING ID: %d", self.arrSortedService[indexPath.row].orderId )
+
                 
         
                 var dateStr = ""
@@ -598,14 +608,14 @@ extension HomeViewController: UITableViewDataSource,UITableViewDelegate {
         }
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             if  pageName == "Upcoming" {
-                return 210
+                return 230
 
             }
             else if pageName == "Completed" {
-                return 210
+                return 230
             }
             
-            return 210
+            return 220
 
         
         }

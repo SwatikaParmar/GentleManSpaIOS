@@ -105,7 +105,7 @@ extension UserNotificationViewController: UITableViewDataSource,UITableViewDeleg
         sizeFontB = sizeFont * 20 + 60 + sizeFontA * 20
        
         if sizeFontB > 110{
-            return sizeFontB
+            return sizeFontB + 30
         }
         return 110
 

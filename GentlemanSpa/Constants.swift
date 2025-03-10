@@ -68,6 +68,7 @@ class AppColor: NSObject {
     static let AppThemeColorPro : UIColor =  UIColor(red: 183 / 255.0, green: 137.0 / 255.0, blue: 69.0 / 255.0, alpha: 1.0)
     static let TabSelectColor : UIColor =  UIColor(red: 223.0 / 255.0, green: 186.0 / 255.0, blue: 98.0 / 255.0, alpha: 1.0)
     static let AppTextColor : UIColor =  UIColor(red: 255.0 / 255.0, green: 210.0 / 255.0, blue: 95.0 / 255.0, alpha: 1.0)
+    static let GreenTextColor : UIColor =  UIColor(red: 0.0 / 255.0, green: 103.0 / 255.0, blue: 76.0 / 255.0, alpha: 1.0)
 
 }
 
@@ -363,6 +364,14 @@ extension String{
     
     var SetSlotStatus: String{
         return "Path".path + "Professional/SetSlotStatus"
+    }
+    
+    var AddProfessionalRequests: String{
+        return "Path".path + "Professional/AddUpdateProfessionalRequests"
+    }
+    
+    var GetProfessionalRequests: String{
+        return "Path".path + "Professional/GetProfessionalRequests"
     }
 
 }

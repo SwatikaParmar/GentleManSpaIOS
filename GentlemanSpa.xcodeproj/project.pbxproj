@@ -28,6 +28,7 @@
 		342BB9052CB53DA0009E069E /* BookAppointmentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342BB9042CB53DA0009E069E /* BookAppointmentRequest.swift */; };
 		343198AE2CF71D58008A0C8F /* MessageProViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343198AD2CF71D58008A0C8F /* MessageProViewController.swift */; };
 		3433B6612D13FFFB006BDA7C /* EventsRequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433B6602D13FFFB006BDA7C /* EventsRequestData.swift */; };
+		34359B242D7EC8E6005DD202 /* RequestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34359B232D7EC8E6005DD202 /* RequestListViewController.swift */; };
 		343813C02C69D928003B4B30 /* ProductCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343813BF2C69D928003B4B30 /* ProductCategories.swift */; };
 		343813C22C69E420003B4B30 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343813C12C69E420003B4B30 /* HomeCell.swift */; };
 		3438E90B2C609DE4005BFC03 /* CreateSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438E90A2C609DE4005BFC03 /* CreateSchedule.swift */; };
@@ -160,6 +161,7 @@
 		342BB9042CB53DA0009E069E /* BookAppointmentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAppointmentRequest.swift; sourceTree = "<group>"; };
 		343198AD2CF71D58008A0C8F /* MessageProViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageProViewController.swift; sourceTree = "<group>"; };
 		3433B6602D13FFFB006BDA7C /* EventsRequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsRequestData.swift; sourceTree = "<group>"; };
+		34359B232D7EC8E6005DD202 /* RequestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestListViewController.swift; sourceTree = "<group>"; };
 		343813BF2C69D928003B4B30 /* ProductCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategories.swift; sourceTree = "<group>"; };
 		343813C12C69E420003B4B30 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		3438E90A2C609DE4005BFC03 /* CreateSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSchedule.swift; sourceTree = "<group>"; };
@@ -577,6 +579,7 @@
 				34C80D752C75B0EC00FE9E02 /* ProAddProductVc.swift */,
 				34DA67AB2C7C3437002C0EE9 /* ProductCategoryViewController.swift */,
 				343F94242CD0ADA8008A1A23 /* RequestsManagementViewController.swift */,
+				34359B232D7EC8E6005DD202 /* RequestListViewController.swift */,
 				343198AD2CF71D58008A0C8F /* MessageProViewController.swift */,
 				34A3CA332D76D03D00868F00 /* BlockDatesViewController.swift */,
 				34A3CA352D76D4B400868F00 /* BlockDatesTableViewCell.swift */,
@@ -831,6 +834,7 @@
 				34C5E7802C6A32D900C5BE0A /* ProductListViewController.swift in Sources */,
 				34CE92722C410BBD0007E086 /* Constants.swift in Sources */,
 				3433B6612D13FFFB006BDA7C /* EventsRequestData.swift in Sources */,
+				34359B242D7EC8E6005DD202 /* RequestListViewController.swift in Sources */,
 				3498173F2C7C860100219379 /* ProductDetailsViewController.swift in Sources */,
 				34A3CA322D76C4B300868F00 /* PrivacyViewController.swift in Sources */,
 				3470FAF02CBF931D00BF5C7A /* MyCartViewController.swift in Sources */,

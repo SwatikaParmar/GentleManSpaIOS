@@ -96,7 +96,7 @@ extension NotificationViewController: UITableViewDataSource,UITableViewDelegate 
         sizeFontB = sizeFont * 20 + 60 + sizeFontA * 20
        
         if sizeFontB > 110{
-            return sizeFontB + 30
+            return sizeFontB + 5
         }
         return 110
 

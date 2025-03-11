@@ -286,7 +286,7 @@ class ServicesViewController: UIViewController {
                         countLbe.text = String(format: "%d services . %@", arrayService?.allServicesArray.count ?? 0,formatDuration(durationInMinutes: arrayService?.durationInMinutes ?? 0))
 
                         
-                        if arrayData?.allCartProductArray.count == 1 {
+                        if arrayService?.allServicesArray.count == 1 {
                             countLbe.text = String(format: "%d service . %@", arrayService?.allServicesArray.count ?? 0,formatDuration(durationInMinutes: arrayService?.durationInMinutes ?? 0))
                         }
                     }

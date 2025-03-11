@@ -236,7 +236,7 @@ extension MyCartViewController : UITableViewDataSource,UITableViewDelegate{
             let cell = tableViewMyCart.dequeueReusableCell(withIdentifier: "DashSectionTableViewCell") as! DashSectionTableViewCell
             switch section {
             case 0:
-                cell.titleLabel.text = "Severcies"
+                cell.titleLabel.text = "Services"
                 
             case 1:
                 cell.titleLabel.text = "Products"

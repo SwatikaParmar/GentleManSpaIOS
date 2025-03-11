@@ -32,7 +32,7 @@ class AboutUsViewController: UIViewController,WKNavigationDelegate, WKUIDelegate
         
 
         
-       if let url = URL(string: "http://gentlemanspa-dev.us-east-2.elasticbeanstalk.com/api/Content/GetTermsHtml") {
+       if let url = URL(string: "http://gentlemanspa-dev.us-east-2.elasticbeanstalk.com/api/Content/GetAboutHtml") {
            webAbout.load(URLRequest(url: url))
         }
         

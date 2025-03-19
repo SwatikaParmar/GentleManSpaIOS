@@ -173,7 +173,7 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
                     cell.lbeDuration.text = String(format: "%d mins", self.arrSortedService[indexPath.row].durationInMinutes)
                 }
                 else{
-                    cell.lbeDuration.text = "30 mins"
+                    cell.lbeDuration.text = ""
                 }
                 
                 var dateStr = ""
@@ -219,7 +219,7 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
                     cell.lbeDuration.text = String(format: "%d mins", self.arrSortedService[indexPath.row].durationInMinutes)
                 }
                 else{
-                    cell.lbeDuration.text = "30 mins"
+                    cell.lbeDuration.text = ""
                 }
                 
                 var dateStr = ""
@@ -264,7 +264,7 @@ extension HistoryUserViewController: UITableViewDataSource,UITableViewDelegate {
                     cell.lbeDuration.text = String(format: "%d mins", self.arrSortedService[indexPath.row].durationInMinutes)
                 }
                 else{
-                    cell.lbeDuration.text = "30 mins"
+                    cell.lbeDuration.text = ""
                 }
                 
                 var dateStr = ""

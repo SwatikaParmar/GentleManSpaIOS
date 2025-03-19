@@ -10,12 +10,14 @@ import UIKit
 class SelectProfessionalListVc: UIViewController {
     @IBOutlet weak var tableViewPro: UITableView!
     @IBOutlet weak var lbeServiceName: UILabel!
+    @IBOutlet weak var searchTxtField: UITextField!
 
     var arrGetProfessionalList = [GetProfessionalObject]()
     var spaServiceId = 0
     var serviceName = ""
     var isReschedule = false
     var isMyCart = false
+    var searchQuery = ""
 
     @IBOutlet weak var view_NavConst: NSLayoutConstraint!
     func topViewLayout(){
@@ -29,6 +31,7 @@ class SelectProfessionalListVc: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         topViewLayout()
+        searchTxtField.delegate = self
         lbeServiceName.text = serviceName
        
 
@@ -37,7 +40,7 @@ class SelectProfessionalListVc: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
-        GetProfessionalListAPI(true, true, 1)
+        GetProfessionalListAPI(true, true)
     }
    
     @IBAction func btnBackPreessed(_ sender: Any){
@@ -51,10 +54,11 @@ class SelectProfessionalListVc: UIViewController {
     }
     
     //MARK: - GetProfessionalList API
-    func GetProfessionalListAPI(_ isLoader:Bool, _ isAppend: Bool, _ type:Int){
+    func GetProfessionalListAPI(_ isLoader:Bool, _ isAppend: Bool){
         
         let params = [ "spaDetailId": 21,
-                       "spaServiceId":spaServiceId
+                       "spaServiceId":spaServiceId,
+                       "searchQuery" : searchQuery
         ] as [String : Any]
         
         GetProfessionalListRequest.shared.GetProfessionalListAPI(requestParams:params, isLoader) { (arrayData,message,isStatus) in
@@ -174,6 +178,42 @@ extension SelectProfessionalListVc: UITableViewDataSource,UITableViewDelegate {
     
 }
     
+//MARK: TextField Delegate
+extension SelectProfessionalListVc : UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTxtField.resignFirstResponder()
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    {
+        if textField.text == "" && string == " "{
+            return false
+        }
+        
+        if string != "\n" {
+            searchQuery = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        }
+        
+        if !searchQuery.isEmpty
+        {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
+
+                GetProfessionalListAPI(false, true)
+
+
+            }
+        }
+        else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
+                searchQuery = ""
+                GetProfessionalListAPI(false, true)
+            }
+        }
+        return true
+    }
+}
     
     
     

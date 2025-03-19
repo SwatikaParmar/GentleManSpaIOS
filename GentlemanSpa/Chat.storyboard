@@ -39,8 +39,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ug2-f7-D5f">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTg-W5-kPF" customClass="UILabelX" customModule="GentlemanSpa">
-                                        <rect key="frame" x="160.33333333333334" y="61.666666666666664" width="72.666666666666657" height="22.666666666666664"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTg-W5-kPF" customClass="UILabelX" customModule="GentlemanSpa">
+                                        <rect key="frame" x="156" y="61.666666666666664" width="81.333333333333314" height="22.666666666666664"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>

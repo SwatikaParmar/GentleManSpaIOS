@@ -71,7 +71,10 @@ class ServicesViewController: UIViewController {
     }
     @IBAction func btnPreessed(_ sender: Any){
         
-        let controller:FindPViewController =  UIStoryboard(storyboard: .User).initVC()
+       // let controller:FindPViewController =  UIStoryboard(storyboard: .User).initVC()
+      //  self.navigationController?.pushViewController(controller, animated: true)
+        
+        let controller:SelectProfessionalVc =  UIStoryboard(storyboard: .Services).initVC()
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -385,7 +388,7 @@ extension ServicesViewController: UITableViewDataSource,UITableViewDelegate {
             cell.lbeTime.text = String(format: "%d mins", self.arrSortedService[indexPath.row].durationInMinutes )
         }
         else{
-            cell.lbeTime.text = "30 mins"
+            cell.lbeTime.text = ""
         }
         return cell
     }

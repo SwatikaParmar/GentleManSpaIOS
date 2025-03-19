@@ -11,6 +11,7 @@ import FirebaseAuth
 import Firebase
 import FirebaseDatabase
 import EventKit
+import SDWebImage
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var tableUp: UITableView!
@@ -48,6 +49,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SDImageCache.shared.clearMemory()
+        SDImageCache.shared.clearDisk()
         topViewLayout()
         self.viewNoData.isHidden = true
 

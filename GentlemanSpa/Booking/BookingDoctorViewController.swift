@@ -54,8 +54,6 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
     var slotId = 0
     var orderId = 0
     var serviceBookingId = 0
-
-
     var bookingMessage = ""
     var selectDate = ""
     var selectTime = ""
@@ -77,6 +75,8 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
     override func viewDidLoad() {
         super.viewDidLoad()
         topViewLayout()
+        self.viewNoData.isHidden = true
+        self.viewScroll.isHidden = true
         
         lbeD.text = name
         if orderId > 0 {
@@ -497,6 +497,9 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
                 
                 formatter.dateFormat = "yyyy-MM-dd"
                 self.selectDate = formatter.string(from: date)
+                slotId = 0
+                timeIndex = -1
+                self.collectionTime.reloadData()
                 self.timeGetAPI(false, self.selectDate)
 
                 return true
@@ -509,6 +512,9 @@ class BookingDoctorViewController: UIViewController,CalendarViewDataSource,Calen
                 }
                 formatter.dateFormat = "yyyy-MM-dd"
                 self.selectDate = formatter.string(from: date)
+                slotId = 0
+                timeIndex = -1
+                self.collectionTime.reloadData()
                 self.timeGetAPI(false, self.selectDate)
                 return true
             }

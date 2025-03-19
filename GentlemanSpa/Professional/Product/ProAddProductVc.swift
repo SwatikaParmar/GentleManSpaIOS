@@ -29,6 +29,9 @@ class ProAddProductVc: UIViewController , UITextViewDelegate{
     var productId = 0; 
     var productCategoryId = 0;
     var logoImages = [UIImage]()
+    var nameImages: NSMutableArray = []
+
+
     var isImageAdd = false
     var trimmedName = ""
     var trimmedCate = ""
@@ -48,6 +51,8 @@ class ProAddProductVc: UIViewController , UITextViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         topViewLayout()
+        
+    
         
         txt_View.font = UIFont(name:FontName.Inter.Regular, size: "".dynamicFontSize(14)) ?? UIFont.systemFont(ofSize: 15.0)
         applyStyle(to: txt_Name)
@@ -146,7 +151,7 @@ class ProAddProductVc: UIViewController , UITextViewDelegate{
         
         self.view.endEditing(true)
         
-        if logoImages.count == 0 {
+        if nameImages.count == 0 {
             MessageAlert(title:"Alert",message: "Please select at least one image")
             return
         }
@@ -271,14 +276,26 @@ class ProAddProductVc: UIViewController , UITextViewDelegate{
         
         self.view.endEditing(true)
         
+        self.logoImages.removeAll()
+        for i in 0..<(self.nameImages.count) {
+            var dict = NSDictionary()
+            dict = self.nameImages[i] as! NSDictionary
+            self.logoImages.append( dict["image"] as? UIImage ?? UIImage())
+        }
+        if self.logoImages.count == 0 {
+            return
+        }
+        
         var fileName = ""
         fileName =  "iOS" + NSUUID().uuidString + ".jpeg"
         let apiURL = String("\("Base".UploadProductImage)")
 
+        Indicator.shared.startAnimating(withMessage:"", colorType: UIColor.white, colorText:UIColor.white)
 
         AlamofireRequest().uploadImageArray(urlString: apiURL, pictures: logoImages, name: fileName , userID: String(productId)){ data, error -> Void in
             
-            
+            Indicator.shared.stopAnimating()
+
             if !data!.isEmpty{
                 if data == "failure"{
                     let controller:AddAlertController =  UIStoryboard(storyboard: .Professional).initVC()
@@ -329,22 +346,25 @@ class ProAddProductVc: UIViewController , UITextViewDelegate{
             if isStatus {
                 if arrayData != nil{
                     self.arrSortedProduct = arrayData
-                    
                     for i in 0..<(self.arrSortedProduct?.serviceImageArray.count ?? 0) {
-                        let imgV = UIImageView()
                         let img  = "\(GlobalConstants.BASE_IMAGE_URL)\(self.arrSortedProduct?.serviceImageArray[i] ?? "")"
-                            let urlString = img.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-                        imgV.sd_setImage(with: URL.init(string:(urlString))) { (image, error, cache, urls) in
-                            if (error != nil) {
-                            } else {
-                                self.logoImages.append(image ?? UIImage())
-                            }
-                        }
-                
+                        let urlString = img.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                        
+                        var dict = NSMutableDictionary()
+                        dict["name"] = urlString
+                        dict["image"] = UIImage()
+                        self.nameImages.add(dict)
+
                         self.productCollection.reloadData()
                         
                     }
-                    
+                 
+                    if self.nameImages.count > 2 {
+                        self.collection_H_Const.constant = 270
+                    }
+                    else{
+                        self.collection_H_Const.constant = 130
+                    }
                     
                     self.txt_Name.text = self.arrSortedProduct?.serviceName.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
                     self.trimmedCate = self.arrSortedProduct?.mainCategoryName.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
@@ -425,7 +445,7 @@ extension ProAddProductVc:UICollectionViewDelegate,UICollectionViewDataSource,UI
     
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
   
-            return logoImages.count + 1
+            return nameImages.count + 1
         }
 
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -445,10 +465,32 @@ extension ProAddProductVc:UICollectionViewDelegate,UICollectionViewDataSource,UI
                 cell.cancelBtn.isHidden = false
                 cell.imageV.contentMode = .scaleAspectFill
                 
-                cell.imageV.image = logoImages[indexPath.row - 1]
-
+                if nameImages.count > indexPath.row - 1  {
+                    var dict = NSDictionary()
+                    dict = nameImages[indexPath.row - 1] as! NSDictionary
+                    if  dict["name"] as! String == "No"  {
+                        cell.imageV.image = dict["image"] as? UIImage
+                    }
+                    else{
+                        cell.imageV.sd_setImage(with: URL.init(string:(dict["name"]) as! String)) { (image, error, cache, urls) in
+                            if (error != nil) {
+                                
+                                print("error")
+                                
+                            } else {
+                                print("image")
+                                
+                                var dict = NSMutableDictionary()
+                                dict["name"] = "No"
+                                dict["image"] = image
+                                
+                                self.nameImages[indexPath.row - 1] = dict
+                                
+                            }
+                        }
+                    }
+                }
             }
-            
             cell.cancelBtn.tag = indexPath.row
             cell.cancelBtn.addTarget(self, action: #selector(connected(sender:)), for: .touchUpInside)
 
@@ -481,7 +523,7 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        
         if indexPath.row == 0 {
-            if logoImages.count > 4 {
+            if nameImages.count > 4 {
                 MessageAlert(title:"Alert",message: "You have exceeded selection limit")
                 return
             }
@@ -495,10 +537,11 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
     
      @objc func connected(sender: UIButton){
 
-         logoImages.remove(at: sender.tag - 1)
+         nameImages.removeObject(at: sender.tag - 1)
+
          productCollection.reloadData()
          isImageAdd = true
-         if logoImages.count > 2 {
+         if nameImages.count > 2 {
              collection_H_Const.constant = 270
          }
          else{
@@ -605,21 +648,30 @@ extension ProAddProductVc: UIImagePickerControllerDelegate,UINavigationControlle
         
         guard let originalImage = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue)] as? UIImage else { return }
         
-        
-        logoImages.append(originalImage)
-        productCollection.reloadData()
-        
-        if logoImages.count > 2 {
-            collection_H_Const.constant = 270
+        ImageCompressor.compress(image: originalImage, maxByte: 1000000) { image in
+            if let compressedImage = image {
+                DispatchQueue.main.async {
+                    
+                    var dict = NSMutableDictionary()
+                    dict["name"] = "No"
+                    dict["image"] = compressedImage
+                    self.nameImages.add(dict)
+                    
+                    
+                    self.productCollection.reloadData()
+                    if self.nameImages.count > 2 {
+                        self.collection_H_Const.constant = 270
+                    }
+                    else{
+                        self.collection_H_Const.constant = 130
+                        
+                    }
+                    self.isImageAdd = true
+                }
+            } else {
+                print("error")
+            }
         }
-        else{
-            collection_H_Const.constant = 130
-
-        }
-        isImageAdd = true
-
-            
-
         self.dismiss(animated: false, completion: { [weak self] in
         })
     }

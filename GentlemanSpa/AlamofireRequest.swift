@@ -462,16 +462,22 @@ class AlamofireRequest: NSObject {
                     if let jsonData = response.data{
                         let parsedData = try JSONSerialization.jsonObject(with: jsonData) as! Dictionary<String, AnyObject>
                         let dataImage = "successfully"
+                        Indicator.shared.stopAnimating()
+
                         callback(dataImage , nil )
                         
                     }
                 }catch{
+                    Indicator.shared.stopAnimating()
+
                     print("error message")
                     callback("failure",nil)
 
                 }
             }
             else{
+                Indicator.shared.stopAnimating()
+
                 print(response.error ?? "")
                 callback("failure",nil)
 

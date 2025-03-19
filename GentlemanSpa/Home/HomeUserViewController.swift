@@ -11,6 +11,7 @@ import FirebaseAuth
 import Firebase
 import FirebaseDatabase
 import EventKit
+import SDWebImage
 
 class HomeUserViewController: UIViewController {
     @IBOutlet weak var tableViewHome : UITableView!
@@ -38,6 +39,8 @@ class HomeUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SDImageCache.shared.clearMemory()
+        SDImageCache.shared.clearDisk()
         topViewLayout()
         generateEvent()
         refreshControlUp.addTarget(self, action:  #selector(RefreshScreenUp), for: .valueChanged)

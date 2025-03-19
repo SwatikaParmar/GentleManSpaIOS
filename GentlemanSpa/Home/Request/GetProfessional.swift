@@ -14,7 +14,7 @@ class GetProfessionalListRequest: NSObject {
 
         var apiURL = "BaseURL".GetProfessionalList
         
-        apiURL = String(format:"%@?spaDetailId=%d&spaServiceId=%d",apiURL,requestParams["spaDetailId"] as? Int ?? 0,requestParams["spaServiceId"] as? Int ?? 0)
+        apiURL = String(format:"%@?spaDetailId=%d&spaServiceId=%d&searchQuery=%@",apiURL,requestParams["spaDetailId"] as? Int ?? 0,requestParams["spaServiceId"] as? Int ?? 0,requestParams["searchQuery"] as? String ?? "")
 
 
             print("URL---->> ",apiURL)

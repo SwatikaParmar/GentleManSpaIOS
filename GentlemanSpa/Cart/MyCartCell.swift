@@ -286,7 +286,7 @@ extension ServicesListTableViewCell: UITableViewDataSource,UITableViewDelegate {
             cell.lbeTime.text = String(format: "%d mins", self.arrSortedService[indexPath.row].durationInMinutes )
         }
         else{
-            cell.lbeTime.text = "30 mins"
+            cell.lbeTime.text = ""
         }
         
         if self.arrSortedService[indexPath.row].fromTime == "" {

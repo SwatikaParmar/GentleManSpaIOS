@@ -339,7 +339,7 @@ extension ProfessionalServicesVc: UITableViewDataSource,UITableViewDelegate {
             
         }
         else{
-            cell.lbeTime.text = "30 mins"
+            cell.lbeTime.text = ""
         }
         
         

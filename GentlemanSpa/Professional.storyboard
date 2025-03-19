@@ -6195,8 +6195,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hi1-Vv-GRJ">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLr-60-dkM" customClass="UILabelX" customModule="GentlemanSpa">
-                                        <rect key="frame" x="160.33333333333334" y="61.666666666666664" width="72.666666666666657" height="22.666666666666664"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLr-60-dkM" customClass="UILabelX" customModule="GentlemanSpa">
+                                        <rect key="frame" x="156" y="61.666666666666664" width="81.333333333333314" height="22.666666666666664"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -6476,7 +6476,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8oU-B8-yVG">
-                                <rect key="frame" x="0.0" y="94" width="393" height="1070"/>
+                                <rect key="frame" x="0.0" y="94" width="393" height="1120"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BlockDatesTableViewCell" rowHeight="490" id="Z4T-zd-vOO" customClass="BlockDatesTableViewCell" customModule="GentlemanSpa" customModuleProvider="target">
@@ -6801,7 +6801,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Find a Doctor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4i-hX-GZR" customClass="UILabelX" customModule="GentlemanSpa">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find a Doctor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4i-hX-GZR" customClass="UILabelX" customModule="GentlemanSpa">
                                                     <rect key="frame" x="18" y="21" width="113" height="24"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="17"/>
                                                     <color key="textColor" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -6834,7 +6834,7 @@
                         <viewLayoutGuide key="safeArea" id="FV0-rP-Fgz"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="8oU-B8-yVG" secondAttribute="bottom" constant="80" id="Ahv-Ib-6uV"/>
+                            <constraint firstAttribute="bottom" secondItem="8oU-B8-yVG" secondAttribute="bottom" constant="30" id="Ahv-Ib-6uV"/>
                             <constraint firstItem="xbM-Ju-wMY" firstAttribute="top" secondItem="SOl-Mj-CaF" secondAttribute="top" id="I9K-tP-epS"/>
                             <constraint firstItem="FV0-rP-Fgz" firstAttribute="trailing" secondItem="xbM-Ju-wMY" secondAttribute="trailing" id="RPg-hJ-vCx"/>
                             <constraint firstItem="FV0-rP-Fgz" firstAttribute="trailing" secondItem="8oU-B8-yVG" secondAttribute="trailing" id="dbT-rJ-p8A"/>
@@ -7059,19 +7059,19 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

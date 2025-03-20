@@ -22,7 +22,10 @@ class AddOrUpdateProductInCartRequest: NSObject {
                              if let msg = data?["messages"] as? String{
                                  messageString = msg
                              }
+                             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Cart_Count_Update"), object: nil)
+
                              if status {
+
                                  completion(nil,messageString,true)
 
                              }else{
@@ -306,7 +309,10 @@ class AddUpdateCartServiceRequest: NSObject {
                              if let msg = data?["messages"] as? String{
                                  messageString = msg
                              }
+                             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Cart_Count_Update"), object: nil)
+
                              if status {
+
                                  completion(nil,messageString,true)
 
                              }else{

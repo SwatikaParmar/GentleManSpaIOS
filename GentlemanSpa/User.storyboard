@@ -3755,7 +3755,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8g-qH-8bl" customClass="UILabelX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="47.666666666666671" y="5.6666666666666288" width="25" height="25"/>
+                                                <rect key="frame" x="47.666666666666671" y="6.6666666666666288" width="25" height="25"/>
                                                 <color key="backgroundColor" red="0.92941176469999998" green="0.0078431372550000003" blue="0.047058823530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="E3Q-5F-k3Y"/>
@@ -3795,7 +3795,7 @@
                                             <constraint firstItem="c8g-qH-8bl" firstAttribute="trailing" secondItem="Hdo-nj-0nO" secondAttribute="trailing" constant="10" id="sX0-g1-OkY"/>
                                             <constraint firstItem="a1Y-qy-riM" firstAttribute="top" secondItem="8IZ-eJ-dkp" secondAttribute="top" id="ssE-fT-WSZ"/>
                                             <constraint firstItem="2Yn-V2-gRX" firstAttribute="top" secondItem="Hdo-nj-0nO" secondAttribute="bottom" constant="1" id="yAv-H4-wt2"/>
-                                            <constraint firstItem="c8g-qH-8bl" firstAttribute="top" secondItem="Hdo-nj-0nO" secondAttribute="top" constant="-10" id="zW0-Vn-cws"/>
+                                            <constraint firstItem="c8g-qH-8bl" firstAttribute="top" secondItem="Hdo-nj-0nO" secondAttribute="top" constant="-9" id="zW0-Vn-cws"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hjB-eu-KHw">
@@ -6880,7 +6880,7 @@
                                 <rect key="frame" x="0.0" y="227" width="393" height="673"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iEb-ow-G2T">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="675.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="662.66666666666663"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appointment Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XP8-Y3-iNE">
                                                 <rect key="frame" x="17" y="11.000000000000002" width="185.66666666666666" height="22.666666666666671"/>
@@ -6969,16 +6969,16 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kha-Ko-SXh" customClass="UIViewX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="510" width="363" height="65"/>
+                                                <rect key="frame" x="15" y="510" width="363" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCA-l8-wKk">
-                                                        <rect key="frame" x="124" y="22.333333333333371" width="115" height="20"/>
+                                                        <rect key="frame" x="124" y="16" width="115" height="20"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HgX-PC-EPf">
-                                                        <rect key="frame" x="2" y="2" width="359" height="61"/>
+                                                        <rect key="frame" x="2" y="2" width="359" height="48"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="aWj-EF-r3a">
                                                             <size key="itemSize" width="340" height="240"/>
@@ -7047,7 +7047,7 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="HgX-PC-EPf" firstAttribute="leading" secondItem="Kha-Ko-SXh" secondAttribute="leading" constant="2" id="5bf-Eh-qqL"/>
-                                                    <constraint firstAttribute="height" constant="65" id="CQg-wf-MmA"/>
+                                                    <constraint firstAttribute="height" constant="52" id="CQg-wf-MmA"/>
                                                     <constraint firstAttribute="bottom" secondItem="HgX-PC-EPf" secondAttribute="bottom" constant="2" id="Ubd-f3-qS9"/>
                                                     <constraint firstItem="iCA-l8-wKk" firstAttribute="centerX" secondItem="Kha-Ko-SXh" secondAttribute="centerX" id="Y8X-K4-Mb1"/>
                                                     <constraint firstItem="HgX-PC-EPf" firstAttribute="top" secondItem="Kha-Ko-SXh" secondAttribute="top" constant="2" id="s06-0R-voB"/>
@@ -7173,7 +7173,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9U5-lq-Xyf" customClass="UIButtonX" customModule="GentlemanSpa" customModuleProvider="target">
-                                                <rect key="frame" x="25" y="603.66666666666663" width="343" height="40"/>
+                                                <rect key="frame" x="25" y="590.66666666666663" width="343" height="40"/>
                                                 <color key="backgroundColor" red="0.71764705880000002" green="0.53725490200000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="dMV-ea-X8Q"/>
@@ -9557,19 +9557,19 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
-            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

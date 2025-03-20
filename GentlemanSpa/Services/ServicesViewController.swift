@@ -131,8 +131,6 @@ class ServicesViewController: UIViewController {
             if isStatus {
                 if arrayData != nil{
                     self.arrSortedSubCategory = arrayData ?? self.arrSortedSubCategory
-                 
-                    
                     if self.arrSortedSubCategory.count > 0 {
                         self.collSub_H_Const.constant = 55
                         self.cvHeader.reloadData()
@@ -141,9 +139,16 @@ class ServicesViewController: UIViewController {
                         let arrSorted = SpaSubCategoriesObject(fromDictionary: ["categoryName" : "All",
                                                                               "mainCategoryId": 0])
                         self.arrSortedSubCategory = [arrSorted] + self.arrSortedSubCategory
-    
-                        self.serviceAPI(false, true, "",categoryId,self.genderPreferences,self.arrSortedSubCategory[0].mainCategoryId )
-                        self.SubCategoryId = 0
+                        
+                        if self.SubCategoryId == 0 {
+                            self.serviceAPI(false, true, "",categoryId,self.genderPreferences,self.arrSortedSubCategory[0].mainCategoryId )
+                            self.SubCategoryId = 0
+                        }
+                        else{
+                            self.serviceAPI(false, true, "",categoryId,self.genderPreferences,self.SubCategoryId )
+                            
+                        }
+                     
                         self.cvHeader.reloadData()
                         self.collectionVSubCategory.reloadData()
                     }
@@ -393,7 +398,7 @@ extension ServicesViewController: UITableViewDataSource,UITableViewDelegate {
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-      //  let heightSizeLine = arrSortedService[indexPath.row].serviceName.heightForView(text: "", font: UIFont(name:FontName.Inter.Medium, size: "".dynamicFontSize(17)) ?? UIFont.systemFont(ofSize: 15.0), width: self.view.frame.width - 52)
+      
         return 100 + 60
     }
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

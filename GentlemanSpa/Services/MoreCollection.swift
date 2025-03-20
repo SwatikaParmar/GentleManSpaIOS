@@ -73,7 +73,6 @@ extension ServicesViewController : UICollectionViewDataSource, UICollectionViewD
             if arrSortedSubCategory.count > 0 {
                 self.collectionVSubCategory.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
                 self.serviceAPI(false, true, "",categoryId,self.genderPreferences,self.arrSortedSubCategory[indexPath.row].mainCategoryId )
-                
             }
         }
         else{
@@ -82,9 +81,9 @@ extension ServicesViewController : UICollectionViewDataSource, UICollectionViewD
             self.cvHeader.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             self.categoryId = arrSortedCategory[indexPath.row].mainCategoryId
             indexIntSubCategory = 0
+            self.SubCategoryId = 0
             self.arrSortedSubCategory.removeAll()
             self.collectionVSubCategory.reloadData()
-           // self.serviceAPI(false, true, "",arrSortedCategory[indexPath.row].mainCategoryId,self.genderPreferences, 0)
             self.subCategoryAPI(true, true, self.arrSortedCategory[self.indexInt].mainCategoryId)
 
         }

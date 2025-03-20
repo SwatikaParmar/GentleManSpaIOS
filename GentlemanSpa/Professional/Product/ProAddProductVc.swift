@@ -483,7 +483,6 @@ extension ProAddProductVc:UICollectionViewDelegate,UICollectionViewDataSource,UI
                                 var dict = NSMutableDictionary()
                                 dict["name"] = "No"
                                 dict["image"] = image
-                                
                                 self.nameImages[indexPath.row - 1] = dict
                                 
                             }
@@ -538,7 +537,6 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
      @objc func connected(sender: UIButton){
 
          nameImages.removeObject(at: sender.tag - 1)
-
          productCollection.reloadData()
          isImageAdd = true
          if nameImages.count > 2 {
@@ -547,7 +545,7 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
          else{
              collection_H_Const.constant = 130
          }
-    }
+      }
   }
 
 
@@ -656,9 +654,8 @@ extension ProAddProductVc: UIImagePickerControllerDelegate,UINavigationControlle
                     dict["name"] = "No"
                     dict["image"] = compressedImage
                     self.nameImages.add(dict)
-                    
-                    
                     self.productCollection.reloadData()
+                    
                     if self.nameImages.count > 2 {
                         self.collection_H_Const.constant = 270
                     }
